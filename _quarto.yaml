@@ -4,6 +4,7 @@ project:
     - /src/**/index.qmd
     - index.qmd
     - /cards/*.qmd
+    - /src/documentation/**/*.qmd
 
 website:
   page-navigation: true
@@ -37,6 +38,14 @@ website:
 
 format:
   html:
+    sidebar:
+      contents:
+        - section: "Pages de la documentation"
+          contents:
+            - text: "Accueil"
+              href: documentation/index.qmd
+            - text: "Acquisition"
+              href: documentation/sections/acquisition.qmd
     theme:
       light: [cosmo, style/styles.scss]
       dark: [cyborg, style/styles.scss]
