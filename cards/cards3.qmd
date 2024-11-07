@@ -1,4 +1,3 @@
-
 ---
 title: Application web
 image: img/toad_cratt.jpeg
@@ -7,7 +6,7 @@ description: |
   <b>Description :</b> Application web à destination des agents facilitant l'utilisation des résultats fournis par le modèle de segmentation.
 slides:
   text: pdf
-  url: https://cratt.lab.sspcloud.fr/
+  url: https://inseefrlab.github.io/satellite-images-webapp/
 order: 4
 lang: fr-FR
 ---
