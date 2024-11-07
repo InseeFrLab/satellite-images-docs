@@ -51,6 +51,7 @@ const imgHeight = "100%";
               }
             </style>
             <div class="listing-categories" style="padding-top: 1em;">
+              <!-- Slides -->
               <% if ('slides') { %>
                 <div class="listing-category">
                   <% if (item.slides.url) { %>
@@ -63,6 +64,38 @@ const imgHeight = "100%";
                     </a>
                   <% } else { %>
                     <a class="listing-href" href="<%= item.code %>" target="_blank" rel="noopener">Slides</a>
+                  <% } %>
+                </div>
+              <% } %>
+              <!-- Video -->
+              <% if (item.video) { %>
+                <div class="listing-category">
+                  <% if (item.video.url) { %>
+                    <a class="listing-href" href="<%= item.video.url %>" target="_blank" rel="noopener">
+                      <% if (item.video.text) { %>
+                        <%= item.video.text %>
+                      <% } else { %>
+                        Vidéo
+                      <% } %>
+                    </a>
+                  <% } else { %>
+                    <a class="listing-href" href="<%= item.code %>" target="_blank" rel="noopener">Vidéo</a>
+                  <% } %>
+                </div>
+              <% } %>
+              <!-- Application -->
+              <% if (item.app) { %>
+                <div class="listing-category">
+                  <% if (item.app.url) { %>
+                    <a class="listing-href" href="<%= item.app.url %>" target="_blank" rel="noopener">
+                      <% if (item.app.text) { %>
+                        <%= item.app.text %>
+                      <% } else { %>
+                        App
+                      <% } %>
+                    </a>
+                  <% } else { %>
+                    <a class="listing-href" href="<%= item.code %>" target="_blank" rel="noopener">App</a>
                   <% } %>
                 </div>
               <% } %>
