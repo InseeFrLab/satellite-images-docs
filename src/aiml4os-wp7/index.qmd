@@ -1,18 +1,14 @@
 ---
-title: "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus"
+title: "Exploratory Work with Satellite Data: Results Assessment"
 subtitle: |
   **[Raya Berova, Thomas Faria, Clément Guillo]{.orange}**
 date: "11/13/2024"
 date-format: "D MMMM YYYY"
 slide-number: true
-# uncomment for French presentations:
 lang: en-GB
-# for blind readers:
 slide-tone: false
-chalkboard: # press the B key to toggle chalkboard
+chalkboard:
   theme: whiteboard
-# uncomment to use the multiplex mode:
-# multiplex: true
 format:
   onyxia-revealjs:
     output-file: index.html
@@ -21,18 +17,17 @@ css: ../custom.css
 ascii: true
 ---
 
-
 # Outline
 
 1️⃣ Introduction
 
-2️⃣ Méthodologie
+2️⃣ Methodology
 
-3️⃣ Les données 
+3️⃣ Data
 
-4️⃣ Résultats obtenus
+4️⃣ Results
 
-5️⃣ Structure du projet
+5️⃣ Project Structure
 
 6️⃣ Discussion
 
@@ -41,95 +36,74 @@ ascii: true
 
 {{< include sections/1-introduction.qmd >}}
 
-# Plan de la présentation
+# Presentation Outline
 
 1️⃣ Introduction
 
-**2️⃣ Méthodologie**
+**2️⃣ Methodology**
 
-3️⃣ Les données 
+3️⃣ Data
 
-4️⃣ Résultats obtenus
+4️⃣ Results
 
-5️⃣ Structure du projet
+5️⃣ Project Structure
 
 6️⃣ Discussion
 
-# 2️⃣ Méthodologie
+# 2️⃣ Methodology
 
 {{< include sections/3-methodo.qmd >}}
 
-# Plan de la présentation
+# Presentation Outline
 
 1️⃣ Introduction
 
-2️⃣ Méthodologie
+2️⃣ Methodology
 
-**3️⃣ Les données**
+**3️⃣ Data**
 
-4️⃣ Résultats obtenus
+4️⃣ Results
 
-5️⃣ Structure du projet
+5️⃣ Project Structure
 
 6️⃣ Discussion
 
-# 3️⃣ Les données 
+# 3️⃣ Data
 
 {{< include sections/2-data.qmd >}}
 
-# Plan de la présentation
+# Presentation Outline
 
 1️⃣ Introduction
 
-2️⃣ Méthodologie
+2️⃣ Methodology
 
-3️⃣ Les données 
+3️⃣ Data
 
-**4️⃣ Résultats obtenus**
+**4️⃣ Results**
 
-5️⃣ Structure du projet
+5️⃣ Project Structure
 
 6️⃣ Discussion
 
-# 4️⃣ Résultats obtenus
+# 4️⃣ Results
 
 {{< include sections/4-results.qmd >}}
 
-# Plan de la présentation
+# Presentation Outline
 
 1️⃣ Introduction
 
-2️⃣ Méthodologie
+2️⃣ Methodology
 
-3️⃣ Les données 
+3️⃣ Data
 
-4️⃣ Résultats obtenus
+4️⃣ Results
 
-**5️⃣ Structure du projet**
+**5️⃣ Project Structure**
 
 6️⃣ Discussion
 
-# 5️⃣ Structure du projet
+# 5️⃣ Project Structure
 
-PARTIE 5 ET 6 A MERGE ET ELAGUER
-
-{{< include sections/5-tools.qmd >}}
-
-# Plan de la présentation
-
-1️⃣ Introduction
-
-2️⃣ Méthodologie
-
-3️⃣ Les données 
-
-4️⃣ Résultats obtenus
-
-5️⃣ Structure du projet
-
-**6️⃣ Discussion**
-
-# 6️⃣ Discussion
-
-{{< include sections/6-discussion.qmd >}}
-
+{{< include sections/5-discussion.qmd >}}

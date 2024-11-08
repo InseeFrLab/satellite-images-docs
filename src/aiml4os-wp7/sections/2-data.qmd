@@ -1,71 +1,31 @@
+## Satellite Imagery: Key Features
 
-## Une image satellite
+- [**Multiple spectral bands**]{.orange} beyond RGB (e.g., infrared)
+- [**Georeferenced data**]{.blue2}: each pixel has specific coordinates
+- Main characteristics:
+  - [**Spatial resolution**]{.orange}
+  - [**Acquisition frequency**]{.orange}
+  - [**Spectral resolution**]{.orange}
+  - [**Geographic coverage**]{.orange}
 
-- Une image satellite peut avoir d'autres [**couches**]{.orange} (ou [**bandes**]{.orange}) que les RGB : infrarouge par exemple
-- Les images satellites contiennent des informations géographiques → [**chaque pixel a des coordonnées**]{.blue2} dans l'espace
+## Available Data Sources (PLEIADES)
 
-## Caractéristiques d'une image satellite
+### Pléiades (Very High Resolution)
+- [**0.5m × 0.5m**]{.blue2} spatial resolution
+- 3 bands (RGB)
+- Free archives, on-demand acquisition ([**6-8 months**]{.blue2} for a department)
+- Image size: 1km² (2000 × 2000 pixels)
 
-Plusieurs caractéristiques existent pour une image satellite&nbsp;:
+## Available Data Sources (Sentinel-2)
 
-- [**La résolution spatiale**]{.orange}
-- [**La fréquence d'acquisition**]{.orange}
-- [**La résolution spectrale**]{.orange}
-- [**La couverture géographique**]{.orange}
+### Sentinel-2 (High Resolution)
+- [**10m × 10m**]{.blue2} spatial resolution
+- 13 spectral bands
+- [**5-day revisit time**]{.orange}, free access
+- Image size: 6.25 km² (250 × 250)
 
-La [**fréquence d'acquisition**]{.orange} et la [**couverture géographique**]{.blue2} nous intéressent tout particulièrement ici !
+## Reference Data (BDTOPO)
 
-
-## Images satellite à notre disposition
-
-- Images très haute résolution : [**Pléiades**]{.blue2} (Airbus)
-- Images haute résolution : [**Sentinel2**]{.orange}
-
-## Images Pléiades
-
-- **Fréquence d'acquisition** : 
-
-  - Archives gratuites
-  - Payant sur demande (1,80€/km²): [**6 à 8 mois**]{.blue2} pour avoir un département
-
-- **Résolution spectrale** : [3 bandes (RGB)]{.orange}
-
-- **Résolution spatiale** : [un pixel = $0.5m \times 0.5m$]{.blue2}
-
-- Taille d'une image : $2000 \times 2000$ pixels = 1km²
-
-## Images Sentinel2
-
-- **Fréquence d'acquisition** : [tous les 5 jours]{.orange} et gratuit
-
-- **Résolution spectrale** : 13
-
-- **Résolution spatiale** : [un pixel = $10m \times 10m$]{.blue2}
-
-- Taille d'une image : $250 \times 250$ = 6.25 km²
-
-## Pléiades vs Sentinel-2
-
-::: {layout-ncol=2}
-
-![Pleiades © CNES_2022, Distribution AIRBUS DS](../img/pleiade.png){fig-align="center" width=75%}
-
-![Sentinel2](../img/Sentinel2.png){fig-align="center" width=75%}
-:::
-
-## La BDTOPO
-
-- Annotation d'un bâtiment = [**un polygone**]{.blue2}
-- Elle est construite à partir de plusieurs sources, notamment à partir d'ortho-photos de l'[**IGN**]{.orange} (prises de vue aériennes)
-- Les éléments de la BDTOPO produite une année donnée ne sont pas datés précisément 
-- La BDTOPO n'est pas synchronisée avec les images Pléiades que l'INSEE acquiert
-
-[**On la retient tout de même**]{.blue2} pour annoter les images Pléiades.
-
-## Exemple d'annotations BDTOPO
-
-![Masque BDTOPO, Pleiades © CNES_2022, Distribution AIRBUS DS](../img/masqueBDTOPO.png){width=75%}
-
-
-
-
+- Building footprints as [**vector polygons**]{.blue2}
+- Based on [**IGN**]{.orange} aerial photography
+- Used as training data despite temporal misalignment with Pléiades imagery
