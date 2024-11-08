@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.37">
 
   <meta name="dcterms.date" content="2024-11-13">
-  <title>Projet Données Satellites – Travaux exploratoires avec des données satellites : Bilan des résultats obtenus</title>
+  <title>Projet Données Satellites – Exploratory Work with Satellite Data: Results Assessment</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -325,7 +325,7 @@
     }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<meta property="og:title" content="Projet Données Satellites - Travaux exploratoires avec des données satellites : Bilan des résultats obtenus">
+<meta property="og:title" content="Projet Données Satellites - Exploratory Work with Satellite Data: Results Assessment">
 <meta property="og:description" content="Raya Berova, Thomas Faria, Clément Guillo">
 <meta property="og:site_name" content="Projet Données Satellites">
 </head>
@@ -334,7 +334,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="../_extensions/InseeFrLab/onyxia/background.svg" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">Travaux exploratoires avec des données satellites : Bilan des résultats obtenus</h1>
+  <h1 class="title">Exploratory Work with Satellite Data: Results Assessment</h1>
   <p class="subtitle"></p><p><strong><span class="orange">Raya Berova, Thomas Faria, Clément Guillo</span></strong></p><p></p>
 
 <div class="quarto-title-authors">
@@ -345,10 +345,10 @@
 <section id="outline" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Outline</h1>
 <p>1️⃣ Introduction</p>
-<p>2️⃣ Méthodologie</p>
-<p>3️⃣ Les données</p>
-<p>4️⃣ Résultats obtenus</p>
-<p>5️⃣ Structure du projet</p>
+<p>2️⃣ Methodology</p>
+<p>3️⃣ Data</p>
+<p>4️⃣ Results</p>
+<p>5️⃣ Project Structure</p>
 <p>6️⃣ Discussion</p>
 </section>
 
@@ -357,253 +357,209 @@
 <h1>1️⃣ Introduction</h1>
 
 </section>
-<section id="origine-du-projet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Origine du projet</h2>
+<section id="project-overview" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Project Overview</h2>
 <ul>
-<li>Dans le cadre du stage de Quentin Chabennet en 2022, participation au <a href="https://challengedata.ens.fr/">Challenge Data</a> <a href="https://challengedata.ens.fr/challenges/48">“Land cover predictive modeling from satellite images”</a></li>
-<li>SSM Agriculture: travail avec le Centre d’études spatiales de la biosphère (Cesbio). Comparaison de la carte d’<span class="orange"><strong>occupation du sol</strong></span> issue de l’enquête Teruti avec une carte construite avec des données de télédétection</li>
-<li>En Guyane, <span class="orange"><strong>fonds de carte issus de données Pléiades</strong></span> utilisés pour la collecte</li>
-<li>Discussion sur la possibilité d’utiliser de l’imagerie satellite pour faciliter l’<span class="orange"><strong>organisation de l’enquête cartographique</strong></span> en Guyane et à Mayotte</li>
+<li><span class="orange"><strong>Satellite imagery exploration</strong></span> for official statistics, initiated through academic challenge (2022)</li>
+<li><span class="orange"><strong>Operational implementation</strong></span> in French overseas territories</li>
+<li>Part of European strategy (<a href="https://dgins2021.stat.gov.pl/warsaw-memorandum">Warsaw Memorandum</a>)</li>
 </ul>
 </section>
-<section id="une-source-de-données-à-fort-potentiel" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Une source de données à fort potentiel</h2>
+<section id="applications-in-official-statistics" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Applications in Official Statistics</h2>
 <ul>
-<li>En théorie, <span class="orange"><strong>observation de tout le territoire</strong></span> quasiment en temps réel</li>
-<li><span class="orange"><strong>Sentinel-2</strong></span> : données haute résolution en accès libre à haute fréquence temporelle. Un même territoire est couvert environ tous les 5 jours</li>
-<li>Une grande communauté utilise ces données, ce qui donne lieu à la publication de <span class="orange"><strong>contenu open-source</strong></span> (détection de nuages, etc.)</li>
-</ul>
-</section>
-<section id="une-source-de-données-à-fort-potentiel-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Une source de données à fort potentiel</h2>
+<li><span class="orange"><strong>Cartographic survey optimization</strong></span>:
 <ul>
-<li><span class="orange"><strong>Pléiades</strong></span> : données très haute résolution. Archives disponibles gratuitement pour l’Insee, et possibilité de faire des commandes (<strong>tasking</strong>), gratuites sous un certain quota</li>
-</ul>
-</section>
-<section id="utilisation-pour-la-statistique-publique" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Utilisation pour la statistique publique</h2>
+<li>Identification of <span class="blue2"><strong>priority areas</strong></span> for field operations</li>
+<li>Detection of <span class="blue2"><strong>building changes</strong></span> between surveys</li>
+<li><span class="blue2"><strong>Temporal comparison</strong></span> using historical and recent imagery</li>
+</ul></li>
+<li><span class="orange"><strong>Building stock monitoring</strong></span>:
 <ul>
-<li><a href="https://dgins2021.stat.gov.pl/warsaw-memorandum">Mémorandum de Varsovie</a> adopté par le Comité du Système statistique européen, pour <span class="orange"><strong>encourager l’utilisation des données satellites</strong></span> pour l’élaboration de statistiques publiques</li>
-<li>Utilisation en complément des sources traditionnelles pour améliorer la connaissance de l’Insee sur le <span class="orange"><strong>bâti</strong></span> :
-<ul>
-<li>En particulier dans les DROM, <span class="blue2"><strong>facilitation de l’organisation des enquêtes cartographiques</strong></span></li>
-<li><span class="blue2"><strong>Cartographie du bâti</strong></span> à un instant précis</li>
-<li><span class="blue2"><strong>Etudes ponctuelles</strong></span> (consommation d’espace)</li>
+<li><span class="blue2"><strong>Automated change detection</strong></span></li>
+<li><span class="blue2"><strong>Land use evolution</strong></span></li>
+<li>Support for <span class="blue2"><strong>population estimates</strong></span> in overseas territories</li>
 </ul></li>
 </ul>
-<!-- A mentionner, meilleure enqu&#xEA;te cartographique = meilleur RIL = meilleures enqu&#xEA;tes -->
 </section>
-<section id="utilisation-pour-la-statistique-publique-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Utilisation pour la statistique publique</h2>
+<section id="focus-on-mayotte-and-french-guiana" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Focus on Mayotte and French Guiana</h2>
 <ul>
-<li>Possibilité d’aller jusqu’à contribuer à des <span class="blue2"><strong>estimations de population ?</strong></span></li>
-<li><span class="orange"><strong>Nombreux acteurs intéressés</strong></span> : DMS (DMRG), DMTR, directions Antilles-Guyane et La Réunion-Mayotte</li>
-</ul>
-</section>
-<section id="début-des-travaux" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Début des travaux</h2>
+<li><span class="orange"><strong>Critical context</strong></span>:
 <ul>
-<li><span class="orange"><strong>Détection automatique de changements</strong></span> (apparitions, disparitions) sur le bâti dans les DROM (Mayotte)</li>
-<li>Appui pour l’<span class="orange"><strong>organisation des enquêtes cartographiques</strong></span>&nbsp;:
+<li>Local authorities <span class="blue2"><strong>questioning official statistics</strong></span></li>
+<li>Rapid urban development</li>
+<li>Challenging field conditions</li>
+</ul></li>
+<li><span class="orange"><strong>Satellite data as supporting evidence</strong></span>:
 <ul>
-<li>On sélectionne les <span class="blue2"><strong>îlots concernés</strong></span></li>
-<li>On récupère des données satellites couvrant ces îlots <span class="blue2"><strong>à la date de la précédente enquête</strong></span> cartographique et des <span class="blue2"><strong>données fraîches</strong></span></li>
-<li>A l’aide de la méthode développée, on repère les ilots avec <span class="blue2"><strong>beaucoup de nouveaux bâtiments</strong></span>, etc.</li>
+<li>Independent source of information</li>
+<li>Continuous territorial monitoring</li>
+<li>Transparent methodology</li>
 </ul></li>
 </ul>
 </section></section>
-<section id="plan-de-la-présentation" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Plan de la présentation</h1>
+<section id="presentation-outline" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Presentation Outline</h1>
 <p>1️⃣ Introduction</p>
-<p><strong>2️⃣ Méthodologie</strong></p>
-<p>3️⃣ Les données</p>
-<p>4️⃣ Résultats obtenus</p>
-<p>5️⃣ Structure du projet</p>
+<p><strong>2️⃣ Methodology</strong></p>
+<p>3️⃣ Data</p>
+<p>4️⃣ Results</p>
+<p>5️⃣ Project Structure</p>
 <p>6️⃣ Discussion</p>
 </section>
 
 <section>
-<section id="méthodologie" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>2️⃣ Méthodologie</h1>
+<section id="methodology" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>2️⃣ Methodology</h1>
 
 </section>
-<section id="segmentation-sémantique" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Segmentation sémantique</h2>
+<section id="semantic-segmentation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Semantic Segmentation</h2>
 
 <img data-src="../img/segmentation_exemple.png" style="width:80.0%" class="r-stretch quarto-figure-center"><p class="caption">Pleiades © CNES_2022, Distribution AIRBUS DS</p></section>
-<section id="entrainement-dun-modèle-de-segmentation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Entrainement d’un modèle de segmentation</h2>
+<section id="training-a-segmentation-model" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Training a Segmentation Model</h2>
 <ul>
-<li>On entraîne un modèle à segmenter automatiquement <span class="orange"><strong>à partir d’exemples annotés</strong></span>. Pour cela il faut :
+<li>Model trained to perform automatic segmentation <span class="orange"><strong>from annotated examples</strong></span>. Requirements:
 <ul>
-<li><span class="blue2"><strong>Collecter</strong></span> des images satellites</li>
-<li><span class="blue2"><strong>Produire les annotations</strong></span> de ces images (emplacement des bâtiments)</li>
+<li><span class="blue2"><strong>Collection</strong></span> of satellite images</li>
+<li><span class="blue2"><strong>Production of annotations</strong></span> (building footprints)</li>
 </ul></li>
-<li>On apprend au modèle à reproduire les annotations en partant des images. On espère qu’il pourra <span class="orange"><strong>généraliser</strong></span> à d’autres images</li>
+<li>Model learns to reproduce annotations from images, with the goal to <span class="orange"><strong>generalize</strong></span> to new images</li>
 </ul>
 </section>
-<section id="de-segmentation-à-détection-de-changements" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>De segmentation à détection de changements</h2>
+<section id="from-segmentation-to-change-detection" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>From Segmentation to Change Detection</h2>
 
-<img data-src="../img/stratégie_segmentation.png" style="width:80.0%" class="r-stretch"></section>
-<section id="en-mettre-plus-sur-la-methodo" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>En mettre plus sur la methodo</h2>
-<p>Rajouter segformer et tout ca</p>
+<img data-src="../img/strategy_segmentation.png" style="width:80.0%" class="r-stretch"></section>
+<section id="methodology-details" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Methodology Details</h2>
+<ul>
+<li><span class="orange"><strong>Model architecture</strong></span>:
+<ul>
+<li>SegFormer backbone</li>
+<li>Transformer-based encoder</li>
+<li>Lightweight decoder</li>
+</ul></li>
+</ul>
 </section></section>
-<section id="plan-de-la-présentation-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Plan de la présentation</h1>
+<section id="presentation-outline-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Presentation Outline</h1>
 <p>1️⃣ Introduction</p>
-<p>2️⃣ Méthodologie</p>
-<p><strong>3️⃣ Les données</strong></p>
-<p>4️⃣ Résultats obtenus</p>
-<p>5️⃣ Structure du projet</p>
+<p>2️⃣ Methodology</p>
+<p><strong>3️⃣ Data</strong></p>
+<p>4️⃣ Results</p>
+<p>5️⃣ Project Structure</p>
 <p>6️⃣ Discussion</p>
 </section>
 
 <section>
-<section id="les-données" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>3️⃣ Les données</h1>
+<section id="data" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>3️⃣ Data</h1>
 
 </section>
-<section id="une-image-satellite" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Une image satellite</h2>
+<section id="satellite-imagery-key-features" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Satellite Imagery: Key Features</h2>
 <ul>
-<li>Une image satellite peut avoir d’autres <span class="orange"><strong>couches</strong></span> (ou <span class="orange"><strong>bandes</strong></span>) que les RGB : infrarouge par exemple</li>
-<li>Les images satellites contiennent des informations géographiques → <span class="blue2"><strong>chaque pixel a des coordonnées</strong></span> dans l’espace</li>
-</ul>
-</section>
-<section id="caractéristiques-dune-image-satellite" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Caractéristiques d’une image satellite</h2>
-<p>Plusieurs caractéristiques existent pour une image satellite&nbsp;:</p>
+<li><span class="orange"><strong>Multiple spectral bands</strong></span> beyond RGB (e.g., infrared)</li>
+<li><span class="blue2"><strong>Georeferenced data</strong></span>: each pixel has specific coordinates</li>
+<li>Main characteristics:
 <ul>
-<li><span class="orange"><strong>La résolution spatiale</strong></span></li>
-<li><span class="orange"><strong>La fréquence d’acquisition</strong></span></li>
-<li><span class="orange"><strong>La résolution spectrale</strong></span></li>
-<li><span class="orange"><strong>La couverture géographique</strong></span></li>
-</ul>
-<p>La <span class="orange"><strong>fréquence d’acquisition</strong></span> et la <span class="blue2"><strong>couverture géographique</strong></span> nous intéressent tout particulièrement ici !</p>
-</section>
-<section id="images-satellite-à-notre-disposition" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Images satellite à notre disposition</h2>
-<ul>
-<li>Images très haute résolution : <span class="blue2"><strong>Pléiades</strong></span> (Airbus)</li>
-<li>Images haute résolution : <span class="orange"><strong>Sentinel2</strong></span></li>
-</ul>
-</section>
-<section id="images-pléiades" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Images Pléiades</h2>
-<ul>
-<li><p><strong>Fréquence d’acquisition</strong> :</p>
-<ul>
-<li>Archives gratuites</li>
-<li>Payant sur demande (1,80€/km²): <span class="blue2"><strong>6 à 8 mois</strong></span> pour avoir un département</li>
+<li><span class="orange"><strong>Spatial resolution</strong></span></li>
+<li><span class="orange"><strong>Acquisition frequency</strong></span></li>
+<li><span class="orange"><strong>Spectral resolution</strong></span></li>
+<li><span class="orange"><strong>Geographic coverage</strong></span></li>
 </ul></li>
-<li><p><strong>Résolution spectrale</strong> : <span class="orange">3 bandes (RGB)</span></p></li>
-<li><p><strong>Résolution spatiale</strong> : <span class="blue2">un pixel = <span class="math inline">\(0.5m \times 0.5m\)</span></span></p></li>
-<li><p>Taille d’une image : <span class="math inline">\(2000 \times 2000\)</span> pixels = 1km²</p></li>
 </ul>
 </section>
-<section id="images-sentinel2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Images Sentinel2</h2>
+<section id="available-data-sources-pleiades" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Available Data Sources (PLEIADES)</h2>
+<h3 data-background-image="background.svg" data-background-size="contain" id="pléiades-very-high-resolution">Pléiades (Very High Resolution)</h3>
 <ul>
-<li><p><strong>Fréquence d’acquisition</strong> : <span class="orange">tous les 5 jours</span> et gratuit</p></li>
-<li><p><strong>Résolution spectrale</strong> : 13</p></li>
-<li><p><strong>Résolution spatiale</strong> : <span class="blue2">un pixel = <span class="math inline">\(10m \times 10m\)</span></span></p></li>
-<li><p>Taille d’une image : <span class="math inline">\(250 \times 250\)</span> = 6.25 km²</p></li>
+<li><span class="blue2"><strong>0.5m × 0.5m</strong></span> spatial resolution</li>
+<li>3 bands (RGB)</li>
+<li>Free archives, on-demand acquisition (<span class="blue2"><strong>6-8 months</strong></span> for a department)</li>
+<li>Image size: 1km² (2000 × 2000 pixels)</li>
 </ul>
 </section>
-<section id="pléiades-vs-sentinel-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Pléiades vs Sentinel-2</h2>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../img/pleiade.png" style="width:75.0%"></p>
-<figcaption>Pleiades © CNES_2022, Distribution AIRBUS DS</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../img/Sentinel2.png" style="width:75.0%"></p>
-<figcaption>Sentinel2</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="la-bdtopo" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>La BDTOPO</h2>
+<section id="available-data-sources-sentinel-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Available Data Sources (Sentinel-2)</h2>
+<h3 data-background-image="background.svg" data-background-size="contain" id="sentinel-2-high-resolution">Sentinel-2 (High Resolution)</h3>
 <ul>
-<li>Annotation d’un bâtiment = <span class="blue2"><strong>un polygone</strong></span></li>
-<li>Elle est construite à partir de plusieurs sources, notamment à partir d’ortho-photos de l’<span class="orange"><strong>IGN</strong></span> (prises de vue aériennes)</li>
-<li>Les éléments de la BDTOPO produite une année donnée ne sont pas datés précisément</li>
-<li>La BDTOPO n’est pas synchronisée avec les images Pléiades que l’INSEE acquiert</li>
+<li><span class="blue2"><strong>10m × 10m</strong></span> spatial resolution</li>
+<li>13 spectral bands</li>
+<li><span class="orange"><strong>5-day revisit time</strong></span>, free access</li>
+<li>Image size: 6.25 km² (250 × 250)</li>
 </ul>
-<p><span class="blue2"><strong>On la retient tout de même</strong></span> pour annoter les images Pléiades.</p>
 </section>
-<section id="exemple-dannotations-bdtopo" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Exemple d’annotations BDTOPO</h2>
-
-<img data-src="../img/masqueBDTOPO.png" style="width:75.0%" class="r-stretch quarto-figure-center"><p class="caption">Masque BDTOPO, Pleiades © CNES_2022, Distribution AIRBUS DS</p></section></section>
-<section id="plan-de-la-présentation-2" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Plan de la présentation</h1>
-<p>1️⃣ Introduction</p>
-<p>2️⃣ Méthodologie</p>
-<p>3️⃣ Les données</p>
-<p><strong>4️⃣ Résultats obtenus</strong></p>
-<p>5️⃣ Structure du projet</p>
-<p>6️⃣ Discussion</p>
-</section>
-
-<section>
-<section id="résultats-obtenus" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>4️⃣ Résultats obtenus</h1>
-
-</section>
-<section id="demo" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Demo</h2>
-<p>Ici on fait juste une démo avec la nouvelle app</p>
+<section id="reference-data-bdtopo" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Reference Data (BDTOPO)</h2>
+<ul>
+<li>Building footprints as <span class="blue2"><strong>vector polygons</strong></span></li>
+<li>Based on <span class="orange"><strong>IGN</strong></span> aerial photography</li>
+<li>Used as training data despite temporal misalignment with Pléiades imagery</li>
+</ul>
 </section></section>
-<section id="plan-de-la-présentation-3" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Plan de la présentation</h1>
+<section id="presentation-outline-2" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Presentation Outline</h1>
 <p>1️⃣ Introduction</p>
-<p>2️⃣ Méthodologie</p>
-<p>3️⃣ Les données</p>
-<p>4️⃣ Résultats obtenus</p>
-<p><strong>5️⃣ Structure du projet</strong></p>
+<p>2️⃣ Methodology</p>
+<p>3️⃣ Data</p>
+<p><strong>4️⃣ Results</strong></p>
+<p>5️⃣ Project Structure</p>
 <p>6️⃣ Discussion</p>
 </section>
 
 <section>
-<section id="structure-du-projet" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>5️⃣ Structure du projet</h1>
-<p>PARTIE 5 ET 6 A MERGE ET ELAGUER</p>
+<section id="results" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>4️⃣ Results</h1>
+
 </section>
-<section id="outils-utilisés" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Outils utilisés</h2>
+<section id="interactive-visualization-tool" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Interactive Visualization Tool</h2>
+<p><span class="orange"><strong>Access the application</strong></span>: <a href="https://inseefrlab.github.io/satellite-images-webapp/">https://inseefrlab.github.io/satellite-images-webapp/</a></p>
 <ul>
-<li>Projet <span class="orange"><strong>techniquement complexe</strong></span> pour diverses raisons :
+<li><span class="orange"><strong>Administrative-level monitoring</strong></span> of building changes:
 <ul>
-<li>Données <span class="blue2"><strong>non traditionnelles</strong></span></li>
-<li><span class="blue2"><strong>Volumétrie</strong></span> des données</li>
-<li>Besoins <span class="blue2"><strong>ressources computationnelles</strong></span> élevées</li>
-<li><span class="blue2"><strong>Reproductibilité</strong></span> nécéssaire</li>
+<li>Selection by <span class="blue2"><strong>administrative units</strong></span> (municipalities, districts)</li>
+<li><span class="blue2"><strong>Quality control</strong></span> of detected changes</li>
 </ul></li>
-<li>Nécessité d’utiliser des <span class="orange"><strong>technologies spécifiques</strong></span>, pas forcément dans le <em>toolkit</em> standard du statisticien</li>
-<li>Plateforme <a href="https://datalab.sspcloud.fr/">SSPCloud</a> centrale pour la réalisation d’un tel projet</li>
-<li>Projet construit en <span class="blue2"><strong>6 étapes séquentielles</strong></span></li>
+<li><span class="orange"><strong>Key features</strong></span>:
+<ul>
+<li>Side-by-side temporal comparison</li>
+<li>Statistical indicators by area</li>
+<li>Interactive visual validation</li>
+</ul></li>
+</ul>
+</section></section>
+<section id="presentation-outline-3" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Presentation Outline</h1>
+<p>1️⃣ Introduction</p>
+<p>2️⃣ Methodology</p>
+<p>3️⃣ Data</p>
+<p>4️⃣ Results</p>
+<p><strong>5️⃣ Project Structure</strong></p>
+<p>6️⃣ Discussion</p>
+</section>
+
+<section>
+<section id="project-structure" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>5️⃣ Project Structure</h1>
+
+</section>
+<section id="technical-environment" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Technical Environment</h2>
+<ul>
+<li><span class="orange"><strong>Cloud-native architecture</strong></span> (SSPCloud platform)</li>
+<li><span class="blue2"><strong>Modern tech stack</strong></span>: Kubernetes, Docker, MLFlow, React</li>
+<li><span class="orange"><strong>Automated workflows</strong></span> for reproducibility</li>
+<li><span class="blue2"><strong>Continuous deployment</strong></span> practices</li>
 </ul>
 </section>
-<section id="chaîne-de-traitement" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Chaîne de traitement</h2>
-<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" width="100%" height="100%">
+<section id="processing-pipeline" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Processing Pipeline</h2>
+<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" height="100%" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="../img/pipeline_donnees_sat.png" id="fig-chain2" style="width:100.0%;height:100.0%">
@@ -613,215 +569,37 @@
 </figure>
 </div>
 </section>
-<section id="etape-1-acquisition-des-images-satellitaires" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Etape 1 : Acquisition des images satellitaires</h2>
-<ul>
-<li>Récupération <span class="orange"><strong>artisanale</strong></span> des images Pléiades :
-<ul>
-<li>Demandes réalisées par <span class="blue2"><strong>mail</strong></span> à l’IGN, échanges via <span class="blue2"><strong>FTP</strong></span></li>
-<li>Groupe <em>DMRG</em> créé sur <a href="https://dinamis.data-terra.org/">Dinamis</a>, mais non utilisé</li>
-</ul></li>
-<li>Images de Guyane via ST973</li>
-<li>Datation des images <span class="orange"><strong>peu précise</strong></span> et <span class="orange"><strong>non standardisée</strong></span></li>
-<li><span class="orange"><strong>Stockage</strong></span> des images orthos 8bits sur le <a href="https://datalab.sspcloud.fr/">SSPCloud</a></li>
-</ul>
-</section>
-<section id="etape-2-nettoyage-et-annotation-des-images" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Etape 2 : Nettoyage et annotation des images</h2>
-<ul>
-<li><p>Pipeline <span class="orange"><strong>Python</strong></span> <img height="25" width="25" src="https://cdn.simpleicons.org/python/00000"> pour formatter les images brutes :</p>
-<ul>
-<li><span class="blue2"><strong>Sélection</strong></span> des images pour une zone d’intérêt</li>
-<li><span class="blue2"><strong>Suppression</strong></span> des images ennuagées</li>
-<li><span class="blue2"><strong>Découpage</strong></span> des images <span class="math inline">\(125m \times 125m\)</span></li>
-</ul></li>
-<li><p>Pipeline de <span class="orange"><strong>labellisation</strong></span> des images satellites avec la BDTOPO</p></li>
-<li><p>Automatisation avec <span class="orange"><strong>Argo Workflow</strong></span></p></li>
-</ul>
-</section>
-<section id="etape-3-modélisation-et-entraînement" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Etape 3 : Modélisation et entraînement</h2>
-<ul>
-<li><p>Entraînement avec le package <span class="orange"><strong>Pytorch</strong></span></p></li>
-<li><p>Suivi et comparaison des modèles avec <a href="https://projet-slums-detection-128833.user.lab.sspcloud.fr/#/experiments/10?searchFilter=&amp;orderByKey=attributes.start_time&amp;orderByAsc=false&amp;startTime=ALL&amp;lifecycleFilter=Active&amp;modelVersionFilter=All%20Runs&amp;selectedColumns=attributes.%60Source%60,attributes.%60Models%60,params.%60module_name%60&amp;isComparingRuns=false&amp;compareRunCharts=dW5kZWZpbmVk" data-preview-link="true"><span class="orange"><strong>MLFlow</strong></span></a></p></li>
-<li><p>Utilisation <span class="orange"><strong>GPU</strong></span> indispensable (10h d’entraînement sur le SSP Cloud)</p></li>
-<li><p>Automatisation avec <span class="orange"><strong>Argo Workflow</strong></span></p></li>
-</ul>
-</section>
-<section id="etape-4-inférence-du-modèle" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Etape 4 : Inférence du modèle</h2>
-<ul>
-<li><p>Utilisation de MLFlow pour l’<a href="https://projet-slums-detection-128833.user.lab.sspcloud.fr/#/models/test" data-preview-link="true">entrepôt de modèle</a></p></li>
-<li><p>Déploiement d’une <span class="orange"><strong>API</strong></span> pour réaliser l’inférence pour :</p>
-<ul>
-<li>une <span class="blue2"><strong>image</strong></span> donnée</li>
-<li>un <span class="blue2"><strong>îlot</strong></span> donné</li>
-<li>un <span class="blue2"><strong>contour géographique</strong></span> donné</li>
-</ul></li>
-<li><p>Déploiement continu de l’API avec <span class="orange"><strong>ArgoCD</strong></span></p></li>
-<li><p>Réalisation de l’inférence sur l’ensemble des images en parallèle avec <span class="orange"><strong>Argo Workflow</strong></span></p></li>
-</ul>
-</section>
-<section id="etape-5-mise-à-disposition-des-résultats" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Etape 5 : Mise à disposition des résultats</h2>
-<ul>
-<li><p>Déploiement d’un <span class="orange"><strong>Geoserver</strong></span> pour mettre à disposition les fichiers géographiques (images et prédictions)</p></li>
-<li><p>Développement d’une application <span class="orange"><strong>React</strong></span> pour visualiser les résultats</p>
-<ul>
-<li><a href="https://cratt.kub.sspcloud.fr/" data-preview-link="true">CRATT</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="etape-6-analyses-des-résultats-selon-les-cas-dusages" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Etape 6 : Analyses des résultats selon les cas d’usages</h2>
-<ul>
-<li><span class="orange"><strong>Travail statistique</strong></span> sur les prédictions :
-<ul>
-<li>Détection des zones à forte créations/disparitions</li>
-<li>Production de statistiques par îlot</li>
-<li>Evaluation des résultats</li>
-</ul></li>
-<li>Dépendant des cas d’usages, quelles <span class="orange"><strong>priorisations</strong></span> ?</li>
-</ul>
-</section>
-<section id="en-résumé" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>En résumé</h2>
-<ul>
-<li>🛠️ <span class="orange"><strong>Multitude</strong></span> d’outils à utiliser :
-<ul>
-<li>Kubernetes, Docker, stockage MinIO, API, ArgoCD, Argo Workflow, MLFlow, React…</li>
-</ul></li>
-<li>… mais dont le coût d’apprentissage est rapidement <span class="orange"><strong>rentabilisé</strong></span> :
-<ul>
-<li>Technologies <span class="orange"><strong>“state of the art”</strong></span></li>
-<li>De plus en plus utilisées à l’Insee (LS3)</li>
-</ul></li>
-<li>⚠️ <span class="orange"><strong>Coût de maintenance élevé</strong></span> ! Compétences rares à l’INSEE (<span class="blue2"><strong>ou ailleurs ?</strong></span>)</li>
-</ul>
-</section></section>
-<section id="plan-de-la-présentation-4" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Plan de la présentation</h1>
-<p>1️⃣ Introduction</p>
-<p>2️⃣ Méthodologie</p>
-<p>3️⃣ Les données</p>
-<p>4️⃣ Résultats obtenus</p>
-<p>5️⃣ Structure du projet</p>
-<p><strong>6️⃣ Discussion</strong></p>
-</section>
+<section id="application-architecture" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Application Architecture</h2>
 
-<section>
-<section id="discussion" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>6️⃣ Discussion</h1>
-
-</section>
-<section id="résultats-de-lexpérimentation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Résultats de l’expérimentation</h2>
+<img data-src="../img/schema_cratt_anglais.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="technical-implementation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Technical Implementation</h2>
 <ul>
-<li>Résultats prometteurs pour le soutien de l’<span class="orange"><strong>enquête cartographique</strong></span></li>
-<li><span class="orange"><strong>Première utilisation</strong></span> des algorithmes effectuée par la DMTR pour prioriser l’envoi d’agents sur le terrain</li>
-<li>Opportunité pour le <span class="orange"><strong>soutien des estimations de population à Mayotte</strong></span></li>
-<li>Parti pris de présenter une <span class="orange"><strong>chaîne complète</strong></span> de production en guise de POC !</li>
-<li>Choix rapides ➡️ <span class="orange"><strong>nombreuses améliorations possibles</strong></span></li>
-</ul>
-</section>
-<section id="etape-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Etape 1</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../img/etape1.png" class="quarto-figure quarto-figure-center" style="width:50.0%;height:50.0%"></p>
-</figure>
-</div>
+<li><span class="orange"><strong>Complex technical environment</strong></span> due to:
 <ul>
-<li>Les données Pleiades dont nous disposons sont fournies par l’IGN et ne sont <span class="orange"><strong>datées qu’à l’année</strong></span></li>
-<li>Travail à fournir pour <span class="orange"><strong>maîtriser l’acquisition</strong></span> de données PLEIADES</li>
-<li>Indispensable si on veut des estimations <span class="orange"><strong>précisément datées</strong></span></li>
-</ul>
-</section>
-<section id="etape-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Etape 2</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../img/etape2.png" class="quarto-figure quarto-figure-center" style="width:50.0%;height:50.0%"></p>
-</figure>
-</div>
-<ul>
-<li><span class="orange"><strong>Le nettoyage</strong></span> (filtering des nuages, normalisation) doit être consolidé et demande validation</li>
-<li><span class="orange"><strong>Annotation ou récupération d’autres données annotées</strong></span>, 2 possibilités :
-<ul>
-<li>Améliorer les annotations actuelles <span class="blue2"><strong>manuellement</strong></span></li>
-<li>Récupérer d’<span class="blue2"><strong>autres</strong></span> images annotées ou annotations pour nos images</li>
+<li><span class="blue2"><strong>Non-traditional data</strong></span> processing</li>
+<li><span class="blue2"><strong>Large data volumes</strong></span></li>
+<li><span class="blue2"><strong>High computational needs</strong></span></li>
+<li><span class="blue2"><strong>Reproducibility requirements</strong></span></li>
 </ul></li>
 </ul>
 </section>
-<section id="etape-3" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Etape 3</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../img/etape3.png" class="quarto-figure quarto-figure-center" style="width:50.0%;height:50.0%"></p>
-</figure>
-</div>
+<section id="challenges-perspectives" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Challenges &amp; Perspectives</h2>
 <ul>
-<li>Améliorations <span class="orange"><strong>secondaires</strong></span> par rapport à l’amélioration de la qualité des annotations</li>
-<li><span class="orange"><strong>Suivre l’état de l’art</strong></span> à l’affût de nouveautés (modèle pré-entraînés sur HuggingFace)</li>
+<li><span class="orange"><strong>High maintenance costs</strong></span> due to technical complexity</li>
+<li>Need for <span class="blue2"><strong>specialized skills</strong></span></li>
+<li><span class="orange"><strong>Promising results</strong></span> for cartographic survey support</li>
+<li><span class="orange"><strong>Potential improvements</strong></span> identified for each pipeline stage</li>
 </ul>
-</section>
-<section id="etape-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Etape 4</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../img/etape4.png" class="quarto-figure quarto-figure-center" style="width:50.0%;height:50.0%"></p>
-</figure>
-</div>
-<ul>
-<li><span class="orange"><strong>API</strong></span> à développer au delà du prototype actuel en fonction des besoins des clients</li>
-</ul>
-</section>
-<section id="etape-5" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Etape 5</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../img/etape5.png" class="quarto-figure quarto-figure-center" style="width:50.0%;height:50.0%"></p>
-</figure>
-</div>
-<ul>
-<li><span class="orange"><strong>Application de visualisation</strong></span> à développer au delà du prototype actuel en fonction des besoins des clients</li>
-</ul>
-</section>
-<section id="etape-6" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Etape 6 :</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../img/etape6.png" class="quarto-figure quarto-figure-center" style="width:50.0%;height:50.0%"></p>
-</figure>
-</div>
-<ul>
-<li><span class="orange"><strong>Analyse des résultats</strong></span> encore insuffisante et à pousser</li>
-</ul>
-</section>
-<section id="en-plus" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>En plus</h2>
-<ul>
-<li><span class="orange"><strong>Sentinel 2</strong></span> : Poursuite des travaux de Judith Nabec sur images Sentinel 2 plus simples d’acquisition, et à résolution spectrale plus élevée (ou sur d’autres images)</li>
-</ul>
-</section>
-<section id="la-suite" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>La suite</h2>
-<ul>
-<li><span class="orange"><strong>Fin de la phase d’expérimentation</strong></span></li>
-<li><span class="orange"><strong>Beaucoup de cas d’usage</strong></span> identifiés et de clients finaux</li>
-<li>Nécessité de monter <span class="orange"><strong>un véritable projet pour chaque cas d’usage</strong></span> avec des moyens adaptés</li>
-<li>Ce qui permettra de <span class="orange"><strong>hiérarchiser les améliorations</strong></span></li>
-</ul>
-</section></section>
-<section id="merci-pour-votre-attention" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Merci pour votre attention !</h1>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

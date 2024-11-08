@@ -1,262 +1,122 @@
 [
   {
-    "objectID": "src/aiml4os-wp7/index.html#origine-du-projet",
-    "href": "src/aiml4os-wp7/index.html#origine-du-projet",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Origine du projet",
-    "text": "Origine du projet\n\nDans le cadre du stage de Quentin Chabennet en 2022, participation au Challenge Data “Land cover predictive modeling from satellite images”\nSSM Agriculture: travail avec le Centre d’études spatiales de la biosphère (Cesbio). Comparaison de la carte d’occupation du sol issue de l’enquête Teruti avec une carte construite avec des données de télédétection\nEn Guyane, fonds de carte issus de données Pléiades utilisés pour la collecte\nDiscussion sur la possibilité d’utiliser de l’imagerie satellite pour faciliter l’organisation de l’enquête cartographique en Guyane et à Mayotte"
+    "objectID": "src/aiml4os-wp7/index.html#project-overview",
+    "href": "src/aiml4os-wp7/index.html#project-overview",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Project Overview",
+    "text": "Project Overview\n\nSatellite imagery exploration for official statistics, initiated through academic challenge (2022)\nOperational implementation in French overseas territories\nPart of European strategy (Warsaw Memorandum)"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#une-source-de-données-à-fort-potentiel",
-    "href": "src/aiml4os-wp7/index.html#une-source-de-données-à-fort-potentiel",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Une source de données à fort potentiel",
-    "text": "Une source de données à fort potentiel\n\nEn théorie, observation de tout le territoire quasiment en temps réel\nSentinel-2 : données haute résolution en accès libre à haute fréquence temporelle. Un même territoire est couvert environ tous les 5 jours\nUne grande communauté utilise ces données, ce qui donne lieu à la publication de contenu open-source (détection de nuages, etc.)"
+    "objectID": "src/aiml4os-wp7/index.html#applications-in-official-statistics",
+    "href": "src/aiml4os-wp7/index.html#applications-in-official-statistics",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Applications in Official Statistics",
+    "text": "Applications in Official Statistics\n\nCartographic survey optimization:\n\nIdentification of priority areas for field operations\nDetection of building changes between surveys\nTemporal comparison using historical and recent imagery\n\nBuilding stock monitoring:\n\nAutomated change detection\nLand use evolution\nSupport for population estimates in overseas territories"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#une-source-de-données-à-fort-potentiel-1",
-    "href": "src/aiml4os-wp7/index.html#une-source-de-données-à-fort-potentiel-1",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Une source de données à fort potentiel",
-    "text": "Une source de données à fort potentiel\n\nPléiades : données très haute résolution. Archives disponibles gratuitement pour l’Insee, et possibilité de faire des commandes (tasking), gratuites sous un certain quota"
+    "objectID": "src/aiml4os-wp7/index.html#focus-on-mayotte-and-french-guiana",
+    "href": "src/aiml4os-wp7/index.html#focus-on-mayotte-and-french-guiana",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Focus on Mayotte and French Guiana",
+    "text": "Focus on Mayotte and French Guiana\n\nCritical context:\n\nLocal authorities questioning official statistics\nRapid urban development\nChallenging field conditions\n\nSatellite data as supporting evidence:\n\nIndependent source of information\nContinuous territorial monitoring\nTransparent methodology"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#utilisation-pour-la-statistique-publique",
-    "href": "src/aiml4os-wp7/index.html#utilisation-pour-la-statistique-publique",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Utilisation pour la statistique publique",
-    "text": "Utilisation pour la statistique publique\n\nMémorandum de Varsovie adopté par le Comité du Système statistique européen, pour encourager l’utilisation des données satellites pour l’élaboration de statistiques publiques\nUtilisation en complément des sources traditionnelles pour améliorer la connaissance de l’Insee sur le bâti :\n\nEn particulier dans les DROM, facilitation de l’organisation des enquêtes cartographiques\nCartographie du bâti à un instant précis\nEtudes ponctuelles (consommation d’espace)"
+    "objectID": "src/aiml4os-wp7/index.html#semantic-segmentation",
+    "href": "src/aiml4os-wp7/index.html#semantic-segmentation",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Semantic Segmentation",
+    "text": "Semantic Segmentation\n\nPleiades © CNES_2022, Distribution AIRBUS DS"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#utilisation-pour-la-statistique-publique-1",
-    "href": "src/aiml4os-wp7/index.html#utilisation-pour-la-statistique-publique-1",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Utilisation pour la statistique publique",
-    "text": "Utilisation pour la statistique publique\n\nPossibilité d’aller jusqu’à contribuer à des estimations de population ?\nNombreux acteurs intéressés : DMS (DMRG), DMTR, directions Antilles-Guyane et La Réunion-Mayotte"
+    "objectID": "src/aiml4os-wp7/index.html#training-a-segmentation-model",
+    "href": "src/aiml4os-wp7/index.html#training-a-segmentation-model",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Training a Segmentation Model",
+    "text": "Training a Segmentation Model\n\nModel trained to perform automatic segmentation from annotated examples. Requirements:\n\nCollection of satellite images\nProduction of annotations (building footprints)\n\nModel learns to reproduce annotations from images, with the goal to generalize to new images"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#début-des-travaux",
-    "href": "src/aiml4os-wp7/index.html#début-des-travaux",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Début des travaux",
-    "text": "Début des travaux\n\nDétection automatique de changements (apparitions, disparitions) sur le bâti dans les DROM (Mayotte)\nAppui pour l’organisation des enquêtes cartographiques :\n\nOn sélectionne les îlots concernés\nOn récupère des données satellites couvrant ces îlots à la date de la précédente enquête cartographique et des données fraîches\nA l’aide de la méthode développée, on repère les ilots avec beaucoup de nouveaux bâtiments, etc."
+    "objectID": "src/aiml4os-wp7/index.html#from-segmentation-to-change-detection",
+    "href": "src/aiml4os-wp7/index.html#from-segmentation-to-change-detection",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "From Segmentation to Change Detection",
+    "text": "From Segmentation to Change Detection"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#segmentation-sémantique",
-    "href": "src/aiml4os-wp7/index.html#segmentation-sémantique",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Segmentation sémantique",
-    "text": "Segmentation sémantique\n\nPleiades © CNES_2022, Distribution AIRBUS DS"
+    "objectID": "src/aiml4os-wp7/index.html#methodology-details",
+    "href": "src/aiml4os-wp7/index.html#methodology-details",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Methodology Details",
+    "text": "Methodology Details\n\nModel architecture:\n\nSegFormer backbone\nTransformer-based encoder\nLightweight decoder"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#entrainement-dun-modèle-de-segmentation",
-    "href": "src/aiml4os-wp7/index.html#entrainement-dun-modèle-de-segmentation",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Entrainement d’un modèle de segmentation",
-    "text": "Entrainement d’un modèle de segmentation\n\nOn entraîne un modèle à segmenter automatiquement à partir d’exemples annotés. Pour cela il faut :\n\nCollecter des images satellites\nProduire les annotations de ces images (emplacement des bâtiments)\n\nOn apprend au modèle à reproduire les annotations en partant des images. On espère qu’il pourra généraliser à d’autres images"
+    "objectID": "src/aiml4os-wp7/index.html#satellite-imagery-key-features",
+    "href": "src/aiml4os-wp7/index.html#satellite-imagery-key-features",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Satellite Imagery: Key Features",
+    "text": "Satellite Imagery: Key Features\n\nMultiple spectral bands beyond RGB (e.g., infrared)\nGeoreferenced data: each pixel has specific coordinates\nMain characteristics:\n\nSpatial resolution\nAcquisition frequency\nSpectral resolution\nGeographic coverage"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#de-segmentation-à-détection-de-changements",
-    "href": "src/aiml4os-wp7/index.html#de-segmentation-à-détection-de-changements",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "De segmentation à détection de changements",
-    "text": "De segmentation à détection de changements"
+    "objectID": "src/aiml4os-wp7/index.html#available-data-sources-pleiades",
+    "href": "src/aiml4os-wp7/index.html#available-data-sources-pleiades",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Available Data Sources (PLEIADES)",
+    "text": "Available Data Sources (PLEIADES)\nPléiades (Very High Resolution)\n\n0.5m × 0.5m spatial resolution\n3 bands (RGB)\nFree archives, on-demand acquisition (6-8 months for a department)\nImage size: 1km² (2000 × 2000 pixels)"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#en-mettre-plus-sur-la-methodo",
-    "href": "src/aiml4os-wp7/index.html#en-mettre-plus-sur-la-methodo",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "En mettre plus sur la methodo",
-    "text": "En mettre plus sur la methodo\nRajouter segformer et tout ca"
+    "objectID": "src/aiml4os-wp7/index.html#available-data-sources-sentinel-2",
+    "href": "src/aiml4os-wp7/index.html#available-data-sources-sentinel-2",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Available Data Sources (Sentinel-2)",
+    "text": "Available Data Sources (Sentinel-2)\nSentinel-2 (High Resolution)\n\n10m × 10m spatial resolution\n13 spectral bands\n5-day revisit time, free access\nImage size: 6.25 km² (250 × 250)"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#une-image-satellite",
-    "href": "src/aiml4os-wp7/index.html#une-image-satellite",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Une image satellite",
-    "text": "Une image satellite\n\nUne image satellite peut avoir d’autres couches (ou bandes) que les RGB : infrarouge par exemple\nLes images satellites contiennent des informations géographiques → chaque pixel a des coordonnées dans l’espace"
+    "objectID": "src/aiml4os-wp7/index.html#reference-data-bdtopo",
+    "href": "src/aiml4os-wp7/index.html#reference-data-bdtopo",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Reference Data (BDTOPO)",
+    "text": "Reference Data (BDTOPO)\n\nBuilding footprints as vector polygons\nBased on IGN aerial photography\nUsed as training data despite temporal misalignment with Pléiades imagery"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#caractéristiques-dune-image-satellite",
-    "href": "src/aiml4os-wp7/index.html#caractéristiques-dune-image-satellite",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Caractéristiques d’une image satellite",
-    "text": "Caractéristiques d’une image satellite\nPlusieurs caractéristiques existent pour une image satellite :\n\nLa résolution spatiale\nLa fréquence d’acquisition\nLa résolution spectrale\nLa couverture géographique\n\nLa fréquence d’acquisition et la couverture géographique nous intéressent tout particulièrement ici !"
+    "objectID": "src/aiml4os-wp7/index.html#interactive-visualization-tool",
+    "href": "src/aiml4os-wp7/index.html#interactive-visualization-tool",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Interactive Visualization Tool",
+    "text": "Interactive Visualization Tool\nAccess the application: https://inseefrlab.github.io/satellite-images-webapp/\n\nAdministrative-level monitoring of building changes:\n\nSelection by administrative units (municipalities, districts)\nQuality control of detected changes\n\nKey features:\n\nSide-by-side temporal comparison\nStatistical indicators by area\nInteractive visual validation"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#images-satellite-à-notre-disposition",
-    "href": "src/aiml4os-wp7/index.html#images-satellite-à-notre-disposition",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Images satellite à notre disposition",
-    "text": "Images satellite à notre disposition\n\nImages très haute résolution : Pléiades (Airbus)\nImages haute résolution : Sentinel2"
+    "objectID": "src/aiml4os-wp7/index.html#technical-environment",
+    "href": "src/aiml4os-wp7/index.html#technical-environment",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Technical Environment",
+    "text": "Technical Environment\n\nCloud-native architecture (SSPCloud platform)\nModern tech stack: Kubernetes, Docker, MLFlow, React\nAutomated workflows for reproducibility\nContinuous deployment practices"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#images-pléiades",
-    "href": "src/aiml4os-wp7/index.html#images-pléiades",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Images Pléiades",
-    "text": "Images Pléiades\n\nFréquence d’acquisition :\n\nArchives gratuites\nPayant sur demande (1,80€/km²): 6 à 8 mois pour avoir un département\n\nRésolution spectrale : 3 bandes (RGB)\nRésolution spatiale : un pixel = \\(0.5m \\times 0.5m\\)\nTaille d’une image : \\(2000 \\times 2000\\) pixels = 1km²"
+    "objectID": "src/aiml4os-wp7/index.html#processing-pipeline",
+    "href": "src/aiml4os-wp7/index.html#processing-pipeline",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Processing Pipeline",
+    "text": "Processing Pipeline"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#images-sentinel2",
-    "href": "src/aiml4os-wp7/index.html#images-sentinel2",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Images Sentinel2",
-    "text": "Images Sentinel2\n\nFréquence d’acquisition : tous les 5 jours et gratuit\nRésolution spectrale : 13\nRésolution spatiale : un pixel = \\(10m \\times 10m\\)\nTaille d’une image : \\(250 \\times 250\\) = 6.25 km²"
+    "objectID": "src/aiml4os-wp7/index.html#application-architecture",
+    "href": "src/aiml4os-wp7/index.html#application-architecture",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Application Architecture",
+    "text": "Application Architecture"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#pléiades-vs-sentinel-2",
-    "href": "src/aiml4os-wp7/index.html#pléiades-vs-sentinel-2",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Pléiades vs Sentinel-2",
-    "text": "Pléiades vs Sentinel-2\n\n\n\n\n\n\n\n\n\nPleiades © CNES_2022, Distribution AIRBUS DS\n\n\n\n\n\n\n\nSentinel2"
+    "objectID": "src/aiml4os-wp7/index.html#technical-implementation",
+    "href": "src/aiml4os-wp7/index.html#technical-implementation",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Technical Implementation",
+    "text": "Technical Implementation\n\nComplex technical environment due to:\n\nNon-traditional data processing\nLarge data volumes\nHigh computational needs\nReproducibility requirements"
   },
   {
-    "objectID": "src/aiml4os-wp7/index.html#la-bdtopo",
-    "href": "src/aiml4os-wp7/index.html#la-bdtopo",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "La BDTOPO",
-    "text": "La BDTOPO\n\nAnnotation d’un bâtiment = un polygone\nElle est construite à partir de plusieurs sources, notamment à partir d’ortho-photos de l’IGN (prises de vue aériennes)\nLes éléments de la BDTOPO produite une année donnée ne sont pas datés précisément\nLa BDTOPO n’est pas synchronisée avec les images Pléiades que l’INSEE acquiert\n\nOn la retient tout de même pour annoter les images Pléiades."
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#exemple-dannotations-bdtopo",
-    "href": "src/aiml4os-wp7/index.html#exemple-dannotations-bdtopo",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Exemple d’annotations BDTOPO",
-    "text": "Exemple d’annotations BDTOPO\n\nMasque BDTOPO, Pleiades © CNES_2022, Distribution AIRBUS DS"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#demo",
-    "href": "src/aiml4os-wp7/index.html#demo",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Demo",
-    "text": "Demo\nIci on fait juste une démo avec la nouvelle app"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#outils-utilisés",
-    "href": "src/aiml4os-wp7/index.html#outils-utilisés",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Outils utilisés",
-    "text": "Outils utilisés\n\nProjet techniquement complexe pour diverses raisons :\n\nDonnées non traditionnelles\nVolumétrie des données\nBesoins ressources computationnelles élevées\nReproductibilité nécéssaire\n\nNécessité d’utiliser des technologies spécifiques, pas forcément dans le toolkit standard du statisticien\nPlateforme SSPCloud centrale pour la réalisation d’un tel projet\nProjet construit en 6 étapes séquentielles"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#chaîne-de-traitement",
-    "href": "src/aiml4os-wp7/index.html#chaîne-de-traitement",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Chaîne de traitement",
-    "text": "Chaîne de traitement"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#etape-1-acquisition-des-images-satellitaires",
-    "href": "src/aiml4os-wp7/index.html#etape-1-acquisition-des-images-satellitaires",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 1 : Acquisition des images satellitaires",
-    "text": "Etape 1 : Acquisition des images satellitaires\n\nRécupération artisanale des images Pléiades :\n\nDemandes réalisées par mail à l’IGN, échanges via FTP\nGroupe DMRG créé sur Dinamis, mais non utilisé\n\nImages de Guyane via ST973\nDatation des images peu précise et non standardisée\nStockage des images orthos 8bits sur le SSPCloud"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#etape-2-nettoyage-et-annotation-des-images",
-    "href": "src/aiml4os-wp7/index.html#etape-2-nettoyage-et-annotation-des-images",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 2 : Nettoyage et annotation des images",
-    "text": "Etape 2 : Nettoyage et annotation des images\n\nPipeline Python  pour formatter les images brutes :\n\nSélection des images pour une zone d’intérêt\nSuppression des images ennuagées\nDécoupage des images \\(125m \\times 125m\\)\n\nPipeline de labellisation des images satellites avec la BDTOPO\nAutomatisation avec Argo Workflow"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#etape-3-modélisation-et-entraînement",
-    "href": "src/aiml4os-wp7/index.html#etape-3-modélisation-et-entraînement",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 3 : Modélisation et entraînement",
-    "text": "Etape 3 : Modélisation et entraînement\n\nEntraînement avec le package Pytorch\nSuivi et comparaison des modèles avec MLFlow\nUtilisation GPU indispensable (10h d’entraînement sur le SSP Cloud)\nAutomatisation avec Argo Workflow"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#etape-4-inférence-du-modèle",
-    "href": "src/aiml4os-wp7/index.html#etape-4-inférence-du-modèle",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 4 : Inférence du modèle",
-    "text": "Etape 4 : Inférence du modèle\n\nUtilisation de MLFlow pour l’entrepôt de modèle\nDéploiement d’une API pour réaliser l’inférence pour :\n\nune image donnée\nun îlot donné\nun contour géographique donné\n\nDéploiement continu de l’API avec ArgoCD\nRéalisation de l’inférence sur l’ensemble des images en parallèle avec Argo Workflow"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#etape-5-mise-à-disposition-des-résultats",
-    "href": "src/aiml4os-wp7/index.html#etape-5-mise-à-disposition-des-résultats",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 5 : Mise à disposition des résultats",
-    "text": "Etape 5 : Mise à disposition des résultats\n\nDéploiement d’un Geoserver pour mettre à disposition les fichiers géographiques (images et prédictions)\nDéveloppement d’une application React pour visualiser les résultats\n\nCRATT"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#etape-6-analyses-des-résultats-selon-les-cas-dusages",
-    "href": "src/aiml4os-wp7/index.html#etape-6-analyses-des-résultats-selon-les-cas-dusages",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 6 : Analyses des résultats selon les cas d’usages",
-    "text": "Etape 6 : Analyses des résultats selon les cas d’usages\n\nTravail statistique sur les prédictions :\n\nDétection des zones à forte créations/disparitions\nProduction de statistiques par îlot\nEvaluation des résultats\n\nDépendant des cas d’usages, quelles priorisations ?"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#en-résumé",
-    "href": "src/aiml4os-wp7/index.html#en-résumé",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "En résumé",
-    "text": "En résumé\n\n🛠️ Multitude d’outils à utiliser :\n\nKubernetes, Docker, stockage MinIO, API, ArgoCD, Argo Workflow, MLFlow, React…\n\n… mais dont le coût d’apprentissage est rapidement rentabilisé :\n\nTechnologies “state of the art”\nDe plus en plus utilisées à l’Insee (LS3)\n\n⚠️ Coût de maintenance élevé ! Compétences rares à l’INSEE (ou ailleurs ?)"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#résultats-de-lexpérimentation",
-    "href": "src/aiml4os-wp7/index.html#résultats-de-lexpérimentation",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Résultats de l’expérimentation",
-    "text": "Résultats de l’expérimentation\n\nRésultats prometteurs pour le soutien de l’enquête cartographique\nPremière utilisation des algorithmes effectuée par la DMTR pour prioriser l’envoi d’agents sur le terrain\nOpportunité pour le soutien des estimations de population à Mayotte\nParti pris de présenter une chaîne complète de production en guise de POC !\nChoix rapides ➡️ nombreuses améliorations possibles"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#etape-1",
-    "href": "src/aiml4os-wp7/index.html#etape-1",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 1",
-    "text": "Etape 1\n\n\n\n\n\n\nLes données Pleiades dont nous disposons sont fournies par l’IGN et ne sont datées qu’à l’année\nTravail à fournir pour maîtriser l’acquisition de données PLEIADES\nIndispensable si on veut des estimations précisément datées"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#etape-2",
-    "href": "src/aiml4os-wp7/index.html#etape-2",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 2",
-    "text": "Etape 2\n\n\n\n\n\n\nLe nettoyage (filtering des nuages, normalisation) doit être consolidé et demande validation\nAnnotation ou récupération d’autres données annotées, 2 possibilités :\n\nAméliorer les annotations actuelles manuellement\nRécupérer d’autres images annotées ou annotations pour nos images"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#etape-3",
-    "href": "src/aiml4os-wp7/index.html#etape-3",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 3",
-    "text": "Etape 3\n\n\n\n\n\n\nAméliorations secondaires par rapport à l’amélioration de la qualité des annotations\nSuivre l’état de l’art à l’affût de nouveautés (modèle pré-entraînés sur HuggingFace)"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#etape-4",
-    "href": "src/aiml4os-wp7/index.html#etape-4",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 4",
-    "text": "Etape 4\n\n\n\n\n\n\nAPI à développer au delà du prototype actuel en fonction des besoins des clients"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#etape-5",
-    "href": "src/aiml4os-wp7/index.html#etape-5",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 5",
-    "text": "Etape 5\n\n\n\n\n\n\nApplication de visualisation à développer au delà du prototype actuel en fonction des besoins des clients"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#etape-6",
-    "href": "src/aiml4os-wp7/index.html#etape-6",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 6 :",
-    "text": "Etape 6 :\n\n\n\n\n\n\nAnalyse des résultats encore insuffisante et à pousser"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#en-plus",
-    "href": "src/aiml4os-wp7/index.html#en-plus",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "En plus",
-    "text": "En plus\n\nSentinel 2 : Poursuite des travaux de Judith Nabec sur images Sentinel 2 plus simples d’acquisition, et à résolution spectrale plus élevée (ou sur d’autres images)"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#la-suite",
-    "href": "src/aiml4os-wp7/index.html#la-suite",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "La suite",
-    "text": "La suite\n\nFin de la phase d’expérimentation\nBeaucoup de cas d’usage identifiés et de clients finaux\nNécessité de monter un véritable projet pour chaque cas d’usage avec des moyens adaptés\nCe qui permettra de hiérarchiser les améliorations"
+    "objectID": "src/aiml4os-wp7/index.html#challenges-perspectives",
+    "href": "src/aiml4os-wp7/index.html#challenges-perspectives",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Challenges & Perspectives",
+    "text": "Challenges & Perspectives\n\nHigh maintenance costs due to technical complexity\nNeed for specialized skills\nPromising results for cartographic survey support\nPotential improvements identified for each pipeline stage"
   },
   {
     "objectID": "src/documentation/acquisition.html",
@@ -275,14 +135,14 @@
     "href": "index.html",
     "title": "Projet Données Satellites",
     "section": "",
-    "text": "Description : Ici est rassemblée toute la documentation technique sur le travail effectué au cours de l'expérimentation sur les données satellite\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                Nov 7, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        doc\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Document retraçant les avancées et résultats obtenus sur les travaux exploratoires utilisant des images satellitaires\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 16, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        pdf\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Ce séminaire marque la fin des travaux d’expérimentation. À cette occasion, nous présenterons l’intégralité de la chaîne de traitement, de la récupération des images jusqu’à l’application d’aide à la décision, en mettant l’accent sur les difficultés rencontrées. La poursuite de ces travaux dépendra des besoins réels de l’Insee et nécessitera des compétences variées et une technicité élevée pour maintenir et/ou améliorer la chaîne de traitement.\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 28, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n                \n                  \n                    \n                      \n                        Vidéo\n                      \n                    \n                  \n                \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Application web à destination des agents facilitant l'utilisation des résultats fournis par le modèle de segmentation.\n\n            \n\n            \n            \n              \n                \n                Nov 7, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        CraTT\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n           \n         \n        \n          \n            \n            \n\n            \n              Description : TODO\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Nov 13, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n\n\n\nNo matching items"
+    "text": "Description : Ici est rassemblée toute la documentation technique sur le travail effectué au cours de l'expérimentation sur les données satellite\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                Nov 8, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        doc\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Document retraçant les avancées et résultats obtenus sur les travaux exploratoires utilisant des images satellitaires\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 16, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        pdf\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Ce séminaire marque la fin des travaux d’expérimentation. À cette occasion, nous présenterons l’intégralité de la chaîne de traitement, de la récupération des images jusqu’à l’application d’aide à la décision, en mettant l’accent sur les difficultés rencontrées. La poursuite de ces travaux dépendra des besoins réels de l’Insee et nécessitera des compétences variées et une technicité élevée pour maintenir et/ou améliorer la chaîne de traitement.\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 28, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n                \n                  \n                    \n                      \n                        Vidéo\n                      \n                    \n                  \n                \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Application web à destination des agents facilitant l'utilisation des résultats fournis par le modèle de segmentation.\n\n            \n\n            \n            \n              \n                \n                Nov 8, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        CraTT\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n           \n         \n        \n          \n            \n            \n\n            \n              Description : TODO\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Nov 13, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#documents-relatifs-au-projet-sur-les-données-satellites-à-linsee",
     "href": "index.html#documents-relatifs-au-projet-sur-les-données-satellites-à-linsee",
     "title": "Projet Données Satellites",
     "section": "",
-    "text": "Description : Ici est rassemblée toute la documentation technique sur le travail effectué au cours de l'expérimentation sur les données satellite\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                Nov 7, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        doc\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Document retraçant les avancées et résultats obtenus sur les travaux exploratoires utilisant des images satellitaires\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 16, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        pdf\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Ce séminaire marque la fin des travaux d’expérimentation. À cette occasion, nous présenterons l’intégralité de la chaîne de traitement, de la récupération des images jusqu’à l’application d’aide à la décision, en mettant l’accent sur les difficultés rencontrées. La poursuite de ces travaux dépendra des besoins réels de l’Insee et nécessitera des compétences variées et une technicité élevée pour maintenir et/ou améliorer la chaîne de traitement.\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 28, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n                \n                  \n                    \n                      \n                        Vidéo\n                      \n                    \n                  \n                \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Application web à destination des agents facilitant l'utilisation des résultats fournis par le modèle de segmentation.\n\n            \n\n            \n            \n              \n                \n                Nov 7, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        CraTT\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n           \n         \n        \n          \n            \n            \n\n            \n              Description : TODO\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Nov 13, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n\n\n\nNo matching items"
+    "text": "Description : Ici est rassemblée toute la documentation technique sur le travail effectué au cours de l'expérimentation sur les données satellite\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                Nov 8, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        doc\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Document retraçant les avancées et résultats obtenus sur les travaux exploratoires utilisant des images satellitaires\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 16, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        pdf\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Ce séminaire marque la fin des travaux d’expérimentation. À cette occasion, nous présenterons l’intégralité de la chaîne de traitement, de la récupération des images jusqu’à l’application d’aide à la décision, en mettant l’accent sur les difficultés rencontrées. La poursuite de ces travaux dépendra des besoins réels de l’Insee et nécessitera des compétences variées et une technicité élevée pour maintenir et/ou améliorer la chaîne de traitement.\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 28, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n                \n                  \n                    \n                      \n                        Vidéo\n                      \n                    \n                  \n                \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Application web à destination des agents facilitant l'utilisation des résultats fournis par le modèle de segmentation.\n\n            \n\n            \n            \n              \n                \n                Nov 8, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        CraTT\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n           \n         \n        \n          \n            \n            \n\n            \n              Description : TODO\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Nov 13, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "src/documentation/index.html",
