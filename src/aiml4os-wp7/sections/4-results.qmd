@@ -1,3 +1,12 @@
-## Demo
+## Interactive Visualization Tool
 
-Ici on fait juste une démo avec la nouvelle app
+[**Access the application**]{.orange}: [https://inseefrlab.github.io/satellite-images-webapp/](https://inseefrlab.github.io/satellite-images-webapp/)
+
+- [**Administrative-level monitoring**]{.orange} of building changes:
+  - Selection by [**administrative units**]{.blue2} (municipalities, districts)
+  - [**Quality control**]{.blue2} of detected changes
+
+- [**Key features**]{.orange}:
+  - Side-by-side temporal comparison
+  - Statistical indicators by area
+  - Interactive visual validation

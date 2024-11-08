@@ -1,0 +1,31 @@
+
+## Technical Environment
+
+- [**Cloud-native architecture**]{.orange} (SSPCloud platform)
+- [**Modern tech stack**]{.blue2}: Kubernetes, Docker, MLFlow, React
+- [**Automated workflows**]{.orange} for reproducibility
+- [**Continuous deployment**]{.blue2} practices
+
+## Processing Pipeline 
+
+![](../img/pipeline_donnees_sat.png){#fig-chain2 width=100% height=100%}
+
+
+## Application Architecture
+
+![](../img/schema_cratt_anglais.png){fig-align="center" width=100%}
+
+## Technical Implementation
+
+- [**Complex technical environment**]{.orange} due to:
+    - [**Non-traditional data**]{.blue2} processing
+    - [**Large data volumes**]{.blue2}
+    - [**High computational needs**]{.blue2}
+    - [**Reproducibility requirements**]{.blue2}
+
+## Challenges & Perspectives
+
+- [**High maintenance costs**]{.orange} due to technical complexity
+- Need for [**specialized skills**]{.blue2}
+- [**Promising results**]{.orange} for cartographic survey support
+- [**Potential improvements**]{.orange} identified for each pipeline stage
