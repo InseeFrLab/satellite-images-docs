@@ -1,6 +1,6 @@
 ## Interactive Visualization Tool
 
-[**Access the application**]{.orange}: [https://inseefrlab.github.io/satellite-images-webapp/](https://inseefrlab.github.io/satellite-images-webapp/)
+[**Access the application**]{.orange}: [Click here](https://inseefrlab.github.io/satellite-images-webapp/)
 
 - [**Administrative-level monitoring**]{.orange} of building changes:
   - Selection by [**administrative units**]{.blue2} (municipalities, districts)
