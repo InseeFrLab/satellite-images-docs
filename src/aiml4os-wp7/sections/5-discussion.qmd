@@ -13,7 +13,7 @@
 
 ## Application Architecture
 
-![](../img/schema_cratt_anglais.png){fig-align="center" width=100%}
+![](../img/app-architecture.png){fig-align="center" width=100%}
 
 ## Technical Implementation
 
