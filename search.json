@@ -81,7 +81,7 @@
     "href": "src/aiml4os-wp7/index.html#interactive-visualization-tool",
     "title": "Exploratory Work with Satellite Data: Results Assessment",
     "section": "Interactive Visualization Tool",
-    "text": "Interactive Visualization Tool\nAccess the application: https://inseefrlab.github.io/satellite-images-webapp/\n\nAdministrative-level monitoring of building changes:\n\nSelection by administrative units (municipalities, districts)\nQuality control of detected changes\n\nKey features:\n\nSide-by-side temporal comparison\nStatistical indicators by area\nInteractive visual validation"
+    "text": "Interactive Visualization Tool\nAccess the application: Click here\n\nAdministrative-level monitoring of building changes:\n\nSelection by administrative units (municipalities, districts)\nQuality control of detected changes\n\nKey features:\n\nSide-by-side temporal comparison\nStatistical indicators by area\nInteractive visual validation"
   },
   {
     "objectID": "src/aiml4os-wp7/index.html#technical-environment",
