@@ -3,7 +3,8 @@ title: AIML4OS Workshop on Earth Observation
 image: img/toad_wp7.jpg
 date: "2024-11-13"
 description: |
-  <b>Description :</b> Diaporama pour présenter le projet Détection d'évolution des bâtiments au sein des DOM en anglais pour le Work Package 7, Artificial Intelligence and Machine Learning for Official Statistics, organisé par Eurostat.
+  <b>Description :</b> Slideshow presentation of the project Detecting changes in buildings in French overseas departments for Work Package 7,
+  Artificial Intelligence and Machine Learning for Official Statistics, organized by Eurostat.
 author: Raya Berova, Thomas Faria et Clément Guillo
 slides:
   text: Slides
