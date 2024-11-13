@@ -10,10 +10,23 @@
 
 ![](../img/pipeline_donnees_sat_en.png){#fig-chain2 width=100% height=100%}
 
+::: {.notes}
+
+1. Need for standardisation of acquisition of data => for now rudimentary. Also need dated images but also in due time without clouds and same methodology => challenge of Pleaides
+2. Step for training. Clouds removals/ balancing datasets, labeling and splitting
+3. pytorch with pre trained model from HF. Need GPU
+4. Build API : predict images, cluster or bbox and compute building area statistics
+5. Déploying Geoserver and a web application
+6. Colleagues of Insee uses or results to make their statistics
+:::
 
 ## Application Architecture
 
 ![](../img/app-architecture.png){fig-align="center" width=100%}
+
+::: {.notes}
+Geoserver : dynamically stores satellite images
+:::
 
 ## Technical Implementation
 
