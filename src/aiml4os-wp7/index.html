@@ -514,7 +514,23 @@
 <section>
 <section id="results" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>4️⃣ Results</h1>
-
+<aside class="notes">
+<ul>
+<li>At this point we have built and trained our model, checked its performance</li>
+<li>Working on notebooks displaying maps… Key questions : how can we share our results ?</li>
+<li>Goals was not to publish an article but rather help colleagues from overseas territory =&gt; anticipate carto survey</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="interactive-visualization-tool" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Interactive Visualization Tool</h2>
@@ -532,6 +548,29 @@
 <li>Interactive visual validation</li>
 </ul></li>
 </ul>
+<aside class="notes">
+<ul>
+<li>Decided to build a tiny webapp … but we are datascientists be indulgent</li>
+<li>We computed building areas from our predictions this we get binary value for each pixel and aggregated by admin level</li>
+</ul>
+<p>⚠️ Disclaimer : This is a an early stage of our application. 0 check or data quality process have been done.</p>
+<ul>
+<li>Standard leaflet map with open Street map layer show Pleiades 2023</li>
+</ul>
+<p>97611 0332 : nuages in 2022</p>
+<p>97610ﾠ0608 : different methodology of blurring for prison</p>
+<p>97611 0237 : Our use case : detect building changes in precarious areas</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section id="presentation-outline-3" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Presentation Outline</h1>
@@ -559,7 +598,7 @@
 </section>
 <section id="processing-pipeline" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Processing Pipeline</h2>
-<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" width="100%" height="100%">
+<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" height="100%" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="../img/pipeline_donnees_sat_en.png" id="fig-chain2" style="width:100.0%;height:100.0%">
@@ -568,11 +607,44 @@
 </figcaption>
 </figure>
 </div>
+<aside class="notes">
+<ol type="1">
+<li>Need for standardisation of acquisition of data =&gt; for now rudimentary. Also need dated images but also in due time without clouds and same methodology =&gt; challenge of Pleaides</li>
+<li>Step for training. Clouds removals/ balancing datasets, labeling and splitting</li>
+<li>pytorch with pre trained model from HF. Need GPU</li>
+<li>Build API : predict images, cluster or bbox and compute building area statistics</li>
+<li>Déploying Geoserver and a web application</li>
+<li>Colleagues of Insee uses or results to make their statistics</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="application-architecture" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Application Architecture</h2>
 
-<img data-src="../img/app-architecture.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<img data-src="../img/app-architecture.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><aside class="notes">
+<p>Geoserver : dynamically stores satellite images</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="technical-implementation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Technical Implementation</h2>
 <ul>
