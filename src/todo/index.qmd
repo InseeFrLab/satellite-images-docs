@@ -1,0 +1,44 @@
+---
+format:
+  html:
+    header-includes: |
+        <link rel="icon" type="image/png" sizes="32x32" href="../_extensions/InseeFrLab/onyxia/favicon-32x32.png">
+sidebar: false
+---
+
+# TODO
+
+## Techos
+
+- Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL
+- Industrialiser sur la nouvelle webapp tous les départements (priorité Guyane/st martin)
+- Utiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle
+- Cache les predictions en terme de probabilité plutot que masque binaire
+
+## Insee
+
+### Dirag
+
+- Pour enquête carto : 
+  - être capable de déterminer les changements prioritaires à regarder et cohérent (pas des nuages) / Stockage des ilots controlés
+  - faire le use case mayotte sur 5 ans d'intervalle
+
+- Application de mise à dispo de point gpx avec fond données satellites
+
+### RP / Mayotte
+
+- Comparaison entre l'EAR/RIL et nos surfaces estimés / estimation de population basé sur les surfaces prédites
+
+## Diffusion des résultats
+
+- faire un DT Insee et voir avec CP si ca la branche
+- Faire la documentation du projet
+- mise à disposition du modèle CoSIA via l'API et faire pub aux européens
+
+## Hackathon
+
+- Pipeline avec images sentinel-2 (donc tout le process geoserver et tout)
+
+
+
+
