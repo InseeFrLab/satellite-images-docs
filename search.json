@@ -135,14 +135,14 @@
     "href": "src/todo/index.html",
     "title": "TODO",
     "section": "",
-    "text": "Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL\nIndustrialiser sur la nouvelle webapp tous les départements (priorité Guyane/st martin)\nUtiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle\nCache les predictions en terme de probabilité plutot que masque binaire\n\n\n\n\n\n\n\nPour enquête carto :\n\nêtre capable de déterminer les changements prioritaires à regarder et cohérent (pas des nuages) / Stockage des ilots controlés\nfaire le use case mayotte sur 5 ans d’intervalle\n\nApplication de mise à dispo de point gpx avec fond données satellites\n\n\n\n\n\ncoucou\nComparaison entre l’EAR/RIL et nos surfaces estimés / estimation de population basé sur les surfaces prédites\n\n\n\n\n\n\nfaire un DT Insee et voir avec CP si ca la branche\nFaire la documentation du projet\nmise à disposition du modèle CoSIA via l’API et faire pub aux européens\n\n\n\n\n\nPipeline avec images sentinel-2 (donc tout le process geoserver et tout)"
+    "text": "COUCOU - Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL - Industrialiser sur la nouvelle webapp tous les départements (priorité Guyane/st martin) - Utiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle - Cache les predictions en terme de probabilité plutot que masque binaire\n\n\n\n\n\n\nPour enquête carto :\n\nêtre capable de déterminer les changements prioritaires à regarder et cohérent (pas des nuages) / Stockage des ilots controlés\nfaire le use case mayotte sur 5 ans d’intervalle\n\nApplication de mise à dispo de point gpx avec fond données satellites\n\n\n\n\n\ncoucou\nComparaison entre l’EAR/RIL et nos surfaces estimés / estimation de population basé sur les surfaces prédites\n\n\n\n\n\n\nfaire un DT Insee et voir avec CP si ca la branche\nFaire la documentation du projet\nmise à disposition du modèle CoSIA via l’API et faire pub aux européens\n\n\n\n\n\nPipeline avec images sentinel-2 (donc tout le process geoserver et tout)"
   },
   {
     "objectID": "src/todo/index.html#techos",
     "href": "src/todo/index.html#techos",
     "title": "TODO",
     "section": "",
-    "text": "Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL\nIndustrialiser sur la nouvelle webapp tous les départements (priorité Guyane/st martin)\nUtiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle\nCache les predictions en terme de probabilité plutot que masque binaire"
+    "text": "COUCOU - Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL - Industrialiser sur la nouvelle webapp tous les départements (priorité Guyane/st martin) - Utiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle - Cache les predictions en terme de probabilité plutot que masque binaire"
   },
   {
     "objectID": "src/todo/index.html#insee",
