@@ -9,7 +9,7 @@ sidebar: false
 # TODO
 
 ## Techos
-COUCOU
+
 - Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL
 - Industrialiser sur la nouvelle webapp tous les départements (priorité Guyane/st martin)
 - Utiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle
