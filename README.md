@@ -13,8 +13,23 @@ Le site contient :
 
 ## Build
 
+Pour build le site de documentation, il faut installer une pre-release de Quarto:
+
+```sh
+wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.5.37/quarto-1.5.37-linux-amd64.deb -O quarto.deb
+sudo dpkg -i quarto.deb
+quarto check install
+rm quarto.deb
+```
+
 Pour render le site, exécutez la commande suivante depuis la racine du projet
 
 ```sh
 quarto preview --host 0.0.0.0 --port 5000
+```
+
+Fermer le site ouvert sur le port 5000 :
+
+```sh
+fuser -k 5000/tcp
 ```

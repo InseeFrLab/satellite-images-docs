@@ -4,7 +4,7 @@ project:
     - /src/**/index.qmd
     - index.qmd
     - /cards/*.qmd
-    - /src/documentation/acquisition.qmd
+    - /src/documentation/sections/*.qmd
 
 website:
   page-navigation: true
@@ -37,8 +37,12 @@ website:
           contents:
           - text: "Accueil"
             href: "src/documentation/index.qmd"
+          - text: "Une image satellite"
+            href: "src/documentation/sections/satellite_image.qmd"
           - text: "Acquisition"
-            href: "src/documentation/acquisition.qmd"
+            href: "src/documentation/sections/acquisition.qmd"
+          - text: "Pipeline du projet"
+            href: "src/documentation/sections/pipeline.qmd"
 
 format:
   html:
