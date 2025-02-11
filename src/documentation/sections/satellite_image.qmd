@@ -1,0 +1,28 @@
+---
+format:
+  html:
+    header-includes: |
+        <link rel="icon" type="image/png" sizes="32x32" href="../_extensions/InseeFrLab/onyxia/favicon-32x32.png">
+---
+
+# Qu'est ce que c'est une image ?
+
+C'est une matrice en 3 dimensions. Une image classique (RGB) contient 3 bandes, la bande Rouge, la Verte et la Bleue. Chaque bande est égale à une matrice n\*m (n et m est le nombre de pixels à l'horizontal et à la verticale). La matrice de chaque bande définie l'intensité de la bande par pixel. Donc une image RGB est une matrice 3\*n\*m. 
+
+<!-- Mettre des exemples -->
+
+## Une image satellite
+
+Il existe plusieurs caractéristiques propres aux images satellites : 
+
+- Date d'acquisition  
+- CRS (Coordinate Reference System)  
+- Bounding-box : les 4 points qui géolocalisent l'image (top bottom left right)  
+- Résolution : un pixel est égal à x cm² (Pléïades = 50cm², Sentinel-2 = 10m²)  
+- Nombre de bandes (Pléïades : 3 voire 4, Sentinel-2 : 13)  
+
+Les images satellites que nous utilisons sont en format TIF ou JP2.
+
+### Package Astrovision
+
+Pour prendre en main facilement nos images satellites et accéder à leurs caractéristiques, nous avons créé le package [Astrovision](https://github.com/InseeFrLab/astrovision). Il permet d'ouvrir une image TIF/JP2, découper l'image, labelliser l'image avec un masque fourni et afficher.

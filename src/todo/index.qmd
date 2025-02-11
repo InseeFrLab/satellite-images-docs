@@ -11,9 +11,13 @@ sidebar: false
 ## Techos
 
 - Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL
-- Industrialiser sur la nouvelle webapp tous les départements (priorité Guyane/st martin)
-- Utiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle
+- Industrialiser sur la nouvelle webapp tous les départements (priorité Guyane/St Martin)
+- Utiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle :heavy_check_mark:
 - Cache les predictions en terme de probabilité plutot que masque binaire
+- Mettre les prédictions multiclasses sur la webapp
+- Retravailler les fonctionnalités des cartes de la webapp
+- Retélécharger Guyane via SEAS, utiliser les masques nuages pour faire le découpage (prioriser en fonction de la date)
+- Inférence sur nouveau découpage Guyane
 
 ## Insee
 
@@ -29,6 +33,9 @@ sidebar: false
 
 - coucou 
 - Comparaison entre l'EAR/RIL et nos surfaces estimés / estimation de population basé sur les surfaces prédites
+-	Préparation d’un papier pour les JMS avec la DMTR. En lien avec les récents travaux sur Mayotte pour la DMTR et la préparation du futur recensement exhaustif de 2026. Ce sera un papier méthodologique sur le projet images satellites, illustré du cas d’usage de la DMTR (aide au recensement avec de la cartographie et/ou statistiques publiques, tout cela grâce aux prédictions sur images satellites).  
+-	Contact avec Julie Djiriguian pour présenter nos travaux afin de les aider à préparer l’enquête cartographique 2025 en vue du recensement exhaustif de Mayotte 2026.  
+
 
 ## Diffusion des résultats
 
@@ -38,8 +45,8 @@ sidebar: false
 
 ## Hackathon
 
-- Pipeline avec images sentinel-2 (donc tout le process geoserver et tout)
-
-
-
-
+- Pipeline avec images sentinel-2 (donc tout le process geoserver et tout) :
+  - Télécharger images sur le 81 et 69  
+  - Labels cosia sur 81 et 69  
+  - Entraînement modèle multiclasse
+  - Outil de visualisation  

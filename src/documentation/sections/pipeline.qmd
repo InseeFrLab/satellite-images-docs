@@ -1,0 +1,43 @@
+---
+format:
+  html:
+    header-includes: |
+        <link rel="icon" type="image/png" sizes="32x32" href="../_extensions/InseeFrLab/onyxia/favicon-32x32.png">
+---
+
+# Pipeline du Projet Données Satellites
+
+Chaque étape a un dépot Git dédié.  
+Tous nos dépots Git se trouvent [ici](https://github.com/orgs/InseeFrLab/teams/satellite-images/repositories).  
+
+## Récupération des images et des labels
+
+Voir la page sur l'acquisition des images.  
+
+## Preprocessing
+
+Préparation des images et labellisation :  
+- Découpage des images en une taille n*n.  
+- Labellisation grâce aux labels fournis.  
+- Stockage de ces images preprocessées sur le s3.  
+
+Utilisation d'Argoworkflow pour paralléliser les traitements par département, millésime, labels.  
+
+## Training
+
+Entraîner un modèle sur certaines images/labels.  
+
+Utilisation d'Argoworkflow pour paralléliser les entraînements par modèle utilisé, paramètres, données.  
+MLFlow pour suivre les entraînements, comparer les performances et stocker les modèles entraîner. Le meilleur modèle est "mis en production" sur MLFlow et sera utilisé pour l'inférence.  
+
+## Inférence
+
+Fournir des prédictions sur des nouvelles images.  
+
+API qui prend une image en entrée et retourne le masque de prédiction, deployé avec ArgoCD.  
+Utilisation d'Argoworkflow pour paralléliser les prédictions par département, millésime.  
+
+## Visualisation avec CRaTT
+
+Geoserver pour stocker les images satellites et les visualiser de façon dynamique.  
+Création d'une WepApp avec Observable pour afficher sur des cartes les images stockées dans le GeoServer avec les prédictions, et des statistiques d'évolution du bâti.
