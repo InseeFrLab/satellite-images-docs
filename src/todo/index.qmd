@@ -17,7 +17,8 @@ sidebar: false
 - Mettre les prédictions multiclasses sur la webapp
 - Retravailler les fonctionnalités des cartes de la webapp
 - Retélécharger Guyane via SEAS, utiliser les masques nuages pour faire le découpage (prioriser en fonction de la date)
-- Inférence sur nouveau découpage Guyane
+- Inférence sur nouveau découpage Guyane  
+- Utiliser une bdd externe pour flaguer les zones de bâti non résidentielles.
 
 ## Insee
 
