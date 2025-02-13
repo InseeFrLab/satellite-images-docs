@@ -51,3 +51,5 @@ sidebar: false
   - Labels cosia sur 81 et 69  
   - Entraînement modèle multiclasse
   - Outil de visualisation  
+
+- Télécharger des données sur les 4 saisons (pour l'instant que des images en été ont été récupérées)
