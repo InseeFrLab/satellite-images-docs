@@ -178,8 +178,16 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#acquisition" id="toc-acquisition" class="nav-link active" data-scroll-target="#acquisition">Acquisition</a>
   <ul class="collapse">
+  <li><a href="#images-satellite" id="toc-images-satellite" class="nav-link" data-scroll-target="#images-satellite">Images satellite</a>
+  <ul class="collapse">
   <li><a href="#pléïades" id="toc-pléïades" class="nav-link" data-scroll-target="#pléïades">Pléïades</a></li>
   <li><a href="#sentinel-2" id="toc-sentinel-2" class="nav-link" data-scroll-target="#sentinel-2">Sentinel-2</a></li>
+  </ul></li>
+  <li><a href="#labels-pour-lentraînement-du-modèle" id="toc-labels-pour-lentraînement-du-modèle" class="nav-link" data-scroll-target="#labels-pour-lentraînement-du-modèle">Labels (pour l’entraînement du modèle)</a>
+  <ul class="collapse">
+  <li><a href="#bdtopo" id="toc-bdtopo" class="nav-link" data-scroll-target="#bdtopo">BDTOPO</a></li>
+  <li><a href="#cosia" id="toc-cosia" class="nav-link" data-scroll-target="#cosia">COSIA</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -192,18 +200,39 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="acquisition" class="level1">
 <h1>Acquisition</h1>
-<section id="pléïades" class="level2">
-<h2 class="anchored" data-anchor-id="pléïades">Pléïades</h2>
+<section id="images-satellite" class="level2">
+<h2 class="anchored" data-anchor-id="images-satellite">Images satellite</h2>
+<section id="pléïades" class="level3">
+<h3 class="anchored" data-anchor-id="pléïades">Pléïades</h3>
 <p>Les images Pléides ont l’avantage d’avoir une très haute résolution (50cm). Elles, elles sont propriétés d’Airbus donc peu de monde y a accès à moins de payer. En tant qu’institution française, nous avons accès gratuitement à ces données via <a href="https://dinamis.data-terra.org/">Dinamis</a>, il vous suffit de créer un compte et de réaliser vos demandes. Notre équipe passe par un contact de l’IGN directement mais il nous a quand même fallu créer un compte Dinamis et signer un contrat.<br>
 Si vous voulez être « maîtres » de l’acquisition de vos images il va falloir passer par Dinamis, sinon les données les plus récentes en « très haute résolution » concernant Mayotte se retrouve sur le site de <a href="https://mayotte.ign.fr">l’IGN</a>. Ca reste tout de même la porte d’entrée la plus simple pour avoir accès aux images de Mayotte aujourd’hui sans ingénierie à mettre en place.</p>
 <p>A savoir que l’IGN et le CNES ont prévu des couvertures Pléiades régulières de Mayotte au cours de l’année 2025 (3 ou 4 en fonction de la météo à résolution 50 cm).</p>
 </section>
-<section id="sentinel-2" class="level2">
-<h2 class="anchored" data-anchor-id="sentinel-2">Sentinel-2</h2>
+<section id="sentinel-2" class="level3">
+<h3 class="anchored" data-anchor-id="sentinel-2">Sentinel-2</h3>
 <p>Pour un accès libre et très récent, le seul moyen est de passer par les images Sentinel-2, mais ce sont de la « haute résolution » : seulement (10m).<br>
 Il est possible de récupérer ces images par différents moyens (Earth Engine, SentinelHub, Copernicus…). Voici le code que nous avons utilisé pour les récupérer avec Earth Engine : <a href="https://github.com/InseeFrLab/download_sentinel.git">dépot git pour récupérer Sentinel-2</a>. Il faut d’abord se créer un compte et avoir les bons crédentials pour accéder aux images.</p>
+</section>
+</section>
+<section id="labels-pour-lentraînement-du-modèle" class="level2">
+<h2 class="anchored" data-anchor-id="labels-pour-lentraînement-du-modèle">Labels (pour l’entraînement du modèle)</h2>
+<section id="bdtopo" class="level3">
+<h3 class="anchored" data-anchor-id="bdtopo">BDTOPO</h3>
+<p>TODO</p>
+</section>
+<section id="cosia" class="level3">
+<h3 class="anchored" data-anchor-id="cosia">COSIA</h3>
+<p>Il est possible d’exporter les données via le site de <a href="https://cosia.ign.fr/info#export">Cosia</a>. Il faudra ensuite stocker le zip sur le s3, et en passant par un service, il suffira de lancer certaines lignes de commandes pour dézipper le fichier et placer le contenu à l’endroit souhaité.<br>
+Exemple :</p>
+<pre><code>mkdir cosia-label
+mc cp s3/projet-hackathon-ntts-2025/data-label/COSIA/69/CoSIA_D069_2020.zip cosia-label/
+unzip cosia-label/CoSIA_D069_2020.zip -d cosia-label/
+mc cp -r cosia-label/CoSIA_D069_2020/ s3/projet-hackathon-ntts-2025/data-label/COSIA/69/2020/
+mc rm s3/projet-hackathon-ntts-2025/data-label/COSIA/69/CoSIA_D069_2020.zip
+rm -r cosia-label</code></pre>
 
 
+</section>
 </section>
 </section>
 
