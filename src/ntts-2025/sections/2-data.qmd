@@ -1,0 +1,31 @@
+## Satellite Imagery: Key Features
+
+- [**Multiple spectral bands**]{.orange} beyond RGB (e.g., infrared)
+- [**Georeferenced data**]{.blue2}: each pixel has specific coordinates
+- Main characteristics:
+  - [**Spatial resolution**]{.orange}
+  - [**Acquisition frequency**]{.orange}
+  - [**Spectral resolution**]{.orange}
+  - [**Geographic coverage**]{.orange}
+
+## Available Data Sources (PLEIADES)
+
+### Pléiades (Very High Resolution)
+- [**0.5m × 0.5m**]{.blue2} spatial resolution
+- 3 bands (RGB)
+- Free archives, on-demand acquisition ([**6-8 months**]{.blue2} for a department)
+- Image size: 1km² (2000 × 2000 pixels)
+
+## Available Data Sources (Sentinel-2)
+
+### Sentinel-2 (High Resolution)
+- [**10m × 10m**]{.blue2} spatial resolution
+- 13 spectral bands
+- [**5-day revisit time**]{.orange}, free access
+- Image size: 6.25 km² (250 × 250)
+
+## Reference Data (BDTOPO)
+
+- Building footprints as [**vector polygons**]{.blue2}
+- Based on [**IGN**]{.orange} aerial photography
+- Used as training data despite temporal misalignment with Pléiades imagery

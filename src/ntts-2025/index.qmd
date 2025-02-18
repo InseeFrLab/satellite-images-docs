@@ -1,0 +1,109 @@
+---
+title: "Enhancing housing surveys in Overseas Departments using Deep Learning and Satellite Data"
+subtitle: |
+  **[Raya Berova, Thomas Faria, Clément Guillo]{.orange}**
+date: "03/12/2025"
+date-format: "D MMMM YYYY"
+slide-number: true
+lang: en-GB
+slide-tone: false
+chalkboard:
+  theme: whiteboard
+format:
+  onyxia-revealjs:
+    output-file: index.html
+controls: true
+css: ../custom.css
+ascii: true
+---
+
+# Outline
+
+1️⃣ Introduction
+
+2️⃣ Methodology
+
+3️⃣ Data
+
+4️⃣ Results
+
+5️⃣ Project Structure
+
+6️⃣ Discussion
+
+
+# 1️⃣ Introduction
+
+{{< include sections/1-introduction.qmd >}}
+
+# Presentation Outline
+
+1️⃣ Introduction
+
+**2️⃣ Methodology**
+
+3️⃣ Data
+
+4️⃣ Results
+
+5️⃣ Project Structure
+
+6️⃣ Discussion
+
+# 2️⃣ Methodology
+
+{{< include sections/3-methodo.qmd >}}
+
+# Presentation Outline
+
+1️⃣ Introduction
+
+2️⃣ Methodology
+
+**3️⃣ Data**
+
+4️⃣ Results
+
+5️⃣ Project Structure
+
+6️⃣ Discussion
+
+# 3️⃣ Data
+
+{{< include sections/2-data.qmd >}}
+
+# Presentation Outline
+
+1️⃣ Introduction
+
+2️⃣ Methodology
+
+3️⃣ Data
+
+**4️⃣ Results**
+
+5️⃣ Project Structure
+
+6️⃣ Discussion
+
+# 4️⃣ Results
+
+{{< include sections/4-results.qmd >}}
+
+# Presentation Outline
+
+1️⃣ Introduction
+
+2️⃣ Methodology
+
+3️⃣ Data
+
+4️⃣ Results
+
+**5️⃣ Project Structure**
+
+6️⃣ Discussion
+
+# 5️⃣ Project Structure
+
+{{< include sections/5-discussion.qmd >}}

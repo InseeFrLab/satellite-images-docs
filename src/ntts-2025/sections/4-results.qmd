@@ -1,0 +1,36 @@
+::: {.notes}
+- At this point we have built and trained our model, checked its performance
+- Working on notebooks displaying maps... Key questions : how can we share our results ?
+- Goals was not to publish an article but rather help colleagues from overseas territory => anticipate carto survey
+:::
+
+## Interactive Visualization Tool
+
+[**Access the application**]{.orange}: [Click here](https://inseefrlab.github.io/satellite-images-webapp/)
+
+- [**Administrative-level monitoring**]{.orange} of building changes:
+  - Selection by [**administrative units**]{.blue2} (municipalities, districts)
+  - [**Quality control**]{.blue2} of detected changes
+
+- [**Key features**]{.orange}:
+  - Side-by-side temporal comparison
+  - Statistical indicators by area
+  - Interactive visual validation
+
+
+::: {.notes}
+
+- Decided to build a tiny webapp ... but we are datascientists be indulgent
+- We computed building areas from our predictions this we get binary value for each pixel and aggregated by admin level
+
+⚠️ Disclaimer : This is a an early stage of our application. 0 check or data quality process have been done.
+
+- Standard leaflet map with open Street map layer show Pleiades 2023
+
+97611	0332 : nuages in 2022
+
+97610ﾠ0608 : different methodology of blurring for prison
+
+97611 0237 : Our use case : detect building changes in precarious areas
+
+:::
