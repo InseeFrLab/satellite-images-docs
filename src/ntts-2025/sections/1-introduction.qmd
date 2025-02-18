@@ -1,0 +1,30 @@
+## Project Overview
+
+- [**Satellite imagery exploration**]{.orange} for official statistics, initiated through academic challenge (2022)
+- [**Operational implementation**]{.orange} in French overseas territories
+- Part of European strategy ([Warsaw Memorandum](https://dgins2021.stat.gov.pl/warsaw-memorandum))
+
+
+## Applications in Official Statistics
+
+- [**Cartographic survey optimization**]{.orange}:
+  - Identification of [**priority areas**]{.blue2} for field operations
+  - Detection of [**building changes**]{.blue2} between surveys
+  - [**Temporal comparison**]{.blue2} using historical and recent imagery
+
+- [**Building stock monitoring**]{.orange}:
+  - [**Automated change detection**]{.blue2}
+  - [**Land use evolution**]{.blue2}
+  - Support for [**population estimates**]{.blue2} in overseas territories
+
+## Focus on Mayotte and French Guiana
+
+- [**Critical context**]{.orange}:
+  - Local authorities [**questioning official statistics**]{.blue2}
+  - Rapid urban development
+  - Challenging field conditions
+
+- [**Satellite data as supporting evidence**]{.orange}:
+  - Independent source of information
+  - Continuous territorial monitoring
+  - Transparent methodology

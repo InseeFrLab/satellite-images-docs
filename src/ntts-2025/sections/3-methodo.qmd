@@ -1,0 +1,21 @@
+## Semantic Segmentation
+
+![Pleiades © CNES_2022, Distribution AIRBUS DS](../img/segmentation_exemple.png){width=80% fig-align="center"}
+
+## Training a Segmentation Model
+
+- Model trained to perform automatic segmentation [**from annotated examples**]{.orange}. Requirements:
+    - [**Collection**]{.blue2} of satellite images
+    - [**Production of annotations**]{.blue2} (building footprints)
+- Model learns to reproduce annotations from images, with the goal to [**generalize**]{.orange} to new images
+
+## From Segmentation to Change Detection
+
+![](../img/strategy_segmentation.png){width=80%}
+
+## Methodology Details
+
+- [**Model architecture**]{.orange}:
+    - SegFormer backbone
+    - Transformer-based encoder
+    - Lightweight decoder
