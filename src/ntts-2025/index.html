@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.37">
 
   <meta name="dcterms.date" content="2025-03-12">
-  <title>Projet Données Satellites – Enhancing housing surveys in Overseas Departments using Deep Learning and Satellite Data</title>
+  <title>Projet Données Satellites – Enhancing housing surveys using satellite imagery</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -325,7 +325,7 @@
     }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<meta property="og:title" content="Projet Données Satellites - Enhancing housing surveys in Overseas Departments using Deep Learning and Satellite Data">
+<meta property="og:title" content="Projet Données Satellites - Enhancing housing surveys using satellite imagery">
 <meta property="og:description" content="Raya Berova, Thomas Faria, Clément Guillo">
 <meta property="og:site_name" content="Projet Données Satellites">
 </head>
@@ -334,8 +334,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="../_extensions/InseeFrLab/onyxia/background.svg" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">Enhancing housing surveys in Overseas Departments using Deep Learning and Satellite Data</h1>
-  <p class="subtitle"></p><p><strong><span class="orange">Raya Berova, Thomas Faria, Clément Guillo</span></strong></p><p></p>
+  <h1 class="title">Enhancing housing surveys using satellite imagery</h1>
+  <p class="subtitle"></p><p><span class="orange"><strong>Raya Berova</strong></span>, <strong><span class="blue2">Thomas Faria</span></strong>, <span class="orange"><strong>Clément Guillo</strong></span></p><p></p>
 
 <div class="quarto-title-authors">
 </div>
@@ -357,13 +357,9 @@
 <h1>1️⃣ Introduction</h1>
 
 </section>
-<section id="project-overview" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Project Overview</h2>
-<ul>
-<li><span class="orange"><strong>Satellite imagery exploration</strong></span> for official statistics, initiated through academic challenge (2022)</li>
-<li><span class="orange"><strong>Operational implementation</strong></span> in French overseas territories</li>
-<li>Part of European strategy (<a href="https://dgins2021.stat.gov.pl/warsaw-memorandum">Warsaw Memorandum</a>)</li>
-</ul>
+<section id="context" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Context</h2>
+<p>TODO : Ici faire une slide de contexte, pourquoi on a commencer à bosse sur ca. Dire Chido : encore plus urgent</p>
 </section>
 <section id="applications-in-official-statistics" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Applications in Official Statistics</h2>
@@ -415,34 +411,27 @@
 
 </section>
 <section id="semantic-segmentation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Semantic Segmentation</h2>
-
-<img data-src="../img/segmentation_exemple.png" style="width:80.0%" class="r-stretch quarto-figure-center"><p class="caption">Pleiades © CNES_2022, Distribution AIRBUS DS</p></section>
+<h2>Semantic segmentation</h2>
+<p>TODO : changer l’image pour mettre multiclasse <img data-src="../img/segmentation_exemple.png" class="quarto-figure quarto-figure-center" style="width:80.0%" alt="Pleiades © CNES_2022, Distribution AIRBUS DS"></p>
+</section>
 <section id="training-a-segmentation-model" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Training a Segmentation Model</h2>
+<h2>Training a segmentation model</h2>
 <ul>
 <li>Model trained to perform automatic segmentation <span class="orange"><strong>from annotated examples</strong></span>. Requirements:
 <ul>
 <li><span class="blue2"><strong>Collection</strong></span> of satellite images</li>
-<li><span class="blue2"><strong>Production of annotations</strong></span> (building footprints)</li>
+<li><span class="blue2"><strong>Production of annotations</strong></span> (building footprints or land cover if available)</li>
 </ul></li>
 <li>Model learns to reproduce annotations from images, with the goal to <span class="orange"><strong>generalize</strong></span> to new images</li>
 </ul>
 </section>
 <section id="from-segmentation-to-change-detection" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>From Segmentation to Change Detection</h2>
+<h2>From segmentation to change detection</h2>
 
 <img data-src="../img/strategy_segmentation.png" style="width:80.0%" class="r-stretch"></section>
-<section id="methodology-details" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Methodology Details</h2>
-<ul>
-<li><span class="orange"><strong>Model architecture</strong></span>:
-<ul>
-<li>SegFormer backbone</li>
-<li>Transformer-based encoder</li>
-<li>Lightweight decoder</li>
-</ul></li>
-</ul>
+<section id="model-used" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Model used</h2>
+<p>TODO : detailler un peu (dire qu’on fine tune etc) - <span class="orange"><strong>Model architecture</strong></span>: - SegFormer backbone - Transformer-based encoder - Lightweight decoder</p>
 </section></section>
 <section id="presentation-outline-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Presentation Outline</h1>
@@ -459,8 +448,9 @@
 <h1>3️⃣ Data</h1>
 
 </section>
-<section id="satellite-imagery-key-features" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Satellite Imagery: Key Features</h2>
+<section id="satellite-imagery" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Satellite imagery</h2>
+<p>TODO: Corriger les couleur</p>
 <ul>
 <li><span class="orange"><strong>Multiple spectral bands</strong></span> beyond RGB (e.g., infrared)</li>
 <li><span class="blue2"><strong>Georeferenced data</strong></span>: each pixel has specific coordinates</li>
@@ -492,9 +482,11 @@
 <li><span class="orange"><strong>5-day revisit time</strong></span>, free access</li>
 <li>Image size: 6.25 km² (250 × 250)</li>
 </ul>
+<p>TODO : mettre une image de comparaison sentinel vs Pleiades</p>
 </section>
 <section id="reference-data-bdtopo" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Reference Data (BDTOPO)</h2>
+<h2>Reference data (BDTOPO)</h2>
+<p>TODO : Faire slides avec COSIA et mentionner projet</p>
 <ul>
 <li>Building footprints as <span class="blue2"><strong>vector polygons</strong></span></li>
 <li>Based on <span class="orange"><strong>IGN</strong></span> aerial photography</li>
@@ -534,6 +526,7 @@
 </section>
 <section id="interactive-visualization-tool" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Interactive Visualization Tool</h2>
+<p>TODO : Est ce que je mets pas juste image vaut mieux que mots et on vire tout ?</p>
 <p><span class="orange"><strong>Access the application</strong></span>: <a href="https://inseefrlab.github.io/satellite-images-webapp/">Click here</a></p>
 <ul>
 <li><span class="orange"><strong>Administrative-level monitoring</strong></span> of building changes:
@@ -585,7 +578,7 @@
 <section>
 <section id="project-structure" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>5️⃣ Project Structure</h1>
-
+<p>TODO : Transformer cette partie en =&gt; From experimentation to production</p>
 </section>
 <section id="technical-environment" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Technical Environment</h2>
@@ -598,7 +591,7 @@
 </section>
 <section id="processing-pipeline" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Processing Pipeline</h2>
-<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" width="100%" height="100%">
+<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" height="100%" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="../img/pipeline_donnees_sat_en.png" id="fig-chain2" style="width:100.0%;height:100.0%">
