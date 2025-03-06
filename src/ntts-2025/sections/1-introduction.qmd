@@ -1,8 +1,6 @@
-## Project Overview
+## Context
 
-- [**Satellite imagery exploration**]{.orange} for official statistics, initiated through academic challenge (2022)
-- [**Operational implementation**]{.orange} in French overseas territories
-- Part of European strategy ([Warsaw Memorandum](https://dgins2021.stat.gov.pl/warsaw-memorandum))
+TODO : Ici faire une slide de contexte, pourquoi on a commencer à bosse sur ca. Dire Chido : encore plus urgent
 
 
 ## Applications in Official Statistics

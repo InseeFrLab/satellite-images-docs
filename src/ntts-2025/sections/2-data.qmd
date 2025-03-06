@@ -1,4 +1,5 @@
-## Satellite Imagery: Key Features
+## Satellite imagery
+TODO: Corriger les couleur
 
 - [**Multiple spectral bands**]{.orange} beyond RGB (e.g., infrared)
 - [**Georeferenced data**]{.blue2}: each pixel has specific coordinates
@@ -24,7 +25,10 @@
 - [**5-day revisit time**]{.orange}, free access
 - Image size: 6.25 km² (250 × 250)
 
-## Reference Data (BDTOPO)
+TODO : mettre une image de comparaison sentinel vs Pleiades
+
+## Reference data (BDTOPO)
+TODO : Faire slides avec COSIA et mentionner projet
 
 - Building footprints as [**vector polygons**]{.blue2}
 - Based on [**IGN**]{.orange} aerial photography

@@ -1,20 +1,22 @@
-## Semantic Segmentation
+## Semantic segmentation
 
+TODO : changer l'image pour mettre multiclasse
 ![Pleiades © CNES_2022, Distribution AIRBUS DS](../img/segmentation_exemple.png){width=80% fig-align="center"}
 
-## Training a Segmentation Model
+## Training a segmentation model
 
 - Model trained to perform automatic segmentation [**from annotated examples**]{.orange}. Requirements:
     - [**Collection**]{.blue2} of satellite images
-    - [**Production of annotations**]{.blue2} (building footprints)
+    - [**Production of annotations**]{.blue2} (building footprints or land cover if available)
 - Model learns to reproduce annotations from images, with the goal to [**generalize**]{.orange} to new images
 
-## From Segmentation to Change Detection
+## From segmentation to change detection
 
 ![](../img/strategy_segmentation.png){width=80%}
 
-## Methodology Details
+## Model used
 
+TODO : detailler un peu (dire qu'on fine tune etc)
 - [**Model architecture**]{.orange}:
     - SegFormer backbone
     - Transformer-based encoder
