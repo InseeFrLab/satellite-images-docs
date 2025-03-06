@@ -6,6 +6,8 @@
 
 ## Interactive Visualization Tool
 
+TODO : Est ce que je mets pas juste image vaut mieux que mots et on vire tout ?
+
 [**Access the application**]{.orange}: [Click here](https://inseefrlab.github.io/satellite-images-webapp/)
 
 - [**Administrative-level monitoring**]{.orange} of building changes:

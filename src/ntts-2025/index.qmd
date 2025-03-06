@@ -1,7 +1,7 @@
 ---
-title: "Enhancing housing surveys in Overseas Departments using Deep Learning and Satellite Data"
+title: "Enhancing housing surveys using satellite imagery"
 subtitle: |
-  **[Raya Berova, Thomas Faria, Clément Guillo]{.orange}**
+  [**Raya Berova**]{.orange}, **[Thomas Faria]{.blue2}**, [**Clément Guillo**]{.orange}
 date: "03/12/2025"
 date-format: "D MMMM YYYY"
 slide-number: true
