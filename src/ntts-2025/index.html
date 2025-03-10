@@ -348,7 +348,7 @@
 <p>2️⃣ Methodology</p>
 <p>3️⃣ Data</p>
 <p>4️⃣ Results</p>
-<p>5️⃣ Project Structure</p>
+<p>5️⃣ From experimentation to production?</p>
 <p>6️⃣ Discussion</p>
 </section>
 
@@ -359,40 +359,69 @@
 </section>
 <section id="context" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Context</h2>
-<p>TODO : Ici faire une slide de contexte, pourquoi on a commencer à bosse sur ca. Dire Chido : encore plus urgent</p>
-</section>
-<section id="applications-in-official-statistics" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Applications in Official Statistics</h2>
 <ul>
-<li><span class="orange"><strong>Cartographic survey optimization</strong></span>:
+<li>Insee maintains a <span class="orange"><strong>register of localized buildings</strong></span> (RIL)
 <ul>
-<li>Identification of <span class="blue2"><strong>priority areas</strong></span> for field operations</li>
-<li>Detection of <span class="blue2"><strong>building changes</strong></span> between surveys</li>
-<li><span class="blue2"><strong>Temporal comparison</strong></span> using historical and recent imagery</li>
+<li>Comprehensive housing data for cities with over 10k inhabitants 🏙️</li>
+<li>Used to create <span class="blue2"><strong>sampling frames</strong></span> for census surveys 📋</li>
 </ul></li>
-<li><span class="orange"><strong>Building stock monitoring</strong></span>:
+<li>The RIL quality is <span class="orange"><strong>good</strong></span> in metropolitan France ✅…
 <ul>
-<li><span class="blue2"><strong>Automated change detection</strong></span></li>
-<li><span class="blue2"><strong>Land use evolution</strong></span></li>
-<li>Support for <span class="blue2"><strong>population estimates</strong></span> in overseas territories</li>
+<li>…but France also includes <span class="blue2"><strong>overseas territories</strong></span> (OTs)! 🌎</li>
+<li>There, data <span class="blue2"><strong>quality is significantly lower</strong></span> ⚠️</li>
 </ul></li>
 </ul>
 </section>
-<section id="focus-on-mayotte-and-french-guiana" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Focus on Mayotte and French Guiana</h2>
+<section id="census-in-overseas-territories" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Census in Overseas Territories</h2>
 <ul>
-<li><span class="orange"><strong>Critical context</strong></span>:
+<li><p>A <span class="orange"><strong>cartographic survey</strong></span> is conducted in OTs before each census</p></li>
+<li><p><span class="orange"><strong>Critical context</strong></span>, particularly in Mayotte and French Guiana:</p>
 <ul>
-<li>Local authorities <span class="blue2"><strong>questioning official statistics</strong></span></li>
-<li>Rapid urban development</li>
-<li>Challenging field conditions</li>
+<li>Local authorities <span class="blue2"><strong>question official statistics</strong></span></li>
+<li>Rapid <span class="blue2"><strong>urban development</strong></span></li>
+<li>Difficult <span class="blue2"><strong>field conditions</strong></span></li>
 </ul></li>
+<li><p>Requires significant <span class="orange"><strong>work</strong></span> and is highly <span class="orange"><strong>costly</strong></span> 💰</p></li>
+<li><p>Can we use <span class="orange"><strong>satellite imagery</strong></span> to optimize census processes in OTs? 🛰️</p></li>
+</ul>
+<aside class="notes">
+<ul>
 <li><span class="orange"><strong>Satellite data as supporting evidence</strong></span>:
 <ul>
-<li>Independent source of information</li>
-<li>Continuous territorial monitoring</li>
-<li>Transparent methodology</li>
+<li>Independent information source 🔍</li>
+<li>Continuous territorial monitoring 🔄</li>
+<li>Transparent and reproducible methodology 📑</li>
 </ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="our-use-cases" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Our use cases</h2>
+<ul>
+<li><span class="orange"><strong>Pre-cartographic survey</strong></span>:
+<ul>
+<li>Identify <span class="blue2"><strong>priority areas</strong></span> for fieldwork 🎯</li>
+<li>Detect <span class="blue2"><strong>building changes</strong></span> since last survey 🏗️</li>
+<li>Perform <span class="blue2"><strong>temporal comparisons</strong></span> using historical and recent imagery 📆</li>
+</ul></li>
+<li><span class="orange"><strong>Post-cartographic survey</strong></span>:
+<ul>
+<li><span class="blue2"><strong>Automated change detection</strong></span> 🤖</li>
+<li>Analysis of <span class="blue2"><strong>land-use evolution</strong></span> 🌳➡️🏘️</li>
+<li>Assist <span class="blue2"><strong>population estimates</strong></span> in OTs 📊</li>
+</ul></li>
+<li><span class="red2"><strong>Extraordinary use case</strong></span>: Rapid response after devastating tropical cyclone “Chido”</li>
 </ul>
 </section></section>
 <section id="presentation-outline" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
@@ -401,7 +430,7 @@
 <p><strong>2️⃣ Methodology</strong></p>
 <p>3️⃣ Data</p>
 <p>4️⃣ Results</p>
-<p>5️⃣ Project Structure</p>
+<p>5️⃣ From experimentation to production?</p>
 <p>6️⃣ Discussion</p>
 </section>
 
@@ -412,17 +441,18 @@
 </section>
 <section id="semantic-segmentation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Semantic segmentation</h2>
-<p>TODO : changer l’image pour mettre multiclasse <img data-src="../img/segmentation_exemple.png" class="quarto-figure quarto-figure-center" style="width:80.0%" alt="Pleiades © CNES_2022, Distribution AIRBUS DS"></p>
-</section>
+
+<img data-src="../img/segmentation_exemple.png" style="width:80.0%" class="r-stretch quarto-figure-center"><p class="caption">Pleiades © CNES_2022, Distribution AIRBUS DS</p></section>
 <section id="training-a-segmentation-model" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Training a segmentation model</h2>
 <ul>
-<li>Model trained to perform automatic segmentation <span class="orange"><strong>from annotated examples</strong></span>. Requirements:
+<li>Model trained for automatic segmentation <span class="orange"><strong>from annotated examples</strong></span></li>
+<li><span class="orange"><strong>Requirements</strong></span>:
 <ul>
-<li><span class="blue2"><strong>Collection</strong></span> of satellite images</li>
-<li><span class="blue2"><strong>Production of annotations</strong></span> (building footprints or land cover if available)</li>
+<li><span class="blue2"><strong>Satellite image</strong></span> collection 🛰️</li>
+<li><span class="blue2"><strong>Production of annotations</strong></span> (building footprints or land cover, if available) 📍</li>
 </ul></li>
-<li>Model learns to reproduce annotations from images, with the goal to <span class="orange"><strong>generalize</strong></span> to new images</li>
+<li>Model learns to reproduce annotations from images aiming to <span class="orange"><strong>generalize</strong></span> on new images 🎯</li>
 </ul>
 </section>
 <section id="from-segmentation-to-change-detection" class="slide level2" data-background-image="background.svg" data-background-size="contain">
@@ -431,7 +461,21 @@
 <img data-src="../img/strategy_segmentation.png" style="width:80.0%" class="r-stretch"></section>
 <section id="model-used" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Model used</h2>
-<p>TODO : detailler un peu (dire qu’on fine tune etc) - <span class="orange"><strong>Model architecture</strong></span>: - SegFormer backbone - Transformer-based encoder - Lightweight decoder</p>
+<ul>
+<li><span class="orange"><strong>Model architecture</strong></span> 🧩:
+<ul>
+<li><span class="blue2"><strong>Backbone</strong></span>: SegFormer (<span class="green2"><strong>MiT</strong></span>)</li>
+<li><span class="blue2"><strong>Encoder</strong></span>: <span class="green2"><strong>Transformer-based</strong></span> (efficient self-attention, no positional encoding) ⚙️</li>
+<li><span class="blue2"><strong>Decoder</strong></span>: Lightweight <span class="green2"><strong>MLP head</strong></span> ✨</li>
+</ul></li>
+<li><span class="orange"><strong>Why SegFormer?</strong></span> 🚀:
+<ul>
+<li><span class="blue2"><strong>No complex decoders</strong></span> → Efficient &amp; scalable ⚡</li>
+<li><span class="blue2"><strong>Captures local &amp; global context</strong></span> → High accuracy 🎯</li>
+<li><span class="blue2"><strong>No positional embeddings</strong></span> → Improved resolution generalization 📐</li>
+</ul></li>
+<li><span class="orange"><strong>Fine-tuned</strong></span> on our dataset 🗃️</li>
+</ul>
 </section></section>
 <section id="presentation-outline-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Presentation Outline</h1>
@@ -439,7 +483,7 @@
 <p>2️⃣ Methodology</p>
 <p><strong>3️⃣ Data</strong></p>
 <p>4️⃣ Results</p>
-<p>5️⃣ Project Structure</p>
+<p>5️⃣ From experimentation to production?</p>
 <p>6️⃣ Discussion</p>
 </section>
 
@@ -449,48 +493,50 @@
 
 </section>
 <section id="satellite-imagery" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Satellite imagery</h2>
-<p>TODO: Corriger les couleur</p>
+<h2>Satellite Imagery 🛰️</h2>
 <ul>
-<li><span class="orange"><strong>Multiple spectral bands</strong></span> beyond RGB (e.g., infrared)</li>
-<li><span class="blue2"><strong>Georeferenced data</strong></span>: each pixel has specific coordinates</li>
-<li>Main characteristics:
+<li><span class="orange"><strong>Multiple spectral bands</strong></span> beyond <span class="red2"><strong>R</strong></span><span class="green2"><strong>G</strong></span><span class="blue2"><strong>B</strong></span> (e.g., infrared)</li>
+<li><span class="orange"><strong>Georeferenced data</strong></span>: each pixel has specific <span class="blue2"><strong>coordinates</strong></span> 📍</li>
+<li>Main <span class="orange"><strong>characteristics</strong></span>:
 <ul>
-<li><span class="orange"><strong>Spatial resolution</strong></span></li>
-<li><span class="orange"><strong>Acquisition frequency</strong></span></li>
-<li><span class="orange"><strong>Spectral resolution</strong></span></li>
-<li><span class="orange"><strong>Geographic coverage</strong></span></li>
+<li><span class="blue2"><strong>Spatial resolution</strong></span> 📐</li>
+<li><span class="blue2"><strong>Acquisition frequency</strong></span> 🔄</li>
+<li><span class="blue2"><strong>Spectral resolution</strong></span> 🌈</li>
+<li><span class="blue2"><strong>Geographic coverage</strong></span> 🌍</li>
 </ul></li>
 </ul>
 </section>
-<section id="available-data-sources-pleiades" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Available Data Sources (PLEIADES)</h2>
-<h3 data-background-image="background.svg" data-background-size="contain" id="pléiades-very-high-resolution">Pléiades (Very High Resolution)</h3>
+<section id="pléiades-very-high-resolution" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Pléiades (Very High Resolution) 🛰️</h2>
 <ul>
-<li><span class="blue2"><strong>0.5m × 0.5m</strong></span> spatial resolution</li>
-<li>3 bands (RGB)</li>
-<li>Free archives, on-demand acquisition (<span class="blue2"><strong>6-8 months</strong></span> for a department)</li>
-<li>Image size: 1km² (2000 × 2000 pixels)</li>
+<li><span class="orange"><strong>Characteristics</strong></span>:
+<ul>
+<li><span class="blue2"><strong>0.5m × 0.5m</strong></span> spatial resolution 🔍</li>
+<li><span class="blue2"><strong>3</strong></span> spectral bands (<span class="red2"><strong>R</strong></span><span class="green2"><strong>G</strong></span><span class="blue2"><strong>B</strong></span>) 🎨</li>
+<li>Free <span class="blue2"><strong>archives</strong></span>, <span class="blue2"><strong>on-demand</strong></span> acquisition (<span class="green2"><strong>6-8 months</strong></span> per department), Airbus © licensing 📅</li>
+<li>Image size: <span class="blue2"><strong>1 km²</strong></span> (2000 × 2000 pixels) 🖼️</li>
+</ul></li>
 </ul>
 </section>
-<section id="available-data-sources-sentinel-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Available Data Sources (Sentinel-2)</h2>
-<h3 data-background-image="background.svg" data-background-size="contain" id="sentinel-2-high-resolution">Sentinel-2 (High Resolution)</h3>
+<section id="sentinel-2-high-resolution" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Sentinel-2 (High Resolution) 🛰️</h2>
 <ul>
-<li><span class="blue2"><strong>10m × 10m</strong></span> spatial resolution</li>
-<li>13 spectral bands</li>
-<li><span class="orange"><strong>5-day revisit time</strong></span>, free access</li>
-<li>Image size: 6.25 km² (250 × 250)</li>
+<li><span class="orange"><strong>Characteristics</strong></span>:
+<ul>
+<li><span class="blue2"><strong>10m × 10m</strong></span> spatial resolution 🔍</li>
+<li><span class="blue2"><strong>13</strong></span> spectral bands 🎨</li>
+<li><span class="blue2"><strong>5-day revisit time</strong></span>, free access 🔄🆓</li>
+<li>Image size: <span class="blue2"><strong>6.25 km²</strong></span> (250 × 250 pixels) 🖼️</li>
+</ul></li>
 </ul>
-<p>TODO : mettre une image de comparaison sentinel vs Pleiades</p>
 </section>
-<section id="reference-data-bdtopo" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Reference data (BDTOPO)</h2>
-<p>TODO : Faire slides avec COSIA et mentionner projet</p>
+<section id="reference-data-cosia" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Reference Data (COSIA)</h2>
 <ul>
-<li>Building footprints as <span class="blue2"><strong>vector polygons</strong></span></li>
-<li>Based on <span class="orange"><strong>IGN</strong></span> aerial photography</li>
-<li>Used as training data despite temporal misalignment with Pléiades imagery</li>
+<li><a href="https://cosia.ign.fr/info#visualisation">Significant project</a> by IGN colleagues 👏</li>
+<li><span class="orange"><strong>Land cover generated by AI</strong></span> as vector polygons for France and OTs 🗺️</li>
+<li>Based on IGN <span class="orange"><strong>aerial photography</strong></span> at <span class="blue2"><strong>20cm</strong></span> (!!) resolution</li>
+<li>Used as label for training data despite potential <span class="orange"><strong>temporal misalignment</strong></span></li>
 </ul>
 </section></section>
 <section id="presentation-outline-2" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
@@ -499,7 +545,7 @@
 <p>2️⃣ Methodology</p>
 <p>3️⃣ Data</p>
 <p><strong>4️⃣ Results</strong></p>
-<p>5️⃣ Project Structure</p>
+<p>5️⃣ From experimentation to production?</p>
 <p>6️⃣ Discussion</p>
 </section>
 
@@ -524,23 +570,12 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="interactive-visualization-tool" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Interactive Visualization Tool</h2>
-<p>TODO : Est ce que je mets pas juste image vaut mieux que mots et on vire tout ?</p>
-<p><span class="orange"><strong>Access the application</strong></span>: <a href="https://inseefrlab.github.io/satellite-images-webapp/">Click here</a></p>
-<ul>
-<li><span class="orange"><strong>Administrative-level monitoring</strong></span> of building changes:
-<ul>
-<li>Selection by <span class="blue2"><strong>administrative units</strong></span> (municipalities, districts)</li>
-<li><span class="blue2"><strong>Quality control</strong></span> of detected changes</li>
-</ul></li>
-<li><span class="orange"><strong>Key features</strong></span>:
-<ul>
-<li>Side-by-side temporal comparison</li>
-<li>Statistical indicators by area</li>
-<li>Interactive visual validation</li>
-</ul></li>
-</ul>
+<section id="interactive-dashboard" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Interactive Dashboard 📊</h2>
+<div class="absolute" style="top: 280px; left: 150px; ">
+<p>🌟 <strong>A picture is worth a thousand words!</strong> 🌟</p>
+<p>👉 <span class="orange"><strong>Access the interactive app</strong></span>: <a href="https://inseefrlab.github.io/satellite-images-webapp/">Click here</a> 🚀</p>
+</div>
 <aside class="notes">
 <ul>
 <li>Decided to build a tiny webapp … but we are datascientists be indulgent</li>
@@ -553,6 +588,20 @@
 <p>97611 0332 : nuages in 2022</p>
 <p>97610ﾠ0608 : different methodology of blurring for prison</p>
 <p>97611 0237 : Our use case : detect building changes in precarious areas</p>
+<ul>
+<li><span class="orange"><strong>Administrative-level monitoring</strong></span> of building changes:
+<ul>
+<li>Selection by <span class="blue2"><strong>administrative units</strong></span> (municipalities, districts)</li>
+<li><span class="blue2"><strong>Quality control</strong></span> of detected changes</li>
+</ul></li>
+<li><span class="orange"><strong>Key features</strong></span>:
+<ul>
+<li>Side-by-side temporal comparison</li>
+<li>Statistical indicators by area</li>
+<li>Interactive visual validation</li>
+<li></li>
+</ul></li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -571,26 +620,26 @@
 <p>2️⃣ Methodology</p>
 <p>3️⃣ Data</p>
 <p>4️⃣ Results</p>
-<p><strong>5️⃣ Project Structure</strong></p>
+<p><strong>5️⃣ From experimentation to production?</strong></p>
 <p>6️⃣ Discussion</p>
 </section>
 
 <section>
-<section id="project-structure" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>5️⃣ Project Structure</h1>
-<p>TODO : Transformer cette partie en =&gt; From experimentation to production</p>
+<section id="from-experimentation-to-production" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>5️⃣ From experimentation to production?</h1>
+
 </section>
 <section id="technical-environment" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Technical Environment</h2>
+<h2>Technical Environment ☁️</h2>
 <ul>
-<li><span class="orange"><strong>Cloud-native architecture</strong></span> (SSPCloud platform)</li>
-<li><span class="blue2"><strong>Modern tech stack</strong></span>: Kubernetes, Docker, MLFlow, React</li>
-<li><span class="orange"><strong>Automated workflows</strong></span> for reproducibility</li>
-<li><span class="blue2"><strong>Continuous deployment</strong></span> practices</li>
+<li><span class="orange"><strong>Cloud-native architecture</strong></span> on the <span class="blue2"><strong>SSPCloud</strong></span> platform ☁️</li>
+<li><span class="orange"><strong>Modern tech stack</strong></span>: Kubernetes, Docker, MLFlow, React 🔧</li>
+<li><span class="orange"><strong>Automated workflows</strong></span> ensuring <span class="blue2"><strong>reproducibility</strong></span> 🔄</li>
+<li><span class="orange"><strong>Continuous deployment</strong></span> of applications 🚀</li>
 </ul>
 </section>
 <section id="processing-pipeline" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Processing Pipeline</h2>
+<h2>Processing Pipeline 🛠️</h2>
 <div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" height="100%" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -602,12 +651,12 @@
 </div>
 <aside class="notes">
 <ol type="1">
-<li>Need for standardisation of acquisition of data =&gt; for now rudimentary. Also need dated images but also in due time without clouds and same methodology =&gt; challenge of Pleaides</li>
-<li>Step for training. Clouds removals/ balancing datasets, labeling and splitting</li>
-<li>pytorch with pre trained model from HF. Need GPU</li>
-<li>Build API : predict images, cluster or bbox and compute building area statistics</li>
-<li>Déploying Geoserver and a web application</li>
-<li>Colleagues of Insee uses or results to make their statistics</li>
+<li>Standardization of data acquisition—currently rudimentary. Need cloud-free, date-specific images with consistent methodology (challenge with Pléiades).</li>
+<li>Training stage: cloud removal, dataset balancing, labeling, splitting.</li>
+<li>PyTorch with pre-trained model from HuggingFace (requires GPU).</li>
+<li>API building: prediction of images, clustering/bounding boxes, and statistics computation (building area).</li>
+<li>Deployment via GeoServer and web application.</li>
+<li>Results utilized by INSEE colleagues for statistical analyses.</li>
 </ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -622,10 +671,10 @@
       }</style></aside>
 </section>
 <section id="application-architecture" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Application Architecture</h2>
+<h2>Application Architecture 🧩</h2>
 
 <img data-src="../img/app-architecture.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><aside class="notes">
-<p>Geoserver : dynamically stores satellite images</p>
+<p>GeoServer dynamically serves satellite images.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -643,20 +692,20 @@
 <ul>
 <li><span class="orange"><strong>Complex technical environment</strong></span> due to:
 <ul>
-<li><span class="blue2"><strong>Non-traditional data</strong></span> processing</li>
-<li><span class="blue2"><strong>Large data volumes</strong></span></li>
-<li><span class="blue2"><strong>High computational needs</strong></span></li>
-<li><span class="blue2"><strong>Reproducibility requirements</strong></span></li>
+<li><span class="blue2"><strong>Non-traditional data processing</strong></span> 📊</li>
+<li><span class="blue2"><strong>Large data volumes</strong></span> 🗃️</li>
+<li><span class="blue2"><strong>High computational requirements</strong></span> ⚡</li>
+<li><span class="blue2"><strong>Reproducibility requirements</strong></span> ♻️</li>
 </ul></li>
 </ul>
 </section>
 <section id="challenges-perspectives" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Challenges &amp; Perspectives</h2>
 <ul>
-<li><span class="orange"><strong>High maintenance costs</strong></span> due to technical complexity</li>
-<li>Need for <span class="blue2"><strong>specialized skills</strong></span></li>
-<li><span class="orange"><strong>Promising results</strong></span> for cartographic survey support</li>
-<li><span class="orange"><strong>Potential improvements</strong></span> identified for each pipeline stage</li>
+<li><span class="orange"><strong>High maintenance costs</strong></span> due to technical complexity 💸</li>
+<li>Need for <span class="blue2"><strong>specialized skills</strong></span> 🧑‍💻</li>
+<li><span class="orange"><strong>Promising initial results</strong></span> supporting cartographic surveys ✅🗺️</li>
+<li><span class="orange"><strong>Potential improvements identified</strong></span> for each pipeline stage 🔧</li>
 </ul>
 
 <div class="quarto-auto-generated-content">
