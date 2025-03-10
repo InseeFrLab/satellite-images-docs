@@ -1,43 +1,44 @@
 ## Context
 
-- Insee is maintaining a [**register of localized buildings**]{.orange} (RIL)
-  - Exhaustive informations on housing for +10k inhab cities 
-  - Used to constitute the [**sampling frames**]{.blue2} for census survey
-- The RIL is [**good quality**]{.orange} for metropolitan France...
-  - ... but France is also [**overseas territories**]{.blue2} (OTs) !
-  - There [**quality is much lower**]{.blue2}
+- Insee maintains a [**register of localized buildings**]{.orange} (RIL)
+  - Comprehensive housing data for cities with over 10k inhabitants 🏙️
+  - Used to create [**sampling frames**]{.blue2} for census surveys 📋
+- The RIL quality is [**good**]{.orange} in metropolitan France ✅...
+  - ...but France also includes [**overseas territories**]{.blue2} (OTs)! 🌎
+  - There, data [**quality is significantly lower**]{.blue2} ⚠️
 
-## Census in overseas territories
+## Census in Overseas Territories
 
-- [**Cartographic survey**]{.orange} is conducted in OTs prior the census
+- A [**cartographic survey**]{.orange} is conducted in OTs before each census
 
-- [**Critical context**]{.orange} especially in Mayotte and French Guyana:
-  - Local authorities [**questioning official statistics**]{.blue2}
+- [**Critical context**]{.orange}, particularly in Mayotte and French Guiana:
+  - Local authorities [**question official statistics**]{.blue2}
   - Rapid [**urban development**]{.blue2}
-  - Challenging [**field conditions**]{.blue2}
+  - Difficult [**field conditions**]{.blue2}
 
-- Lot of (difficult) [**work**]{.orange} and very [**costly**]{.orange}
+- Requires significant [**work**]{.orange} and is highly [**costly**]{.orange} 💰
 
-- Could we use [**satellite images**]{.orange} to optimize the process of census in OTs ?
+- Can we use [**satellite imagery**]{.orange} to optimize census processes in OTs? 🛰️
 
 ::: {.notes}
 
 - [**Satellite data as supporting evidence**]{.orange}:
-  - Independent source of information
-  - Continuous territorial monitoring
-  - Transparent methodology
+  - Independent information source 🔍
+  - Continuous territorial monitoring 🔄
+  - Transparent and reproducible methodology 📑
+
 :::
 
 ## Our use cases
 
-- [**Pre cartographic survey**]{.orange}:
-  - Identification of [**priority areas**]{.blue2} for field operations
-  - Detection of [**building changes**]{.blue2} between surveys
-  - [**Temporal comparison**]{.blue2} using historical and recent imagery
+- [**Pre-cartographic survey**]{.orange}:
+  - Identify [**priority areas**]{.blue2} for fieldwork 🎯
+  - Detect [**building changes**]{.blue2} since last survey 🏗️
+  - Perform [**temporal comparisons**]{.blue2} using historical and recent imagery 📆
 
-- [**Post cartographic survey**]{.orange}:
-  - [**Automated change detection**]{.blue2}
-  - [**Land use evolution**]{.blue2}
-  - Support for [**population estimates**]{.blue2} in OTs
+- [**Post-cartographic survey**]{.orange}:
+  - [**Automated change detection**]{.blue2} 🤖
+  - Analysis of [**land-use evolution**]{.blue2} 🌳➡️🏘️
+  - Assist [**population estimates**]{.blue2} in OTs 📊
 
-- [**Extraordinary use case**]{.orange}: Chido devasting tropical cyclone
+- [**Extraordinary use case**]{.red2}: Rapid response after devastating tropical cyclone "Chido"
