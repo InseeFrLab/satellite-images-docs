@@ -5,7 +5,8 @@ TODO : changer l'image pour mettre multiclasse
 
 ## Training a segmentation model
 
-- Model trained to perform automatic segmentation [**from annotated examples**]{.orange}. Requirements:
+- Model trained to perform automatic segmentation [**from annotated examples**]{.orange}. 
+- [**Requirements**]{.orange}:
     - [**Collection**]{.blue2} of satellite images
     - [**Production of annotations**]{.blue2} (building footprints or land cover if available)
 - Model learns to reproduce annotations from images, with the goal to [**generalize**]{.orange} to new images
@@ -16,8 +17,15 @@ TODO : changer l'image pour mettre multiclasse
 
 ## Model used
 
-TODO : detailler un peu (dire qu'on fine tune etc)
 - [**Model architecture**]{.orange}:
-    - SegFormer backbone
-    - Transformer-based encoder
-    - Lightweight decoder
+    - [**Backbone**]{.blue2}: Segformer ([**MiT**]{.green2})
+    - [**Encoder**]{.blue2}: [**Transformer-based**]{.green2} (efficient self-attention, no positional encoding)  
+    - [**Decoder**]{.blue2}: Lightweight [**MLP head**]{.green2}
+
+- [**Why SegFormer?**]{.orange}:
+    
+    ✔ [**No complex decoders**]{.blue2} → Efficient & scalable  
+    ✔ [**Captures local & global context**]{.blue2} → Good performance  
+    ✔ [**No positional embeddings**]{.blue2} → Better generalization across resolutions  
+
+- [**Fine tuning**]{.orange} on our images

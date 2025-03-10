@@ -1,28 +1,43 @@
 ## Context
 
-TODO : Ici faire une slide de contexte, pourquoi on a commencer à bosse sur ca. Dire Chido : encore plus urgent
+- Insee is maintaining a [**register of localized buildings**]{.orange} (RIL)
+  - Exhaustive informations on housing for +10k inhab cities 
+  - Used to constitute the [**sampling frames**]{.blue2} for census survey
+- The RIL is [**good quality**]{.orange} for metropolitan France...
+  - ... but France is also [**overseas territories**]{.blue2} (OTs) !
+  - There [**quality is much lower**]{.blue2}
 
+## Census in overseas territories
 
-## Applications in Official Statistics
+- [**Cartographic survey**]{.orange} is conducted in OTs prior the census
 
-- [**Cartographic survey optimization**]{.orange}:
-  - Identification of [**priority areas**]{.blue2} for field operations
-  - Detection of [**building changes**]{.blue2} between surveys
-  - [**Temporal comparison**]{.blue2} using historical and recent imagery
-
-- [**Building stock monitoring**]{.orange}:
-  - [**Automated change detection**]{.blue2}
-  - [**Land use evolution**]{.blue2}
-  - Support for [**population estimates**]{.blue2} in overseas territories
-
-## Focus on Mayotte and French Guiana
-
-- [**Critical context**]{.orange}:
+- [**Critical context**]{.orange} especially in Mayotte and French Guyana:
   - Local authorities [**questioning official statistics**]{.blue2}
-  - Rapid urban development
-  - Challenging field conditions
+  - Rapid [**urban development**]{.blue2}
+  - Challenging [**field conditions**]{.blue2}
+
+- Lot of (difficult) [**work**]{.orange} and very [**costly**]{.orange}
+
+- Could we use [**satellite images**]{.orange} to optimize the process of census in OTs ?
+
+::: {.notes}
 
 - [**Satellite data as supporting evidence**]{.orange}:
   - Independent source of information
   - Continuous territorial monitoring
   - Transparent methodology
+:::
+
+## Our use cases
+
+- [**Pre cartographic survey**]{.orange}:
+  - Identification of [**priority areas**]{.blue2} for field operations
+  - Detection of [**building changes**]{.blue2} between surveys
+  - [**Temporal comparison**]{.blue2} using historical and recent imagery
+
+- [**Post cartographic survey**]{.orange}:
+  - [**Automated change detection**]{.blue2}
+  - [**Land use evolution**]{.blue2}
+  - Support for [**population estimates**]{.blue2} in OTs
+
+- [**Extraordinary use case**]{.orange}: Chido devasting tropical cyclone

@@ -1,35 +1,35 @@
 ## Satellite imagery
-TODO: Corriger les couleur
 
-- [**Multiple spectral bands**]{.orange} beyond RGB (e.g., infrared)
-- [**Georeferenced data**]{.blue2}: each pixel has specific coordinates
-- Main characteristics:
-  - [**Spatial resolution**]{.orange}
-  - [**Acquisition frequency**]{.orange}
-  - [**Spectral resolution**]{.orange}
-  - [**Geographic coverage**]{.orange}
+- [**Multiple spectral bands**]{.orange} beyond [**R**]{.red2}[**G**]{.green2}[**B**]{.blue2} (e.g., infrared)
+- [**Georeferenced data**]{.orange}: each pixel has specific [**coordinates**]{.blue2}
+- Main [**characteristics**]{.orange}:
+  - [**Spatial resolution**]{.blue2}
+  - [**Acquisition frequency**]{.blue2}
+  - [**Spectral resolution**]{.blue2}
+  - [**Geographic coverage**]{.blue2}
 
-## Available Data Sources (PLEIADES)
 
-### Pléiades (Very High Resolution)
-- [**0.5m × 0.5m**]{.blue2} spatial resolution
-- 3 bands (RGB)
-- Free archives, on-demand acquisition ([**6-8 months**]{.blue2} for a department)
-- Image size: 1km² (2000 × 2000 pixels)
+## Pléiades (Very high resolution)
 
-## Available Data Sources (Sentinel-2)
+- [**Characteristics**]{.orange}:
+  - [**0.5m × 0.5m**]{.blue2} spatial resolution
+  - [**3**]{.blue2} spectral bands ([**R**]{.red2}[**G**]{.green2}[**B**]{.blue2})
+  - Free [**archives**]{.blue2}, [**on-demand**]{.blue2} acquisition ([**6-8 months**]{.green2} for a department), Airbus © licensing
+  - Image size: [**1km²**]{.blue2} (2000 × 2000 pixels)
 
-### Sentinel-2 (High Resolution)
-- [**10m × 10m**]{.blue2} spatial resolution
-- 13 spectral bands
-- [**5-day revisit time**]{.orange}, free access
-- Image size: 6.25 km² (250 × 250)
+
+## Sentinel-2 (High resolution)
+- [**Characteristics**]{.orange}:
+  - [**10m × 10m**]{.blue2} spatial resolution
+  - [**13**]{.blue2} spectral bands
+  - [**5-day revisit time**]{.blue2}, free access
+  - Image size: [**6.25 km²**]{.blue2} (250 × 250 pixels)
 
 TODO : mettre une image de comparaison sentinel vs Pleiades
 
-## Reference data (BDTOPO)
-TODO : Faire slides avec COSIA et mentionner projet
+## Reference data (COSIA)
 
-- Building footprints as [**vector polygons**]{.blue2}
-- Based on [**IGN**]{.orange} aerial photography
-- Used as training data despite temporal misalignment with Pléiades imagery
+- [Huge project](https://cosia.ign.fr/info#visualisation) from our colleagues at IGN
+- [**Land cover by AI**]{.orange} as vector polygons for France territory and OTs.
+- Based on IGN [**aerial photography**]{.orange} at [**20cm**]{.blue2} (!!) resolution 
+- Used as label for training data despite potential [**temporal misalignment**]{.orange}

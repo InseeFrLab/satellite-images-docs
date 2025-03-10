@@ -4,21 +4,13 @@
 - Goals was not to publish an article but rather help colleagues from overseas territory => anticipate carto survey
 :::
 
-## Interactive Visualization Tool
+## Interactive dashboard
 
-TODO : Est ce que je mets pas juste image vaut mieux que mots et on vire tout ?
+:::{.absolute top=280 left=200}
+A picture is worth a thousand words !
 
 [**Access the application**]{.orange}: [Click here](https://inseefrlab.github.io/satellite-images-webapp/)
-
-- [**Administrative-level monitoring**]{.orange} of building changes:
-  - Selection by [**administrative units**]{.blue2} (municipalities, districts)
-  - [**Quality control**]{.blue2} of detected changes
-
-- [**Key features**]{.orange}:
-  - Side-by-side temporal comparison
-  - Statistical indicators by area
-  - Interactive visual validation
-
+:::
 
 ::: {.notes}
 
@@ -35,4 +27,14 @@ TODO : Est ce que je mets pas juste image vaut mieux que mots et on vire tout ?
 
 97611 0237 : Our use case : detect building changes in precarious areas
 
+
+- [**Administrative-level monitoring**]{.orange} of building changes:
+  - Selection by [**administrative units**]{.blue2} (municipalities, districts)
+  - [**Quality control**]{.blue2} of detected changes
+
+- [**Key features**]{.orange}:
+  - Side-by-side temporal comparison
+  - Statistical indicators by area
+  - Interactive visual validation
+  - 
 :::

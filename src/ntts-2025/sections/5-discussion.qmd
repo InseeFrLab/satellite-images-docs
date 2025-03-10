@@ -1,12 +1,9 @@
-
-TODO : Transformer cette partie en => From experimentation to production 
-
 ## Technical Environment
 
-- [**Cloud-native architecture**]{.orange} (SSPCloud platform)
-- [**Modern tech stack**]{.blue2}: Kubernetes, Docker, MLFlow, React
-- [**Automated workflows**]{.orange} for reproducibility
-- [**Continuous deployment**]{.blue2} practices
+- [**Cloud-native architecture**]{.orange} ([**SSPCloud**]{.blue2} platform)
+- [**Modern tech stack**]{.orange}: Kubernetes, Docker, MLFlow, React
+- [**Automated workflows**]{.orange} for [**reproducibility**]{.blue2}
+- [**Continuous deployment**]{.orange} of applications
 
 ## Processing Pipeline 
 

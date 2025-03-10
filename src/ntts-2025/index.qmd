@@ -27,7 +27,7 @@ ascii: true
 
 4️⃣ Results
 
-5️⃣ Project Structure
+5️⃣ From experimentation to production?
 
 6️⃣ Discussion
 
@@ -46,7 +46,7 @@ ascii: true
 
 4️⃣ Results
 
-5️⃣ Project Structure
+5️⃣ From experimentation to production?
 
 6️⃣ Discussion
 
@@ -64,7 +64,7 @@ ascii: true
 
 4️⃣ Results
 
-5️⃣ Project Structure
+5️⃣ From experimentation to production?
 
 6️⃣ Discussion
 
@@ -82,7 +82,7 @@ ascii: true
 
 **4️⃣ Results**
 
-5️⃣ Project Structure
+5️⃣ From experimentation to production?
 
 6️⃣ Discussion
 
@@ -98,12 +98,12 @@ ascii: true
 
 3️⃣ Data
 
-4️⃣ Results
+4️⃣ Results 
 
-**5️⃣ Project Structure**
+**5️⃣ From experimentation to production?**
 
 6️⃣ Discussion
 
-# 5️⃣ Project Structure
+# 5️⃣ From experimentation to production?
 
 {{< include sections/5-discussion.qmd >}}
