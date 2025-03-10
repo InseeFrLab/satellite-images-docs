@@ -4,12 +4,12 @@
 - Goals was not to publish an article but rather help colleagues from overseas territory => anticipate carto survey
 :::
 
-## Interactive dashboard
+## Interactive Dashboard 📊
 
-:::{.absolute top=280 left=200}
-A picture is worth a thousand words !
+:::{.absolute top=280 left=150}
+🌟 **A picture is worth a thousand words!** 🌟  
 
-[**Access the application**]{.orange}: [Click here](https://inseefrlab.github.io/satellite-images-webapp/)
+👉 [**Access the interactive app**]{.orange}: [Click here](https://inseefrlab.github.io/satellite-images-webapp/) 🚀
 :::
 
 ::: {.notes}
