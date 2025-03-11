@@ -1,5 +1,5 @@
 ---
-title: "Enhancing housing surveys using satellite imagery"
+title: "Enhancing census surveys using satellite imagery"
 subtitle: |
   [**Raya Berova**]{.orange}, **[Thomas Faria]{.blue2}**, [**Clément Guillo**]{.orange}
 date: "03/12/2025"
