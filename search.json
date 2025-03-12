@@ -746,18 +746,11 @@
     "text": "Model used\n\nModel architecture 🧩:\n\nBackbone: SegFormer (MiT)\nEncoder: Transformer-based (efficient self-attention, no positional encoding) ⚙️\nDecoder: Lightweight MLP head ✨\n\nWhy SegFormer? 🚀:\n\nNo complex decoders → Efficient & scalable ⚡\nCaptures local & global context → High accuracy 🎯\nNo positional embeddings → Improved resolution generalization 📐\n\nFine-tuned on our dataset 🗃️"
   },
   {
-    "objectID": "src/ntts-2025/index.html#satellite-imagery",
-    "href": "src/ntts-2025/index.html#satellite-imagery",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Satellite Imagery 🛰️",
-    "text": "Satellite Imagery 🛰️\n\nMultiple spectral bands beyond RGB (e.g., infrared)\nGeoreferenced data: each pixel has specific coordinates 📍\nMain characteristics:\n\nSpatial resolution 📐\nAcquisition frequency 🔄\nSpectral resolution 🌈\nGeographic coverage 🌍"
-  },
-  {
     "objectID": "src/ntts-2025/index.html#pléiades-very-high-resolution",
     "href": "src/ntts-2025/index.html#pléiades-very-high-resolution",
     "title": "Enhancing census surveys using satellite imagery",
     "section": "Pléiades (Very High Resolution) 🛰️",
-    "text": "Pléiades (Very High Resolution) 🛰️\n\nCharacteristics:\n\n0.5m × 0.5m spatial resolution 🔍\n3 spectral bands (RGB) 🎨\nFree archives, on-demand acquisition (6-8 months per department), Airbus © licensing 📅\nImage size: 1 km² (2000 × 2000 pixels) 🖼️"
+    "text": "Pléiades (Very High Resolution) 🛰️\n\n\n4 characteristics to look at:\n\nSpatial resolution 📐\nAcquisition frequency 🔄\nSpectral resolution 🌈\nGeographic coverage 🌍\n\n\n\n\nCharacteristics:\n\n0.5m × 0.5m spatial resolution 🔍\n3 spectral bands (RGB) 🎨\nFree archives, on-demand acquisition (6-8 months per department), Airbus © licensing 📅\nImage size: 1 km² (2000 × 2000 pixels) 🖼️"
   },
   {
     "objectID": "src/ntts-2025/index.html#sentinel-2-high-resolution",
