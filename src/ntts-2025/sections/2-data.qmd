@@ -1,14 +1,14 @@
-## Satellite Imagery 🛰️
+## Pléiades (Very High Resolution) 🛰️
 
-- [**Multiple spectral bands**]{.orange} beyond [**R**]{.red2}[**G**]{.green2}[**B**]{.blue2} (e.g., infrared)
-- [**Georeferenced data**]{.orange}: each pixel has specific [**coordinates**]{.blue2} 📍
-- Main [**characteristics**]{.orange}:
+::: {.notes}
+
+- 4 [**characteristics**]{.orange} to look at:
   - [**Spatial resolution**]{.blue2} 📐
   - [**Acquisition frequency**]{.blue2} 🔄
   - [**Spectral resolution**]{.blue2} 🌈
   - [**Geographic coverage**]{.blue2} 🌍
+:::
 
-## Pléiades (Very High Resolution) 🛰️
 
 - [**Characteristics**]{.orange}:
   - [**0.5m × 0.5m**]{.blue2} spatial resolution 🔍
