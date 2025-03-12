@@ -1,10 +1,10 @@
-## Technical Environment ☁️
+<!-- ## Technical Environment ☁️
 
 - [**Cloud-native architecture**]{.orange} on the [**SSPCloud**]{.blue2} platform ☁️
 - [**Modern tech stack**]{.orange}: Kubernetes, Docker, MLFlow, React 🔧
 - [**Automated workflows**]{.orange} ensuring [**reproducibility**]{.blue2} 🔄
 - [**Continuous deployment**]{.orange} of applications 🚀
-
+ -->
 
 ## Processing Pipeline 🛠️
 
@@ -28,18 +28,13 @@
 GeoServer dynamically serves satellite images.
 :::
 
-## Technical Implementation
-
-- [**Complex technical environment**]{.orange} due to:
-    - [**Non-traditional data processing**]{.blue2} 📊
-    - [**Large data volumes**]{.blue2} 🗃️
-    - [**High computational requirements**]{.blue2} ⚡
-    - [**Reproducibility requirements**]{.blue2} ♻️
-
-
 ## Challenges & Perspectives
 
 - [**High maintenance costs**]{.orange} due to technical complexity 💸
 - Need for [**specialized skills**]{.blue2} 🧑‍💻
+- [**Complex technical environment**]{.orange} due to:
+    - [**Large data volumes**]{.blue2} 🗃️
+    - [**High computational requirements**]{.blue2} ⚡
+    - [**Reproducibility requirements**]{.blue2} ♻️
 - [**Promising initial results**]{.orange} supporting cartographic surveys ✅🗺️
 - [**Potential improvements identified**]{.orange} for each pipeline stage 🔧
