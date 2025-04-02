@@ -75,6 +75,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Projet Données Satellites">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Projet Données Satellites">
 </head>
 
@@ -159,6 +160,24 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../src/documentation/sections/entrainement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Entraînement d’un modèle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/documentation/sections/inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inférence sur des images</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/documentation/sections/resultats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mise à disposition des résultats</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../src/documentation/sections/pipeline.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pipeline du projet</span></a>
   </div>
@@ -175,7 +194,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#accueil-de-la-documentation" id="toc-accueil-de-la-documentation" class="nav-link active" data-scroll-target="#accueil-de-la-documentation">Accueil de la documentation</a></li>
+  <li><a href="#structure-du-projet" id="toc-structure-du-projet" class="nav-link active" data-scroll-target="#structure-du-projet">Structure du projet</a>
+  <ul class="collapse">
+  <li><a href="#les-différents-dépôts-git" id="toc-les-différents-dépôts-git" class="nav-link" data-scroll-target="#les-différents-dépôts-git">Les différents dépôts Git</a>
+  <ul class="collapse">
+  <li><a href="#package-utilitaire-pour-travailler-avec-des-images-satellites" id="toc-package-utilitaire-pour-travailler-avec-des-images-satellites" class="nav-link" data-scroll-target="#package-utilitaire-pour-travailler-avec-des-images-satellites">Package utilitaire pour travailler avec des images satellites</a></li>
+  <li><a href="#preprocessing-des-images" id="toc-preprocessing-des-images" class="nav-link" data-scroll-target="#preprocessing-des-images">Preprocessing des images</a></li>
+  <li><a href="#entraînement-dun-modèle" id="toc-entraînement-dun-modèle" class="nav-link" data-scroll-target="#entraînement-dun-modèle">Entraînement d’un modèle</a></li>
+  <li><a href="#linférence-sur-des-images" id="toc-linférence-sur-des-images" class="nav-link" data-scroll-target="#linférence-sur-des-images">L’inférence sur des images</a></li>
+  <li><a href="#application-web" id="toc-application-web" class="nav-link" data-scroll-target="#application-web">Application web</a></li>
+  <li><a href="#déploiement-des-applications" id="toc-déploiement-des-applications" class="nav-link" data-scroll-target="#déploiement-des-applications">Déploiement des applications</a></li>
+  <li><a href="#documentation-du-projet" id="toc-documentation-du-projet" class="nav-link" data-scroll-target="#documentation-du-projet">Documentation du projet</a></li>
+  <li><a href="#optionnel-dépôt-création-image" id="toc-optionnel-dépôt-création-image" class="nav-link" data-scroll-target="#optionnel-dépôt-création-image">(Optionnel) Dépôt création image</a></li>
+  </ul></li>
+  <li><a href="#le-projet-sur-le-datalab" id="toc-le-projet-sur-le-datalab" class="nav-link" data-scroll-target="#le-projet-sur-le-datalab">Le projet sur le Datalab</a>
+  <ul class="collapse">
+  <li><a href="#le-namespace" id="toc-le-namespace" class="nav-link" data-scroll-target="#le-namespace">Le namespace</a></li>
+  <li><a href="#les-données" id="toc-les-données" class="nav-link" data-scroll-target="#les-données">Les données</a></li>
+  <li><a href="#les-services" id="toc-les-services" class="nav-link" data-scroll-target="#les-services">Les services</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -185,10 +223,62 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="accueil-de-la-documentation" class="level1">
-<h1>Accueil de la documentation</h1>
+<section id="structure-du-projet" class="level1">
+<h1>Structure du projet</h1>
+<p>Le projet est structuré en 8 dépôts git hébergés en open source sur Github et regroupés au sein de l’équipe <a href="https://github.com/orgs/InseeFrLab/teams/satellite-images">Satellite images</a>.</p>
+<section id="les-différents-dépôts-git" class="level2">
+<h2 class="anchored" data-anchor-id="les-différents-dépôts-git">Les différents dépôts Git</h2>
+<section id="package-utilitaire-pour-travailler-avec-des-images-satellites" class="level3">
+<h3 class="anchored" data-anchor-id="package-utilitaire-pour-travailler-avec-des-images-satellites">Package utilitaire pour travailler avec des images satellites</h3>
+<p>https://github.com/InseeFrLab/astrovision</p>
+</section>
+<section id="preprocessing-des-images" class="level3">
+<h3 class="anchored" data-anchor-id="preprocessing-des-images">Preprocessing des images</h3>
+<p>Nécessaire seulement pour faire des entraînements</p>
+<p>https://github.com/InseeFrLab/satellite-images-preprocess</p>
+</section>
+<section id="entraînement-dun-modèle" class="level3">
+<h3 class="anchored" data-anchor-id="entraînement-dun-modèle">Entraînement d’un modèle</h3>
+<p>https://github.com/InseeFrLab/satellite-images-train</p>
+</section>
+<section id="linférence-sur-des-images" class="level3">
+<h3 class="anchored" data-anchor-id="linférence-sur-des-images">L’inférence sur des images</h3>
+<p>https://github.com/InseeFrLab/satellite-images-inference</p>
+</section>
+<section id="application-web" class="level3">
+<h3 class="anchored" data-anchor-id="application-web">Application web</h3>
+<p>https://github.com/InseeFrLab/satellite-images-webapp</p>
+</section>
+<section id="déploiement-des-applications" class="level3">
+<h3 class="anchored" data-anchor-id="déploiement-des-applications">Déploiement des applications</h3>
+<p>https://github.com/InseeFrLab/satellite-images-cd</p>
+</section>
+<section id="documentation-du-projet" class="level3">
+<h3 class="anchored" data-anchor-id="documentation-du-projet">Documentation du projet</h3>
+<p>https://github.com/InseeFrLab/satellite-images-docs</p>
+</section>
+<section id="optionnel-dépôt-création-image" class="level3">
+<h3 class="anchored" data-anchor-id="optionnel-dépôt-création-image">(Optionnel) Dépôt création image</h3>
+<p>Créer une image docker avec les bons requirements https://github.com/InseeFrLab/satellite-images-dev</p>
+</section>
+</section>
+<section id="le-projet-sur-le-datalab" class="level2">
+<h2 class="anchored" data-anchor-id="le-projet-sur-le-datalab">Le projet sur le Datalab</h2>
+<section id="le-namespace" class="level3">
+<h3 class="anchored" data-anchor-id="le-namespace">Le namespace</h3>
+<p>projet slums detection</p>
+</section>
+<section id="les-données" class="level3">
+<h3 class="anchored" data-anchor-id="les-données">Les données</h3>
+<p>data-raw data-label data-preprocessed data-predictions data-roi data-clusters cache-predictions</p>
+</section>
+<section id="les-services" class="level3">
+<h3 class="anchored" data-anchor-id="les-services">Les services</h3>
+<p>Mlflow, Argo CD, Argo workflows, Geoserver</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
