@@ -5,4 +5,66 @@ format:
         <link rel="icon" type="image/png" sizes="32x32" href="../_extensions/InseeFrLab/onyxia/favicon-32x32.png">
 ---
 
-# Accueil de la documentation
+# Structure du projet
+
+Le projet est structuré en 8 dépôts git hébergés en open source sur Github et regroupés au sein de l'équipe [Satellite images](https://github.com/orgs/InseeFrLab/teams/satellite-images).
+
+## Les différents dépôts Git
+
+### Package utilitaire pour travailler avec des images satellites
+
+https://github.com/InseeFrLab/astrovision
+
+### Preprocessing des images 
+
+Nécessaire seulement pour faire des entraînements
+
+https://github.com/InseeFrLab/satellite-images-preprocess
+
+### Entraînement d'un modèle
+
+https://github.com/InseeFrLab/satellite-images-train
+
+### L'inférence sur des images
+
+https://github.com/InseeFrLab/satellite-images-inference
+
+### Application web
+
+https://github.com/InseeFrLab/satellite-images-webapp
+
+### Déploiement des applications
+
+https://github.com/InseeFrLab/satellite-images-cd
+
+### Documentation du projet
+
+https://github.com/InseeFrLab/satellite-images-docs
+
+
+### (Optionnel) Dépôt création image
+
+Créer une image docker avec les bons requirements
+https://github.com/InseeFrLab/satellite-images-dev
+
+
+## Le projet sur le Datalab
+
+### Le namespace
+
+projet slums detection
+
+### Les données
+
+data-raw
+data-label
+data-preprocessed
+data-predictions
+data-roi
+data-clusters
+cache-predictions
+
+
+### Les services
+
+Mlflow, Argo CD, Argo workflows, Geoserver
