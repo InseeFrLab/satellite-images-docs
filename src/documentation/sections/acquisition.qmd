@@ -9,7 +9,7 @@ format:
 
 ## Images satellite
 
-### Pléïades
+### Pléiades
 
 Les images Pléides ont l'avantage d'avoir une très haute résolution (50cm). Elles, elles sont propriétés d’Airbus donc peu de monde y a accès à moins de payer. En tant qu’institution française, nous avons accès gratuitement à ces données via [Dinamis](https://dinamis.data-terra.org/), il vous suffit de créer un compte et de réaliser vos demandes. Notre équipe passe par un contact de l’IGN directement mais il nous a quand même fallu créer un compte Dinamis et signer un contrat.  
 Si vous voulez être « maîtres » de l’acquisition de vos images il va falloir passer par Dinamis, sinon les données les plus récentes en « très haute résolution » concernant Mayotte se retrouve sur le site de [l'IGN](https://mayotte.ign.fr). Ca reste tout de même la porte d’entrée la plus simple pour avoir accès aux images de Mayotte aujourd’hui sans ingénierie à mettre en place.  

@@ -18,8 +18,8 @@ Il existe plusieurs caractéristiques propres aux images satellites :
 - Date d'acquisition  
 - CRS (Coordinate Reference System)  
 - Bounding-box : les 4 points qui géolocalisent l'image (dans l'ordre left bottom right top)  
-- Résolution : un pixel est égal à x cm² (Pléïades = 50cm², Sentinel-2 = 10m²)  
-- Nombre de bandes (Pléïades : 3 voire 4, Sentinel-2 : 13)  
+- Résolution : un pixel est égal à x cm² (Pléiades = 50cm², Sentinel-2 = 10m²)  
+- Nombre de bandes (Pléiades : 3 voire 4, Sentinel-2 : 13)  
 
 Les images satellites que nous utilisons sont en format TIF ou JP2.
 
