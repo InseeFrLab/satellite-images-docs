@@ -75,6 +75,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Projet Données Satellites">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Projet Données Satellites">
 </head>
 
@@ -188,8 +189,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#geoserver" id="toc-geoserver" class="nav-link active" data-scroll-target="#geoserver">Geoserver</a>
+  <ul class="collapse">
+  <li><a href="#créer-un-entrepôt-couche" id="toc-créer-un-entrepôt-couche" class="nav-link" data-scroll-target="#créer-un-entrepôt-couche">Créer un entrepôt + couche</a>
+  <ul class="collapse">
+  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images">Images</a></li>
+  </ul></li>
+  <li><a href="#prédictions" id="toc-prédictions" class="nav-link" data-scroll-target="#prédictions">Prédictions</a></li>
+  </ul></li>
+  <li><a href="#webapp-cratt" id="toc-webapp-cratt" class="nav-link" data-scroll-target="#webapp-cratt">Webapp CRaTT</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -197,8 +212,34 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="geoserver" class="level1">
+<h1>Geoserver</h1>
+<p>Une fois les prédictions faites, il est important de les intégrer au <a href="https://geoserver-satellite-images.lab.sspcloud.fr/geoserver">Geoserver</a> (demander les identifiants à l’équipe).</p>
+<ol type="1">
+<li><p>Un remplissage dans l’espace de stockage du s3 se fait directement lors de l’<a href="https://github.com/InseeFrLab/satellite-images-inference/blob/9c9ef808fdce7ecea29a568e04c41354258c3c61/argo-workflows/predict-workflows.yaml#L86">inférence via le template ArgoWorkflow</a>. Cette étape consiste à stocker les images Pléïades et les prédictions dans le Geoserver.</p></li>
+<li><p>Ensuite, il faut créer des “Entrepôts” et leurs “Couches” correspondantes manuellement (nous n’avons pas trouvé de méthode automatique pour l’instant).</p></li>
+</ol>
+<section id="créer-un-entrepôt-couche" class="level2">
+<h2 class="anchored" data-anchor-id="créer-un-entrepôt-couche">Créer un entrepôt + couche</h2>
+<section id="images" class="level3">
+<h3 class="anchored" data-anchor-id="images">Images</h3>
+<p>Données Entrepôts (à gauche) –&gt; + Ajouter un nouvel entrepôt (en haut à gauche) –&gt; ImageMosaic –&gt; name = &lt; DEP &gt;_&lt; YEAR &gt; –&gt; Parcourir le dossier PLEIADES/&lt; DEP &gt;/&lt; YEAR &gt; –&gt; Sauvegarder</p>
+<p>Données Couches (à gauche) –&gt; + Ajouter une nouvelle couche –&gt; Sélectionner l’entrepôt qui vient d’être créé et publier –&gt; name = &lt; DEP &gt;_&lt; YEAR &gt;, title = &lt; YEAR &gt; –&gt; Sauvegarder</p>
+</section>
+</section>
+<section id="prédictions" class="level2">
+<h2 class="anchored" data-anchor-id="prédictions">Prédictions</h2>
+<p>Données Entrepôts (à gauche) –&gt; + Ajouter un nouvel entrepôt (en haut à gauche) –&gt; Geopackage –&gt; name = &lt; DEP &gt;_PREDICTIONS_&lt; YEAR &gt; –&gt; Parcourir le fichier PREDICTIONS/PLEIADES/&lt; DEP &gt;/&lt; YEAR &gt;/Segmentation-multiclasse/1/predictions.gpkg –&gt; Sauvegarder</p>
+<p>Données Couches (à gauche) –&gt; + Ajouter une nouvelle couche –&gt; Sélectionner l’entrepôt qui vient d’être créé et publier –&gt; name = &lt; DEP &gt;_PREDICTIONS_&lt; YEAR &gt;, title = &lt; DEP &gt;_PREDICTIONS_&lt; YEAR &gt; –&gt; Emprises cliquer sur Basées sur les données puis sur Calculer depuis les emprises natives –&gt; Publication Style par défaut dirag:style_multiclass –&gt; Sauvegarder</p>
+<p>⚠️ Pour vérifier que tout s’est bien passé : aller sur Prévisualisation de la couche (à gauche) et cliquer sur OpenLayers de la couche souhaitée pour la prévisualiser.</p>
+</section>
+</section>
+<section id="webapp-cratt" class="level1">
+<h1>Webapp CRaTT</h1>
+<p>Changer le code pour inclure le nouveau couple dep/annee et push pour rebuild le site.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
