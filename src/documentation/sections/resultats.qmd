@@ -1,0 +1,28 @@
+# Geoserver
+
+Une fois les prédictions faites, il est important de les intégrer au [Geoserver](https://geoserver-satellite-images.lab.sspcloud.fr/geoserver) (demander les identifiants à l'équipe).  
+
+1. Un remplissage dans l'espace de stockage du s3 se fait directement lors de l'[inférence via le template ArgoWorkflow](https://github.com/InseeFrLab/satellite-images-inference/blob/9c9ef808fdce7ecea29a568e04c41354258c3c61/argo-workflows/predict-workflows.yaml#L86). Cette étape consiste à stocker les images Pléïades et les prédictions dans le Geoserver.  
+
+2. Ensuite, il faut créer des "Entrepôts" et leurs "Couches" correspondantes manuellement (nous n'avons pas trouvé de méthode automatique pour l'instant).  
+
+## Créer un entrepôt + couche
+
+### Images
+
+Données Entrepôts (à gauche) --> + Ajouter un nouvel entrepôt (en haut à gauche) --> ImageMosaic --> name = < DEP >\_< YEAR > --> Parcourir le dossier PLEIADES/< DEP >/< YEAR > --> Sauvegarder  
+
+Données Couches (à gauche) --> + Ajouter une nouvelle couche --> Sélectionner l'entrepôt qui vient d'être créé et publier --> name = < DEP >\_< YEAR >, title = < YEAR > --> Sauvegarder  
+
+## Prédictions
+
+Données Entrepôts (à gauche) --> + Ajouter un nouvel entrepôt (en haut à gauche) --> Geopackage --> name = < DEP >\_PREDICTIONS\_< YEAR > --> Parcourir le fichier PREDICTIONS/PLEIADES/< DEP >/< YEAR >/Segmentation-multiclasse/1/predictions.gpkg --> Sauvegarder  
+
+Données Couches (à gauche) --> + Ajouter une nouvelle couche --> Sélectionner l'entrepôt qui vient d'être créé et publier --> name = < DEP >\_PREDICTIONS\_< YEAR >, title = < DEP >\_PREDICTIONS\_< YEAR > --> Emprises cliquer sur Basées sur les données puis sur Calculer depuis les emprises natives --> Publication Style par défaut dirag:style_multiclass --> Sauvegarder  
+
+
+⚠️ Pour vérifier que tout s'est bien passé : aller sur Prévisualisation de la couche (à gauche) et cliquer sur OpenLayers de la couche souhaitée pour la prévisualiser.  
+
+# Webapp CRaTT
+
+Changer le code pour inclure le nouveau couple dep/annee et push pour rebuild le site.  

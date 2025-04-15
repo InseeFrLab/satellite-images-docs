@@ -14,7 +14,15 @@ format:
 Les images Pléides ont l'avantage d'avoir une très haute résolution (50cm). Elles, elles sont propriétés d’Airbus donc peu de monde y a accès à moins de payer. En tant qu’institution française, nous avons accès gratuitement à ces données via [Dinamis](https://dinamis.data-terra.org/), il vous suffit de créer un compte et de réaliser vos demandes. Notre équipe passe par un contact de l’IGN directement mais il nous a quand même fallu créer un compte Dinamis et signer un contrat.  
 Si vous voulez être « maîtres » de l’acquisition de vos images il va falloir passer par Dinamis, sinon les données les plus récentes en « très haute résolution » concernant Mayotte se retrouve sur le site de [l'IGN](https://mayotte.ign.fr). Ca reste tout de même la porte d’entrée la plus simple pour avoir accès aux images de Mayotte aujourd’hui sans ingénierie à mettre en place.  
 
-A savoir que l’IGN et le CNES ont prévu des couvertures Pléiades régulières de Mayotte au cours de l’année 2025 (3 ou 4 en fonction de la météo à résolution 50 cm).  
+A savoir que l’IGN et le CNES ont prévu des couvertures Pléiades régulières de Mayotte au cours de l’année 2025 (3 ou 4 en fonction de la météo à résolution 50 cm).
+
+#### Récupérer les images Pléïades de l'IGN
+
+Notre interlocuteur côté IGN nous envoie un mail pour nous signaler que les images demandées sont disponibles sur un server FTP avec les détails pour se connecter. Nous pouvons donc les extraire et les mettre sur le s3 du namespace projet-slums-detection sur Onyxia.  
+
+Pour cela, il faut ouvrir un service VS-code sur son namespace personnel. Si on attend beaucoup d'images, il vaut mieux ouvrir un service avec une persistance élevée (ex size: 500Gi) via l'éditeur de texte, et le fermer une fois l'opération finie. Ensuite, il suffit de suivre ce [code exemple](https://github.com/InseeFrLab/satellite-images-inference/blob/main/bash/download_pleiades_ign.sh), spécifier les détails pour se connecter au serveur et l'adapter aux besoins (département, millésime). Une fois dans le serveur, on peut l'explorer avec les commandes habituelles d'un terminal (cd, ls etc...).  
+
+Lorsque les images sont bien en local, faire tourner ce [code](https://github.com/InseeFrLab/satellite-images-inference/blob/main/src/write_jp2_to_tiff.py) pour les convertir en .tif pour les stocker sur le s3 sous le bon format et au bon endroit.
 
 ### Sentinel-2
 
