@@ -236,7 +236,9 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="webapp-cratt" class="level1">
 <h1>Webapp CRaTT</h1>
-<p>Changer le code pour inclure le nouveau couple dep/annee et push pour rebuild le site.</p>
+<p>Une fois les nouvelles couches faites, il faut inclure la visualisation de celles-ci dans la webapp CRaTT. Il faut alors cloner le <a href="https://github.com/InseeFrLab/satellite-images-webapp.git">dépot Git</a> et modifier le code pour y inclure le nouveau couple Département/Année.<br>
+Changements à effectuer : Ajouter le nouveau millésime dans les availableYears du département concerné <a href="https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/components/config.js">dans la config des components</a> et <a href="https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/utils/config.js">la config des utils</a>.</p>
+<p>Le git push va entraîner le rebuild du site et il sera possible de voir les nouveautés d’ici quelques minutes (une fois que l’Action sur GitHub est finie).</p>
 
 
 </section>
