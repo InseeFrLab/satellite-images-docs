@@ -25,4 +25,8 @@ Données Couches (à gauche) --> + Ajouter une nouvelle couche --> Sélectionner
 
 # Webapp CRaTT
 
-Changer le code pour inclure le nouveau couple dep/annee et push pour rebuild le site.  
+Une fois les nouvelles couches faites, il faut inclure la visualisation de celles-ci dans la webapp CRaTT.
+Il faut alors cloner le [dépot Git](https://github.com/InseeFrLab/satellite-images-webapp.git) et modifier le code pour y inclure le nouveau couple Département/Année.  
+Changements à effectuer :  Ajouter le nouveau millésime dans les availableYears du département concerné [dans la config des components](https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/components/config.js) et [la config des utils](https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/utils/config.js).  
+
+Le git push va entraîner le rebuild du site et il sera possible de voir les nouveautés d'ici quelques minutes (une fois que l'Action sur GitHub est finie).  
