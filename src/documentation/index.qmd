@@ -5,35 +5,85 @@ format:
         <link rel="icon" type="image/png" sizes="32x32" href="../_extensions/InseeFrLab/onyxia/favicon-32x32.png">
 ---
 
-# Structure du projet
+# 📦 Structure du projet
 
-Le projet est structuré en 8 dépôts git hébergés en open source sur Github et regroupés au sein de l'équipe [Satellite images](https://github.com/orgs/InseeFrLab/teams/satellite-images).
+Ce projet structuré en **8 dépôts Git** open source, hébergés sur GitHub, et organisés au sein de l’équipe [Satellite images](https://github.com/orgs/InseeFrLab/teams/satellite-images) de l’organisation *InseeFrLab*.
 
-## Les différents dépôts Git
+## 📁 Les différents dépôts
 
-### Package utilitaire pour travailler avec des images satellites
+### 1️⃣ Astrovision : Package utilitaire pour le traitement d’images satellites
 
-https://github.com/InseeFrLab/astrovision
+Pour manipuler des données géospatiales, la bibliothèque incontournable est [GDAL](https://gdal.org/en/stable/). Afin de faciliter son usage en Python, des wrappers comme [Rasterio](https://rasterio.readthedocs.io/en/stable/intro.html) sont couramment utilisés. Rasterio offre une interface efficace pour travailler avec des données *raster*.
 
-### Preprocessing des images 
+Dans notre projet, nous avons développé un package complémentaire, [Astrovision](https://github.com/InseeFrLab/astrovision), qui centralise un ensemble de fonctions utilitaires : découpage d’images, gestion des métadonnées, visualisation, etc. Ce package n’est pas strictement indispensable, cela a été aussi pour nous d'apprendre à déployer un package python. Le projet pourrait fonctionner en s’appuyant exclusivement sur Rasterio, avec quelques adaptations.
 
-Nécessaire seulement pour faire des entraînements
+---
 
-https://github.com/InseeFrLab/satellite-images-preprocess
+### 2️⃣ Préparation des images satellites
 
-### Entraînement d'un modèle
+Le dépôt [satellite-images-preprocess](https://github.com/InseeFrLab/satellite-images-preprocess) regroupe les fonctions nécessaires à la préparation des images avant l'entraînement des modèles. Ce dépôt n’est utilisé **qu’en amont d'un entraînement**, et n'est donc pas utile lorsque l'on souhaite simplement réaliser de l'inférence sur de nouvelles images.
 
-https://github.com/InseeFrLab/satellite-images-train
+Le *pipeline* de preprocessing comprend les étapes suivantes :
 
-### L'inférence sur des images
+1. Génération automatique des *labels* à partir d’un jeu d’annotations.
+2. Découpage des images sources en tuiles plus petites (pour éviter les problèmes de mémoire lors de l'entraînement).
+3. Suppression des images contenant des nuages.
+4. Filtrage des images selon une région d’intérêt définie.
+5. Calcul des moyennes et écarts types des bandes spectrales pour la normalisation.
+6. Réalisation du split *train/test* et sauvegarde des données sur un bucket S3.
 
-https://github.com/InseeFrLab/satellite-images-inference
+::: {.callout-note}
+Le choix de séparer ce dépôt de celui de l'entraînement est discutable, mais repose sur plusieurs objectifs :
+- Isoler les différentes étapes du pipeline.
+- Éviter de ré-exécuter inutilement le preprocessing à chaque entraînement.
+- Faciliter la modularité du projet.
+Ces objectifs ne sont pas forcément en contradiction avec le fait de tout centraliser dans un seul package.
+:::
 
-### Application web
+---
+
+### 3️⃣ Entraînement des modèles
+
+L'entraînement est géré par le dépôt [satellite-images-train](https://github.com/InseeFrLab/satellite-images-train). Il est nécessaire d'avoir à disposition des images déjà prétraitées et stockées sur le S3, ce qui peut être fait via le dépôt de preprocessing.
+
+L’objectif de ce dépôt est d’offrir un environnement modulaire permettant d’expérimenter différentes stratégies d’entraînement et d’optimiser les hyperparamètres propre à l'entraînement (et rien d'autres !). Tous les résultats sont loggués via **MLflow**.
+
+Deux familles de modèles de segmentation sont actuellement intégrées :
+
+- [DeepLabv3](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/) (et sa variante binaire).
+- [Segformer](https://github.com/NVlabs/SegFormer), de **b0 à b5**.
+
+Côté fonctions de perte, plusieurs variantes de l'entropie croisée sont disponibles (classique, pondérée, binaire, etc.).
+
+---
+
+### 4️⃣ Inférence à partir de nouvelles images
+
+Le dépôt [satellite-images-inference](https://github.com/InseeFrLab/satellite-images-inference) est dédié à l’inférence. C'est peut être le dépôt le moins "isolé" dans le sens où il contient à la fois les codes de l'API qui est utilisée pour réaliser l'inférence mais également divers scripts nécessaires que cela soit pour l'inférence, le post-processing ou bien la reception de nouvelles images à inférer.
+
+L’**API**, développée avec **FastAPI**, est déployée sur **SSPCloud**. Elle propose trois *endpoints* principaux :
+
+1. `GET /predict_image` — Prédiction d’une image individuelle stockée sur S3.
+2. `GET /predict_cluster` — Prédiction sur un îlot identifié par son code (peut inclure plusieurs images).
+3. `GET /predict_bbox` — Prédiction sur une *bounding box* définie par des coordonnées GPS (peut inclure plusieurs images).
+
+Un système de **cache** est en place pour éviter les redondances de calcul sur une même image.
+
+
+::: {.callout-important}
+# ⚠️ **Limites actuelles de l’API :**
+
+- Les prédictions en batch ne sont pas possibles directement (elles doivent être séquentielles) puisque seuls des *endpoints* `GET` sont disponibles.
+- Certaines opérations pourraient être asynchrones pour améliorer les performances.
+:::
+
+
+
+### 5️⃣ Application web
 
 https://github.com/InseeFrLab/satellite-images-webapp
 
-### Déploiement des applications
+### 6️⃣ Déploiement des applications
 
 https://github.com/InseeFrLab/satellite-images-cd
 
@@ -42,7 +92,7 @@ https://github.com/InseeFrLab/satellite-images-cd
 https://github.com/InseeFrLab/satellite-images-docs
 
 
-### (Optionnel) Dépôt création image
+### (Optionnel) Dépôt création image -- Deprecated
 
 Créer une image docker avec les bons requirements
 https://github.com/InseeFrLab/satellite-images-dev
@@ -68,3 +118,12 @@ cache-predictions
 ### Les services
 
 Mlflow, Argo CD, Argo workflows, Geoserver
+
+
+
+
+
+
+
+
+
