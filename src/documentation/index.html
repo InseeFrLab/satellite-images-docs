@@ -202,12 +202,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#préparation-des-images-satellites" id="toc-préparation-des-images-satellites" class="nav-link" data-scroll-target="#préparation-des-images-satellites">2️⃣ Préparation des images satellites</a></li>
   <li><a href="#entraînement-des-modèles" id="toc-entraînement-des-modèles" class="nav-link" data-scroll-target="#entraînement-des-modèles">3️⃣ Entraînement des modèles</a></li>
   <li><a href="#inférence-à-partir-de-nouvelles-images" id="toc-inférence-à-partir-de-nouvelles-images" class="nav-link" data-scroll-target="#inférence-à-partir-de-nouvelles-images">4️⃣ Inférence à partir de nouvelles images</a></li>
-  <li><a href="#application-web" id="toc-application-web" class="nav-link" data-scroll-target="#application-web">5️⃣ Application web</a></li>
+  <li><a href="#application-cratt" id="toc-application-cratt" class="nav-link" data-scroll-target="#application-cratt">5️⃣ Application CRaTT</a></li>
   <li><a href="#déploiement-des-applications" id="toc-déploiement-des-applications" class="nav-link" data-scroll-target="#déploiement-des-applications">6️⃣ Déploiement des applications</a></li>
-  <li><a href="#documentation-du-projet" id="toc-documentation-du-projet" class="nav-link" data-scroll-target="#documentation-du-projet">Documentation du projet</a></li>
-  <li><a href="#optionnel-dépôt-création-image-deprecated" id="toc-optionnel-dépôt-création-image-deprecated" class="nav-link" data-scroll-target="#optionnel-dépôt-création-image-deprecated">(Optionnel) Dépôt création image – Deprecated</a></li>
+  <li><a href="#documentation-du-projet" id="toc-documentation-du-projet" class="nav-link" data-scroll-target="#documentation-du-projet">7️⃣ Documentation du projet</a></li>
   </ul></li>
-  <li><a href="#le-projet-sur-le-datalab" id="toc-le-projet-sur-le-datalab" class="nav-link" data-scroll-target="#le-projet-sur-le-datalab">Le projet sur le Datalab</a>
+  <li><a href="#le-projet-sur-le-datalab-sspcloud" id="toc-le-projet-sur-le-datalab-sspcloud" class="nav-link" data-scroll-target="#le-projet-sur-le-datalab-sspcloud">Le projet sur le Datalab – SSPCloud</a>
   <ul class="collapse">
   <li><a href="#le-namespace" id="toc-le-namespace" class="nav-link" data-scroll-target="#le-namespace">Le namespace</a></li>
   <li><a href="#les-données" id="toc-les-données" class="nav-link" data-scroll-target="#les-données">Les données</a></li>
@@ -225,14 +224,13 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="structure-du-projet" class="level1">
 <h1>📦 Structure du projet</h1>
-<p>Ce projet structuré en <strong>8 dépôts Git</strong> open source, hébergés sur GitHub, et organisés au sein de l’équipe <a href="https://github.com/orgs/InseeFrLab/teams/satellite-images">Satellite images</a> de l’organisation <em>InseeFrLab</em>.</p>
+<p>Ce projet structuré en <strong>7 dépôts Git</strong> open source, hébergés sur GitHub, et organisés au sein de l’équipe <a href="https://github.com/orgs/InseeFrLab/teams/satellite-images">Satellite images</a> de l’organisation <em>InseeFrLab</em>.</p>
 <section id="les-différents-dépôts" class="level2">
 <h2 class="anchored" data-anchor-id="les-différents-dépôts">📁 Les différents dépôts</h2>
 <section id="astrovision-package-utilitaire-pour-le-traitement-dimages-satellites" class="level3">
 <h3 class="anchored" data-anchor-id="astrovision-package-utilitaire-pour-le-traitement-dimages-satellites">1️⃣ Astrovision : Package utilitaire pour le traitement d’images satellites</h3>
 <p>Pour manipuler des données géospatiales, la bibliothèque incontournable est <a href="https://gdal.org/en/stable/">GDAL</a>. Afin de faciliter son usage en Python, des wrappers comme <a href="https://rasterio.readthedocs.io/en/stable/intro.html">Rasterio</a> sont couramment utilisés. Rasterio offre une interface efficace pour travailler avec des données <em>raster</em>.</p>
 <p>Dans notre projet, nous avons développé un package complémentaire, <a href="https://github.com/InseeFrLab/astrovision">Astrovision</a>, qui centralise un ensemble de fonctions utilitaires : découpage d’images, gestion des métadonnées, visualisation, etc. Ce package n’est pas strictement indispensable, cela a été aussi pour nous d’apprendre à déployer un package python. Le projet pourrait fonctionner en s’appuyant exclusivement sur Rasterio, avec quelques adaptations.</p>
-<hr>
 </section>
 <section id="préparation-des-images-satellites" class="level3">
 <h3 class="anchored" data-anchor-id="préparation-des-images-satellites">2️⃣ Préparation des images satellites</h3>
@@ -256,22 +254,25 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Le choix de séparer ce dépôt de celui de l’entraînement est discutable, mais repose sur plusieurs objectifs : - Isoler les différentes étapes du pipeline. - Éviter de ré-exécuter inutilement le preprocessing à chaque entraînement. - Faciliter la modularité du projet. Ces objectifs ne sont pas forcément en contradiction avec le fait de tout centraliser dans un seul package.</p>
+<p>Le choix de séparer ce dépôt de celui de l’entraînement est discutable, mais repose sur plusieurs objectifs :</p>
+<ul>
+<li>Isoler les différentes étapes du pipeline.</li>
+<li>Éviter de ré-exécuter inutilement le preprocessing à chaque entraînement.</li>
+<li>Faciliter la modularité du projet. Ces objectifs ne sont pas forcément en contradiction avec le fait de tout centraliser dans un seul package.</li>
+</ul>
 </div>
 </div>
-<hr>
 </section>
 <section id="entraînement-des-modèles" class="level3">
 <h3 class="anchored" data-anchor-id="entraînement-des-modèles">3️⃣ Entraînement des modèles</h3>
 <p>L’entraînement est géré par le dépôt <a href="https://github.com/InseeFrLab/satellite-images-train">satellite-images-train</a>. Il est nécessaire d’avoir à disposition des images déjà prétraitées et stockées sur le S3, ce qui peut être fait via le dépôt de preprocessing.</p>
-<p>L’objectif de ce dépôt est d’offrir un environnement modulaire permettant d’expérimenter différentes stratégies d’entraînement et d’optimiser les hyperparamètres propre à l’entraînement (et rien d’autres !). Tous les résultats sont loggués via <strong>MLflow</strong>.</p>
+<p>L’objectif de ce dépôt est d’offrir un environnement modulaire permettant d’expérimenter différentes stratégies d’entraînement et d’optimiser les hyperparamètres propre à l’entraînement (et rien d’autres !). Tous les résultats sont loggués via <a href="https://projet-slums-detection-mlflow.user.lab.sspcloud.fr/">MLFlow</a>.</p>
 <p>Deux familles de modèles de segmentation sont actuellement intégrées :</p>
 <ul>
 <li><a href="https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/">DeepLabv3</a> (et sa variante binaire).</li>
 <li><a href="https://github.com/NVlabs/SegFormer">Segformer</a>, de <strong>b0 à b5</strong>.</li>
 </ul>
 <p>Côté fonctions de perte, plusieurs variantes de l’entropie croisée sont disponibles (classique, pondérée, binaire, etc.).</p>
-<hr>
 </section>
 <section id="inférence-à-partir-de-nouvelles-images" class="level3">
 <h3 class="anchored" data-anchor-id="inférence-à-partir-de-nouvelles-images">4️⃣ Inférence à partir de nouvelles images</h3>
@@ -300,36 +301,143 @@ Note
 </div>
 </div>
 </section>
-<section id="application-web" class="level3">
-<h3 class="anchored" data-anchor-id="application-web">5️⃣ Application web</h3>
-<p>https://github.com/InseeFrLab/satellite-images-webapp</p>
+<section id="application-cratt" class="level3">
+<h3 class="anchored" data-anchor-id="application-cratt">5️⃣ Application CRaTT</h3>
+<p>Le code de l’application CRaTT permettant de visualiser les résultats sur des territoires entier est disponible dans le dépôt <a href="https://github.com/inseeFrLab/satellite-images-webapp">satellite-images-webapp</a>. L’application est construite avec <a href="https://observablehq.com/framework/">Observable Framework</a> qui permet de déployer sur un site statique tout en gardant un certain niveau d’interactivité dans les visualisations que l’on peut montrer. La manipulation des données peut se faire dans le langage de notre choix (Python, R, SQL, etc.) et les visualisation se font en JavaScript.</p>
+<p>Le déploiement est réalisé via Github Pages et est accessible à l’adresse suivante : <a href="">https://inseefrlab.github.io/satellite-images-webapp/</a>.</p>
 </section>
 <section id="déploiement-des-applications" class="level3">
 <h3 class="anchored" data-anchor-id="déploiement-des-applications">6️⃣ Déploiement des applications</h3>
-<p>https://github.com/InseeFrLab/satellite-images-cd</p>
+<p>Pour gérer les différents déploiements de l’ensemble du projet, nous avons créer un dépôt GitOps. Il s’agit du dépôt <a href="https://github.com/inseeFrLab/satellite-images-cd">satellite-images-cd</a>. Il contient les <em>manifests</em> Kubernetes des services déployés ainsi que les templates d’ArgoCD afin d’avoir un déploiement continu.</p>
+<p>En avril 2025, 2 services sont déployés :</p>
+<ul>
+<li>l’API d’inférence</li>
+<li>le Geoserver pour la mise à disposition des tuiles d’images</li>
+</ul>
 </section>
 <section id="documentation-du-projet" class="level3">
-<h3 class="anchored" data-anchor-id="documentation-du-projet">Documentation du projet</h3>
-<p>https://github.com/InseeFrLab/satellite-images-docs</p>
-</section>
-<section id="optionnel-dépôt-création-image-deprecated" class="level3">
-<h3 class="anchored" data-anchor-id="optionnel-dépôt-création-image-deprecated">(Optionnel) Dépôt création image – Deprecated</h3>
-<p>Créer une image docker avec les bons requirements https://github.com/InseeFrLab/satellite-images-dev</p>
+<h3 class="anchored" data-anchor-id="documentation-du-projet">7️⃣ Documentation du projet</h3>
+<p>La documentation que vous lisez actuellement est réaliser avec Quarto et toute contribution est la bienvenue dans le dépôt <a href="https://github.com/inseeFrLab/satellite-images-docs">satellite-images-docs</a>.</p>
 </section>
 </section>
-<section id="le-projet-sur-le-datalab" class="level2">
-<h2 class="anchored" data-anchor-id="le-projet-sur-le-datalab">Le projet sur le Datalab</h2>
+<section id="le-projet-sur-le-datalab-sspcloud" class="level2">
+<h2 class="anchored" data-anchor-id="le-projet-sur-le-datalab-sspcloud">Le projet sur le Datalab – SSPCloud</h2>
 <section id="le-namespace" class="level3">
 <h3 class="anchored" data-anchor-id="le-namespace">Le namespace</h3>
-<p>projet slums detection</p>
+<p>Afin de pouvoir contribuer au projet il est nécessaire d’avoir accès au namespace <code>projet-slums-detection</code>. Pour cela, vous pouvez contacter la Diit.</p>
 </section>
 <section id="les-données" class="level3">
 <h3 class="anchored" data-anchor-id="les-données">Les données</h3>
-<p>data-raw data-label data-preprocessed data-predictions data-roi data-clusters cache-predictions</p>
+<p>Le S3 associé au projet est structuré en plusieurs dossiers.</p>
+<section id="data-raw" class="level4">
+<h4 class="anchored" data-anchor-id="data-raw">📁 <strong>data-raw</strong></h4>
+<p>Ce dossier contient les images satellites telles qu’on les reçoit sans modification. Seules les données de la Guyane et de Saint-Martin sont un peu différentes avec des sous dossiers <code>brut</code> car elles ont nécessité des ajustements préalables. En effet, pour tous les autres départements les données proviennent de l’IGN qui nous transmets les mosaïques d’images 2000x2000.</p>
+<p>La structure du dossier est :</p>
+<p><code>data-raw/&lt;SOURCE&gt;/&lt;DEPARTEMENT&gt;/&lt;ANNEE&gt;/*.tif</code></p>
+</section>
+<section id="data-label" class="level4">
+<h4 class="anchored" data-anchor-id="data-label">📁 <strong>data-label</strong></h4>
+<p>Ce dossier contient les données géographiques contenant les labels que nous utilisons lors de notre entraînement et que nous considérons donc comme <strong>vraie valeur</strong>. En fonction de la source de l’annotation le format des fichiers peut différer. Pour le moment, 2 sources de données sont utilisées il s’agit de la <a href="https://geoservices.ign.fr/bdtopo">BDTOPO</a> et de <a href="https://cosia.ign.fr/">COSIA</a> et les données sont stockées respectivement au format Shapefile et au format Geopackage.</p>
+<p>La structure du dossier est :</p>
+<pre><code>data-label/
+├── BDTOPO/
+│   ├── bdtopo-id2label.json
+│   └── &lt;DEPARTEMENT&gt;/
+│       └── &lt;ANNEE&gt;/
+├── COSIA/
+│   ├── cosia-id2label.json
+│   └── &lt;DEPARTEMENT&gt;/
+│       └── &lt;ANNEE&gt;/</code></pre>
+</section>
+<section id="data-preprocessed" class="level4">
+<h4 class="anchored" data-anchor-id="data-preprocessed">📁 <strong>data-preprocessed</strong></h4>
+<p>Le dossier <code>data-preprocessed/</code> contient l’ensemble des données préparées pour l’entraînement d’un modèle. Il est organisé en deux sous-dossiers principaux, le dossier <code>labels/</code> qui contient les fichiers d’étiquettes (<code>.npy</code>) associés à chaque tuile d’image ainsi que le dossier <code>patchs/</code> contient les images (<code>.jp2</code>) associées portant le même nom.</p>
+<p>La structure du dossier est donc :</p>
+<pre><code>data-preprocessed/
+├── labels/                        # Étiquettes
+│   └── &lt;LABELER&gt;/                 # Annotateur (ex: COSIA, BDTOPO...)
+│       └── &lt;TASK&gt;/                # Tâche spécifique (ex: segmentation, classification...)
+│           └── &lt;SOURCE&gt;/          # Source de données (ex: PLEIADES, SENTINEL...)
+│               └── &lt;DEPARTEMENT&gt;/ # Département (ex: MAYOTTE, REUNION...)
+│                   └── &lt;ANNEE&gt;/   # Année de la donnée (ex: 2023)
+│                       └── &lt;TILE-SIZE&gt;/  # Taille des tuiles (ex: 125, 250...)
+│                           ├── train/    # Jeu d'entraînement
+│                           │   └── *.npy # Fichiers numpy
+│                           └── test/     # Jeu de test
+│                               └── *.npy # Fichiers numpy
+├── patchs/                        # Images
+│   └── &lt;LABELER&gt;/                 # Annotateur (ex: COSIA, BDTOPO...)
+│       └── &lt;TASK&gt;/                # Tâche spécifique (ex: segmentation, classification...)
+│           └── &lt;SOURCE&gt;/          # Source de données (ex: PLEIADES, SENTINEL...)
+│               └── &lt;DEPARTEMENT&gt;/ # Département (ex: MAYOTTE, REUNION...)
+│                   └── &lt;ANNEE&gt;/   # Année de la donnée (ex: 2023)
+│                       └── &lt;TILE-SIZE&gt;/  # Taille des tuiles (ex: 125, 250...)
+│                           ├── train/    # Jeu d'entraînement
+│                           │   └── *.jp2 # Fichiers images jp2
+│                           └── test/     # Jeu de test
+│                               └── *.jp2 # Fichiers images jp2
+</code></pre>
+</section>
+<section id="data-prediction" class="level4">
+<h4 class="anchored" data-anchor-id="data-prediction">📁 <strong>data-prediction</strong></h4>
+<p>Le dossier <code>data-prediction/</code>regroupe les résultats de prédictions générées par différents modèles. Les prédictions sont disponibles au format Parquet mais également au format GeoPackage pour pouvoir les utiliser dans le Geoserver.</p>
+<p>La structure du dossier est :</p>
+<pre><code>data-prediction/
+└── &lt;SOURCE&gt;/                  # Source de données (ex: PLEIADES, SENTINEL...)
+    └── &lt;DEPARTEMENT&gt;/          # Département (ex: MAYOTTE, REUNION...)
+        └── &lt;ANNEE&gt;/            # Année de la donnée (ex: 2023)
+            └── &lt;MODEL-NAME&gt;/   # Nom du modèle utilisé pour la prédiction
+                └── &lt;MODEL-VERSION&gt;/ # Version du modèle (ex: 1, 2...)
+                    ├── *.parquet    # Fichiers de prédiction au format parquet
+                    └── *.gpkg       # Fichiers de prédiction au format GeoPackage</code></pre>
+</section>
+<section id="cache-predictions" class="level4">
+<h4 class="anchored" data-anchor-id="cache-predictions">📁 <strong>cache-predictions</strong></h4>
+<p>Le dossier <code>cache-predictions/</code> contient les logits intermédiaires produits par les modèles lors du processus de prédiction afin de ne pas refaire une prédiction qui aurait déjà été réalisée. L’organisation du dossier reprend la même hiérarchie que <code>data-prediction</code> :</p>
+<pre><code>cache-predictions/
+└── &lt;SOURCE&gt;/                  # Source de données (ex: PLEIADES, SENTINEL...)
+    └── &lt;DEPARTEMENT&gt;/          # Département (ex: MAYOTTE, REUNION...)
+        └── &lt;ANNEE&gt;/            # Année de la donnée (ex: 2023)
+            └── &lt;MODEL-NAME&gt;/   # Nom du modèle utilisé pour la prédiction
+                └── &lt;MODEL-VERSION&gt;/ # Version du modèle (ex: 1, 2...)
+                    └── *.npy       # Logits prédits</code></pre>
+</section>
+<section id="data-roi" class="level4">
+<h4 class="anchored" data-anchor-id="data-roi">📁 <strong>data-roi</strong></h4>
+<p>Le dossier <code>data-roi</code> contient les contours géographique de chaque département afin de pouvoir filtrer les images efficacement que ce soit lors de l’étape de preprocessing que lors de l’étape de l’inférence. Les contours sont à la fois stockés en parquet et en geojson (un seul des deux formats pourrait suffire).</p>
+<p>La structure du dossier est :</p>
+<pre><code>data-roi/
+├── &lt;DEPARTEMENT&gt;.parquet
+└── &lt;DEPARTEMENT&gt;.geojson</code></pre>
+</section>
+<section id="data-clusters" class="level4">
+<h4 class="anchored" data-anchor-id="data-clusters">📁 <strong>data-clusters</strong></h4>
+<p>Le dossier <code>data-clusters</code> contient les contours géographique de chaque îlot pour les différents départements. Ces informations sont nécessaires lors de l’inférence pour un îlot donné ainsi que pour le déploiement de la webapp qui permet de réaliser des statistiques par îlot. Le dossier est simplement un fichier parquet partitionné :</p>
+<pre><code>data-clusters/
+├── &lt;DEPARTEMENT&gt;/
+      └── *.parquet</code></pre>
+</section>
 </section>
 <section id="les-services" class="level3">
 <h3 class="anchored" data-anchor-id="les-services">Les services</h3>
-<p>Mlflow, Argo CD, Argo workflows, Geoserver</p>
+<p>Le projet utilise plusieurs service au sein du datalab.</p>
+<ul>
+<li><h4 id="mlflow" class="anchored">MLFlow</h4></li>
+</ul>
+<p>MLflow est utilisé lors de la phase d’entraînement pour <em>tracker</em> et optimiser nos modèles. Il permet de <em>logguer</em> les hyperparamètres, les métriques et les artefacts générés au cours des expérimentations. MLflow joue également le rôle de <em>Model Registry</em>, dans lequel à chaque modèle est associé un tag tel que <em>staging</em>, <em>production</em> ou <em>archived</em>. Cela facilite le versionnement et la bonne gestion du cycle de vie des modèles dans le temps</p>
+<ul>
+<li><h4 id="argocd" class="anchored">ArgoCD</h4></li>
+</ul>
+<p>ArgoCD est déployé pour superviser et gérer automatiquement les applications présentes dans notre namespace. Il permet de surveiller en permanence l’état de déploiement des applications et détecte automatiquement toute modification des manifests dans le dépôt GitOps dédié (<a href="">https://github.com/inseeFrLab/satellite-images-cd</a>). Lorsqu’une modification est détectée, ArgoCD applique automatiquement les changements sur le cluster, garantissant une parfaite synchronisation entre le code source et l’état effectif des déploiements.</p>
+<ul>
+<li><h4 id="argo-workflows" class="anchored">Argo Workflows</h4></li>
+</ul>
+<p>Argo Workflows est utilisé pour orchestrer l’exécution parallèle de scripts, ce qui optimise considérablement les temps de calcul. Les workflows sont décrits dans des fichiers YAML stockés dans les répertoires <code>argo-workflows/</code> présents dans les différents dépôts. Argo Workflows est sollicité à différents stades du projet, notamment pour exécuter les étapes de preprocessing des données, l’entraînement de modèles en parallèle, ainsi que l’inférence à grande échelle.</p>
+<ul>
+<li><h4 id="geoserver" class="anchored">Geoserver</h4></li>
+</ul>
+<p>GeoServer permet la publication et la mise à disposition de données géographiques sous forme de flux normalisés (WMS, WFS, WCS). Contrairement aux autres services mentionnés, GeoServer n’est pas directement provisionné par le Datalab, ni déployé via Helm Chart.</p>
+<p>À ce jour, GeoServer ne peut pas accéder directement aux fichiers stockés sur un stockage objet type S3. En conséquence, toutes les images ou données que nous souhaitons exposer doivent être dupliquées dans un PVC associé au pod GeoServer…</p>
 
 
 </section>

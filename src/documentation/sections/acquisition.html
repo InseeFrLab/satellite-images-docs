@@ -222,38 +222,84 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="images-satellite">Images satellite</h2>
 <section id="pléiades" class="level3">
 <h3 class="anchored" data-anchor-id="pléiades">Pléiades</h3>
-<p>Les images Pléides ont l’avantage d’avoir une très haute résolution (50cm). Elles, elles sont propriétés d’Airbus donc peu de monde y a accès à moins de payer. En tant qu’institution française, nous avons accès gratuitement à ces données via <a href="https://dinamis.data-terra.org/">Dinamis</a>, il vous suffit de créer un compte et de réaliser vos demandes. Notre équipe passe par un contact de l’IGN directement mais il nous a quand même fallu créer un compte Dinamis et signer un contrat.<br>
-Si vous voulez être « maîtres » de l’acquisition de vos images il va falloir passer par Dinamis, sinon les données les plus récentes en « très haute résolution » concernant Mayotte se retrouve sur le site de <a href="https://mayotte.ign.fr">l’IGN</a>. Ca reste tout de même la porte d’entrée la plus simple pour avoir accès aux images de Mayotte aujourd’hui sans ingénierie à mettre en place.</p>
-<p>A savoir que l’IGN et le CNES ont prévu des couvertures Pléiades régulières de Mayotte au cours de l’année 2025 (3 ou 4 en fonction de la météo à résolution 50 cm).</p>
-<section id="récupérer-les-images-pléïades-de-lign" class="level4">
-<h4 class="anchored" data-anchor-id="récupérer-les-images-pléïades-de-lign">Récupérer les images Pléïades de l’IGN</h4>
-<p>Notre interlocuteur côté IGN nous envoie un mail pour nous signaler que les images demandées sont disponibles sur un server FTP avec les détails pour se connecter. Nous pouvons donc les extraire et les mettre sur le s3 du namespace projet-slums-detection sur Onyxia.</p>
-<p>Pour cela, il faut ouvrir un service VS-code sur son namespace personnel. Si on attend beaucoup d’images, il vaut mieux ouvrir un service avec une persistance élevée (ex size: 500Gi) via l’éditeur de texte, et le fermer une fois l’opération finie. Ensuite, il suffit de suivre ce <a href="https://github.com/InseeFrLab/satellite-images-inference/blob/main/bash/download_pleiades_ign.sh">code exemple</a>, spécifier les détails pour se connecter au serveur et l’adapter aux besoins (département, millésime). Une fois dans le serveur, on peut l’explorer avec les commandes habituelles d’un terminal (cd, ls etc…).</p>
-<p>Lorsque les images sont bien en local, faire tourner ce <a href="https://github.com/InseeFrLab/satellite-images-inference/blob/main/src/write_jp2_to_tiff.py">code</a> pour les convertir en .tif pour les stocker sur le s3 sous le bon format et au bon endroit.</p>
-</section>
+<p>Les images Pléiades présentent l’avantage d’offrir une très haute résolution (50 cm). Toutefois, elles sont la propriété d’Airbus, ce qui limite leur accessibilité : l’acquisition passe généralement par un achat de licence. En tant qu’institution française, nous bénéficions d’un accès gratuit à ces données via <a href="https://dinamis.data-terra.org/">Dinamis</a>. Il suffit de créer un compte sur Dinamis et de réaliser une demande d’accès. Nous avons un contact à l’IGN pour simplifier la procédure et il nous transmet les images directement. Toutefois, même avec ce canal, il reste nécessaire de créer un compte Dinamis et de signer un contrat de licence d’utilisation.</p>
+<p>Lorsque les images sont disponibles, notre interlocuteur à l’IGN nous en informe par mail, en nous transmettant les accès à un serveur FTP. Les données peuvent alors être extraites puis transférées sur le S3 du namespace <code>projet-slums-detection</code> au sein du Datalab, selon la structure décrite dans <span class="citation" data-cites="data-raw">@data-raw</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comment récupérer les images Pléiades de l’IGN ?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Ouvrir un service VSCode sur le Datalab. ⚠️ Pour les volumes importants, pensez à augmenter la persistance (ex : 500Gi) lors du lancement du service.</li>
+<li>Cloner le <a href="https://github.com/InseeFrLab/satellite-images-inference">dépot d’inférence</a> etaccéder au script <code>bash/download_pleiades_ign.sh</code>.</li>
+<li>Renseigner les informations spécifiques au serveur FTP ainsi que les arguments nécessaires (département, année).</li>
+<li>Exécuter le script pour télécharger les données localement dans le service. Vous pouvez ensuite explorer les fichiers comme d’habitude (<code>cd</code>, <code>ls</code>, etc.).</li>
+<li>Une fois en local, vérifiez que les images soient bien au format <code>.tif</code>, si ce n’est pas le cas, exécuter le script <code>src/write_jp2_to_tiff.py</code> pour les convertir et les stocker sur le S3</li>
+</ol>
+</div>
+</div>
 </section>
 <section id="sentinel-2" class="level3">
 <h3 class="anchored" data-anchor-id="sentinel-2">Sentinel-2</h3>
-<p>Pour un accès libre et très récent, le seul moyen est de passer par les images Sentinel-2, mais ce sont de la « haute résolution » : seulement (10m).<br>
-Il est possible de récupérer ces images par différents moyens (Earth Engine, SentinelHub, Copernicus…). Voici le code que nous avons utilisé pour les récupérer avec Earth Engine : <a href="https://github.com/InseeFrLab/download_sentinel.git">dépot git pour récupérer Sentinel-2</a>. Il faut d’abord se créer un compte et avoir les bons crédentials pour accéder aux images.</p>
+<p>Pour un accès libre et beaucoup plus rapide, l’utilisation des images Sentinel-2 constitue une alternative intéressante. Ces images ont une résolution de 10 mètres. Les images Sentinel-2 peuvent être récupérées via différentes plateformes comme Google Earth Engine, Sentinel Hub ou encore Copernicus Data Space Ecosystem. Un exemple d’utilisation et de téléchargement de ces données est disponible dans le dépôt <a href="https://github.com/InseeFrLab/hackathon-ntts-2025">Hackathon NTTS 2025</a>, en consultant le script <code>preprocess/main_nuts.py</code>.</p>
 </section>
 </section>
 <section id="labels-pour-lentraînement-du-modèle" class="level2">
 <h2 class="anchored" data-anchor-id="labels-pour-lentraînement-du-modèle">Labels (pour l’entraînement du modèle)</h2>
 <section id="bdtopo" class="level3">
 <h3 class="anchored" data-anchor-id="bdtopo">BDTOPO</h3>
-<p>TODO</p>
+<p>La BD TOPO est une description vectorielle 3D (structurée en objets) des éléments du territoire et de ses infrastructures, de précision métrique, exploitable à des échelles allant du 1 : 2 000 au 1 : 50 000.</p>
+<p>Les objets de la BD TOPO® sont regroupés par thèmes :</p>
+<ul>
+<li>Administratif (limites et unités administratives) ;</li>
+<li><strong>Bâti (constructions)</strong> ;</li>
+<li>Hydrographie (éléments ayant trait à l’eau) ;</li>
+<li>Lieux nommés (lieu ou lieu-dit possédant un toponyme et décrivant un espace naturel ou un lieu habité) ;</li>
+<li>Occupation du sol (végétation, estran, haie) ;</li>
+<li>Services et activités (services publics, stockage et transport des sources d’énergie, lieux et sites industriels) ;</li>
+<li>Transport (infrastructures du réseau routier, ferré et aérien, itinéraires) ;</li>
+<li>Zones réglementées (la plupart des zonages faisant l’objet de réglementations spécifiques).</li>
+</ul>
+<p>Dans notre cas, seule la couche <strong>Bâti</strong> a été utilisée.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comment récupérer les données de la BDTOPO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les données de la BDTOPO sont accessibles au format archivé 7z soit en shapefile soit en geopackage à l’adresse suivante : <a href="">https://geoservices.ign.fr/bdtopo#telechargementgpkgreg</a>. Elle est stockée par département.</p>
+</div>
+</div>
 </section>
 <section id="cosia" class="level3">
 <h3 class="anchored" data-anchor-id="cosia">COSIA</h3>
-<p>Il est possible d’exporter les données via le site de <a href="https://cosia.ign.fr/info#export">Cosia</a>. Il faudra ensuite stocker le zip sur le s3, et en passant par un service, il suffira de lancer certaines lignes de commandes pour dézipper le fichier et placer le contenu à l’endroit souhaité.<br>
-Exemple :</p>
-<pre><code>mkdir cosia-label
-mc cp s3/projet-hackathon-ntts-2025/data-label/COSIA/69/CoSIA_D069_2020.zip cosia-label/
-unzip cosia-label/CoSIA_D069_2020.zip -d cosia-label/
-mc cp -r cosia-label/CoSIA_D069_2020/ s3/projet-hackathon-ntts-2025/data-label/COSIA/69/2020/
-mc rm s3/projet-hackathon-ntts-2025/data-label/COSIA/69/CoSIA_D069_2020.zip
-rm -r cosia-label</code></pre>
+<p>Les cartes CoSIA décrivent la couverture du sol, soit la nature du sol, selon 16 classes (bâtiment, surface d’eau, conifère, culture, broussaille…). Cette description du sol est produite pour tout le territoire français (métropole et DROM) et avec une haute résolution de 20 cm par pixel. Ces annotations ont été obtenues par l’IGN à l’aide d’un modèle de ML. Il faut donc bien garder en tête qu’<strong>on utilise des prédictions d’un modèle comme ground truth</strong>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comment récupérer les données de COSIA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Accéder au site <a href="https://cosia.ign.fr/info#export">COSIA</a></li>
+<li>Remplir le formulaire d’accès et sélectionner le territoire d’intérêt. Télécharger le fichier <code>.zip</code></li>
+<li>L’importer dans un service du Datalab, le décompresser (commande <code>unzip</code> sous Linux) et organiser les fichiers selon la structure attendue sur S3.</li>
+</ol>
+</div>
+</div>
 
 
 </section>
