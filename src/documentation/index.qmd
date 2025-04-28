@@ -7,7 +7,7 @@ format:
 
 # 📦 Structure du projet
 
-Ce projet structuré en **8 dépôts Git** open source, hébergés sur GitHub, et organisés au sein de l’équipe [Satellite images](https://github.com/orgs/InseeFrLab/teams/satellite-images) de l’organisation *InseeFrLab*.
+Ce projet structuré en **7 dépôts Git** open source, hébergés sur GitHub, et organisés au sein de l’équipe [Satellite images](https://github.com/orgs/InseeFrLab/teams/satellite-images) de l’organisation *InseeFrLab*.
 
 ## 📁 Les différents dépôts
 
@@ -17,7 +17,6 @@ Pour manipuler des données géospatiales, la bibliothèque incontournable est [
 
 Dans notre projet, nous avons développé un package complémentaire, [Astrovision](https://github.com/InseeFrLab/astrovision), qui centralise un ensemble de fonctions utilitaires : découpage d’images, gestion des métadonnées, visualisation, etc. Ce package n’est pas strictement indispensable, cela a été aussi pour nous d'apprendre à déployer un package python. Le projet pourrait fonctionner en s’appuyant exclusivement sur Rasterio, avec quelques adaptations.
 
----
 
 ### 2️⃣ Préparation des images satellites
 
@@ -34,19 +33,19 @@ Le *pipeline* de preprocessing comprend les étapes suivantes :
 
 ::: {.callout-note}
 Le choix de séparer ce dépôt de celui de l'entraînement est discutable, mais repose sur plusieurs objectifs :
+
 - Isoler les différentes étapes du pipeline.
 - Éviter de ré-exécuter inutilement le preprocessing à chaque entraînement.
 - Faciliter la modularité du projet.
 Ces objectifs ne sont pas forcément en contradiction avec le fait de tout centraliser dans un seul package.
 :::
 
----
 
 ### 3️⃣ Entraînement des modèles
 
 L'entraînement est géré par le dépôt [satellite-images-train](https://github.com/InseeFrLab/satellite-images-train). Il est nécessaire d'avoir à disposition des images déjà prétraitées et stockées sur le S3, ce qui peut être fait via le dépôt de preprocessing.
 
-L’objectif de ce dépôt est d’offrir un environnement modulaire permettant d’expérimenter différentes stratégies d’entraînement et d’optimiser les hyperparamètres propre à l'entraînement (et rien d'autres !). Tous les résultats sont loggués via **MLflow**.
+L’objectif de ce dépôt est d’offrir un environnement modulaire permettant d’expérimenter différentes stratégies d’entraînement et d’optimiser les hyperparamètres propre à l'entraînement (et rien d'autres !). Tous les résultats sont loggués via [MLFlow](https://projet-slums-detection-mlflow.user.lab.sspcloud.fr/).
 
 Deux familles de modèles de segmentation sont actuellement intégrées :
 
@@ -55,7 +54,6 @@ Deux familles de modèles de segmentation sont actuellement intégrées :
 
 Côté fonctions de perte, plusieurs variantes de l'entropie croisée sont disponibles (classique, pondérée, binaire, etc.).
 
----
 
 ### 4️⃣ Inférence à partir de nouvelles images
 
@@ -78,52 +76,179 @@ Un système de **cache** est en place pour éviter les redondances de calcul sur
 :::
 
 
+### 5️⃣ Application CRaTT
 
-### 5️⃣ Application web
+Le code de l'application CRaTT permettant de visualiser les résultats sur des territoires entier est disponible dans le dépôt [satellite-images-webapp](https://github.com/inseeFrLab/satellite-images-webapp). L'application est construite avec [Observable Framework](https://observablehq.com/framework/) qui permet de déployer sur un site statique tout en gardant un certain niveau d’interactivité dans les visualisations que l'on peut montrer. La manipulation des données peut se faire dans le langage de notre choix (Python, R, SQL, etc.) et les visualisation se font en JavaScript.
 
-https://github.com/InseeFrLab/satellite-images-webapp
+Le déploiement est réalisé via Github Pages et est accessible à l'adresse suivante : [https://inseefrlab.github.io/satellite-images-webapp/]().
+
 
 ### 6️⃣ Déploiement des applications
 
-https://github.com/InseeFrLab/satellite-images-cd
+Pour gérer les différents déploiements de l'ensemble du projet, nous avons créer un dépôt GitOps. Il s'agit du dépôt [satellite-images-cd](https://github.com/inseeFrLab/satellite-images-cd).
+Il contient les *manifests* Kubernetes des services déployés ainsi que les templates d'ArgoCD afin d'avoir un déploiement continu.
 
-### Documentation du projet
+En avril 2025, 2 services sont déployés :
 
-https://github.com/InseeFrLab/satellite-images-docs
+- l'API d'inférence
+- le Geoserver pour la mise à disposition des tuiles d'images
+
+### 7️⃣ Documentation du projet
+
+La documentation que vous lisez actuellement est réaliser avec Quarto et toute contribution est la bienvenue dans le dépôt [satellite-images-docs](https://github.com/inseeFrLab/satellite-images-docs).
 
 
-### (Optionnel) Dépôt création image -- Deprecated
-
-Créer une image docker avec les bons requirements
-https://github.com/InseeFrLab/satellite-images-dev
-
-
-## Le projet sur le Datalab
+## Le projet sur le Datalab -- SSPCloud
 
 ### Le namespace
 
-projet slums detection
+Afin de pouvoir contribuer au projet il est nécessaire d'avoir accès au namespace `projet-slums-detection`. Pour cela, vous pouvez contacter la Diit. 
 
 ### Les données
 
-data-raw
-data-label
-data-preprocessed
-data-predictions
-data-roi
-data-clusters
-cache-predictions
+Le S3 associé au projet est structuré en plusieurs dossiers. 
+
+
+#### 📁 **data-raw**
+
+Ce dossier contient les images satellites telles qu'on les reçoit sans modification. Seules les données de la Guyane et de Saint-Martin sont un peu différentes avec des sous dossiers `brut` car elles ont nécessité des ajustements préalables. En effet, pour tous les autres départements les données proviennent de l'IGN qui nous transmets les mosaïques d'images 2000x2000.
+
+La structure du dossier est : 
+
+`data-raw/<SOURCE>/<DEPARTEMENT>/<ANNEE>/*.tif`
+
+#### 📁 **data-label**
+
+Ce dossier contient les données géographiques contenant les labels que nous utilisons lors de notre entraînement et que nous considérons donc comme **vraie valeur**. En fonction de la source de l'annotation le format des fichiers peut différer. Pour le moment, 2 sources de données sont utilisées il s'agit de la [BDTOPO](https://geoservices.ign.fr/bdtopo) et de [COSIA](https://cosia.ign.fr/) et les données sont stockées respectivement au format Shapefile et au format Geopackage.
+
+La structure du dossier est : 
+
+```
+data-label/
+├── BDTOPO/
+│   ├── bdtopo-id2label.json
+│   └── <DEPARTEMENT>/
+│       └── <ANNEE>/
+├── COSIA/
+│   ├── cosia-id2label.json
+│   └── <DEPARTEMENT>/
+│       └── <ANNEE>/
+```
+
+#### 📁 **data-preprocessed**
+
+Le dossier `data-preprocessed/` contient l'ensemble des données préparées pour l'entraînement d'un modèle. Il est organisé en deux sous-dossiers principaux, le dossier `labels/` qui contient les fichiers d'étiquettes (`.npy`) associés à chaque tuile d'image ainsi que le dossier `patchs/` contient les images (`.jp2`) associées portant le même nom.
+
+La structure du dossier est donc : 
+
+```
+data-preprocessed/
+├── labels/                        # Étiquettes
+│   └── <LABELER>/                 # Annotateur (ex: COSIA, BDTOPO...)
+│       └── <TASK>/                # Tâche spécifique (ex: segmentation, classification...)
+│           └── <SOURCE>/          # Source de données (ex: PLEIADES, SENTINEL...)
+│               └── <DEPARTEMENT>/ # Département (ex: MAYOTTE, REUNION...)
+│                   └── <ANNEE>/   # Année de la donnée (ex: 2023)
+│                       └── <TILE-SIZE>/  # Taille des tuiles (ex: 125, 250...)
+│                           ├── train/    # Jeu d'entraînement
+│                           │   └── *.npy # Fichiers numpy
+│                           └── test/     # Jeu de test
+│                               └── *.npy # Fichiers numpy
+├── patchs/                        # Images
+│   └── <LABELER>/                 # Annotateur (ex: COSIA, BDTOPO...)
+│       └── <TASK>/                # Tâche spécifique (ex: segmentation, classification...)
+│           └── <SOURCE>/          # Source de données (ex: PLEIADES, SENTINEL...)
+│               └── <DEPARTEMENT>/ # Département (ex: MAYOTTE, REUNION...)
+│                   └── <ANNEE>/   # Année de la donnée (ex: 2023)
+│                       └── <TILE-SIZE>/  # Taille des tuiles (ex: 125, 250...)
+│                           ├── train/    # Jeu d'entraînement
+│                           │   └── *.jp2 # Fichiers images jp2
+│                           └── test/     # Jeu de test
+│                               └── *.jp2 # Fichiers images jp2
+
+```
+
+
+
+#### 📁 **data-prediction**
+
+Le dossier `data-prediction/`regroupe les résultats de prédictions générées par différents modèles. Les prédictions sont disponibles au format Parquet mais également au format GeoPackage pour pouvoir les utiliser dans le Geoserver.
+
+La structure du dossier est : 
+
+```
+data-prediction/
+└── <SOURCE>/                  # Source de données (ex: PLEIADES, SENTINEL...)
+    └── <DEPARTEMENT>/          # Département (ex: MAYOTTE, REUNION...)
+        └── <ANNEE>/            # Année de la donnée (ex: 2023)
+            └── <MODEL-NAME>/   # Nom du modèle utilisé pour la prédiction
+                └── <MODEL-VERSION>/ # Version du modèle (ex: 1, 2...)
+                    ├── *.parquet    # Fichiers de prédiction au format parquet
+                    └── *.gpkg       # Fichiers de prédiction au format GeoPackage
+```
+
+#### 📁 **cache-predictions**
+
+Le dossier `cache-predictions/` contient les logits intermédiaires produits par les modèles lors du processus de prédiction afin de ne pas refaire une prédiction qui aurait déjà été réalisée.
+L'organisation du dossier reprend la même hiérarchie que `data-prediction` :
+
+```
+cache-predictions/
+└── <SOURCE>/                  # Source de données (ex: PLEIADES, SENTINEL...)
+    └── <DEPARTEMENT>/          # Département (ex: MAYOTTE, REUNION...)
+        └── <ANNEE>/            # Année de la donnée (ex: 2023)
+            └── <MODEL-NAME>/   # Nom du modèle utilisé pour la prédiction
+                └── <MODEL-VERSION>/ # Version du modèle (ex: 1, 2...)
+                    └── *.npy       # Logits prédits
+```
+
+#### 📁 **data-roi**
+
+Le dossier `data-roi` contient les contours géographique de chaque département afin de pouvoir filtrer les images efficacement que ce soit lors de l'étape de preprocessing que lors de l'étape de l'inférence. Les contours sont à la fois stockés en parquet et en geojson (un seul des deux formats pourrait suffire).
+
+La structure du dossier est : 
+
+```
+data-roi/
+├── <DEPARTEMENT>.parquet
+└── <DEPARTEMENT>.geojson
+```
+
+#### 📁 **data-clusters**
+
+Le dossier `data-clusters` contient les contours géographique de chaque îlot pour les différents départements. Ces informations sont nécessaires lors de l'inférence pour un îlot donné ainsi que pour le déploiement de la webapp qui permet de réaliser des statistiques par îlot. Le dossier est simplement un fichier parquet partitionné : 
+
+```
+data-clusters/
+├── <DEPARTEMENT>/
+      └── *.parquet
+```
 
 
 ### Les services
 
-Mlflow, Argo CD, Argo workflows, Geoserver
+Le projet utilise plusieurs service au sein du datalab.
 
+-
+#### MLFlow
 
+MLflow est utilisé lors de la phase d'entraînement pour *tracker* et optimiser nos modèles.
+Il permet de *logguer* les hyperparamètres, les métriques et les artefacts générés au cours des expérimentations. MLflow joue également le rôle de *Model Registry*, dans lequel à chaque modèle est associé un tag  tel que *staging*, *production* ou *archived*. Cela facilite le versionnement et la bonne gestion du cycle de vie des modèles dans le temps
 
+-
+#### ArgoCD
 
+ArgoCD est déployé pour superviser et gérer automatiquement les applications présentes dans notre namespace. Il permet de surveiller en permanence l'état de déploiement des applications et détecte automatiquement toute modification des manifests dans le dépôt GitOps dédié ([https://github.com/inseeFrLab/satellite-images-cd]()). Lorsqu'une modification est détectée, ArgoCD applique automatiquement les changements sur le cluster, garantissant une parfaite synchronisation entre le code source et l'état effectif des déploiements.
 
+-
+#### Argo Workflows
 
+Argo Workflows est utilisé pour orchestrer l'exécution parallèle de scripts, ce qui optimise considérablement les temps de calcul. Les workflows sont décrits dans des fichiers YAML stockés dans les répertoires `argo-workflows/` présents dans les différents dépôts.
+Argo Workflows est sollicité à différents stades du projet, notamment pour exécuter les étapes de preprocessing des données, l'entraînement de modèles en parallèle, ainsi que l'inférence à grande échelle.
 
+-
+#### Geoserver
 
+GeoServer permet la publication et la mise à disposition de données géographiques sous forme de flux normalisés (WMS, WFS, WCS). Contrairement aux autres services mentionnés, GeoServer n'est pas directement provisionné par le Datalab, ni déployé via Helm Chart.
 
+À ce jour, GeoServer ne peut pas accéder directement aux fichiers stockés sur un stockage objet type S3. En conséquence, toutes les images ou données que nous souhaitons exposer doivent être dupliquées dans un PVC associé au pod GeoServer...
