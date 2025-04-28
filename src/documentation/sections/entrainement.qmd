@@ -1,0 +1,51 @@
+# Entraînement d'un modèle 
+
+Lien vers le dépôt d'entraiement : [https://github.com/InseeFrLab/satellite-images-train]().
+
+## 🚀 Démarrage rapide
+
+### 1. Cloner et configurer l'environnement
+
+```bash
+git clone https://github.com/InseeFrLab/satellite-images-train.git
+cd satellite-images-train
+uv sync
+uv run pre-commit install
+```
+
+### 2. Lancer en local
+
+Définissez les paramètres d'entraînement puis exécutez :
+
+```bash
+bash bash/mlflow-run.sh
+```
+
+L'ensemble de l'exécution sera automatiquement enregistré dans MLflow.
+
+
+### 3. Lancer avec Argo Workflows ☁️
+
+1. Mettez à jour les paramètres dans argo-workflows/train-workflow.yaml `argo-workflows/train-workflow.yaml`.
+2. Soumettez le workflow via l'interface CLI ou l'interface graphique Argo en copier/collant le template:
+
+```bash
+argo submit argo-workflows/train-workflow.yaml
+```
+
+## 🧠 Configuration du modèle
+
+Le pipeline d'entraînement est construit avec PyTorch et conçu pour être flexible :
+
+- **Architectures** : `deeplabv3`, `segformer-b[0–5]`, `single_class_deeplabv3`
+- **Fonctions de perte**: Cross-Entropy (avec différentes variantes), BCE, BCE avec logits
+- **Schedulers**: `reduce_on_plateau`, `one_cycle`, etc.
+- **Sources des labels**: `BDTOPO`, `COSIA` ou autres.
+
+De nouveaux modèles peuvent être implémenter en rajoutant le code dans `src/models/components/segmentation_models.py`.
+Les fonctions de perte sont définies dans `src/config/loss.py` et les schedulers dans `src/config/scheduling.py`.
+En ce qui concerne les annotations, cela se joue dans le [dépot de preprocessing](https://github.com/InseeFrLab/satellite-images-preprocess)
+
+
+## 📈 L'utilisation de MLflow 
+
