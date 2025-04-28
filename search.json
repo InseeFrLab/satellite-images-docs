@@ -607,6 +607,42 @@
     ]
   },
   {
+    "objectID": "src/documentation/sections/entrainement.html",
+    "href": "src/documentation/sections/entrainement.html",
+    "title": "Entraînement d’un modèle",
+    "section": "",
+    "text": "Lien vers le dépôt d’entraiement : https://github.com/InseeFrLab/satellite-images-train.\n\n\n\n\ngit clone https://github.com/InseeFrLab/satellite-images-train.git\ncd satellite-images-train\nuv sync\nuv run pre-commit install\n\n\n\nDéfinissez les paramètres d’entraînement puis exécutez :\nbash bash/mlflow-run.sh\nL’ensemble de l’exécution sera automatiquement enregistré dans MLflow.\n\n\n\n\nMettez à jour les paramètres dans argo-workflows/train-workflow.yaml argo-workflows/train-workflow.yaml.\nSoumettez le workflow via l’interface CLI ou l’interface graphique Argo en copier/collant le template:\n\nargo submit argo-workflows/train-workflow.yaml\n\n\n\n\nLe pipeline d’entraînement est construit avec PyTorch et conçu pour être flexible :\n\nArchitectures : deeplabv3, segformer-b[0–5], single_class_deeplabv3\nFonctions de perte: Cross-Entropy (avec différentes variantes), BCE, BCE avec logits\nSchedulers: reduce_on_plateau, one_cycle, etc.\nSources des labels: BDTOPO, COSIA ou autres.\n\nDe nouveaux modèles peuvent être implémenter en rajoutant le code dans src/models/components/segmentation_models.py. Les fonctions de perte sont définies dans src/config/loss.py et les schedulers dans src/config/scheduling.py. En ce qui concerne les annotations, cela se joue dans le dépot de preprocessing",
+    "crumbs": [
+      "Accueil",
+      "Navigation",
+      "Entraînement d'un modèle"
+    ]
+  },
+  {
+    "objectID": "src/documentation/sections/entrainement.html#démarrage-rapide",
+    "href": "src/documentation/sections/entrainement.html#démarrage-rapide",
+    "title": "Entraînement d’un modèle",
+    "section": "",
+    "text": "git clone https://github.com/InseeFrLab/satellite-images-train.git\ncd satellite-images-train\nuv sync\nuv run pre-commit install\n\n\n\nDéfinissez les paramètres d’entraînement puis exécutez :\nbash bash/mlflow-run.sh\nL’ensemble de l’exécution sera automatiquement enregistré dans MLflow.\n\n\n\n\nMettez à jour les paramètres dans argo-workflows/train-workflow.yaml argo-workflows/train-workflow.yaml.\nSoumettez le workflow via l’interface CLI ou l’interface graphique Argo en copier/collant le template:\n\nargo submit argo-workflows/train-workflow.yaml",
+    "crumbs": [
+      "Accueil",
+      "Navigation",
+      "Entraînement d'un modèle"
+    ]
+  },
+  {
+    "objectID": "src/documentation/sections/entrainement.html#configuration-du-modèle",
+    "href": "src/documentation/sections/entrainement.html#configuration-du-modèle",
+    "title": "Entraînement d’un modèle",
+    "section": "",
+    "text": "Le pipeline d’entraînement est construit avec PyTorch et conçu pour être flexible :\n\nArchitectures : deeplabv3, segformer-b[0–5], single_class_deeplabv3\nFonctions de perte: Cross-Entropy (avec différentes variantes), BCE, BCE avec logits\nSchedulers: reduce_on_plateau, one_cycle, etc.\nSources des labels: BDTOPO, COSIA ou autres.\n\nDe nouveaux modèles peuvent être implémenter en rajoutant le code dans src/models/components/segmentation_models.py. Les fonctions de perte sont définies dans src/config/loss.py et les schedulers dans src/config/scheduling.py. En ce qui concerne les annotations, cela se joue dans le dépot de preprocessing",
+    "crumbs": [
+      "Accueil",
+      "Navigation",
+      "Entraînement d'un modèle"
+    ]
+  },
+  {
     "objectID": "src/documentation/sections/resultats.html",
     "href": "src/documentation/sections/resultats.html",
     "title": "Geoserver",

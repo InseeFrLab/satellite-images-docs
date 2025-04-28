@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -75,6 +109,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Projet Données Satellites">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Projet Données Satellites">
 </head>
 
@@ -188,8 +223,24 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#entraînement-dun-modèle" id="toc-entraînement-dun-modèle" class="nav-link active" data-scroll-target="#entraînement-dun-modèle">Entraînement d’un modèle</a>
+  <ul class="collapse">
+  <li><a href="#démarrage-rapide" id="toc-démarrage-rapide" class="nav-link" data-scroll-target="#démarrage-rapide">🚀 Démarrage rapide</a>
+  <ul class="collapse">
+  <li><a href="#cloner-et-configurer-lenvironnement" id="toc-cloner-et-configurer-lenvironnement" class="nav-link" data-scroll-target="#cloner-et-configurer-lenvironnement">1. Cloner et configurer l’environnement</a></li>
+  <li><a href="#lancer-en-local" id="toc-lancer-en-local" class="nav-link" data-scroll-target="#lancer-en-local">2. Lancer en local</a></li>
+  <li><a href="#lancer-avec-argo-workflows" id="toc-lancer-avec-argo-workflows" class="nav-link" data-scroll-target="#lancer-avec-argo-workflows">3. Lancer avec Argo Workflows ☁️</a></li>
+  </ul></li>
+  <li><a href="#configuration-du-modèle" id="toc-configuration-du-modèle" class="nav-link" data-scroll-target="#configuration-du-modèle">🧠 Configuration du modèle</a></li>
+  <li><a href="#lutilisation-de-mlflow" id="toc-lutilisation-de-mlflow" class="nav-link" data-scroll-target="#lutilisation-de-mlflow">📈 L’utilisation de MLflow</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -197,8 +248,50 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="entraînement-dun-modèle" class="level1">
+<h1>Entraînement d’un modèle</h1>
+<p>Lien vers le dépôt d’entraiement : <a href="">https://github.com/InseeFrLab/satellite-images-train</a>.</p>
+<section id="démarrage-rapide" class="level2">
+<h2 class="anchored" data-anchor-id="démarrage-rapide">🚀 Démarrage rapide</h2>
+<section id="cloner-et-configurer-lenvironnement" class="level3">
+<h3 class="anchored" data-anchor-id="cloner-et-configurer-lenvironnement">1. Cloner et configurer l’environnement</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/InseeFrLab/satellite-images-train.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> satellite-images-train</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run pre-commit install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="lancer-en-local" class="level3">
+<h3 class="anchored" data-anchor-id="lancer-en-local">2. Lancer en local</h3>
+<p>Définissez les paramètres d’entraînement puis exécutez :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> bash/mlflow-run.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>L’ensemble de l’exécution sera automatiquement enregistré dans MLflow.</p>
+</section>
+<section id="lancer-avec-argo-workflows" class="level3">
+<h3 class="anchored" data-anchor-id="lancer-avec-argo-workflows">3. Lancer avec Argo Workflows ☁️</h3>
+<ol type="1">
+<li>Mettez à jour les paramètres dans argo-workflows/train-workflow.yaml <code>argo-workflows/train-workflow.yaml</code>.</li>
+<li>Soumettez le workflow via l’interface CLI ou l’interface graphique Argo en copier/collant le template:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">argo</span> submit argo-workflows/train-workflow.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="configuration-du-modèle" class="level2">
+<h2 class="anchored" data-anchor-id="configuration-du-modèle">🧠 Configuration du modèle</h2>
+<p>Le pipeline d’entraînement est construit avec PyTorch et conçu pour être flexible :</p>
+<ul>
+<li><strong>Architectures</strong> : <code>deeplabv3</code>, <code>segformer-b[0–5]</code>, <code>single_class_deeplabv3</code></li>
+<li><strong>Fonctions de perte</strong>: Cross-Entropy (avec différentes variantes), BCE, BCE avec logits</li>
+<li><strong>Schedulers</strong>: <code>reduce_on_plateau</code>, <code>one_cycle</code>, etc.</li>
+<li><strong>Sources des labels</strong>: <code>BDTOPO</code>, <code>COSIA</code> ou autres.</li>
+</ul>
+<p>De nouveaux modèles peuvent être implémenter en rajoutant le code dans <code>src/models/components/segmentation_models.py</code>. Les fonctions de perte sont définies dans <code>src/config/loss.py</code> et les schedulers dans <code>src/config/scheduling.py</code>. En ce qui concerne les annotations, cela se joue dans le <a href="https://github.com/InseeFrLab/satellite-images-preprocess">dépot de preprocessing</a></p>
+</section>
+<section id="lutilisation-de-mlflow" class="level2">
+<h2 class="anchored" data-anchor-id="lutilisation-de-mlflow">📈 L’utilisation de MLflow</h2>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
