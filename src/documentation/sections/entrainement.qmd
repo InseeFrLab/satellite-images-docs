@@ -55,76 +55,30 @@ Lors de l'exécution d'une expérimentation, assurez-vous que la variable d'envi
 
 Une fois vos expérimentations réalisées, vous pouvez les comparer facilement en les sélectionnant dans l’interface puis en cliquant sur `Compare`. MLflow vous permet alors d'analyser visuellement les métriques obtenues en fonction des hyperparamètres utilisés.
 
-
-
-::: {.callout-tip}
-# Comment passer un modèle en production ?
-
-1. Une fois que vous avez une expérimentation qui vous satisfait, il va falloir l'enregistrer dans le Model Registry.
-2. Pour cela, cliquez sur le nom du run de l'expérimentation en question. Cela doit ouvrir une nouvelle fenêtre et vous devez vous trouver dans l'onglet `Overview`. 
-3. Cliquez ensuite sur l'onglet `Artifacts`.
-4. Pour enregistrer le modèle associé à l'expérimentation, cliquez sur `Register model`.
-5. Vous avez ensuite le choix entre les modèles `Segmentation` et `Segmentation-multiclass`, prenez le plus adéquat ou alors vous pouvez en créer un nouveau.
-6. Si besoin, rajoutez un tag et un alias à votre modèle. L'alias peut, au même titre que la version, être utilisé pour récupéré le modèle du Model Registry.
-7. Allez sur le [dépôt GitOps](https://github.com/InseeFrLab/satellite-images-cd) ou clonez le.
-8. Modifiez les lignes correspondantes avec le bon nom et version de votre modèle à passer en production. Faites un commit.
-9. Allez sur [ArgoCD](https://projet-slums-detection-argo-cd.user.lab.sspcloud.fr/), et vérifiez que votre application `satellite-images-api` s'est bien mise à jour. Sinon, appuyer sur `Refresh`.
-:::
-
-
-::: {.callout-note}
-# Comment passer un modèle en production ?
-
-En plus des aspects purement méthodologique plusieurs points technique pourraient être implémentés/améliorés :
-
-- signature du modele MLFlow 
-- changer le CLI pour parser les listes de manière conventionnelle
-- Jouer avec args et kwargs pour éviter d'avoir une fonction avec autant de paramètre
-
-:::
-
-
-
-
-## 📈 Utilisation de MLflow
-
-Le script `src/train.py` intègre déjà MLflow, et chaque expérimentation est automatiquement enregistrée et visualisable via l’[interface graphique MLflow](https://projet-slums-detection-mlflow.user.lab.sspcloud.fr/).
-
-Lors de l'exécution d'une expérimentation, assurez-vous que la variable d'environnement `MLFLOW_TRACKING_URI` est correctement définie afin que les logs soient stockés au bon endroit. Grâce à `mlflow.pytorch.autolog()`, les principaux éléments (paramètres, métriques, artefacts, etc.) sont logués automatiquement. Si besoin, vous pouvez désactiver l'autologging pour enregistrer manuellement uniquement les informations jugées essentielles.
-
-Une fois vos expérimentations réalisées, vous pouvez les comparer facilement en les sélectionnant dans l’interface puis en cliquant sur `Compare`. MLflow vous permet alors d'analyser visuellement les métriques obtenues en fonction des hyperparamètres utilisés.
-
----
-
 ::: {.callout-tip}
 ## 🔁 Promotion d’un modèle vers la production
 
 Voici la procédure pour enregistrer un modèle performant dans le **Model Registry**, puis le déployer :
 
 1. Identifiez une expérimentation satisfaisante, puis cliquez sur le nom du run associé pour accéder à ses détails.
-2. Dans l’onglet `Overview`, basculez vers `Artifacts`.
-3. Cliquez sur `Register model` pour enregistrer le modèle.
-4. Choisissez le registre approprié (`Segmentation` ou `Segmentation-multiclass`) ou créez un nouveau registre si nécessaire.
-5. Ajoutez un tag et/ou un alias pour votre modèle. L’alias peut être utilisé, comme la version, pour charger le modèle depuis le Model Registry.
-6. Rendez-vous sur le [dépôt GitOps](https://github.com/InseeFrLab/satellite-images-cd) (ou clonez-le si ce n’est pas déjà fait).
-7. Modifiez les lignes appropriées pour indiquer le nom et la version du modèle à déployer, puis effectuez un commit.
-8. Connectez-vous à [ArgoCD](https://projet-slums-detection-argo-cd.user.lab.sspcloud.fr/) et vérifiez que l’application `satellite-images-api` a bien été mise à jour. Le cas échéant, cliquez sur `Refresh`.
+2. Cliquez sur `Register model` pour enregistrer le modèle.
+3. Choisissez le registre approprié (`Segmentation` ou `Segmentation-multiclass`) ou créez un nouveau registre si nécessaire.
+4. Ajoutez un tag et/ou un alias pour votre modèle. L’alias peut être utilisé, comme la version, pour charger le modèle depuis le Model Registry.
+5. Rendez-vous sur le [dépôt GitOps](https://github.com/InseeFrLab/satellite-images-cd) (ou clonez-le si ce n’est pas déjà fait).
+6. Modifiez les [lignes appropriées](https://github.com/InseeFrLab/satellite-images-cd/blob/main/deployment-api/deployment.yaml#L41-L44) pour indiquer le nom et la version du modèle à déployer, puis effectuez un commit.
+7. Connectez-vous à [ArgoCD](https://projet-slums-detection-argo-cd.user.lab.sspcloud.fr/) et vérifiez que l’application `satellite-images-api` a bien été mise à jour. Sinon, cliquez sur `Refresh`.
 
 :::
 
----
 
 ::: {.callout-note}
 ## 🛠️ Améliorations techniques possibles
 
-En complément de l’approche méthodologique, plusieurs axes d’amélioration technique sont envisageables :
+Amélioration technique sont envisageables :
 
-- **Signature du modèle MLflow** : Permet de formaliser les entrées/sorties attendues pour fiabiliser le déploiement.
-- **Amélioration du CLI** : Adapter le parsing des listes pour respecter les conventions (par exemple via `argparse` ou `click`).
-- **Utilisation d’`*args` et `**kwargs`** : Réduire la complexité des fonctions avec de nombreux paramètres et améliorer leur réutilisabilité.
+- Ajouter une signature du modèle MLflow
+- Adapter le parsing des listes pour simplifier le CLI.
+- Utiliser `*args` et `**kwargs` pour réduire le nombre de paramètres de la fonction.
 
 :::
 
----
-
-Souhaites-tu que je reformule également d'autres parties de la documentation ?
