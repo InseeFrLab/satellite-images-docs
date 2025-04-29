@@ -238,7 +238,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#configuration-du-modèle" id="toc-configuration-du-modèle" class="nav-link" data-scroll-target="#configuration-du-modèle">🧠 Configuration du modèle</a></li>
   <li><a href="#lutilisation-de-mlflow" id="toc-lutilisation-de-mlflow" class="nav-link" data-scroll-target="#lutilisation-de-mlflow">📈 L’utilisation de MLflow</a></li>
-  <li><a href="#utilisation-de-mlflow" id="toc-utilisation-de-mlflow" class="nav-link" data-scroll-target="#utilisation-de-mlflow">📈 Utilisation de MLflow</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -298,54 +297,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Comment passer un modèle en production ?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Une fois que vous avez une expérimentation qui vous satisfait, il va falloir l’enregistrer dans le Model Registry.</li>
-<li>Pour cela, cliquez sur le nom du run de l’expérimentation en question. Cela doit ouvrir une nouvelle fenêtre et vous devez vous trouver dans l’onglet <code>Overview</code>.</li>
-<li>Cliquez ensuite sur l’onglet <code>Artifacts</code>.</li>
-<li>Pour enregistrer le modèle associé à l’expérimentation, cliquez sur <code>Register model</code>.</li>
-<li>Vous avez ensuite le choix entre les modèles <code>Segmentation</code> et <code>Segmentation-multiclass</code>, prenez le plus adéquat ou alors vous pouvez en créer un nouveau.</li>
-<li>Si besoin, rajoutez un tag et un alias à votre modèle. L’alias peut, au même titre que la version, être utilisé pour récupéré le modèle du Model Registry.</li>
-<li>Allez sur le <a href="https://github.com/InseeFrLab/satellite-images-cd">dépôt GitOps</a> ou clonez le.</li>
-<li>Modifiez les lignes correspondantes avec le bon nom et version de votre modèle à passer en production. Faites un commit.</li>
-<li>Allez sur <a href="https://projet-slums-detection-argo-cd.user.lab.sspcloud.fr/">ArgoCD</a>, et vérifiez que votre application <code>satellite-images-api</code> s’est bien mise à jour. Sinon, appuyer sur <code>Refresh</code>.</li>
-</ol>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Comment passer un modèle en production ?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>En plus des aspects purement méthodologique plusieurs points technique pourraient être implémentés/améliorés :</p>
-<ul>
-<li>signature du modele MLFlow</li>
-<li>changer le CLI pour parser les listes de manière conventionnelle</li>
-<li>Jouer avec args et kwargs pour éviter d’avoir une fonction avec autant de paramètre</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="utilisation-de-mlflow" class="level2">
-<h2 class="anchored" data-anchor-id="utilisation-de-mlflow">📈 Utilisation de MLflow</h2>
-<p>Le script <code>src/train.py</code> intègre déjà MLflow, et chaque expérimentation est automatiquement enregistrée et visualisable via l’<a href="https://projet-slums-detection-mlflow.user.lab.sspcloud.fr/">interface graphique MLflow</a>.</p>
-<p>Lors de l’exécution d’une expérimentation, assurez-vous que la variable d’environnement <code>MLFLOW_TRACKING_URI</code> est correctement définie afin que les logs soient stockés au bon endroit. Grâce à <code>mlflow.pytorch.autolog()</code>, les principaux éléments (paramètres, métriques, artefacts, etc.) sont logués automatiquement. Si besoin, vous pouvez désactiver l’autologging pour enregistrer manuellement uniquement les informations jugées essentielles.</p>
-<p>Une fois vos expérimentations réalisées, vous pouvez les comparer facilement en les sélectionnant dans l’interface puis en cliquant sur <code>Compare</code>. MLflow vous permet alors d’analyser visuellement les métriques obtenues en fonction des hyperparamètres utilisés.</p>
-<hr>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
 🔁 Promotion d’un modèle vers la production
 </div>
 </div>
@@ -353,17 +304,15 @@ Comment passer un modèle en production ?
 <p>Voici la procédure pour enregistrer un modèle performant dans le <strong>Model Registry</strong>, puis le déployer :</p>
 <ol type="1">
 <li>Identifiez une expérimentation satisfaisante, puis cliquez sur le nom du run associé pour accéder à ses détails.</li>
-<li>Dans l’onglet <code>Overview</code>, basculez vers <code>Artifacts</code>.</li>
 <li>Cliquez sur <code>Register model</code> pour enregistrer le modèle.</li>
 <li>Choisissez le registre approprié (<code>Segmentation</code> ou <code>Segmentation-multiclass</code>) ou créez un nouveau registre si nécessaire.</li>
 <li>Ajoutez un tag et/ou un alias pour votre modèle. L’alias peut être utilisé, comme la version, pour charger le modèle depuis le Model Registry.</li>
 <li>Rendez-vous sur le <a href="https://github.com/InseeFrLab/satellite-images-cd">dépôt GitOps</a> (ou clonez-le si ce n’est pas déjà fait).</li>
-<li>Modifiez les lignes appropriées pour indiquer le nom et la version du modèle à déployer, puis effectuez un commit.</li>
-<li>Connectez-vous à <a href="https://projet-slums-detection-argo-cd.user.lab.sspcloud.fr/">ArgoCD</a> et vérifiez que l’application <code>satellite-images-api</code> a bien été mise à jour. Le cas échéant, cliquez sur <code>Refresh</code>.</li>
+<li>Modifiez les <a href="https://github.com/InseeFrLab/satellite-images-cd/blob/main/deployment-api/deployment.yaml#L41-L44">lignes appropriées</a> pour indiquer le nom et la version du modèle à déployer, puis effectuez un commit.</li>
+<li>Connectez-vous à <a href="https://projet-slums-detection-argo-cd.user.lab.sspcloud.fr/">ArgoCD</a> et vérifiez que l’application <code>satellite-images-api</code> a bien été mise à jour. Sinon, cliquez sur <code>Refresh</code>.</li>
 </ol>
 </div>
 </div>
-<hr>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -374,16 +323,14 @@ Comment passer un modèle en production ?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>En complément de l’approche méthodologique, plusieurs axes d’amélioration technique sont envisageables :</p>
+<p>Amélioration technique sont envisageables :</p>
 <ul>
-<li><strong>Signature du modèle MLflow</strong> : Permet de formaliser les entrées/sorties attendues pour fiabiliser le déploiement.</li>
-<li><strong>Amélioration du CLI</strong> : Adapter le parsing des listes pour respecter les conventions (par exemple via <code>argparse</code> ou <code>click</code>).</li>
-<li><strong>Utilisation d’<code>*args</code> et <code>**kwargs</code></strong> : Réduire la complexité des fonctions avec de nombreux paramètres et améliorer leur réutilisabilité.</li>
+<li>Ajouter une signature du modèle MLflow</li>
+<li>Adapter le parsing des listes pour simplifier le CLI.</li>
+<li>Utiliser <code>*args</code> et <code>**kwargs</code> pour réduire le nombre de paramètres de la fonction.</li>
 </ul>
 </div>
 </div>
-<hr>
-<p>Souhaites-tu que je reformule également d’autres parties de la documentation ?</p>
 
 
 </section>
