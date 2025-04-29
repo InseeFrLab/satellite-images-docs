@@ -199,6 +199,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#bdtopo" id="toc-bdtopo" class="nav-link" data-scroll-target="#bdtopo">BDTOPO</a></li>
   <li><a href="#cosia" id="toc-cosia" class="nav-link" data-scroll-target="#cosia">COSIA</a></li>
+  <li><a href="#géométrie-dilots" id="toc-géométrie-dilots" class="nav-link" data-scroll-target="#géométrie-dilots">🗺️ Géométrie d’ilots</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -217,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="pléiades" class="level3">
 <h3 class="anchored" data-anchor-id="pléiades">Pléiades</h3>
 <p>Les images Pléiades présentent l’avantage d’offrir une très haute résolution (50 cm). Toutefois, elles sont la propriété d’Airbus, ce qui limite leur accessibilité : l’acquisition passe généralement par un achat de licence. En tant qu’institution française, nous bénéficions d’un accès gratuit à ces données via <a href="https://dinamis.data-terra.org/">Dinamis</a>. Il suffit de créer un compte sur Dinamis et de réaliser une demande d’accès. Nous avons un contact à l’IGN pour simplifier la procédure et il nous transmet les images directement. Toutefois, même avec ce canal, il reste nécessaire de créer un compte Dinamis et de signer un contrat de licence d’utilisation.</p>
-<p>Lorsque les images sont disponibles, notre interlocuteur à l’IGN nous en informe par mail, en nous transmettant les accès à un serveur FTP. Les données peuvent alors être extraites puis transférées sur le S3 du namespace <code>projet-slums-detection</code> au sein du Datalab, selon la structure décrite dans <span class="citation" data-cites="data-raw">@data-raw</span>.</p>
+<p>Lorsque les images sont disponibles, notre interlocuteur à l’IGN, <a href="erik.parisot@ign.fr">Erik Parisot</a>, nous en informe par mail, en nous transmettant les accès à un serveur FTP. Les données peuvent alors être extraites puis transférées sur le S3 du namespace <code>projet-slums-detection</code> au sein du Datalab, selon la structure décrite dans <span class="citation" data-cites="data-raw">@data-raw</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -294,6 +295,16 @@ Comment récupérer les données de COSIA
 </ol>
 </div>
 </div>
+</section>
+<section id="géométrie-dilots" class="level3">
+<h3 class="anchored" data-anchor-id="géométrie-dilots">🗺️ Géométrie d’ilots</h3>
+<p>La géographie des ilots est <strong>arrêtée chaque année au 31 octobre</strong>.<br>
+C’est cette géographie qui s’applique pendant le <strong>Recensement de la Population (RP)</strong>.</p>
+<blockquote class="blockquote">
+<p>📌 <em>Exemple</em> : pour l’enquête de recensement <strong>2026</strong>, on utilise la géométrie des ilots <strong>arrêtée au 31 octobre 2025</strong>.</p>
+</blockquote>
+<p>Dans tous les cas, il faut s’assurer que <strong>le SERN Géographie</strong> et <strong>le ST Mayotte</strong> utilisent bien la même version des ilots (des changements exceptionnels peuvent être demandés en cas d’urgence).</p>
+<p>✉️ On peut demander la géographie d’ilots au <a href="mailto:dr69-sern-repertoires-geographie@insee.fr">SERN géographie</a>.</p>
 
 
 </section>

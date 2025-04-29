@@ -188,15 +188,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#geoserver" id="toc-geoserver" class="nav-link active" data-scroll-target="#geoserver">Geoserver</a>
+  <li><a href="#geoserver" id="toc-geoserver" class="nav-link active" data-scroll-target="#geoserver">🌍 Geoserver</a>
   <ul class="collapse">
-  <li><a href="#créer-un-entrepôt-couche" id="toc-créer-un-entrepôt-couche" class="nav-link" data-scroll-target="#créer-un-entrepôt-couche">Créer un entrepôt + couche</a>
-  <ul class="collapse">
-  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images">Images</a></li>
+  <li><a href="#étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow" id="toc-étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow" class="nav-link" data-scroll-target="#étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow">📥 Étape 1 : Envoi vers le pvc du GeoServer via ArgoWorkflow</a></li>
+  <li><a href="#étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver" id="toc-étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver" class="nav-link" data-scroll-target="#étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver">🗂️ Étape 2 : Création manuelle des entrepôts et couches dans le GeoServer</a></li>
+  <li><a href="#pour-les-images" id="toc-pour-les-images" class="nav-link" data-scroll-target="#pour-les-images">📷 Pour les <em>Images</em></a></li>
+  <li><a href="#pour-les-prédictions" id="toc-pour-les-prédictions" class="nav-link" data-scroll-target="#pour-les-prédictions">🧠 Pour les <em>Prédictions</em></a></li>
   </ul></li>
-  <li><a href="#prédictions" id="toc-prédictions" class="nav-link" data-scroll-target="#prédictions">Prédictions</a></li>
-  </ul></li>
-  <li><a href="#webapp-cratt" id="toc-webapp-cratt" class="nav-link" data-scroll-target="#webapp-cratt">Webapp CRaTT</a></li>
+  <li><a href="#webapp-cratt" id="toc-webapp-cratt" class="nav-link" data-scroll-target="#webapp-cratt">🧩 Webapp CRaTT</a></li>
   </ul>
 </nav>
     </div>
@@ -207,32 +206,112 @@ ul.task-list li input[type="checkbox"] {
 
 
 <section id="geoserver" class="level1">
-<h1>Geoserver</h1>
-<p>Une fois les prédictions faites, il est important de les intégrer au <a href="https://geoserver-satellite-images.lab.sspcloud.fr/geoserver">Geoserver</a> (demander les identifiants à l’équipe).</p>
+<h1>🌍 Geoserver</h1>
+<p>Une fois les prédictions faites, il est important de les intégrer au <a href="https://geoserver-satellite-images.lab.sspcloud.fr/geoserver">Geoserver</a> <em>(demander les identifiants à l’équipe)</em>.</p>
+<hr>
+<section id="étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow" class="level2">
+<h2 class="anchored" data-anchor-id="étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow">📥 Étape 1 : Envoi vers le pvc du GeoServer via ArgoWorkflow</h2>
+<p>Un remplissage dans le pvc du GeoServer se fait directement lors de l’<a href="https://github.com/InseeFrLab/satellite-images-inference/blob/9c9ef808fdce7ecea29a568e04c41354258c3c61/argo-workflows/predict-workflows.yaml#L86">inférence via le template ArgoWorkflow</a>.<br>
+Cette étape consiste à stocker les images Pléiades <strong>et</strong> les prédictions dans le GeoServer.</p>
+<hr>
+</section>
+<section id="étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver" class="level2">
+<h2 class="anchored" data-anchor-id="étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver">🗂️ Étape 2 : Création manuelle des entrepôts et couches dans le GeoServer</h2>
+<p>Il est important de créer un entrepôt et une couche pour utiliser les données sous forme de flux WMS dans la webapp. Pour l’instant, <strong>cette étape est manuelle</strong> : nous n’avons pas trouvé de méthode automatique.</p>
+<hr>
+</section>
+<section id="pour-les-images" class="level2">
+<h2 class="anchored" data-anchor-id="pour-les-images">📷 Pour les <em>Images</em></h2>
 <ol type="1">
-<li><p>Un remplissage dans l’espace de stockage du s3 se fait directement lors de l’<a href="https://github.com/InseeFrLab/satellite-images-inference/blob/9c9ef808fdce7ecea29a568e04c41354258c3c61/argo-workflows/predict-workflows.yaml#L86">inférence via le template ArgoWorkflow</a>. Cette étape consiste à stocker les images Pléïades et les prédictions dans le Geoserver.</p></li>
-<li><p>Ensuite, il faut créer des “Entrepôts” et leurs “Couches” correspondantes manuellement (nous n’avons pas trouvé de méthode automatique pour l’instant).</p></li>
+<li><strong>Entrepôt</strong>
+<ul>
+<li>Menu <strong>Données &gt; Entrepôts</strong> (à gauche)<br>
+</li>
+<li>Cliquez sur <strong>+ Ajouter un nouvel entrepôt</strong><br>
+</li>
+<li>Choisir <strong>ImageMosaic</strong><br>
+</li>
+<li><code>name = &lt;DEP&gt;_&lt;YEAR&gt;</code><br>
+</li>
+<li>Parcourir le dossier <code>PLEIADES/&lt;DEP&gt;/&lt;YEAR&gt;</code><br>
+</li>
+<li>➡️ <em>Sauvegarder</em></li>
+</ul></li>
+<li><strong>Couche</strong>
+<ul>
+<li>Menu <strong>Données &gt; Couches</strong><br>
+</li>
+<li>Cliquez sur <strong>+ Ajouter une nouvelle couche</strong><br>
+</li>
+<li>Sélectionner l’entrepôt créé<br>
+</li>
+<li><code>name = &lt;DEP&gt;_&lt;YEAR&gt;</code>, <code>title = &lt;YEAR&gt;</code><br>
+</li>
+<li>➡️ <em>Sauvegarder</em></li>
+</ul></li>
 </ol>
-<section id="créer-un-entrepôt-couche" class="level2">
-<h2 class="anchored" data-anchor-id="créer-un-entrepôt-couche">Créer un entrepôt + couche</h2>
-<section id="images" class="level3">
-<h3 class="anchored" data-anchor-id="images">Images</h3>
-<p>Données Entrepôts (à gauche) –&gt; + Ajouter un nouvel entrepôt (en haut à gauche) –&gt; ImageMosaic –&gt; name = &lt; DEP &gt;_&lt; YEAR &gt; –&gt; Parcourir le dossier PLEIADES/&lt; DEP &gt;/&lt; YEAR &gt; –&gt; Sauvegarder</p>
-<p>Données Couches (à gauche) –&gt; + Ajouter une nouvelle couche –&gt; Sélectionner l’entrepôt qui vient d’être créé et publier –&gt; name = &lt; DEP &gt;_&lt; YEAR &gt;, title = &lt; YEAR &gt; –&gt; Sauvegarder</p>
+<hr>
 </section>
-</section>
-<section id="prédictions" class="level2">
-<h2 class="anchored" data-anchor-id="prédictions">Prédictions</h2>
-<p>Données Entrepôts (à gauche) –&gt; + Ajouter un nouvel entrepôt (en haut à gauche) –&gt; Geopackage –&gt; name = &lt; DEP &gt;_PREDICTIONS_&lt; YEAR &gt; –&gt; Parcourir le fichier PREDICTIONS/PLEIADES/&lt; DEP &gt;/&lt; YEAR &gt;/Segmentation-multiclasse/1/predictions.gpkg –&gt; Sauvegarder</p>
-<p>Données Couches (à gauche) –&gt; + Ajouter une nouvelle couche –&gt; Sélectionner l’entrepôt qui vient d’être créé et publier –&gt; name = &lt; DEP &gt;_PREDICTIONS_&lt; YEAR &gt;, title = &lt; DEP &gt;_PREDICTIONS_&lt; YEAR &gt; –&gt; Emprises cliquer sur Basées sur les données puis sur Calculer depuis les emprises natives –&gt; Publication Style par défaut dirag:style_multiclass –&gt; Sauvegarder</p>
-<p>⚠️ Pour vérifier que tout s’est bien passé : aller sur Prévisualisation de la couche (à gauche) et cliquer sur OpenLayers de la couche souhaitée pour la prévisualiser.</p>
+<section id="pour-les-prédictions" class="level2">
+<h2 class="anchored" data-anchor-id="pour-les-prédictions">🧠 Pour les <em>Prédictions</em></h2>
+<ol type="1">
+<li><strong>Entrepôt</strong>
+<ul>
+<li>Menu <strong>Données &gt; Entrepôts</strong><br>
+</li>
+<li>Cliquez sur <strong>+ Ajouter un nouvel entrepôt</strong><br>
+</li>
+<li>Choisir <strong>Geopackage</strong><br>
+</li>
+<li><code>name = &lt;DEP&gt;_PREDICTIONS_&lt;YEAR&gt;</code><br>
+</li>
+<li>Parcourir le fichier :<br>
+<code>PREDICTIONS/PLEIADES/&lt;DEP&gt;/&lt;YEAR&gt;/Segmentation-multiclasse/1/predictions.gpkg</code><br>
+</li>
+<li>➡️ <em>Sauvegarder</em></li>
+</ul></li>
+<li><strong>Couche</strong>
+<ul>
+<li>Menu <strong>Données &gt; Couches</strong><br>
+</li>
+<li>Cliquez sur <strong>+ Ajouter une nouvelle couche</strong><br>
+</li>
+<li>Sélectionner l’entrepôt créé<br>
+</li>
+<li><code>name = &lt;DEP&gt;_PREDICTIONS_&lt;YEAR&gt;</code>, <code>title = &lt;DEP&gt;_PREDICTIONS_&lt;YEAR&gt;</code><br>
+</li>
+<li>Dans l’onglet <strong>Emprises</strong> :
+<ul>
+<li>Cliquer sur <strong>Basées sur les données</strong>, puis <strong>Calculer depuis les emprises natives</strong><br>
+</li>
+</ul></li>
+<li>Dans <strong>Publication &gt; Style par défaut</strong> : <code>dirag:style_multiclass</code><br>
+</li>
+<li>➡️ <em>Sauvegarder</em></li>
+</ul></li>
+</ol>
+<hr>
+<p>⚠️ <strong>Vérification</strong><br>
+Pour vérifier que tout s’est bien passé :<br>
+Menu <strong>Prévisualisation de la couche</strong> (à gauche) → Cliquer sur <strong>OpenLayers</strong> de la couche souhaitée pour la prévisualiser.</p>
+<hr>
 </section>
 </section>
 <section id="webapp-cratt" class="level1">
-<h1>Webapp CRaTT</h1>
-<p>Une fois les nouvelles couches faites, il faut inclure la visualisation de celles-ci dans la webapp CRaTT. Il faut alors cloner le <a href="https://github.com/InseeFrLab/satellite-images-webapp.git">dépot Git</a> et modifier le code pour y inclure le nouveau couple Département/Année.<br>
-Changements à effectuer : Ajouter le nouveau millésime dans les availableYears du département concerné <a href="https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/components/config.js">dans la config des components</a> et <a href="https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/utils/config.js">la config des utils</a>.</p>
-<p>Le git push va entraîner le rebuild du site et il sera possible de voir les nouveautés d’ici quelques minutes (une fois que l’Action sur GitHub est finie).</p>
+<h1>🧩 Webapp CRaTT</h1>
+<p>Une fois les nouvelles couches créées, il faut les intégrer dans la webapp CRaTT :</p>
+<ol type="1">
+<li>Cloner le <a href="https://github.com/InseeFrLab/satellite-images-webapp.git">dépôt Git</a><br>
+</li>
+<li>Modifier le code pour ajouter le nouveau <strong>couple Département / Année</strong> :
+<ul>
+<li>Dans <a href="https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/components/config.js"><code>components/config.js</code></a><br>
+</li>
+<li>Et dans <a href="https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/utils/config.js"><code>utils/config.js</code></a></li>
+</ul></li>
+</ol>
+<p>💡 Le <code>git push</code> déclenche automatiquement un rebuild du site. Les nouvelles couches seront visibles après quelques minutes (une fois que l’action GitHub est terminée).</p>
+<hr>
 
 
 </section>
