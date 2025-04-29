@@ -1,32 +1,80 @@
-# Geoserver
+# 🌍 Geoserver
 
-Une fois les prédictions faites, il est important de les intégrer au [Geoserver](https://geoserver-satellite-images.lab.sspcloud.fr/geoserver) (demander les identifiants à l'équipe).  
+Une fois les prédictions faites, il est important de les intégrer au [Geoserver](https://geoserver-satellite-images.lab.sspcloud.fr/geoserver) *(demander les identifiants à l'équipe)*.
 
-1. Un remplissage dans l'espace de stockage du s3 se fait directement lors de l'[inférence via le template ArgoWorkflow](https://github.com/InseeFrLab/satellite-images-inference/blob/9c9ef808fdce7ecea29a568e04c41354258c3c61/argo-workflows/predict-workflows.yaml#L86). Cette étape consiste à stocker les images Pléïades et les prédictions dans le Geoserver.  
+---
 
-2. Ensuite, il faut créer des "Entrepôts" et leurs "Couches" correspondantes manuellement (nous n'avons pas trouvé de méthode automatique pour l'instant).  
+## 📥 Étape 1 : Envoi vers le pvc du GeoServer via ArgoWorkflow
 
-## Créer un entrepôt + couche
+Un remplissage dans le pvc du GeoServer se fait directement lors de l’[inférence via le template ArgoWorkflow](https://github.com/InseeFrLab/satellite-images-inference/blob/9c9ef808fdce7ecea29a568e04c41354258c3c61/argo-workflows/predict-workflows.yaml#L86).  
+Cette étape consiste à stocker les images Pléiades **et** les prédictions dans le GeoServer.
 
-### Images
+---
 
-Données Entrepôts (à gauche) --> + Ajouter un nouvel entrepôt (en haut à gauche) --> ImageMosaic --> name = < DEP >\_< YEAR > --> Parcourir le dossier PLEIADES/< DEP >/< YEAR > --> Sauvegarder  
+## 🗂️ Étape 2 : Création manuelle des entrepôts et couches dans le GeoServer
 
-Données Couches (à gauche) --> + Ajouter une nouvelle couche --> Sélectionner l'entrepôt qui vient d'être créé et publier --> name = < DEP >\_< YEAR >, title = < YEAR > --> Sauvegarder  
+Il est important de créer un entrepôt et une couche pour utiliser les données sous forme de flux WMS dans la webapp.
+Pour l’instant, **cette étape est manuelle** : nous n’avons pas trouvé de méthode automatique.
 
-## Prédictions
+---
 
-Données Entrepôts (à gauche) --> + Ajouter un nouvel entrepôt (en haut à gauche) --> Geopackage --> name = < DEP >\_PREDICTIONS\_< YEAR > --> Parcourir le fichier PREDICTIONS/PLEIADES/< DEP >/< YEAR >/Segmentation-multiclasse/1/predictions.gpkg --> Sauvegarder  
+## 📷 Pour les *Images*
 
-Données Couches (à gauche) --> + Ajouter une nouvelle couche --> Sélectionner l'entrepôt qui vient d'être créé et publier --> name = < DEP >\_PREDICTIONS\_< YEAR >, title = < DEP >\_PREDICTIONS\_< YEAR > --> Emprises cliquer sur Basées sur les données puis sur Calculer depuis les emprises natives --> Publication Style par défaut dirag:style_multiclass --> Sauvegarder  
+1. **Entrepôt**  
+   - Menu **Données > Entrepôts** (à gauche)  
+   - Cliquez sur **+ Ajouter un nouvel entrepôt**  
+   - Choisir **ImageMosaic**  
+   - `name = <DEP>_<YEAR>`  
+   - Parcourir le dossier `PLEIADES/<DEP>/<YEAR>`  
+   - ➡️ *Sauvegarder*
 
+2. **Couche**  
+   - Menu **Données > Couches**  
+   - Cliquez sur **+ Ajouter une nouvelle couche**  
+   - Sélectionner l’entrepôt créé  
+   - `name = <DEP>_<YEAR>`, `title = <YEAR>`  
+   - ➡️ *Sauvegarder*
 
-⚠️ Pour vérifier que tout s'est bien passé : aller sur Prévisualisation de la couche (à gauche) et cliquer sur OpenLayers de la couche souhaitée pour la prévisualiser.  
+---
 
-# Webapp CRaTT
+## 🧠 Pour les *Prédictions*
 
-Une fois les nouvelles couches faites, il faut inclure la visualisation de celles-ci dans la webapp CRaTT.
-Il faut alors cloner le [dépot Git](https://github.com/InseeFrLab/satellite-images-webapp.git) et modifier le code pour y inclure le nouveau couple Département/Année.  
-Changements à effectuer :  Ajouter le nouveau millésime dans les availableYears du département concerné [dans la config des components](https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/components/config.js) et [la config des utils](https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/utils/config.js).  
+1. **Entrepôt**  
+   - Menu **Données > Entrepôts**  
+   - Cliquez sur **+ Ajouter un nouvel entrepôt**  
+   - Choisir **Geopackage**  
+   - `name = <DEP>_PREDICTIONS_<YEAR>`  
+   - Parcourir le fichier :  
+     `PREDICTIONS/PLEIADES/<DEP>/<YEAR>/Segmentation-multiclasse/1/predictions.gpkg`  
+   - ➡️ *Sauvegarder*
 
-Le git push va entraîner le rebuild du site et il sera possible de voir les nouveautés d'ici quelques minutes (une fois que l'Action sur GitHub est finie).  
+2. **Couche**  
+   - Menu **Données > Couches**  
+   - Cliquez sur **+ Ajouter une nouvelle couche**  
+   - Sélectionner l’entrepôt créé  
+   - `name = <DEP>_PREDICTIONS_<YEAR>`, `title = <DEP>_PREDICTIONS_<YEAR>`  
+   - Dans l’onglet **Emprises** :  
+     - Cliquer sur **Basées sur les données**, puis **Calculer depuis les emprises natives**  
+   - Dans **Publication > Style par défaut** : `dirag:style_multiclass`  
+   - ➡️ *Sauvegarder*
+
+---
+
+⚠️ **Vérification**  
+Pour vérifier que tout s'est bien passé :  
+Menu **Prévisualisation de la couche** (à gauche) → Cliquer sur **OpenLayers** de la couche souhaitée pour la prévisualiser.
+
+---
+
+# 🧩 Webapp CRaTT
+
+Une fois les nouvelles couches créées, il faut les intégrer dans la webapp CRaTT :  
+
+1. Cloner le [dépôt Git](https://github.com/InseeFrLab/satellite-images-webapp.git)  
+2. Modifier le code pour ajouter le nouveau **couple Département / Année** :  
+   - Dans [`components/config.js`](https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/components/config.js)  
+   - Et dans [`utils/config.js`](https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/utils/config.js)  
+
+💡 Le `git push` déclenche automatiquement un rebuild du site. Les nouvelles couches seront visibles après quelques minutes (une fois que l’action GitHub est terminée).
+
+---
