@@ -726,71 +726,11 @@
     "text": "Pipeline avec images sentinel-2 (donc tout le process geoserver et tout) :\n\nTélécharger images sur le 81 et 69\n\nLabels cosia sur 81 et 69\n\nEntraînement modèle multiclasse\nOutil de visualisation\n\nTélécharger des données sur les 4 saisons (pour l’instant que des images en été ont été récupérées)"
   },
   {
-    "objectID": "src/documentation/sections/pipeline.html",
-    "href": "src/documentation/sections/pipeline.html",
-    "title": "Pipeline du Projet Données Satellites",
-    "section": "",
-    "text": "Chaque étape a un dépot Git dédié.\nTous nos dépots Git se trouvent ici.\n\n\nVoir la page sur l’acquisition des images.\n\n\n\nPréparation des images et labellisation :\n- Découpage des images en une taille n*n.\n- Labellisation grâce aux labels fournis.\n- Stockage de ces images preprocessées sur le s3.\nUtilisation d’Argoworkflow pour paralléliser les traitements par département, millésime, labels.\n\n\n\nEntraîner un modèle sur certaines images/labels.\nUtilisation d’Argoworkflow pour paralléliser les entraînements par modèle utilisé, paramètres, données.\nMLFlow pour suivre les entraînements, comparer les performances et stocker les modèles entraîner. Le meilleur modèle est “mis en production” sur MLFlow et sera utilisé pour l’inférence.\n\n\n\nFournir des prédictions sur des nouvelles images.\nAPI qui prend une image en entrée et retourne le masque de prédiction, deployé avec ArgoCD.\nUtilisation d’Argoworkflow pour paralléliser les prédictions par département, millésime.\n\n\n\nGeoserver pour stocker les images satellites et les visualiser de façon dynamique.\nCréation d’une WepApp avec Observable pour afficher sur des cartes les images stockées dans le GeoServer avec les prédictions, et des statistiques d’évolution du bâti.",
-    "crumbs": [
-      "Accueil",
-      "Navigation",
-      "Pipeline du projet"
-    ]
-  },
-  {
-    "objectID": "src/documentation/sections/pipeline.html#récupération-des-images-et-des-labels",
-    "href": "src/documentation/sections/pipeline.html#récupération-des-images-et-des-labels",
-    "title": "Pipeline du Projet Données Satellites",
-    "section": "",
-    "text": "Voir la page sur l’acquisition des images.",
-    "crumbs": [
-      "Accueil",
-      "Navigation",
-      "Pipeline du projet"
-    ]
-  },
-  {
-    "objectID": "src/documentation/sections/pipeline.html#preprocessing",
-    "href": "src/documentation/sections/pipeline.html#preprocessing",
-    "title": "Pipeline du Projet Données Satellites",
-    "section": "",
-    "text": "Préparation des images et labellisation :\n- Découpage des images en une taille n*n.\n- Labellisation grâce aux labels fournis.\n- Stockage de ces images preprocessées sur le s3.\nUtilisation d’Argoworkflow pour paralléliser les traitements par département, millésime, labels.",
-    "crumbs": [
-      "Accueil",
-      "Navigation",
-      "Pipeline du projet"
-    ]
-  },
-  {
-    "objectID": "src/documentation/sections/pipeline.html#training",
-    "href": "src/documentation/sections/pipeline.html#training",
-    "title": "Pipeline du Projet Données Satellites",
-    "section": "",
-    "text": "Entraîner un modèle sur certaines images/labels.\nUtilisation d’Argoworkflow pour paralléliser les entraînements par modèle utilisé, paramètres, données.\nMLFlow pour suivre les entraînements, comparer les performances et stocker les modèles entraîner. Le meilleur modèle est “mis en production” sur MLFlow et sera utilisé pour l’inférence.",
-    "crumbs": [
-      "Accueil",
-      "Navigation",
-      "Pipeline du projet"
-    ]
-  },
-  {
-    "objectID": "src/documentation/sections/pipeline.html#inférence",
-    "href": "src/documentation/sections/pipeline.html#inférence",
-    "title": "Pipeline du Projet Données Satellites",
-    "section": "",
-    "text": "Fournir des prédictions sur des nouvelles images.\nAPI qui prend une image en entrée et retourne le masque de prédiction, deployé avec ArgoCD.\nUtilisation d’Argoworkflow pour paralléliser les prédictions par département, millésime.",
-    "crumbs": [
-      "Accueil",
-      "Navigation",
-      "Pipeline du projet"
-    ]
-  },
-  {
-    "objectID": "src/documentation/sections/pipeline.html#visualisation-avec-cratt",
-    "href": "src/documentation/sections/pipeline.html#visualisation-avec-cratt",
-    "title": "Pipeline du Projet Données Satellites",
-    "section": "",
-    "text": "Geoserver pour stocker les images satellites et les visualiser de façon dynamique.\nCréation d’une WepApp avec Observable pour afficher sur des cartes les images stockées dans le GeoServer avec les prédictions, et des statistiques d’évolution du bâti.",
+    "objectID": "src/documentation/sections/pipeline.html#architecture-du-projet",
+    "href": "src/documentation/sections/pipeline.html#architecture-du-projet",
+    "title": "Projet Données Satellites",
+    "section": "Architecture du projet 🧩",
+    "text": "Architecture du projet 🧩",
     "crumbs": [
       "Accueil",
       "Navigation",
