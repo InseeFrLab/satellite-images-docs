@@ -44,8 +44,6 @@ website:
             href: "src/documentation/sections/acquisition.qmd"
           - text: "Entraînement d'un modèle"
             href: "src/documentation/sections/entrainement.qmd"
-          - text: "Inférence sur des images"
-            href: "src/documentation/sections/inference.qmd"
           - text: "Mise à disposition des résultats"
             href: "src/documentation/sections/resultats.qmd"
           - text: "Pipeline du projet"
