@@ -20,12 +20,13 @@ sidebar: false
 - Inférence sur nouveau découpage Guyane  
 - Utiliser une bdd externe pour flaguer les zones de bâti non résidentielles  
 - Depuis la webapp, pouvoir télécharger le tableau des statistiques  
-- Selectionner un ilot produit un graphique d'évolution du bâti sur les millésimes disponibles  
+- Sélectionner un ilot produit un graphique d'évolution du bâti sur les millésimes disponibles  
 - Mettre les couches RIL sur la webapp  
 - Récupérer les annotations de destructions post cyclone Chido produites par [Copernicus](https://rapidmapping.emergency.copernicus.eu/EMSR780) pour les afficher sur la webapp + les utiliser comme données de validation  
-- Produire les polygones destructions/constructions de bâti en comparant les logits plutôt que les prédictions de classe + recalculer les statistiques d'évolution en conséquence  
+- Produire les polygones destructions/constructions de bâti en comparant les logits plutôt que les prédictions de classe + recalculer les statistiques d'évolution en conséquence --> heat map  
 - Afficher la carte plein écran sur CRaTT  
 - Couches constructions/destructions plus propres en passant par le GeoServer ou DuckDB ?
+- Faire un travail sur les prédictions pour merge les pred car on voit les délimitations des patchs envoyés à l'API pour l'inférence (cf travail fait pendant le stage l'année dernière)  
 
 ## Insee
 
