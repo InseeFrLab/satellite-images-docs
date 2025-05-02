@@ -86,4 +86,7 @@ C’est cette géographie qui s’applique pendant le **Recensement de la Popula
 
 Dans tous les cas, il faut s'assurer que **le SERN Géographie** et **le ST Mayotte** utilisent bien la même version des ilots (des changements exceptionnels peuvent être demandés en cas d’urgence).
 
-✉️ On peut demander la géographie d’ilots au [SERN géographie](mailto:dr69-sern-repertoires-geographie@insee.fr).
+::: {.callout-tip}
+# Comment récupérer les géométries d'ilots ?
+  Envoyer un mail au [SERN géographie](mailto:dr69-sern-repertoires-geographie@insee.fr).
+:::
