@@ -11,14 +11,24 @@ sidebar: false
 ## Techos
 
 - Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL
-- Industrialiser sur la nouvelle webapp tous les départements (priorité Guyane/St Martin)
+- Industrialiser sur la nouvelle webapp tous les départements (priorité Guyane/St Martin) :heavy_check_mark:
 - Utiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle :heavy_check_mark:
-- Cache les predictions en terme de probabilité plutot que masque binaire
-- Mettre les prédictions multiclasses sur la webapp
+- Cache les predictions en terme de probabilité plutot que masque binaire :heavy_check_mark:
+- Mettre les prédictions multiclasses sur la webapp :heavy_check_mark:
 - Retravailler les fonctionnalités des cartes de la webapp
 - Retélécharger Guyane via SEAS, utiliser les masques nuages pour faire le découpage (prioriser en fonction de la date)
 - Inférence sur nouveau découpage Guyane  
-- Utiliser une bdd externe pour flaguer les zones de bâti non résidentielles.
+- Utiliser une bdd externe pour flaguer les zones de bâti non résidentielles  
+- Depuis la webapp, pouvoir télécharger le tableau des statistiques  
+- Sélectionner un ilot produit un graphique d'évolution du bâti sur les millésimes disponibles  
+- Mettre les couches RIL sur la webapp  
+- Récupérer les annotations de destructions post cyclone Chido produites par [Copernicus](https://rapidmapping.emergency.copernicus.eu/EMSR780) pour les afficher sur la webapp + les utiliser comme données de validation  
+- Produire les polygones destructions/constructions de bâti en comparant les logits plutôt que les prédictions de classe + recalculer les statistiques d'évolution en conséquence --> heat map  
+- Afficher la carte plein écran sur CRaTT  
+- Couches constructions/destructions plus propres en passant par le GeoServer ou DuckDB ?
+- Faire un travail sur les prédictions pour merge les pred car on voit les délimitations des patchs envoyés à l'API pour l'inférence (cf travail fait pendant le stage l'année dernière)  
+- Outil pour valider les annotations et faire un jeu de test gold-standard ?  
+- Publier le modèle sur Hugging Face  
 
 ## Insee
 
@@ -31,8 +41,7 @@ sidebar: false
 - Application de mise à dispo de point gpx avec fond données satellites
 
 ### RP / Mayotte
-
-- coucou 
+ 
 - Comparaison entre l'EAR/RIL et nos surfaces estimés / estimation de population basé sur les surfaces prédites
 -	Préparation d’un papier pour les JMS avec la DMTR. En lien avec les récents travaux sur Mayotte pour la DMTR et la préparation du futur recensement exhaustif de 2026. Ce sera un papier méthodologique sur le projet images satellites, illustré du cas d’usage de la DMTR (aide au recensement avec de la cartographie et/ou statistiques publiques, tout cela grâce aux prédictions sur images satellites).  
 -	Contact avec Julie Djiriguian pour présenter nos travaux afin de les aider à préparer l’enquête cartographique 2025 en vue du recensement exhaustif de Mayotte 2026.  
@@ -43,13 +52,3 @@ sidebar: false
 - faire un DT Insee et voir avec CP si ca la branche
 - Faire la documentation du projet
 - mise à disposition du modèle CoSIA via l'API et faire pub aux européens
-
-## Hackathon
-
-- Pipeline avec images sentinel-2 (donc tout le process geoserver et tout) :
-  - Télécharger images sur le 81 et 69  
-  - Labels cosia sur 81 et 69  
-  - Entraînement modèle multiclasse
-  - Outil de visualisation  
-
-- Télécharger des données sur les 4 saisons (pour l'instant que des images en été ont été récupérées)
