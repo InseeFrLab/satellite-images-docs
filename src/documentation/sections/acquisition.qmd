@@ -14,7 +14,7 @@ format:
 Les images Pléiades présentent l’avantage d’offrir une très haute résolution (50 cm). Toutefois, elles sont la propriété d’Airbus, ce qui limite leur accessibilité : l’acquisition passe généralement par un achat de licence. En tant qu’institution française, nous bénéficions d'un accès gratuit à ces données via [Dinamis](https://dinamis.data-terra.org/). Il suffit de créer un compte sur Dinamis et de réaliser une demande d’accès.
 Nous avons un contact à l'IGN pour simplifier la procédure et il nous transmet les images directement. Toutefois, même avec ce canal, il reste nécessaire de créer un compte Dinamis et de signer un contrat de licence d'utilisation.
 
-Lorsque les images sont disponibles, notre interlocuteur à l’IGN nous en informe par mail, en nous transmettant les accès à un serveur FTP. Les données peuvent alors être extraites puis transférées sur le S3 du namespace `projet-slums-detection` au sein du Datalab, selon la structure décrite dans @data-raw.  
+Lorsque les images sont disponibles, notre interlocuteur à l’IGN, [Erik Parisot](erik.parisot@ign.fr), nous en informe par mail, en nous transmettant les accès à un serveur FTP. Les données peuvent alors être extraites puis transférées sur le S3 du namespace `projet-slums-detection` au sein du Datalab, selon la structure décrite dans @data-raw.  
 
 ::: {.callout-tip}
 # Comment récupérer les images Pléiades de l'IGN ?
@@ -74,4 +74,19 @@ Les cartes CoSIA décrivent la couverture du sol, soit la nature du sol, selon 1
 2. Remplir le formulaire d'accès et sélectionner le territoire d'intérêt. Télécharger le fichier `.zip`
 3. L'importer dans un service du Datalab, le décompresser (commande `unzip` sous Linux) et organiser les fichiers selon la structure attendue sur S3.
 
+:::
+
+
+### 🗺️ Géométrie d’ilots
+
+La géographie des ilots est **arrêtée chaque année au 31 octobre**.  
+C’est cette géographie qui s’applique pendant le **Recensement de la Population (RP)**.
+
+> 📌 *Exemple* : pour l’enquête de recensement **2026**, on utilise la géométrie des ilots **arrêtée au 31 octobre 2025**.
+
+Dans tous les cas, il faut s'assurer que **le SERN Géographie** et **le ST Mayotte** utilisent bien la même version des ilots (des changements exceptionnels peuvent être demandés en cas d’urgence).
+
+::: {.callout-tip}
+# Comment récupérer les géométries d'ilots ?
+  Envoyer un mail au [SERN géographie](mailto:dr69-sern-repertoires-geographie@insee.fr).
 :::
