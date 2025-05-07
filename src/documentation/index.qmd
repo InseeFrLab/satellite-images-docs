@@ -204,7 +204,9 @@ cache-predictions/
 
 #### 📁 **data-roi**
 
-Le dossier `data-roi` contient les contours géographique de chaque département afin de pouvoir filtrer les images efficacement que ce soit lors de l'étape de preprocessing que lors de l'étape de l'inférence. Les contours sont à la fois stockés en parquet et en geojson (un seul des deux formats pourrait suffire).
+Le dossier `data-roi` contient les contours géographique de chaque département afin de pouvoir filtrer les images efficacement que ce soit lors de l'étape de preprocessing que lors de l'étape de l'inférence. Les contours sont à la fois stockés en parquet et en geojson (un seul des deux formats pourrait suffire).  
+
+Ces données ont été construites à la main à partir de données officielles. Les contours des territoires n'étant pas sensés changer, il n'y a pas à mettre à jour ces données.  
 
 La structure du dossier est : 
 
@@ -214,19 +216,16 @@ data-roi/
 └── <DEPARTEMENT>.geojson
 ```
 
-::: {.callout-tip}
-# Disposer de la géométrie des îlots au bon millésime
+#### 📁 **cluster-geom-raw**
+
+Le dossier `cluster-geom-raw` contient tout l'historique des géométries d'îlots non preprocessé.  
 
 La géométrie des îlots est arrêtée chaque année au 31 octobre ; c’est cette version qui s'applique pendant le recensement de la population (RP).  
-Par exemple, pour l’enquête annuelle de recensement 2026, il faudra utiliser la géométrie des îlots arrêtée au 31 octobre 2025.
+Par exemple, pour l’enquête annuelle de recensement 2026, il faudra utiliser la géométrie des îlots arrêtée au 31 octobre 2025.  
 
 Dans tous les cas, il est indispensable de s'assurer que le SERN Géographie et le ST Mayotte disposent bien des mêmes référentiels d’îlots. Des ajustements exceptionnels pourraient être nécessaires compte tenu de l'urgence post-Chido.
 
-La géométrie des îlots peut être obtenue en contactant le SERN Géographie :  
-📧 dr69-sern-repertoires-geographie@insee.fr
-
-:::
-
+Une fois le fichier avec les dernières géométries traité, les nouveaux fichiers parquet sont disponibles dans **data-clusters**.
 
 #### 📁 **data-clusters**
 
@@ -234,8 +233,8 @@ Le dossier `data-clusters` contient les contours géographique de chaque îlot p
 
 ```
 data-clusters/
-├── <DEPARTEMENT>/
-      └── *.parquet
+├── dep=<DEPARTEMENT>/
+      └── part-0.parquet
 ```
 
 
