@@ -89,6 +89,6 @@ Dans tous les cas, il faut s'assurer que **le SERN Géographie** et **le ST Mayo
 # Comment récupérer les géométries d'ilots ?
 
 1. Envoyer un mail au [SERN géographie](mailto:dr69-sern-repertoires-geographie@insee.fr)  
-2. Récupérer le fichier .csv fourni et le placer dans le dossier **cluster-geom-raw** sur le s3  
-3. Lancer [ce code](https://github.com/InseeFrLab/satellite-images-preprocess/blob/main/src/preprocess-ilot-geom.py) pour preprocesser le fichier afin de créer un fichier parquet par département qui se placeront dans le dossier **data-clusters**  
+2. Récupérer le dossier zip fourni et le placer dans le dossier **cluster-geom-raw** sur le s3  
+3. Lancer [ce code](https://github.com/InseeFrLab/satellite-images-preprocess/blob/main/src/preprocess-ilot-geom.py) pour preprocesser le dossier afin de créer un fichier parquet par département qui se placeront dans le dossier **data-clusters**  
 :::
