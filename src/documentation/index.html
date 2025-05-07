@@ -399,34 +399,26 @@ Note
 <section id="data-roi" class="level4">
 <h4 class="anchored" data-anchor-id="data-roi">📁 <strong>data-roi</strong></h4>
 <p>Le dossier <code>data-roi</code> contient les contours géographique de chaque département afin de pouvoir filtrer les images efficacement que ce soit lors de l’étape de preprocessing que lors de l’étape de l’inférence. Les contours sont à la fois stockés en parquet et en geojson (un seul des deux formats pourrait suffire).</p>
+<p>Ces données ont été construites à la main à partir de données officielles. Les contours des territoires n’étant pas sensés changer, il n’y a pas à mettre à jour ces données.</p>
 <p>La structure du dossier est :</p>
 <pre><code>data-roi/
 ├── &lt;DEPARTEMENT&gt;.parquet
 └── &lt;DEPARTEMENT&gt;.geojson</code></pre>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Disposer de la géométrie des îlots au bon millésime
-</div>
-</div>
-<div class="callout-body-container callout-body">
+</section>
+<section id="cluster-geom-raw" class="level4">
+<h4 class="anchored" data-anchor-id="cluster-geom-raw">📁 <strong>cluster-geom-raw</strong></h4>
+<p>Le dossier <code>cluster-geom-raw</code> contient tout l’historique des géométries d’îlots non preprocessé.</p>
 <p>La géométrie des îlots est arrêtée chaque année au 31 octobre ; c’est cette version qui s’applique pendant le recensement de la population (RP).<br>
 Par exemple, pour l’enquête annuelle de recensement 2026, il faudra utiliser la géométrie des îlots arrêtée au 31 octobre 2025.</p>
 <p>Dans tous les cas, il est indispensable de s’assurer que le SERN Géographie et le ST Mayotte disposent bien des mêmes référentiels d’îlots. Des ajustements exceptionnels pourraient être nécessaires compte tenu de l’urgence post-Chido.</p>
-<p>La géométrie des îlots peut être obtenue en contactant le SERN Géographie :<br>
-📧 dr69-sern-repertoires-geographie@insee.fr</p>
-</div>
-</div>
+<p>Une fois le fichier avec les dernières géométries traité, les nouveaux fichiers parquet sont disponibles dans <strong>data-clusters</strong>.</p>
 </section>
 <section id="data-clusters" class="level4">
 <h4 class="anchored" data-anchor-id="data-clusters">📁 <strong>data-clusters</strong></h4>
 <p>Le dossier <code>data-clusters</code> contient les contours géographique de chaque îlot pour les différents départements. Ces informations sont nécessaires lors de l’inférence pour un îlot donné ainsi que pour le déploiement de la webapp qui permet de réaliser des statistiques par îlot. Le dossier est simplement un fichier parquet partitionné :</p>
 <pre><code>data-clusters/
-├── &lt;DEPARTEMENT&gt;/
-      └── *.parquet</code></pre>
+├── dep=&lt;DEPARTEMENT&gt;/
+      └── part-0.parquet</code></pre>
 </section>
 </section>
 <section id="les-services" class="level3">

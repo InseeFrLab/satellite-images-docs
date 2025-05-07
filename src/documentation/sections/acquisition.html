@@ -314,7 +314,14 @@ Comment récupérer les géométries d’ilots ?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Envoyer un mail au <a href="mailto:dr69-sern-repertoires-geographie@insee.fr">SERN géographie</a>.</p>
+<ol type="1">
+<li>Envoyer un mail au <a href="mailto:dr69-sern-repertoires-geographie@insee.fr">SERN géographie</a><br>
+</li>
+<li>Récupérer le fichier .csv fourni et le placer dans le dossier <strong>cluster-geom-raw</strong> sur le s3<br>
+</li>
+<li>Lancer <a href="https://github.com/InseeFrLab/satellite-images-preprocess/blob/main/src/preprocess-ilot-geom.py">ce code</a> pour preprocesser le fichier afin de créer un fichier parquet par département qui se placeront dans le dossier <strong>data-clusters</strong><br>
+</li>
+</ol>
 </div>
 </div>
 
