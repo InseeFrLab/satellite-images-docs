@@ -2,7 +2,6 @@ project:
   type: website
   render:
     - /src/**/index.qmd
-    - "!/src/DT/index.qmd"
     - index.qmd
     - /cards/*.qmd
     - /src/documentation/sections/*.qmd

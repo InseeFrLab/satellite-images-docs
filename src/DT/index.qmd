@@ -63,8 +63,13 @@ format:
     keep-typ: true
     bibliography: biblio.bib
     bibliographystyle: apa
-    template-partials:
-      - definitions.typ
+    include-in-header: 
+       - text: |
+           #show outline.entry.where(
+             level: 1): it => {
+               v(12pt, weak: true)
+               strong(it)
+             }
 ---
 
 {{< pagebreak >}}
