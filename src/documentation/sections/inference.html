@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Projet Données Satellites – resultats</title>
+<title>Projet Données Satellites – inference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../src/documentation/sections/pipeline.html" rel="next">
-<link href="../../../src/documentation/sections/entrainement.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +73,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Projet Données Satellites">
-<meta property="og:description" content="">
 <meta property="og:site_name" content="Projet Données Satellites">
 </head>
 
@@ -119,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../src/documentation/index.html">Navigation</a></li><li class="breadcrumb-item"><a href="../../../src/documentation/sections/resultats.html">Mise à disposition des résultats</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -166,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../src/documentation/sections/resultats.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../src/documentation/sections/resultats.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mise à disposition des résultats</span></a>
   </div>
 </li>
@@ -188,7 +185,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#geoserver" id="toc-geoserver" class="nav-link active" data-scroll-target="#geoserver">🌍 Geoserver</a>
+  <li><a href="#inférence-du-modèle-et-mise-à-disposition-des-résultats" id="toc-inférence-du-modèle-et-mise-à-disposition-des-résultats" class="nav-link active" data-scroll-target="#inférence-du-modèle-et-mise-à-disposition-des-résultats">Inférence du modèle et mise à disposition des résultats</a>
+  <ul class="collapse">
+  <li><a href="#lapi-dinférence" id="toc-lapi-dinférence" class="nav-link" data-scroll-target="#lapi-dinférence">L’API d’inférence</a></li>
+  <li><a href="#réaliser-des-prédictions-sur-des-images" id="toc-réaliser-des-prédictions-sur-des-images" class="nav-link" data-scroll-target="#réaliser-des-prédictions-sur-des-images">Réaliser des prédictions sur des images</a>
+  <ul class="collapse">
+  <li><a href="#étape-1-récupération-des-images" id="toc-étape-1-récupération-des-images" class="nav-link" data-scroll-target="#étape-1-récupération-des-images">Étape 1 : Récupération des images</a></li>
+  </ul></li>
+  <li><a href="#geoserver" id="toc-geoserver" class="nav-link" data-scroll-target="#geoserver">🌍 Geoserver</a>
   <ul class="collapse">
   <li><a href="#étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow" id="toc-étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow" class="nav-link" data-scroll-target="#étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow">📥 Étape 1 : Envoi vers le pvc du GeoServer via ArgoWorkflow</a></li>
   <li><a href="#étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver" id="toc-étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver" class="nav-link" data-scroll-target="#étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver">🗂️ Étape 2 : Création manuelle des entrepôts et couches dans le GeoServer</a></li>
@@ -196,6 +200,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#pour-les-prédictions" id="toc-pour-les-prédictions" class="nav-link" data-scroll-target="#pour-les-prédictions">🧠 Pour les <em>Prédictions</em></a></li>
   </ul></li>
   <li><a href="#webapp-cratt" id="toc-webapp-cratt" class="nav-link" data-scroll-target="#webapp-cratt">🧩 Webapp CRaTT</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -205,23 +210,76 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="geoserver" class="level1">
-<h1>🌍 Geoserver</h1>
+<section id="inférence-du-modèle-et-mise-à-disposition-des-résultats" class="level1">
+<h1>Inférence du modèle et mise à disposition des résultats</h1>
+<section id="lapi-dinférence" class="level2">
+<h2 class="anchored" data-anchor-id="lapi-dinférence">L’API d’inférence</h2>
+<p>L’API, développée avec FastAPI, est déployée sur SSPCloud à l’adresse suivante : <a href="">https://satellite-images-inference.lab.sspcloud.fr/</a>. Elle propose trois <em>endpoints</em> :</p>
+<ol type="1">
+<li><code>GET /predict_image</code> — Prédiction d’une image individuelle stockée sur S3.</li>
+<li><code>GET /predict_cluster</code> — Prédiction sur un îlot identifié par son code (peut inclure plusieurs images).</li>
+<li><code>GET /predict_bbox</code> — Prédiction sur une <em>bounding box</em> définie par des coordonnées GPS (peut inclure plusieurs images).</li>
+</ol>
+<p>Le code associé à l’API est accessible via le <a href="https://github.com/InseeFrLab/satellite-images-inference">dépôt d’inférence</a> dans le dossier <code>api/</code>.</p>
+<p>Un système de <strong>cache</strong> est en place pour éviter les redondances de calcul sur une même image.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+⚠️ <strong>Limites actuelles de l’API :</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Les prédictions en batch ne sont pas possibles directement (elles doivent être séquentielles) puisque seuls des <em>endpoints</em> <code>GET</code> sont disponibles.</li>
+<li>Certaines opérations pourraient être asynchrones pour améliorer les performances.</li>
+<li>L’API reproduit le preprocessing, idéalement, il faudrait <code>wrapper</code> tout dans un modèle MLFlow et donc créer une custom class lors de l’entrainement.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comment faire une montée de version de l’API
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Vous développez vos nouvelles fonctionnalités dans le code de l’api (dossier <code>api/</code> du dépôt d’inférence).</li>
+<li>Une fois que vous êtes satisfaits de votre code et que vous l’avez testé localement, vous pouvez créer un tag avec la bonne version (e.g <code>vX.X.X</code>) et <em>push</em> le tag vers Github.</li>
+<li>Une fois le tag <em>pushed</em>, cela va déclencher une <em>Action</em> sur Github qui va construire une nouvelle image avec votre nouvelle API, en lui associant le tag que vous avez défini.</li>
+<li>Allez sur le dépot <a href="https://github.com/InseeFrLab/satellite-images-cd">GitOps</a> et modifiez le manifeste kubernetes de déploiement de l’API. Notamment, changez la version de l’image à utiliser.</li>
+<li>ArgoCD, qui scanne le dépôt GitOps va automatiquement détecter le changement et déploier la nouvelle version de l’API. Si vous êtes pressés, vous pouvez cliquer sur “Refresh” pour forcer ArgoCD à scanner le dépôt GitOps immédiatement.</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="réaliser-des-prédictions-sur-des-images" class="level2">
+<h2 class="anchored" data-anchor-id="réaliser-des-prédictions-sur-des-images">Réaliser des prédictions sur des images</h2>
+<section id="étape-1-récupération-des-images" class="level3">
+<h3 class="anchored" data-anchor-id="étape-1-récupération-des-images">Étape 1 : Récupération des images</h3>
+<p>Afin de réaliser des prédictions sur des images, il est nécessaire de les stocker d’une manière structurée dans le S3 du projet sur le SSPCloud. En effet, l’API pour réaliser la prédiction d’une image il va directement la chercher sur le S3, ce qu’on lui donne n’est que le chemin pour y accéder.</p>
+</section>
+</section>
+<section id="geoserver" class="level2">
+<h2 class="anchored" data-anchor-id="geoserver">🌍 Geoserver</h2>
 <p>Une fois les prédictions faites, il est important de les intégrer au <a href="https://geoserver-satellite-images.lab.sspcloud.fr/geoserver">Geoserver</a> <em>(demander les identifiants à l’équipe)</em>.</p>
-<hr>
-<section id="étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow" class="level2">
-<h2 class="anchored" data-anchor-id="étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow">📥 Étape 1 : Envoi vers le pvc du GeoServer via ArgoWorkflow</h2>
+<section id="étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow" class="level3">
+<h3 class="anchored" data-anchor-id="étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow">📥 Étape 1 : Envoi vers le pvc du GeoServer via ArgoWorkflow</h3>
 <p>Un remplissage dans le pvc du GeoServer se fait directement lors de l’<a href="https://github.com/InseeFrLab/satellite-images-inference/blob/9c9ef808fdce7ecea29a568e04c41354258c3c61/argo-workflows/predict-workflows.yaml#L86">inférence via le template ArgoWorkflow</a>.<br>
 Cette étape consiste à stocker les images Pléiades <strong>et</strong> les prédictions dans le GeoServer.</p>
-<hr>
 </section>
-<section id="étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver" class="level2">
-<h2 class="anchored" data-anchor-id="étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver">🗂️ Étape 2 : Création manuelle des entrepôts et couches dans le GeoServer</h2>
+<section id="étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver" class="level3">
+<h3 class="anchored" data-anchor-id="étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver">🗂️ Étape 2 : Création manuelle des entrepôts et couches dans le GeoServer</h3>
 <p>Il est important de créer un entrepôt et une couche pour utiliser les données sous forme de flux WMS dans la webapp. Pour l’instant, <strong>cette étape est manuelle</strong> : nous n’avons pas trouvé de méthode automatique.</p>
-<hr>
 </section>
-<section id="pour-les-images" class="level2">
-<h2 class="anchored" data-anchor-id="pour-les-images">📷 Pour les <em>Images</em></h2>
+<section id="pour-les-images" class="level3">
+<h3 class="anchored" data-anchor-id="pour-les-images">📷 Pour les <em>Images</em></h3>
 <ol type="1">
 <li><strong>Entrepôt</strong>
 <ul>
@@ -250,10 +308,9 @@ Cette étape consiste à stocker les images Pléiades <strong>et</strong> les pr
 <li>➡️ <em>Sauvegarder</em></li>
 </ul></li>
 </ol>
-<hr>
 </section>
-<section id="pour-les-prédictions" class="level2">
-<h2 class="anchored" data-anchor-id="pour-les-prédictions">🧠 Pour les <em>Prédictions</em></h2>
+<section id="pour-les-prédictions" class="level3">
+<h3 class="anchored" data-anchor-id="pour-les-prédictions">🧠 Pour les <em>Prédictions</em></h3>
 <ol type="1">
 <li><strong>Entrepôt</strong>
 <ul>
@@ -290,15 +347,13 @@ Cette étape consiste à stocker les images Pléiades <strong>et</strong> les pr
 <li>➡️ <em>Sauvegarder</em></li>
 </ul></li>
 </ol>
-<hr>
 <p>⚠️ <strong>Vérification</strong><br>
 Pour vérifier que tout s’est bien passé :<br>
 Menu <strong>Prévisualisation de la couche</strong> (à gauche) → Cliquer sur <strong>OpenLayers</strong> de la couche souhaitée pour la prévisualiser.</p>
-<hr>
 </section>
 </section>
-<section id="webapp-cratt" class="level1">
-<h1>🧩 Webapp CRaTT</h1>
+<section id="webapp-cratt" class="level2">
+<h2 class="anchored" data-anchor-id="webapp-cratt">🧩 Webapp CRaTT</h2>
 <p>Une fois les nouvelles couches créées, il faut les intégrer dans la webapp CRaTT :</p>
 <ol type="1">
 <li>Cloner le <a href="https://github.com/InseeFrLab/satellite-images-webapp.git">dépôt Git</a><br>
@@ -311,9 +366,9 @@ Menu <strong>Prévisualisation de la couche</strong> (à gauche) → Cliquer sur
 </ul></li>
 </ol>
 <p>💡 Le <code>git push</code> déclenche automatiquement un rebuild du site. Les nouvelles couches seront visibles après quelques minutes (une fois que l’action GitHub est terminée).</p>
-<hr>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -881,18 +936,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../../src/documentation/sections/entrainement.html" class="pagination-link" aria-label="Entraînement d'un modèle">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Entraînement d’un modèle</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../../src/documentation/sections/pipeline.html" class="pagination-link" aria-label="Pipeline du projet">
-        <span class="nav-page-text">Pipeline du projet</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

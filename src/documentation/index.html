@@ -166,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/documentation/sections/resultats.html" class="sidebar-item-text sidebar-link">
+  <a href="../../src/documentation/sections/resultats.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mise à disposition des résultats</span></a>
   </div>
 </li>
@@ -291,6 +291,7 @@ Note
 <ul>
 <li>Les prédictions en batch ne sont pas possibles directement (elles doivent être séquentielles) puisque seuls des <em>endpoints</em> <code>GET</code> sont disponibles.</li>
 <li>Certaines opérations pourraient être asynchrones pour améliorer les performances.</li>
+<li>L’API reproduit le preprocessing, idéalement, il faudrait <code>wrapper</code> tout dans un modèle MLFlow et donc créer une custom class lors de l’entrainement.</li>
 </ul>
 </div>
 </div>
