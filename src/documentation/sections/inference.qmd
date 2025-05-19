@@ -1,0 +1,119 @@
+# Inférence du modèle et mise à disposition des résultats
+
+## L'API d'inférence
+
+L’API, développée avec FastAPI, est déployée sur SSPCloud à l'adresse suivante : [https://satellite-images-inference.lab.sspcloud.fr/](). Elle propose trois *endpoints* :
+
+1. `GET /predict_image` — Prédiction d’une image individuelle stockée sur S3.
+2. `GET /predict_cluster` — Prédiction sur un îlot identifié par son code (peut inclure plusieurs images).
+3. `GET /predict_bbox` — Prédiction sur une *bounding box* définie par des coordonnées GPS (peut inclure plusieurs images).
+
+Le code associé à l'API est accessible via le [dépôt d'inférence](https://github.com/InseeFrLab/satellite-images-inference) dans le dossier `api/`.
+
+Un système de **cache** est en place pour éviter les redondances de calcul sur une même image.
+
+
+::: {.callout-important}
+# ⚠️ **Limites actuelles de l’API :**
+
+- Les prédictions en batch ne sont pas possibles directement (elles doivent être séquentielles) puisque seuls des *endpoints* `GET` sont disponibles.
+- Certaines opérations pourraient être asynchrones pour améliorer les performances.
+- L'API reproduit le preprocessing, idéalement, il faudrait `wrapper` tout dans un modèle MLFlow et donc créer une custom class lors de l'entrainement.
+:::
+
+::: {.callout-note}
+# Comment faire une montée de version de l'API
+
+1. Vous développez vos nouvelles fonctionnalités dans le code de l'api (dossier `api/` du dépôt d'inférence).
+2. Une fois que vous êtes satisfaits de votre code et que vous l'avez testé localement, vous pouvez créer un tag avec la bonne version (e.g `vX.X.X`) et *push* le tag vers Github.
+3. Une fois le tag *pushed*, cela va déclencher une *Action* sur Github qui va construire une nouvelle image avec votre nouvelle API, en lui associant le tag que vous avez défini.
+4. Allez sur le dépot [GitOps](https://github.com/InseeFrLab/satellite-images-cd) et modifiez le manifeste kubernetes de déploiement de l'API. Notamment, changez la version de l'image à utiliser.
+5. ArgoCD, qui scanne le dépôt GitOps va automatiquement détecter le changement et déploier la nouvelle version de l'API. Si vous êtes pressés, vous pouvez cliquer sur "Refresh" pour forcer ArgoCD à scanner le dépôt GitOps immédiatement.
+:::
+
+## Réaliser des prédictions sur des images
+
+### Étape 1 : Récupération des images
+
+Afin de réaliser des prédictions sur des images, il est nécessaire de les stocker d'une manière structurée dans le S3 du projet sur le SSPCloud. En effet, l'API pour réaliser la prédiction d'une image il va directement la chercher sur le S3, ce qu'on lui donne n'est que le chemin pour y accéder.
+
+## 🌍 Geoserver
+
+Une fois les prédictions faites, il est important de les intégrer au [Geoserver](https://geoserver-satellite-images.lab.sspcloud.fr/geoserver) *(demander les identifiants à l'équipe)*.
+
+
+
+### 📥 Étape 1 : Envoi vers le pvc du GeoServer via ArgoWorkflow
+
+Un remplissage dans le pvc du GeoServer se fait directement lors de l’[inférence via le template ArgoWorkflow](https://github.com/InseeFrLab/satellite-images-inference/blob/9c9ef808fdce7ecea29a568e04c41354258c3c61/argo-workflows/predict-workflows.yaml#L86).  
+Cette étape consiste à stocker les images Pléiades **et** les prédictions dans le GeoServer.
+
+
+
+### 🗂️ Étape 2 : Création manuelle des entrepôts et couches dans le GeoServer
+
+Il est important de créer un entrepôt et une couche pour utiliser les données sous forme de flux WMS dans la webapp.
+Pour l’instant, **cette étape est manuelle** : nous n’avons pas trouvé de méthode automatique.
+
+
+
+### 📷 Pour les *Images*
+
+1. **Entrepôt**  
+   - Menu **Données > Entrepôts** (à gauche)  
+   - Cliquez sur **+ Ajouter un nouvel entrepôt**  
+   - Choisir **ImageMosaic**  
+   - `name = <DEP>_<YEAR>`  
+   - Parcourir le dossier `PLEIADES/<DEP>/<YEAR>`  
+   - ➡️ *Sauvegarder*
+
+2. **Couche**  
+   - Menu **Données > Couches**  
+   - Cliquez sur **+ Ajouter une nouvelle couche**  
+   - Sélectionner l’entrepôt créé  
+   - `name = <DEP>_<YEAR>`, `title = <YEAR>`  
+   - ➡️ *Sauvegarder*
+
+
+
+### 🧠 Pour les *Prédictions*
+
+1. **Entrepôt**  
+   - Menu **Données > Entrepôts**  
+   - Cliquez sur **+ Ajouter un nouvel entrepôt**  
+   - Choisir **Geopackage**  
+   - `name = <DEP>_PREDICTIONS_<YEAR>`  
+   - Parcourir le fichier :  
+     `PREDICTIONS/PLEIADES/<DEP>/<YEAR>/Segmentation-multiclasse/1/predictions.gpkg`  
+   - ➡️ *Sauvegarder*
+
+2. **Couche**  
+   - Menu **Données > Couches**  
+   - Cliquez sur **+ Ajouter une nouvelle couche**  
+   - Sélectionner l’entrepôt créé  
+   - `name = <DEP>_PREDICTIONS_<YEAR>`, `title = <DEP>_PREDICTIONS_<YEAR>`  
+   - Dans l’onglet **Emprises** :  
+     - Cliquer sur **Basées sur les données**, puis **Calculer depuis les emprises natives**  
+   - Dans **Publication > Style par défaut** : `dirag:style_multiclass`  
+   - ➡️ *Sauvegarder*
+
+
+
+⚠️ **Vérification**  
+Pour vérifier que tout s'est bien passé :  
+Menu **Prévisualisation de la couche** (à gauche) → Cliquer sur **OpenLayers** de la couche souhaitée pour la prévisualiser.
+
+
+
+## 🧩 Webapp CRaTT
+
+Une fois les nouvelles couches créées, il faut les intégrer dans la webapp CRaTT :  
+
+1. Cloner le [dépôt Git](https://github.com/InseeFrLab/satellite-images-webapp.git)  
+2. Modifier le code pour ajouter le nouveau **couple Département / Année** :  
+   - Dans [`components/config.js`](https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/components/config.js)  
+   - Et dans [`utils/config.js`](https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/utils/config.js)  
+
+💡 Le `git push` déclenche automatiquement un rebuild du site. Les nouvelles couches seront visibles après quelques minutes (une fois que l’action GitHub est terminée).
+
+
