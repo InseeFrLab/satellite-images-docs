@@ -73,6 +73,7 @@ Un système de **cache** est en place pour éviter les redondances de calcul sur
 
 - Les prédictions en batch ne sont pas possibles directement (elles doivent être séquentielles) puisque seuls des *endpoints* `GET` sont disponibles.
 - Certaines opérations pourraient être asynchrones pour améliorer les performances.
+- L'API reproduit le preprocessing, idéalement, il faudrait `wrapper` tout dans un modèle MLFlow et donc créer une custom class lors de l'entrainement.
 :::
 
 
