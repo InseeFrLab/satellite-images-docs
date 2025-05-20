@@ -241,6 +241,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Certaines opérations pourraient être asynchrones pour améliorer les performances.</li>
 <li>L’API reproduit le preprocessing, idéalement, il faudrait <code>wrapper</code> tout dans un modèle MLFlow et donc créer une custom class lors de l’entraînement.</li>
 <li>C’est pas un problème de l’API en tant que tel mais comment on fait les appels via <code>make_predictions_from_api.py</code>, il faudrait forcer l’arrêt des requêtes quand il y a eu une déconnexion côté client (Timeout/KeyboardInterrupt etc.).</li>
+<li>Idéalement il faudrait réduire la taille de l’image. Elle contient toutes les lib cuda alors qu’on fait l’inférence sur CPU.</li>
 </ul>
 </div>
 </div>
