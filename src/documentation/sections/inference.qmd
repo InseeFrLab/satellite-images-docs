@@ -20,6 +20,7 @@ Un système de **cache** est en place pour éviter les redondances de calcul sur
 - Certaines opérations pourraient être asynchrones pour améliorer les performances.
 - L'API reproduit le preprocessing, idéalement, il faudrait `wrapper` tout dans un modèle MLFlow et donc créer une custom class lors de l'entraînement.
 - C'est pas un problème de l'API en tant que tel mais comment on fait les appels via `make_predictions_from_api.py`, il faudrait forcer l'arrêt des requêtes quand il y a eu une déconnexion côté client (Timeout/KeyboardInterrupt etc.).
+- Idéalement il faudrait réduire la taille de l'image. Elle contient toutes les lib cuda alors qu'on fait l'inférence sur CPU.
 :::
 
 ::: {.callout-note}
