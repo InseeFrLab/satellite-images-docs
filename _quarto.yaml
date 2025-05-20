@@ -44,7 +44,7 @@ website:
           - text: "Entraînement d'un modèle"
             href: "src/documentation/sections/entrainement.qmd"
           - text: "Mise à disposition des résultats"
-            href: "src/documentation/sections/resultats.qmd"
+            href: "src/documentation/sections/inference.qmd"
           - text: "Pipeline du projet"
             href: "src/documentation/sections/pipeline.qmd"
 

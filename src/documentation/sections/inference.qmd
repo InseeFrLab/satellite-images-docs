@@ -1,6 +1,6 @@
 # Inférence du modèle et mise à disposition des résultats
 
-## L'API d'inférence
+## ⚙️ L'API d'inférence
 
 L’API, développée avec FastAPI, est déployée sur SSPCloud à l'adresse suivante : [https://satellite-images-inference.lab.sspcloud.fr/](). Elle propose trois *endpoints* :
 
@@ -18,7 +18,8 @@ Un système de **cache** est en place pour éviter les redondances de calcul sur
 
 - Les prédictions en batch ne sont pas possibles directement (elles doivent être séquentielles) puisque seuls des *endpoints* `GET` sont disponibles.
 - Certaines opérations pourraient être asynchrones pour améliorer les performances.
-- L'API reproduit le preprocessing, idéalement, il faudrait `wrapper` tout dans un modèle MLFlow et donc créer une custom class lors de l'entrainement.
+- L'API reproduit le preprocessing, idéalement, il faudrait `wrapper` tout dans un modèle MLFlow et donc créer une custom class lors de l'entraînement.
+- C'est pas un problème de l'API en tant que tel mais comment on fait les appels via `make_predictions_from_api.py`, il faudrait forcer l'arrêt des requêtes quand il y a eu une déconnexion côté client (Timeout/KeyboardInterrupt etc.).
 :::
 
 ::: {.callout-note}
@@ -31,21 +32,36 @@ Un système de **cache** est en place pour éviter les redondances de calcul sur
 5. ArgoCD, qui scanne le dépôt GitOps va automatiquement détecter le changement et déploier la nouvelle version de l'API. Si vous êtes pressés, vous pouvez cliquer sur "Refresh" pour forcer ArgoCD à scanner le dépôt GitOps immédiatement.
 :::
 
-## Réaliser des prédictions sur des images
+## 🖼️ Réaliser des prédictions sur des images
 
 ### Étape 1 : Récupération des images
 
-Afin de réaliser des prédictions sur des images, il est nécessaire de les stocker d'une manière structurée dans le S3 du projet sur le SSPCloud. En effet, l'API pour réaliser la prédiction d'une image il va directement la chercher sur le S3, ce qu'on lui donne n'est que le chemin pour y accéder.
+Afin de réaliser des prédictions sur des images, il est nécessaire de les stocker d'une manière structurée dans le S3 du projet sur le SSPCloud. En effet, l'API pour réaliser la prédiction d'une image il va directement la chercher sur le S3, ce qu'on lui donne n'est que le **chemin pour y accéder**. Pour savoir comment récupérer et stocker de nouvelles images, veuillez vous référer à la [Section Acquisition](acquisition.html).
+
+### Étape 2 : Mettre à jour le fichier `filename-to-polygons.parquet`
+
+Afin d'obtenir rapidement une image concernant une zone géographique spécifique nous avons créé un fichier qui indexe les fichiers `.tif` à une certaine géométrie. Ainsi, sans ouvrir l'image en question, il nous est possible de déterminer qu'elle zone elle couvre. Ce fichier est utilisé des lors que l'on souhaite utiliser les endpoints `/predict_cluster` et `/predict_bbox`.
+Pour mettre à jour ce fichier qui est un parquet partitionné par le département et l'année il suffit d'exécuter le script [build_filename_to_polygons.py](https://github.com/InseeFrLab/satellite-images-inference/blob/main/src/build_filename_to_polygons.py). Ce script va détecter toutes les images qui ne sont pas encore indexée dans le fichier `filename-to-polygons.parquet`, les ouvrir toutes une à une pour déterminer leur *bounding box* et enregistrer le fichier à jour.
+
+### Étape 3 : Faire l'inférence sur un lot d'image
+
+Pour prédire la couverture du sol sur un échantillon d'images il est nécessaire d'utiliser l'endpoint `/predict_image`. Le script [make_predictions_from_api.py](https://github.com/InseeFrLab/satellite-images-inference/blob/main/src/make_predictions_from_api.py) permet de réaliser les prédictions pour le millésime d'un département donné. Il réalise de manière asynchrone des appels à l'API.
+
+::: {.callout-tip}
+
+Lorsque vous lancez une prédiction sur un grand nombre d'image, il est conseillé d'augmenter le nombre de *replicas* de l'API afin de réduire sensiblement le temps de calcul. Notez également que l'API n'implémente pas pour le moment de prédiction par batch , ce qui pourrait également améliorer considérablement les temps de calcul (sous réserve de la mémoire disponible)
+:::
+
+Il est recommandé de réaliser les prédictions à l'aide d'Argo Workflow en utilisant le template [predict-workflows.yaml](predict-workflows.yaml). Celui-ci, en plus de réaliser les prédictions, va directemment transférer les images et les prédictions dans le PVC du Geoserver afin de les mettre à disposition.
 
 ## 🌍 Geoserver
 
 Une fois les prédictions faites, il est important de les intégrer au [Geoserver](https://geoserver-satellite-images.lab.sspcloud.fr/geoserver) *(demander les identifiants à l'équipe)*.
 
 
-
 ### 📥 Étape 1 : Envoi vers le pvc du GeoServer via ArgoWorkflow
 
-Un remplissage dans le pvc du GeoServer se fait directement lors de l’[inférence via le template ArgoWorkflow](https://github.com/InseeFrLab/satellite-images-inference/blob/9c9ef808fdce7ecea29a568e04c41354258c3c61/argo-workflows/predict-workflows.yaml#L86).  
+Un remplissage dans le pvc du GeoServer se fait directement lors de l’[inférence via le template ArgoWorkflow](https://github.com/InseeFrLab/satellite-images-inference/blob/main/argo-workflows/predict-workflows.yaml#L88).  
 Cette étape consiste à stocker les images Pléiades **et** les prédictions dans le GeoServer.
 
 
@@ -105,7 +121,7 @@ Menu **Prévisualisation de la couche** (à gauche) → Cliquer sur **OpenLayers
 
 
 
-## 🧩 Webapp CRaTT
+## 💻 Webapp CRaTT
 
 Une fois les nouvelles couches créées, il faut les intégrer dans la webapp CRaTT :  
 
@@ -115,5 +131,3 @@ Une fois les nouvelles couches créées, il faut les intégrer dans la webapp CR
    - Et dans [`utils/config.js`](https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/utils/config.js)  
 
 💡 Le `git push` déclenche automatiquement un rebuild du site. Les nouvelles couches seront visibles après quelques minutes (une fois que l’action GitHub est terminée).
-
-
