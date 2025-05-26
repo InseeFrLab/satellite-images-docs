@@ -11,6 +11,6 @@ slides:
 video:
   text: Vidéo
   url: src/seminaire-dirag-video/index.html
-order: 3
+order: 4
 lang: fr-FR
 ---
