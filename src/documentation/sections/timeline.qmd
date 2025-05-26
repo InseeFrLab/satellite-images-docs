@@ -1,0 +1,88 @@
+::: {.timeline-container}
+
+<div class="timeline">
+  <div class="timeline-item">
+    MARS 2022
+    Clément Guillo prend un stagiaire de Master et se lance sur le sujet des images satellites.
+  </div>
+  <div class="timeline-item">
+    NOV 2022
+    Clément Guillo initie le projet Images Satellites avec Tom Seimandi et Thomas Faria au SSPLab.
+    Ils trouvent comme cas d’usage l’aide à l’enquête cartographique dans les DROM pour mieux
+    diriger les agents recenseurs lors des collectes ⟶ Début du projet !
+  </div>
+  <div class="timeline-item">
+    MARS 2023
+    Stages de fin d'études : 
+      Judith Nabec sur les images Sentinel2 (DG),
+      Raya Berova sur les images Pléïades (DIRAG puis DG)
+  </div>
+  <div class="timeline-item">
+    SEPT 2023
+    Raya Berova intègre l’équipe, avec 0.2 ETP sur le projet.
+    Travail de mise au propre du code du projet.
+    Entraînement d’un nouveau modèle très performant, qui est devenu le modèle actuellement
+    utilisé : le SegFormer.
+    Le modèle prédit uniquement le bâti sur images Pléïades, entraîné sur la BDTOPO.
+  </div>
+  <div class="timeline-item">
+    DEC 2023
+    Mise en place du GeoServer puis de l’application web CRaTT pour afficher dynamiquement les
+    images et les prédictions. Permet un contrôle visuel facile pour l’équipe et de diffuser
+    les travaux à l’Insee.
+    Création du package Astrovision pour faciliter la lecture et la manipulation des
+    images satellites.
+  </div>
+  <div class="timeline-item">
+    MARS 2024
+    Stagiaire de Master sur le traitement des prédictions du modèle
+    ⟶ mise en forme des prédictions, nettoyage et statistiques.
+  </div>
+  <div class="timeline-item">
+    MAI 2024
+    Séminaire DIRAG : rencontre des équipes.
+      Guadeloupe : présentation du projet à la DIRAG.
+      Guyane : discussions des cas d’usages et réalisation de l’enquête cartographique sur
+      le terrain. Visite de quartiers et de bidonvilles.
+  </div>
+  <div class="timeline-item">
+    SEPT 2024
+    Départ de Tom Seimandi.
+  </div>
+  <div class="timeline-item">
+    DEC 2024
+    Meeting WP7 : rencontre avec l’IGN et présentation de COSIA
+    ⟶ entraînement d’un modèle multiclasse grâce aux annotations de COSIA. Modèle plus
+    performant que l’ancien, il est actuellement utilisé.
+    Participation active lors des GT DOM Résil : est-ce que le projet peut aider à estimer
+    le nombre de logements à Mayotte ?
+  </div>
+  <div class="timeline-item">
+    FEV 2025
+    Prise de contact avec et Loup Wolff pour savoir si CRaTT peut aider au recensement
+    exhaustif de Mayotte 2026 et estimer les zones les plus touchées par le cyclone Chido.
+  </div>
+  <div class="timeline-item">
+    MARS 2025
+    Hackathon Eurostat à Bruxelles sur les données satellites : 6ième place sur 27 équipes
+    (Clément, Raya et Damien Babet du SSM Agri)
+    ⟶ reproduction du projet de A à Z en 3 jours en utilisant des images
+    Sentinel2 et les annotations CLCPlus sur les pays de l’UE.
+    Présentation du projet à NTTS (Thomas).
+  </div>
+  <div class="timeline-item">
+    ÉTÉ 2025
+    Départ de Thomas Faria et Clément Guillo.
+    Travail de documentation.
+    Passation pour préparer l’arrivée de Meilame et Cédric SSPLab.
+  </div>
+  <div class="timeline-item">
+    SUITE
+    JMS avec la DMTR : utilisation des images satellites pour améliorer le repérage
+    des logements à Mayotte.
+    Déplacement à Varsovie pour le WP7.
+    La suite est à déterminer.
+  </div>
+</div>
+
+:::

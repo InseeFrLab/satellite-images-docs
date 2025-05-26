@@ -35,7 +35,7 @@ website:
       contents:
         - section: "Navigation"
           contents:
-          - text: "Accueil"
+          - text: "Présentation du projet"
             href: "src/documentation/index.qmd"
           - text: "Une image satellite"
             href: "src/documentation/sections/satellite_image.qmd"

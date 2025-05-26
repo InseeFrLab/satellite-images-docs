@@ -14,7 +14,7 @@ format:
 Les images Pléiades présentent l’avantage d’offrir une très haute résolution (50 cm). Toutefois, elles sont la propriété d’Airbus, ce qui limite leur accessibilité : l’acquisition passe généralement par un achat de licence. En tant qu’institution française, nous bénéficions d'un accès gratuit à ces données via [Dinamis](https://dinamis.data-terra.org/). Il suffit de créer un compte sur Dinamis et de réaliser une demande d’accès.
 Nous avons un contact à l'IGN pour simplifier la procédure et il nous transmet les images directement. Toutefois, même avec ce canal, il reste nécessaire de créer un compte Dinamis et de signer un contrat de licence d'utilisation.
 
-Lorsque les images sont disponibles, notre interlocuteur à l’IGN, [Erik Parisot](erik.parisot@ign.fr), nous en informe par mail, en nous transmettant les accès à un serveur FTP. Les données peuvent alors être extraites puis transférées sur le S3 du namespace `projet-slums-detection` au sein du Datalab, selon la structure décrite dans @data-raw.  
+Lorsque les images sont disponibles, notre interlocuteur à l’IGN nous en informe par mail, en transmettant les accès à un serveur FTP. Les données peuvent alors être extraites puis transférées sur le S3 du namespace `projet-slums-detection` au sein du Datalab, selon la structure décrite dans @data-raw.  
 
 ::: {.callout-tip}
 # Comment récupérer les images Pléiades de l'IGN ?
