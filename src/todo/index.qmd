@@ -11,10 +11,10 @@ sidebar: false
 ## Techos
 
 - Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL
-- Industrialiser sur la nouvelle webapp tous les départements (priorité Guyane/St Martin) :heavy_check_mark:
-- Utiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle :heavy_check_mark:
-- Cache les predictions en terme de probabilité plutot que masque binaire :heavy_check_mark:
-- Mettre les prédictions multiclasses sur la webapp :heavy_check_mark:
+- Industrialiser sur la nouvelle webapp tous les départements (priorité Guyane/St Martin) ✅  
+- Utiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle ✅  
+- Cache les predictions en terme de probabilité plutot que masque binaire ✅  
+- Mettre les prédictions multiclasses sur la webapp ✅  
 - Retravailler les fonctionnalités des cartes de la webapp
 - Retélécharger Guyane via SEAS, utiliser les masques nuages pour faire le découpage (prioriser en fonction de la date)
 - Inférence sur nouveau découpage Guyane  

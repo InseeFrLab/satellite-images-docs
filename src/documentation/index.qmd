@@ -3,7 +3,20 @@ format:
   html:
     header-includes: |
         <link rel="icon" type="image/png" sizes="32x32" href="../_extensions/InseeFrLab/onyxia/favicon-32x32.png">
+page-layout: full
+css: ../custom.css
 ---
+
+# 🧑‍🤝‍🧑Équipe CRaTT
+
+Raya Berova (DMRG) : raya.berova@insee.fr  
+Thomas Faria (SSPLab) : thomas.faria@insee.fr  
+Clément Guillo (DIRAG) : clement.guillo@insee.fr  
+
+# 🧭 Histoire du projet
+
+{{< include sections/timeline.qmd >}}
+
 
 # 📦 Structure du projet
 
