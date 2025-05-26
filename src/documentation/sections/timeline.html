@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Projet Données Satellites – inference</title>
+<title>Projet Données Satellites – timeline</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../src/documentation/sections/pipeline.html" rel="next">
-<link href="../../../src/documentation/sections/entrainement.html" rel="prev">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -118,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../src/documentation/index.html">Navigation</a></li><li class="breadcrumb-item"><a href="../../../src/documentation/sections/inference.html">Mise à disposition des résultats</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -165,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../src/documentation/sections/inference.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../src/documentation/sections/inference.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mise à disposition des résultats</span></a>
   </div>
 </li>
@@ -182,31 +180,8 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#inférence-du-modèle-et-mise-à-disposition-des-résultats" id="toc-inférence-du-modèle-et-mise-à-disposition-des-résultats" class="nav-link active" data-scroll-target="#inférence-du-modèle-et-mise-à-disposition-des-résultats">Inférence du modèle et mise à disposition des résultats</a>
-  <ul class="collapse">
-  <li><a href="#lapi-dinférence" id="toc-lapi-dinférence" class="nav-link" data-scroll-target="#lapi-dinférence">⚙️ L’API d’inférence</a></li>
-  <li><a href="#réaliser-des-prédictions-sur-des-images" id="toc-réaliser-des-prédictions-sur-des-images" class="nav-link" data-scroll-target="#réaliser-des-prédictions-sur-des-images">🖼️ Réaliser des prédictions sur des images</a>
-  <ul class="collapse">
-  <li><a href="#étape-1-récupération-des-images" id="toc-étape-1-récupération-des-images" class="nav-link" data-scroll-target="#étape-1-récupération-des-images">Étape 1 : Récupération des images</a></li>
-  <li><a href="#étape-2-mettre-à-jour-le-fichier-filename-to-polygons.parquet" id="toc-étape-2-mettre-à-jour-le-fichier-filename-to-polygons.parquet" class="nav-link" data-scroll-target="#étape-2-mettre-à-jour-le-fichier-filename-to-polygons.parquet">Étape 2 : Mettre à jour le fichier <code>filename-to-polygons.parquet</code></a></li>
-  <li><a href="#étape-3-faire-linférence-sur-un-lot-dimage" id="toc-étape-3-faire-linférence-sur-un-lot-dimage" class="nav-link" data-scroll-target="#étape-3-faire-linférence-sur-un-lot-dimage">Étape 3 : Faire l’inférence sur un lot d’image</a></li>
-  </ul></li>
-  <li><a href="#geoserver" id="toc-geoserver" class="nav-link" data-scroll-target="#geoserver">🌍 Geoserver</a>
-  <ul class="collapse">
-  <li><a href="#étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow" id="toc-étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow" class="nav-link" data-scroll-target="#étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow">📥 Étape 1 : Envoi vers le pvc du GeoServer via ArgoWorkflow</a></li>
-  <li><a href="#étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver" id="toc-étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver" class="nav-link" data-scroll-target="#étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver">🗂️ Étape 2 : Création manuelle des entrepôts et couches dans le GeoServer</a></li>
-  <li><a href="#pour-les-images" id="toc-pour-les-images" class="nav-link" data-scroll-target="#pour-les-images">📷 Pour les <em>Images</em></a></li>
-  <li><a href="#pour-les-prédictions" id="toc-pour-les-prédictions" class="nav-link" data-scroll-target="#pour-les-prédictions">🧠 Pour les <em>Prédictions</em></a></li>
-  </ul></li>
-  <li><a href="#webapp-cratt" id="toc-webapp-cratt" class="nav-link" data-scroll-target="#webapp-cratt">💻 Webapp CRaTT</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -214,190 +189,94 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="inférence-du-modèle-et-mise-à-disposition-des-résultats" class="level1">
-<h1>Inférence du modèle et mise à disposition des résultats</h1>
-<section id="lapi-dinférence" class="level2">
-<h2 class="anchored" data-anchor-id="lapi-dinférence">⚙️ L’API d’inférence</h2>
-<p>L’API, développée avec FastAPI, est déployée sur SSPCloud à l’adresse suivante : <a href="">https://satellite-images-inference.lab.sspcloud.fr/</a>. Elle propose trois <em>endpoints</em> :</p>
-<ol type="1">
-<li><code>GET /predict_image</code> — Prédiction d’une image individuelle stockée sur S3.</li>
-<li><code>GET /predict_cluster</code> — Prédiction sur un îlot identifié par son code (peut inclure plusieurs images).</li>
-<li><code>GET /predict_bbox</code> — Prédiction sur une <em>bounding box</em> définie par des coordonnées GPS (peut inclure plusieurs images).</li>
-</ol>
-<p>Le code associé à l’API est accessible via le <a href="https://github.com/InseeFrLab/satellite-images-inference">dépôt d’inférence</a> dans le dossier <code>api/</code>.</p>
-<p>Un système de <strong>cache</strong> est en place pour éviter les redondances de calcul sur une même image.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="timeline-container">
+<div class="timeline">
+<div class="timeline-item">
+<pre><code>MARS 2022
+Clément Guillo prend un stagiaire de Master et se lance sur le sujet des images satellites.</code></pre>
 </div>
-<div class="callout-title-container flex-fill">
-⚠️ <strong>Limites actuelles de l’API :</strong>
+<div class="timeline-item">
+<pre><code>NOV 2022
+Clément Guillo initie le projet Images Satellites avec Tom Seimandi et Thomas Faria au SSPLab.
+Ils trouvent comme cas d’usage l’aide à l’enquête cartographique dans les DROM pour mieux
+diriger les agents recenseurs lors des collectes ⟶ Début du projet !</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>MARS 2023
+Stages de fin d'études : 
+  Judith Nabec sur les images Sentinel2 (DG),
+  Raya Berova sur les images Pléïades (DIRAG puis DG)</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>SEPT 2023
+Raya Berova intègre l’équipe, avec 0.2 ETP sur le projet.
+Travail de mise au propre du code du projet.
+Entraînement d’un nouveau modèle très performant, qui est devenu le modèle actuellement
+utilisé : le SegFormer.
+Le modèle prédit uniquement le bâti sur images Pléïades, entraîné sur la BDTOPO.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>DEC 2023
+Mise en place du GeoServer puis de l’application web CRaTT pour afficher dynamiquement les
+images et les prédictions. Permet un contrôle visuel facile pour l’équipe et de diffuser
+les travaux à l’Insee.
+Création du package Astrovision pour faciliter la lecture et la manipulation des
+images satellites.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>MARS 2024
+Stagiaire de Master sur le traitement des prédictions du modèle
+⟶ mise en forme des prédictions, nettoyage et statistiques.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>MAI 2024
+Séminaire DIRAG : rencontre des équipes.
+  Guadeloupe : présentation du projet à la DIRAG.
+  Guyane : discussions des cas d’usages et réalisation de l’enquête cartographique sur
+  le terrain. Visite de quartiers et de bidonvilles.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>SEPT 2024
+Départ de Tom Seimandi.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>DEC 2024
+Meeting WP7 : rencontre avec l’IGN et présentation de COSIA
+⟶ entraînement d’un modèle multiclasse grâce aux annotations de COSIA. Modèle plus
+performant que l’ancien, il est actuellement utilisé.
+Participation active lors des GT DOM Résil : est-ce que le projet peut aider à estimer
+le nombre de logements à Mayotte ?</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>FEV 2025
+Prise de contact avec et Loup Wolff pour savoir si CRaTT peut aider au recensement
+exhaustif de Mayotte 2026 et estimer les zones les plus touchées par le cyclone Chido.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>MARS 2025
+Hackathon Eurostat à Bruxelles sur les données satellites : 6ième place sur 27 équipes
+(Clément, Raya et Damien Babet du SSM Agri)
+⟶ reproduction du projet de A à Z en 3 jours en utilisant des images
+Sentinel2 et les annotations CLCPlus sur les pays de l’UE.
+Présentation du projet à NTTS (Thomas).</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>ÉTÉ 2025
+Départ de Thomas Faria et Clément Guillo.
+Travail de documentation.
+Passation pour préparer l’arrivée de Meilame et Cédric SSPLab.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>SUITE
+JMS avec la DMTR : utilisation des images satellites pour améliorer le repérage
+des logements à Mayotte.
+Déplacement à Varsovie pour le WP7.
+La suite est à déterminer.</code></pre>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Les prédictions en batch ne sont pas possibles directement (elles doivent être séquentielles) puisque seuls des <em>endpoints</em> <code>GET</code> sont disponibles.</li>
-<li>Certaines opérations pourraient être asynchrones pour améliorer les performances.</li>
-<li>L’API reproduit le preprocessing, idéalement, il faudrait <code>wrapper</code> tout dans un modèle MLFlow et donc créer une custom class lors de l’entraînement.</li>
-<li>C’est pas un problème de l’API en tant que tel mais comment on fait les appels via <code>make_predictions_from_api.py</code>, il faudrait forcer l’arrêt des requêtes quand il y a eu une déconnexion côté client (Timeout/KeyboardInterrupt etc.).</li>
-<li>Idéalement il faudrait réduire la taille de l’image. Elle contient toutes les lib cuda alors qu’on fait l’inférence sur CPU.</li>
-</ul>
 </div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Comment faire une montée de version de l’API
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Vous développez vos nouvelles fonctionnalités dans le code de l’api (dossier <code>api/</code> du dépôt d’inférence).</li>
-<li>Une fois que vous êtes satisfaits de votre code et que vous l’avez testé localement, vous pouvez créer un tag avec la bonne version (e.g <code>vX.X.X</code>) et <em>push</em> le tag vers Github.</li>
-<li>Une fois le tag <em>pushed</em>, cela va déclencher une <em>Action</em> sur Github qui va construire une nouvelle image avec votre nouvelle API, en lui associant le tag que vous avez défini.</li>
-<li>Allez sur le dépot <a href="https://github.com/InseeFrLab/satellite-images-cd">GitOps</a> et modifiez le manifeste kubernetes de déploiement de l’API. Notamment, changez la version de l’image à utiliser.</li>
-<li>ArgoCD, qui scanne le dépôt GitOps va automatiquement détecter le changement et déploier la nouvelle version de l’API. Si vous êtes pressés, vous pouvez cliquer sur “Refresh” pour forcer ArgoCD à scanner le dépôt GitOps immédiatement.</li>
-</ol>
-</div>
-</div>
-</section>
-<section id="réaliser-des-prédictions-sur-des-images" class="level2">
-<h2 class="anchored" data-anchor-id="réaliser-des-prédictions-sur-des-images">🖼️ Réaliser des prédictions sur des images</h2>
-<section id="étape-1-récupération-des-images" class="level3">
-<h3 class="anchored" data-anchor-id="étape-1-récupération-des-images">Étape 1 : Récupération des images</h3>
-<p>Afin de réaliser des prédictions sur des images, il est nécessaire de les stocker d’une manière structurée dans le S3 du projet sur le SSPCloud. En effet, l’API pour réaliser la prédiction d’une image il va directement la chercher sur le S3, ce qu’on lui donne n’est que le <strong>chemin pour y accéder</strong>. Pour savoir comment récupérer et stocker de nouvelles images, veuillez vous référer à la <a href="acquisition.html">Section Acquisition</a>.</p>
-</section>
-<section id="étape-2-mettre-à-jour-le-fichier-filename-to-polygons.parquet" class="level3">
-<h3 class="anchored" data-anchor-id="étape-2-mettre-à-jour-le-fichier-filename-to-polygons.parquet">Étape 2 : Mettre à jour le fichier <code>filename-to-polygons.parquet</code></h3>
-<p>Afin d’obtenir rapidement une image concernant une zone géographique spécifique nous avons créé un fichier qui indexe les fichiers <code>.tif</code> à une certaine géométrie. Ainsi, sans ouvrir l’image en question, il nous est possible de déterminer qu’elle zone elle couvre. Ce fichier est utilisé des lors que l’on souhaite utiliser les endpoints <code>/predict_cluster</code> et <code>/predict_bbox</code>. Pour mettre à jour ce fichier qui est un parquet partitionné par le département et l’année il suffit d’exécuter le script <a href="https://github.com/InseeFrLab/satellite-images-inference/blob/main/src/build_filename_to_polygons.py">build_filename_to_polygons.py</a>. Ce script va détecter toutes les images qui ne sont pas encore indexée dans le fichier <code>filename-to-polygons.parquet</code>, les ouvrir toutes une à une pour déterminer leur <em>bounding box</em> et enregistrer le fichier à jour.</p>
-</section>
-<section id="étape-3-faire-linférence-sur-un-lot-dimage" class="level3">
-<h3 class="anchored" data-anchor-id="étape-3-faire-linférence-sur-un-lot-dimage">Étape 3 : Faire l’inférence sur un lot d’image</h3>
-<p>Pour prédire la couverture du sol sur un échantillon d’images il est nécessaire d’utiliser l’endpoint <code>/predict_image</code>. Le script <a href="https://github.com/InseeFrLab/satellite-images-inference/blob/main/src/make_predictions_from_api.py">make_predictions_from_api.py</a> permet de réaliser les prédictions pour le millésime d’un département donné. Il réalise de manière asynchrone des appels à l’API.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Lorsque vous lancez une prédiction sur un grand nombre d’image, il est conseillé d’augmenter le nombre de <em>replicas</em> de l’API afin de réduire sensiblement le temps de calcul. Notez également que l’API n’implémente pas pour le moment de prédiction par batch , ce qui pourrait également améliorer considérablement les temps de calcul (sous réserve de la mémoire disponible)</p>
-</div>
-</div>
-<p>Il est recommandé de réaliser les prédictions à l’aide d’Argo Workflow en utilisant le template <a href="predict-workflows.yaml">predict-workflows.yaml</a>. Celui-ci, en plus de réaliser les prédictions, va directemment transférer les images et les prédictions dans le PVC du Geoserver afin de les mettre à disposition.</p>
-</section>
-</section>
-<section id="geoserver" class="level2">
-<h2 class="anchored" data-anchor-id="geoserver">🌍 Geoserver</h2>
-<p>Une fois les prédictions faites, il est important de les intégrer au <a href="https://geoserver-satellite-images.lab.sspcloud.fr/geoserver">Geoserver</a> <em>(demander les identifiants à l’équipe)</em>.</p>
-<section id="étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow" class="level3">
-<h3 class="anchored" data-anchor-id="étape-1-envoi-vers-le-pvc-du-geoserver-via-argoworkflow">📥 Étape 1 : Envoi vers le pvc du GeoServer via ArgoWorkflow</h3>
-<p>Un remplissage dans le pvc du GeoServer se fait directement lors de l’<a href="https://github.com/InseeFrLab/satellite-images-inference/blob/main/argo-workflows/predict-workflows.yaml#L88">inférence via le template ArgoWorkflow</a>.<br>
-Cette étape consiste à stocker les images Pléiades <strong>et</strong> les prédictions dans le GeoServer.</p>
-</section>
-<section id="étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver" class="level3">
-<h3 class="anchored" data-anchor-id="étape-2-création-manuelle-des-entrepôts-et-couches-dans-le-geoserver">🗂️ Étape 2 : Création manuelle des entrepôts et couches dans le GeoServer</h3>
-<p>Il est important de créer un entrepôt et une couche pour utiliser les données sous forme de flux WMS dans la webapp. Pour l’instant, <strong>cette étape est manuelle</strong> : nous n’avons pas trouvé de méthode automatique.</p>
-</section>
-<section id="pour-les-images" class="level3">
-<h3 class="anchored" data-anchor-id="pour-les-images">📷 Pour les <em>Images</em></h3>
-<ol type="1">
-<li><strong>Entrepôt</strong>
-<ul>
-<li>Menu <strong>Données &gt; Entrepôts</strong> (à gauche)<br>
-</li>
-<li>Cliquez sur <strong>+ Ajouter un nouvel entrepôt</strong><br>
-</li>
-<li>Choisir <strong>ImageMosaic</strong><br>
-</li>
-<li><code>name = &lt;DEP&gt;_&lt;YEAR&gt;</code><br>
-</li>
-<li>Parcourir le dossier <code>PLEIADES/&lt;DEP&gt;/&lt;YEAR&gt;</code><br>
-</li>
-<li>➡️ <em>Sauvegarder</em></li>
-</ul></li>
-<li><strong>Couche</strong>
-<ul>
-<li>Menu <strong>Données &gt; Couches</strong><br>
-</li>
-<li>Cliquez sur <strong>+ Ajouter une nouvelle couche</strong><br>
-</li>
-<li>Sélectionner l’entrepôt créé<br>
-</li>
-<li><code>name = &lt;DEP&gt;_&lt;YEAR&gt;</code>, <code>title = &lt;YEAR&gt;</code><br>
-</li>
-<li>➡️ <em>Sauvegarder</em></li>
-</ul></li>
-</ol>
-</section>
-<section id="pour-les-prédictions" class="level3">
-<h3 class="anchored" data-anchor-id="pour-les-prédictions">🧠 Pour les <em>Prédictions</em></h3>
-<ol type="1">
-<li><strong>Entrepôt</strong>
-<ul>
-<li>Menu <strong>Données &gt; Entrepôts</strong><br>
-</li>
-<li>Cliquez sur <strong>+ Ajouter un nouvel entrepôt</strong><br>
-</li>
-<li>Choisir <strong>Geopackage</strong><br>
-</li>
-<li><code>name = &lt;DEP&gt;_PREDICTIONS_&lt;YEAR&gt;</code><br>
-</li>
-<li>Parcourir le fichier :<br>
-<code>PREDICTIONS/PLEIADES/&lt;DEP&gt;/&lt;YEAR&gt;/Segmentation-multiclasse/1/predictions.gpkg</code><br>
-</li>
-<li>➡️ <em>Sauvegarder</em></li>
-</ul></li>
-<li><strong>Couche</strong>
-<ul>
-<li>Menu <strong>Données &gt; Couches</strong><br>
-</li>
-<li>Cliquez sur <strong>+ Ajouter une nouvelle couche</strong><br>
-</li>
-<li>Sélectionner l’entrepôt créé<br>
-</li>
-<li><code>name = &lt;DEP&gt;_PREDICTIONS_&lt;YEAR&gt;</code>, <code>title = &lt;DEP&gt;_PREDICTIONS_&lt;YEAR&gt;</code><br>
-</li>
-<li>Dans l’onglet <strong>Emprises</strong> :
-<ul>
-<li>Cliquer sur <strong>Basées sur les données</strong>, puis <strong>Calculer depuis les emprises natives</strong><br>
-</li>
-</ul></li>
-<li>Dans <strong>Publication &gt; Style par défaut</strong> : <code>dirag:style_multiclass</code><br>
-</li>
-<li>➡️ <em>Sauvegarder</em></li>
-</ul></li>
-</ol>
-<p>⚠️ <strong>Vérification</strong><br>
-Pour vérifier que tout s’est bien passé :<br>
-Menu <strong>Prévisualisation de la couche</strong> (à gauche) → Cliquer sur <strong>OpenLayers</strong> de la couche souhaitée pour la prévisualiser.</p>
-</section>
-</section>
-<section id="webapp-cratt" class="level2">
-<h2 class="anchored" data-anchor-id="webapp-cratt">💻 Webapp CRaTT</h2>
-<p>Une fois les nouvelles couches créées, il faut les intégrer dans la webapp CRaTT :</p>
-<ol type="1">
-<li>Cloner le <a href="https://github.com/InseeFrLab/satellite-images-webapp.git">dépôt Git</a><br>
-</li>
-<li>Modifier le code pour ajouter le nouveau <strong>couple Département / Année</strong> :
-<ul>
-<li>Dans <a href="https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/components/config.js"><code>components/config.js</code></a><br>
-</li>
-<li>Et dans <a href="https://github.com/InseeFrLab/satellite-images-webapp/blob/main/src/utils/config.js"><code>utils/config.js</code></a></li>
-</ul></li>
-</ol>
-<p>💡 Le <code>git push</code> déclenche automatiquement un rebuild du site. Les nouvelles couches seront visibles après quelques minutes (une fois que l’action GitHub est terminée).</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -964,18 +843,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../../src/documentation/sections/entrainement.html" class="pagination-link" aria-label="Entraînement d'un modèle">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Entraînement d’un modèle</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../../src/documentation/sections/pipeline.html" class="pagination-link" aria-label="Pipeline du projet">
-        <span class="nav-page-text">Pipeline du projet</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

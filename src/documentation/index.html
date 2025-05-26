@@ -74,6 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="icon" type="image/png" sizes="32x32" href="../_extensions/InseeFrLab/onyxia/favicon-32x32.png">
 
 
+<link rel="stylesheet" href="../custom.css">
 <meta property="og:title" content="Projet Données Satellites">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="Projet Données Satellites">
@@ -119,14 +120,14 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/documentation/index.html">Navigation</a></li><li class="breadcrumb-item"><a href="../../src/documentation/index.html">Accueil</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/documentation/index.html">Navigation</a></li><li class="breadcrumb-item"><a href="../../src/documentation/index.html">Présentation du projet</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -143,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../src/documentation/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Accueil</span></a>
+ <span class="menu-text">Présentation du projet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -188,7 +189,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#structure-du-projet" id="toc-structure-du-projet" class="nav-link active" data-scroll-target="#structure-du-projet">📦 Structure du projet</a>
+  <li><a href="#équipe-cratt" id="toc-équipe-cratt" class="nav-link active" data-scroll-target="#équipe-cratt">🧑‍🤝‍🧑Équipe CRaTT</a></li>
+  <li><a href="#histoire-du-projet" id="toc-histoire-du-projet" class="nav-link" data-scroll-target="#histoire-du-projet">🧭 Histoire du projet</a></li>
+  <li><a href="#structure-du-projet" id="toc-structure-du-projet" class="nav-link" data-scroll-target="#structure-du-projet">📦 Structure du projet</a>
   <ul class="collapse">
   <li><a href="#les-différents-dépôts" id="toc-les-différents-dépôts" class="nav-link" data-scroll-target="#les-différents-dépôts">📁 Les différents dépôts</a>
   <ul class="collapse">
@@ -211,11 +214,106 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 
 
 
+<section id="équipe-cratt" class="level1">
+<h1>🧑‍🤝‍🧑Équipe CRaTT</h1>
+<p>Raya Berova (DMRG) : raya.berova@insee.fr<br>
+Thomas Faria (SSPLab) : thomas.faria@insee.fr<br>
+Clément Guillo (DIRAG) : clement.guillo@insee.fr</p>
+</section>
+<section id="histoire-du-projet" class="level1">
+<h1>🧭 Histoire du projet</h1>
+<div class="timeline-container">
+<div class="timeline">
+<div class="timeline-item">
+<pre><code>MARS 2022
+Clément Guillo prend un stagiaire de Master et se lance sur le sujet des images satellites.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>NOV 2022
+Clément Guillo initie le projet Images Satellites avec Tom Seimandi et Thomas Faria au SSPLab.
+Ils trouvent comme cas d’usage l’aide à l’enquête cartographique dans les DROM pour mieux
+diriger les agents recenseurs lors des collectes ⟶ Début du projet !</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>MARS 2023
+Stages de fin d'études : 
+  Judith Nabec sur les images Sentinel2 (DG),
+  Raya Berova sur les images Pléïades (DIRAG puis DG)</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>SEPT 2023
+Raya Berova intègre l’équipe, avec 0.2 ETP sur le projet.
+Travail de mise au propre du code du projet.
+Entraînement d’un nouveau modèle très performant, qui est devenu le modèle actuellement
+utilisé : le SegFormer.
+Le modèle prédit uniquement le bâti sur images Pléïades, entraîné sur la BDTOPO.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>DEC 2023
+Mise en place du GeoServer puis de l’application web CRaTT pour afficher dynamiquement les
+images et les prédictions. Permet un contrôle visuel facile pour l’équipe et de diffuser
+les travaux à l’Insee.
+Création du package Astrovision pour faciliter la lecture et la manipulation des
+images satellites.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>MARS 2024
+Stagiaire de Master sur le traitement des prédictions du modèle
+⟶ mise en forme des prédictions, nettoyage et statistiques.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>MAI 2024
+Séminaire DIRAG : rencontre des équipes.
+  Guadeloupe : présentation du projet à la DIRAG.
+  Guyane : discussions des cas d’usages et réalisation de l’enquête cartographique sur
+  le terrain. Visite de quartiers et de bidonvilles.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>SEPT 2024
+Départ de Tom Seimandi.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>DEC 2024
+Meeting WP7 : rencontre avec l’IGN et présentation de COSIA
+⟶ entraînement d’un modèle multiclasse grâce aux annotations de COSIA. Modèle plus
+performant que l’ancien, il est actuellement utilisé.
+Participation active lors des GT DOM Résil : est-ce que le projet peut aider à estimer
+le nombre de logements à Mayotte ?</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>FEV 2025
+Prise de contact avec et Loup Wolff pour savoir si CRaTT peut aider au recensement
+exhaustif de Mayotte 2026 et estimer les zones les plus touchées par le cyclone Chido.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>MARS 2025
+Hackathon Eurostat à Bruxelles sur les données satellites : 6ième place sur 27 équipes
+(Clément, Raya et Damien Babet du SSM Agri)
+⟶ reproduction du projet de A à Z en 3 jours en utilisant des images
+Sentinel2 et les annotations CLCPlus sur les pays de l’UE.
+Présentation du projet à NTTS (Thomas).</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>ÉTÉ 2025
+Départ de Thomas Faria et Clément Guillo.
+Travail de documentation.
+Passation pour préparer l’arrivée de Meilame et Cédric SSPLab.</code></pre>
+</div>
+<div class="timeline-item">
+<pre><code>SUITE
+JMS avec la DMTR : utilisation des images satellites pour améliorer le repérage
+des logements à Mayotte.
+Déplacement à Varsovie pour le WP7.
+La suite est à déterminer.</code></pre>
+</div>
+</div>
+</div>
+</section>
 <section id="structure-du-projet" class="level1">
 <h1>📦 Structure du projet</h1>
 <p>Ce projet structuré en <strong>7 dépôts Git</strong> open source, hébergés sur GitHub, et organisés au sein de l’équipe <a href="https://github.com/orgs/InseeFrLab/teams/satellite-images">Satellite images</a> de l’organisation <em>InseeFrLab</em>.</p>
@@ -1013,7 +1111,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
