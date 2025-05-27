@@ -1,6 +1,6 @@
 ---
 title: Conference on New Techniques and Technologies for official Statistics (NTTS 2025)
-image: img/toad_wp7.jpg
+image: img/ntts_bruxelles.jpg
 date: "2025-03-12"
 description: |
   <b>Description :</b> Slide deck for the NTTS 2025 conference.

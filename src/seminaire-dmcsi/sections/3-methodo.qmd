@@ -1,0 +1,29 @@
+## Semantic segmentation
+
+![Pleiades © CNES_2022, Distribution AIRBUS DS](../img/segmentation_exemple.png){width=80% fig-align="center"}
+
+## Training a segmentation model
+
+- Model trained for automatic segmentation [**from annotated examples**]{.orange}
+- [**Requirements**]{.orange}:
+    - [**Satellite image**]{.blue2} collection 🛰️
+    - [**Production of annotations**]{.blue2} (building footprints or land cover, if available) 📍
+- Model learns to reproduce annotations from images aiming to [**generalize**]{.orange} on new images 🎯
+
+## From segmentation to change detection
+
+![](../img/strategy_segmentation.png){width=80%}
+
+## Model used
+
+- [**Model architecture**]{.orange} 🧩:
+    - [**Backbone**]{.blue2}: SegFormer ([**MiT**]{.green2})
+    - [**Encoder**]{.blue2}: [**Transformer-based**]{.green2} (efficient self-attention, no positional encoding) ⚙️
+    - [**Decoder**]{.blue2}: Lightweight [**MLP head**]{.green2} ✨
+
+- [**Why SegFormer?**]{.orange} 🚀:
+    - [**No complex decoders**]{.blue2} → Efficient & scalable ⚡
+    - [**Captures local & global context**]{.blue2} → High accuracy 🎯
+    - [**No positional embeddings**]{.blue2} → Improved resolution generalization 📐
+
+- [**Fine-tuned**]{.orange} on our dataset 🗃️
