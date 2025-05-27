@@ -2,13 +2,14 @@
   {
     "listing": "/index.html",
     "items": [
-      "/cards/cards4.html",
-      "/cards/cards3.html",
-      "/cards/cards1.html",
-      "/cards/cards2.html",
-      "/cards/cards5.html",
-      "/cards/cards7.html",
-      "/cards/cards6.html"
+      "/cards/documentation_card.html",
+      "/cards/cratt_card.html",
+      "/cards/dt_card.html",
+      "/cards/seminaire_dirage_card.html",
+      "/cards/wp7_paris_card.html",
+      "/cards/ntts_card.html",
+      "/cards/seminaire_dmcsi_card.html",
+      "/cards/todo_card.html"
     ]
   }
 ]
