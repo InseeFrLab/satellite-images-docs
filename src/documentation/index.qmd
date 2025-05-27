@@ -13,14 +13,14 @@ Raya Berova (DMRG) : raya.berova@insee.fr
 Thomas Faria (SSPLab) : thomas.faria@insee.fr  
 Clément Guillo (DIRAG) : clement.guillo@insee.fr  
 
-# 🧭 Histoire du projet
+# 🧭 Timeline du projet
 
 {{< include sections/timeline.qmd >}}
 
 
 # 📦 Structure du projet
 
-Ce projet structuré en **7 dépôts Git** open source, hébergés sur GitHub, et organisés au sein de l’équipe [Satellite images](https://github.com/orgs/InseeFrLab/teams/satellite-images) de l’organisation *InseeFrLab*.
+Ce projet structuré en **7 dépôts Git** open source, hébergés sur GitHub, et organisés au sein de l’équipe [Satellite Images](https://github.com/orgs/InseeFrLab/teams/satellite-images) de l’organisation *InseeFrLab*.
 
 ## 📁 Les différents dépôts
 
