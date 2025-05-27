@@ -1,0 +1,40 @@
+<!-- ## Technical Environment ☁️
+
+- [**Cloud-native architecture**]{.orange} on the [**SSPCloud**]{.blue2} platform ☁️
+- [**Modern tech stack**]{.orange}: Kubernetes, Docker, MLFlow, React 🔧
+- [**Automated workflows**]{.orange} ensuring [**reproducibility**]{.blue2} 🔄
+- [**Continuous deployment**]{.orange} of applications 🚀
+ -->
+
+## Processing Pipeline 🛠️
+
+![](../img/pipeline_donnees_sat_en.png){#fig-chain2 width=100% height=100%}
+
+::: {.notes}
+
+1. Standardization of data acquisition—currently rudimentary. Need cloud-free, date-specific images with consistent methodology (challenge with Pléiades).
+2. Training stage: cloud removal, dataset balancing, labeling, splitting.
+3. PyTorch with pre-trained model from HuggingFace (requires GPU).
+4. API building: prediction of images, clustering/bounding boxes, and statistics computation (building area).
+5. Deployment via GeoServer and web application.
+6. Results utilized by INSEE colleagues for statistical analyses.
+:::
+
+## Application Architecture 🧩
+
+![](../img/app-architecture.png){fig-align="center" width=100%}
+
+::: {.notes}
+GeoServer dynamically serves satellite images.
+:::
+
+## Challenges & Perspectives
+
+- [**High maintenance costs**]{.orange} due to technical complexity 💸
+- Need for [**specialized skills**]{.blue2} 🧑‍💻
+- [**Complex technical environment**]{.orange} due to:
+    - [**Large data volumes**]{.blue2} 🗃️
+    - [**High computational requirements**]{.blue2} ⚡
+    - [**Reproducibility requirements**]{.blue2} ♻️
+- [**Promising initial results**]{.orange} supporting cartographic surveys ✅🗺️
+- [**Potential improvements identified**]{.orange} for each pipeline stage 🔧
