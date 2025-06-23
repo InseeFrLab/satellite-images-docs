@@ -1,44 +1,56 @@
-## Context
+## Contexte
 
-- Insee maintains a [**register of localized buildings**]{.orange} (RIL)
-  - Comprehensive housing data for cities with over 10k inhabitants 🏙️
-  - Used to create [**sampling frames**]{.blue2} for census surveys 📋
-- The RIL quality is [**good**]{.orange} in metropolitan France ✅...
-  - ...but France also includes [**overseas territories**]{.blue2} (OTs)! 🌎
-  - There, data [**quality is significantly lower**]{.blue2} ⚠️
+- L'Insee possède un [**répertoire**]{.orange} des immeubles localisés (RIL)
+  - [**Inventaire du bâti**]{.blue2}
+  - Communes de [**+10 000 habitants**]{.orange}
+  - Basé sur les [**permis de construire**]{.blue2} et informations locales  
+  - Pour constituer les [**bases de sondage**]{.orange} des enquêtes de recensement
 
-## Census in Overseas Territories
-
-- A [**cartographic survey**]{.orange} is conducted in OTs before each census
-
-- [**Critical context**]{.orange}, particularly in Mayotte and French Guiana:
-  - Local authorities [**question official statistics**]{.blue2}
-  - Rapid [**urban development**]{.blue2}
-  - Difficult [**field conditions**]{.blue2}
-
-- Requires significant [**work**]{.orange} and is highly [**costly**]{.orange} 💰
-
-- Can we use [**satellite imagery**]{.orange} to optimize census processes in OTs? 🛰️
+La [**qualité du RIL**]{.orange} est bonne en France métropolitaine ✅...
+...mais loin d'être fiable dans les territoires d'outre mer ⚠️  
 
 ::: {.notes}
+Le RIL est disponible pour les communes de 10 000 habitants et plus.  
+Pour chacune des adresses, il existe l'information du nombre de logements dedans, son caractère habitable et et sa géolocalisation.  
+Ce répertoire est utilisé à l'Insee pour constituer les bases de sondage des enquêtes de recensement.  
+La qualité du RIL est bonne en France métropolitaine cependant elle est bien inférieure dans les territoires d'outre mer, aussi appelés DROM.  
+:::    
 
-- [**Satellite data as supporting evidence**]{.orange}:
-  - Independent information source 🔍
-  - Continuous territorial monitoring 🔄
-  - Transparent and reproducible methodology 📑
+## Recensement dans les territoires d'outre mer
 
+- [**Contexte critique**]{.orange}, particulièrement à Mayotte et en Guyane  
+
+- Pour compléter le RIL dans les DROM : [**enquête cartographique**]{.blue2} → très [**coûteuse**]{.orange} 💰
+
+- Peut-on utiliser [**l'imagerie satellite**]{.orange} pour optimiser le processus de recensement dans les DROM ? 🛰️
+
+::: {.notes}
+En effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Le développement urbain est extrêmement rapide
+avec les bidonvilles rend le suivi du bâti très compliqué avec les nombreuses constructions et destructions de ces habitations précaires et instables.
+Les autorités, ayant besoin d'avoir les chiffres exacts de la population pour obtenir des subventions, ne sont pas satisfait des chiffres officiels produits par l'Insee : ils pointent du doigt une sous estimation.
+
+Pour compléter le RIL, basé sur les permis de construire, une enquête cartographique est mise en place. C'est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, qui a pour but d'envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse et coûteuse. De plus, les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter, terrains compliqués à atteindre, aggressions...
+
+Peut-on utiliser [**l'imagerie satellite**]{.orange} pour optimiser le processus de recensement dans les DROM ? 🛰️
+
+[**Les données satellitaires représentent**]{.orange}:
+  - une source d'information indépendante
+  - permettent une veille territoriale continue
+  - la méthodologie est transparente et reproductible
 :::
 
-## Our use cases
+## Nos cas d'usage
 
-- [**Pre-cartographic survey**]{.orange}:
-  - Identify [**priority areas**]{.blue2} for fieldwork 🎯
-  - Detect [**building changes**]{.blue2} since last survey 🏗️
-  - Perform [**temporal comparisons**]{.blue2} using historical and recent imagery 📆
+- Identifier les zones avec [**une forte densité de bâti**]{.blue2}  
+- Détecter [**les évolutions du bâti**]{.orange} de façon automatique  
+- Aider [**l'estimation de la population**]{.blue2} dans les DROM  
+- [**Répondre à une urgence**]{.red2} : cyclone "Chido" à Mayotte
 
-- [**Post-cartographic survey**]{.orange}:
-  - [**Automated change detection**]{.blue2} 🤖
-  - Analysis of [**land-use evolution**]{.blue2} 🌳➡️🏘️
-  - Assist [**population estimates**]{.blue2} in OTs 📊
+::: {.notes}
+- Identifier [**les zones prioritaires**]{.blue2} pour l'enquête cartographique  
+- Détecter [**les évolutions du bâti**]{.blue2} depuis le précédent inventaire du bâti effectué   
+- Réaliser des [**comparaisons temporelles**]{.blue2} en utilisant d'anciennes et de nouvelles images satellites du même territoire  
+- Aider l'estimation de la population dans les DROM  
+- [**Répondre à une urgence**]{.red2} : conséquences du cyclone "Chido" sur le bâti à Mayotte
+::: 
 
-- [**Extraordinary use case**]{.red2}: Rapid response after devastating tropical cyclone "Chido"
