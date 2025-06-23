@@ -9,7 +9,8 @@ Le site contient :
 - Les slides présentées lors du séminaire de fin d'expérimentation le 28/05/24 à la Dirag ;
 - L'enregistrement vidéo du séminaire ;
 - Le lien vers l'application de visualisation ;
-- Une présentation réalisée pour le workshop AIML4OS Earth Observation.
+- Une présentation réalisée pour le workshop AIML4OS Earth Observation ;  
+- Le séminaire DMCSI sur le sujet des données satellites : Utilisation des images satellites pour améliorer le repérage des logements dans les départements d'outre-mer.  
 
 ## Build
 

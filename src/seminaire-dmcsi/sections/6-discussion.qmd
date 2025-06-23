@@ -1,0 +1,10 @@
+## Challenges & Perspectives
+
+- [**High maintenance costs**]{.orange} due to technical complexity 💸
+- Need for [**specialized skills**]{.blue2} 🧑‍💻
+- [**Complex technical environment**]{.orange} due to:
+    - [**Large data volumes**]{.blue2} 🗃️
+    - [**High computational requirements**]{.blue2} ⚡
+    - [**Reproducibility requirements**]{.blue2} ♻️
+- [**Promising initial results**]{.orange} supporting cartographic surveys ✅🗺️
+- [**Potential improvements identified**]{.orange} for each pipeline stage 🔧

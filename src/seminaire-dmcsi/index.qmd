@@ -17,17 +17,17 @@ css: ../custom.css
 ascii: true
 ---
 
-# Outline
+# Plan
 
 1️⃣ Introduction
 
-2️⃣ Methodology
+2️⃣ Méthodologie
 
-3️⃣ Data
+3️⃣ Données
 
-4️⃣ Results
+4️⃣ Résultats
 
-5️⃣ From experimentation to production?
+5️⃣ De l'expérimentation à la production ?
 
 6️⃣ Discussion
 
@@ -36,74 +36,92 @@ ascii: true
 
 {{< include sections/1-introduction.qmd >}}
 
-# Presentation Outline
+# Plan
 
 1️⃣ Introduction
 
-**2️⃣ Methodology**
+**2️⃣ Méthodologie**
 
-3️⃣ Data
+3️⃣ Données
 
-4️⃣ Results
+4️⃣ Résultats
 
-5️⃣ From experimentation to production?
+5️⃣ De l'expérimentation à la production ?
 
 6️⃣ Discussion
 
-# 2️⃣ Methodology
+# 2️⃣ Méthodologie
 
 {{< include sections/3-methodo.qmd >}}
 
-# Presentation Outline
+# Plan
 
 1️⃣ Introduction
 
-2️⃣ Methodology
+2️⃣ Méthodologie
 
-**3️⃣ Data**
+**3️⃣ Données**
 
-4️⃣ Results
+4️⃣ Résultats
 
-5️⃣ From experimentation to production?
+5️⃣ De l'expérimentation à la production ?
 
 6️⃣ Discussion
 
-# 3️⃣ Data
+# 3️⃣ Données
 
 {{< include sections/2-data.qmd >}}
 
-# Presentation Outline
+# Plan
 
 1️⃣ Introduction
 
-2️⃣ Methodology
+2️⃣ Méthodologie
 
-3️⃣ Data
+3️⃣ Données
 
-**4️⃣ Results**
+**4️⃣ Résultats**
 
-5️⃣ From experimentation to production?
+5️⃣ De l'expérimentation à la production ?
 
 6️⃣ Discussion
 
-# 4️⃣ Results
+# 4️⃣ Résultats
 
 {{< include sections/4-results.qmd >}}
 
-# Presentation Outline
+# Plan
 
 1️⃣ Introduction
 
-2️⃣ Methodology
+2️⃣ Méthodologie
 
-3️⃣ Data
+3️⃣ Données
 
-4️⃣ Results 
+4️⃣ Résultats
 
-**5️⃣ From experimentation to production?**
+**5️⃣ De l'expérimentation à la production ?**
 
 6️⃣ Discussion
 
-# 5️⃣ From experimentation to production?
+# 5️⃣ De l'expérimentation à la production ?
 
-{{< include sections/5-discussion.qmd >}}
+{{< include sections/5-expprod.qmd >}}
+
+# Plan
+
+1️⃣ Introduction
+
+2️⃣ Méthodologie
+
+3️⃣ Données
+
+4️⃣ Résultats
+
+5️⃣ De l'expérimentation à la production ?
+
+**6️⃣ Discussion**
+
+# 6️⃣ Discussion
+
+{{< include sections/6-discussion.qmd >}}
