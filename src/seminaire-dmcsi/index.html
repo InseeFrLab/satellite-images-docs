@@ -341,13 +341,13 @@
 
   <p class="date">3 juillet 2025</p>
 </section>
-<section id="outline" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Outline</h1>
+<section id="plan" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Plan</h1>
 <p>1️⃣ Introduction</p>
-<p>2️⃣ Methodology</p>
-<p>3️⃣ Data</p>
-<p>4️⃣ Results</p>
-<p>5️⃣ From experimentation to production?</p>
+<p>2️⃣ Méthodologie</p>
+<p>3️⃣ Données</p>
+<p>4️⃣ Résultats</p>
+<p>5️⃣ De l’expérimentation à la production ?</p>
 <p>6️⃣ Discussion</p>
 </section>
 
@@ -356,43 +356,24 @@
 <h1>1️⃣ Introduction</h1>
 
 </section>
-<section id="context" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Context</h2>
+<section id="contexte" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Contexte</h2>
 <ul>
-<li>Insee maintains a <span class="orange"><strong>register of localized buildings</strong></span> (RIL)
+<li>L’Insee possède un <span class="orange"><strong>répertoire</strong></span> des immeubles localisés (RIL)
 <ul>
-<li>Comprehensive housing data for cities with over 10k inhabitants 🏙️</li>
-<li>Used to create <span class="blue2"><strong>sampling frames</strong></span> for census surveys 📋</li>
-</ul></li>
-<li>The RIL quality is <span class="orange"><strong>good</strong></span> in metropolitan France ✅…
-<ul>
-<li>…but France also includes <span class="blue2"><strong>overseas territories</strong></span> (OTs)! 🌎</li>
-<li>There, data <span class="blue2"><strong>quality is significantly lower</strong></span> ⚠️</li>
+<li><span class="blue2"><strong>Inventaire du bâti</strong></span></li>
+<li>Communes de <span class="orange"><strong>+10 000 habitants</strong></span></li>
+<li>Basé sur les <span class="blue2"><strong>permis de construire</strong></span> et informations locales<br>
+</li>
+<li>Pour constituer les <span class="orange"><strong>bases de sondage</strong></span> des enquêtes de recensement</li>
 </ul></li>
 </ul>
-</section>
-<section id="census-in-overseas-territories" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Census in Overseas Territories</h2>
-<ul>
-<li><p>A <span class="orange"><strong>cartographic survey</strong></span> is conducted in OTs before each census</p></li>
-<li><p><span class="orange"><strong>Critical context</strong></span>, particularly in Mayotte and French Guiana:</p>
-<ul>
-<li>Local authorities <span class="blue2"><strong>question official statistics</strong></span></li>
-<li>Rapid <span class="blue2"><strong>urban development</strong></span></li>
-<li>Difficult <span class="blue2"><strong>field conditions</strong></span></li>
-</ul></li>
-<li><p>Requires significant <span class="orange"><strong>work</strong></span> and is highly <span class="orange"><strong>costly</strong></span> 💰</p></li>
-<li><p>Can we use <span class="orange"><strong>satellite imagery</strong></span> to optimize census processes in OTs? 🛰️</p></li>
-</ul>
+<p>La <span class="orange"><strong>qualité du RIL</strong></span> est bonne en France métropolitaine ✅… …mais loin d’être fiable dans les territoires d’outre mer ⚠️</p>
 <aside class="notes">
-<ul>
-<li><span class="orange"><strong>Satellite data as supporting evidence</strong></span>:
-<ul>
-<li>Independent information source 🔍</li>
-<li>Continuous territorial monitoring 🔄</li>
-<li>Transparent and reproducible methodology 📑</li>
-</ul></li>
-</ul>
+<p>Le RIL est disponible pour les communes de 10 000 habitants et plus.<br>
+Pour chacune des adresses, il existe l’information du nombre de logements dedans, son caractère habitable et et sa géolocalisation.<br>
+Ce répertoire est utilisé à l’Insee pour constituer les bases de sondage des enquêtes de recensement.<br>
+La qualité du RIL est bonne en France métropolitaine cependant elle est bien inférieure dans les territoires d’outre mer, aussi appelés DROM.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -405,37 +386,78 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="our-use-cases" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Our use cases</h2>
+<section id="recensement-dans-les-territoires-doutre-mer" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Recensement dans les territoires d’outre mer</h2>
 <ul>
-<li><span class="orange"><strong>Pre-cartographic survey</strong></span>:
-<ul>
-<li>Identify <span class="blue2"><strong>priority areas</strong></span> for fieldwork 🎯</li>
-<li>Detect <span class="blue2"><strong>building changes</strong></span> since last survey 🏗️</li>
-<li>Perform <span class="blue2"><strong>temporal comparisons</strong></span> using historical and recent imagery 📆</li>
-</ul></li>
-<li><span class="orange"><strong>Post-cartographic survey</strong></span>:
-<ul>
-<li><span class="blue2"><strong>Automated change detection</strong></span> 🤖</li>
-<li>Analysis of <span class="blue2"><strong>land-use evolution</strong></span> 🌳➡️🏘️</li>
-<li>Assist <span class="blue2"><strong>population estimates</strong></span> in OTs 📊</li>
-</ul></li>
-<li><span class="red2"><strong>Extraordinary use case</strong></span>: Rapid response after devastating tropical cyclone “Chido”</li>
+<li><p><span class="orange"><strong>Contexte critique</strong></span>, particulièrement à Mayotte et en Guyane</p></li>
+<li><p>Pour compléter le RIL dans les DROM : <span class="blue2"><strong>enquête cartographique</strong></span> → très <span class="orange"><strong>coûteuse</strong></span> 💰</p></li>
+<li><p>Peut-on utiliser <span class="orange"><strong>l’imagerie satellite</strong></span> pour optimiser le processus de recensement dans les DROM ? 🛰️</p></li>
 </ul>
+<aside class="notes">
+<p>En effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Le développement urbain est extrêmement rapide avec les bidonvilles rend le suivi du bâti très compliqué avec les nombreuses constructions et destructions de ces habitations précaires et instables. Les autorités, ayant besoin d’avoir les chiffres exacts de la population pour obtenir des subventions, ne sont pas satisfait des chiffres officiels produits par l’Insee : ils pointent du doigt une sous estimation.</p>
+<p>Pour compléter le RIL, basé sur les permis de construire, une enquête cartographique est mise en place. C’est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, qui a pour but d’envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse et coûteuse. De plus, les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter, terrains compliqués à atteindre, aggressions…</p>
+<p>Peut-on utiliser <span class="orange"><strong>l’imagerie satellite</strong></span> pour optimiser le processus de recensement dans les DROM ? 🛰️</p>
+<p><span class="orange"><strong>Les données satellitaires représentent</strong></span>: - une source d’information indépendante - permettent une veille territoriale continue - la méthodologie est transparente et reproductible</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="nos-cas-dusage" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Nos cas d’usage</h2>
+<ul>
+<li>Identifier les zones avec <span class="blue2"><strong>une forte densité de bâti</strong></span><br>
+</li>
+<li>Détecter <span class="orange"><strong>les évolutions du bâti</strong></span> de façon automatique<br>
+</li>
+<li>Aider <span class="blue2"><strong>l’estimation de la population</strong></span> dans les DROM<br>
+</li>
+<li><span class="red2"><strong>Répondre à une urgence</strong></span> : cyclone “Chido” à Mayotte</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Identifier <span class="blue2"><strong>les zones prioritaires</strong></span> pour l’enquête cartographique<br>
+</li>
+<li>Détecter <span class="blue2"><strong>les évolutions du bâti</strong></span> depuis le précédent inventaire du bâti effectué<br>
+</li>
+<li>Réaliser des <span class="blue2"><strong>comparaisons temporelles</strong></span> en utilisant d’anciennes et de nouvelles images satellites du même territoire<br>
+</li>
+<li>Aider l’estimation de la population dans les DROM<br>
+</li>
+<li><span class="red2"><strong>Répondre à une urgence</strong></span> : conséquences du cyclone “Chido” sur le bâti à Mayotte</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
-<section id="presentation-outline" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Presentation Outline</h1>
+<section id="plan-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Plan</h1>
 <p>1️⃣ Introduction</p>
-<p><strong>2️⃣ Methodology</strong></p>
-<p>3️⃣ Data</p>
-<p>4️⃣ Results</p>
-<p>5️⃣ From experimentation to production?</p>
+<p><strong>2️⃣ Méthodologie</strong></p>
+<p>3️⃣ Données</p>
+<p>4️⃣ Résultats</p>
+<p>5️⃣ De l’expérimentation à la production ?</p>
 <p>6️⃣ Discussion</p>
 </section>
 
 <section>
-<section id="methodology" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>2️⃣ Methodology</h1>
+<section id="méthodologie" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>2️⃣ Méthodologie</h1>
 
 </section>
 <section id="semantic-segmentation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
@@ -476,23 +498,23 @@
 <li><span class="orange"><strong>Fine-tuned</strong></span> on our dataset 🗃️</li>
 </ul>
 </section></section>
-<section id="presentation-outline-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Presentation Outline</h1>
+<section id="plan-2" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Plan</h1>
 <p>1️⃣ Introduction</p>
-<p>2️⃣ Methodology</p>
-<p><strong>3️⃣ Data</strong></p>
-<p>4️⃣ Results</p>
-<p>5️⃣ From experimentation to production?</p>
+<p>2️⃣ Méthodologie</p>
+<p><strong>3️⃣ Données</strong></p>
+<p>4️⃣ Résultats</p>
+<p>5️⃣ De l’expérimentation à la production ?</p>
 <p>6️⃣ Discussion</p>
 </section>
 
 <section>
-<section id="data" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>3️⃣ Data</h1>
+<section id="données" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>3️⃣ Données</h1>
 
 </section>
-<section id="pléiades-very-high-resolution" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Pléiades (Very High Resolution) 🛰️</h2>
+<section id="pléiades-très-haute-résolution" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Pléiades (Très Haute Résolution) 🛰️</h2>
 <aside class="notes">
 <ul>
 <li>4 <span class="orange"><strong>characteristics</strong></span> to look at:
@@ -515,29 +537,17 @@
           display:block!important;
       }</style></aside>
 <ul>
-<li><span class="orange"><strong>Characteristics</strong></span>:
+<li><span class="orange"><strong>Caractéristiques</strong></span>:
 <ul>
-<li><span class="blue2"><strong>0.5m × 0.5m</strong></span> spatial resolution 🔍</li>
-<li><span class="blue2"><strong>3</strong></span> spectral bands (<span class="red2"><strong>R</strong></span><span class="green2"><strong>G</strong></span><span class="blue2"><strong>B</strong></span>) 🎨</li>
-<li>Free <span class="blue2"><strong>archives</strong></span>, <span class="blue2"><strong>on-demand</strong></span> acquisition (<span class="green2"><strong>6-8 months</strong></span> per department), Airbus © licensing 📅</li>
-<li>Image size: <span class="blue2"><strong>1 km²</strong></span> (2000 × 2000 pixels) 🖼️</li>
+<li>Résolution spatial : <span class="blue2"><strong>0.5m × 0.5m</strong></span> 🔍</li>
+<li><span class="blue2"><strong>3</strong></span> bandes spectrales (<span class="red2"><strong>R</strong></span><span class="green2"><strong>G</strong></span><span class="blue2"><strong>B</strong></span>) 🎨</li>
+<li><span class="blue2"><strong>Archives</strong></span> gratuites, acquisition <span class="blue2"><strong>sur-demande</strong></span> (<span class="green2"><strong>6-8 mois</strong></span> par département), Airbus © licence 📅</li>
+<li>Taille d’image: <span class="blue2"><strong>1 km²</strong></span> (2000 × 2000 pixels) 🖼️</li>
 </ul></li>
 </ul>
 </section>
-<section id="sentinel-2-high-resolution" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Sentinel-2 (High Resolution) 🛰️</h2>
-<ul>
-<li><span class="orange"><strong>Characteristics</strong></span>:
-<ul>
-<li><span class="blue2"><strong>10m × 10m</strong></span> spatial resolution 🔍</li>
-<li><span class="blue2"><strong>13</strong></span> spectral bands 🎨</li>
-<li><span class="blue2"><strong>5-day revisit time</strong></span>, free access 🔄🆓</li>
-<li>Image size: <span class="blue2"><strong>6.25 km²</strong></span> (250 × 250 pixels) 🖼️</li>
-</ul></li>
-</ul>
-</section>
-<section id="reference-data-cosia" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Reference Data (COSIA)</h2>
+<section id="labels-cosia" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Labels : COSIA</h2>
 <ul>
 <li><a href="https://cosia.ign.fr/info#visualisation">Significant project</a> by IGN colleagues 👏</li>
 <li><span class="orange"><strong>Land cover generated by AI</strong></span> as vector polygons for France and OTs 🗺️</li>
@@ -545,19 +555,19 @@
 <li>Used as label for training data despite potential <span class="orange"><strong>temporal misalignment</strong></span></li>
 </ul>
 </section></section>
-<section id="presentation-outline-2" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Presentation Outline</h1>
+<section id="plan-3" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Plan</h1>
 <p>1️⃣ Introduction</p>
-<p>2️⃣ Methodology</p>
-<p>3️⃣ Data</p>
-<p><strong>4️⃣ Results</strong></p>
-<p>5️⃣ From experimentation to production?</p>
+<p>2️⃣ Méthodologie</p>
+<p>3️⃣ Données</p>
+<p><strong>4️⃣ Résultats</strong></p>
+<p>5️⃣ De l’expérimentation à la production ?</p>
 <p>6️⃣ Discussion</p>
 </section>
 
 <section>
-<section id="results" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>4️⃣ Results</h1>
+<section id="résultats" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>4️⃣ Résultats</h1>
 <aside class="notes">
 <ul>
 <li>At this point we have built and trained our model, checked its performance</li>
@@ -620,19 +630,19 @@
           display:block!important;
       }</style></aside>
 </section></section>
-<section id="presentation-outline-3" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Presentation Outline</h1>
+<section id="plan-4" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Plan</h1>
 <p>1️⃣ Introduction</p>
-<p>2️⃣ Methodology</p>
-<p>3️⃣ Data</p>
-<p>4️⃣ Results</p>
-<p><strong>5️⃣ From experimentation to production?</strong></p>
+<p>2️⃣ Méthodologie</p>
+<p>3️⃣ Données</p>
+<p>4️⃣ Résultats</p>
+<p><strong>5️⃣ De l’expérimentation à la production ?</strong></p>
 <p>6️⃣ Discussion</p>
 </section>
 
 <section>
-<section id="from-experimentation-to-production" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>5️⃣ From experimentation to production?</h1>
+<section id="de-lexpérimentation-à-la-production" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>5️⃣ De l’expérimentation à la production ?</h1>
 <!-- ## Technical Environment &#x2601;&#xFE0F;
 
 - [**Cloud-native architecture**]{.orange} on the [**SSPCloud**]{.blue2} platform &#x2601;&#xFE0F;
@@ -643,7 +653,7 @@
 </section>
 <section id="processing-pipeline" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Processing Pipeline 🛠️</h2>
-<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" width="100%" height="100%">
+<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" height="100%" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="../img/pipeline_donnees_sat_en.png" id="fig-chain2" style="width:100.0%;height:100.0%">
@@ -689,6 +699,21 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section id="plan-5" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Plan</h1>
+<p>1️⃣ Introduction</p>
+<p>2️⃣ Méthodologie</p>
+<p>3️⃣ Données</p>
+<p>4️⃣ Résultats</p>
+<p>5️⃣ De l’expérimentation à la production ?</p>
+<p><strong>6️⃣ Discussion</strong></p>
+</section>
+
+<section>
+<section id="discussion" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>6️⃣ Discussion</h1>
+
 </section>
 <section id="challenges-perspectives" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Challenges &amp; Perspectives</h2>
