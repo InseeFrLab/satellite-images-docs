@@ -460,18 +460,40 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <h1>2️⃣ Méthodologie</h1>
 
 </section>
-<section id="semantic-segmentation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Semantic segmentation</h2>
+<section id="segmentation-sémantique" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Segmentation sémantique</h2>
+<div>
 
-<img data-src="../img/segmentation_exemple.png" style="width:80.0%" class="r-stretch quarto-figure-center"><p class="caption">Pleiades © CNES_2022, Distribution AIRBUS DS</p></section>
-<section id="training-a-segmentation-model" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Training a segmentation model</h2>
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../img/pleiades_rennes.png" style="width:60.0%"></p>
+<figcaption>Pleiades © CNES_2023, Distribution AIRBUS DS</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../img/segmentation.png" style="width:60.0%"></p>
+<figcaption>COSIA 2023</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="entraîner-un-modèle-de-segmentation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Entraîner un modèle de segmentation</h2>
 <ul>
-<li>Model trained for automatic segmentation <span class="orange"><strong>from annotated examples</strong></span></li>
-<li><span class="orange"><strong>Requirements</strong></span>:
+<li>Modèle entraîné pour de la segmentation automatique <span class="orange"><strong>depuis des exemples d’annotations</strong></span></li>
+<li><span class="orange"><strong>Il faut</strong></span>:
 <ul>
-<li><span class="blue2"><strong>Satellite image</strong></span> collection 🛰️</li>
-<li><span class="blue2"><strong>Production of annotations</strong></span> (building footprints or land cover, if available) 📍</li>
+<li>Une collection d’<span class="blue2"><strong>images satellites</strong></span> 🛰️</li>
+<li><span class="blue2"><strong>Des annotations</strong></span> 📍</li>
 </ul></li>
 <li>Model learns to reproduce annotations from images aiming to <span class="orange"><strong>generalize</strong></span> on new images 🎯</li>
 </ul>
@@ -513,18 +535,39 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <h1>3️⃣ Données</h1>
 
 </section>
-<section id="pléiades-très-haute-résolution" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Pléiades (Très Haute Résolution) 🛰️</h2>
+<section id="pléiades-vs-sentinel-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Pléiades vs Sentinel-2 🛰️</h2>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-frac="0.2 0.6 0.2" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="vertical-center quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><strong>Pléïades</strong> :<br>
+- Résolution <span class="blue2"><strong>0.5m</strong></span><br>
+- <span class="orange"><strong>3</strong></span> bandes (<span class="red2"><strong>R</strong></span><span class="green2"><strong>G</strong></span><span class="blue2"><strong>B</strong></span>)<br>
+- <span class="blue2"><strong>Archives</strong></span> gratuites<br>
+- Acquisition sur-demande payante</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../img/pleiades_vs_sentinel2.png" style="width:100.0%"></p>
+<figcaption>Mayotte 2025</figcaption>
+</figure>
+</div>
+</div>
+<div class="vertical-center quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><strong>Sentinel2</strong> :<br>
+- Résolution <span class="blue2"><strong>10m, 20m ou 60m</strong></span><br>
+- <span class="orange"><strong>13</strong></span> bandes<br>
+- Acquisition <span class="blue2"><strong>tous les 5j</strong></span></p>
+</div>
+</div>
+</div>
 <aside class="notes">
-<ul>
-<li>4 <span class="orange"><strong>characteristics</strong></span> to look at:
-<ul>
-<li><span class="blue2"><strong>Spatial resolution</strong></span> 📐</li>
-<li><span class="blue2"><strong>Acquisition frequency</strong></span> 🔄</li>
-<li><span class="blue2"><strong>Spectral resolution</strong></span> 🌈</li>
-<li><span class="blue2"><strong>Geographic coverage</strong></span> 🌍</li>
-</ul></li>
-</ul>
+<p>Les images satellites Pléïades sont un produit intéressant pour notre cas d’usage - <span class="orange"><strong>Caractéristiques</strong></span>: - Résolution spatial : <span class="blue2"><strong>0.5m × 0.5m</strong></span> 🔍 - <span class="orange"><strong>3</strong></span> bandes spectrales (<span class="red2"><strong>R</strong></span><span class="green2"><strong>G</strong></span><span class="blue2"><strong>B</strong></span>) 🎨 - <span class="blue2"><strong>Archives</strong></span> gratuites (avec accord) - Acquisition <span class="blue2"><strong>sur-demande</strong></span> et payante (<span class="green2"><strong>6-8 mois</strong></span> par département), Airbus © licence 📅</p>
+<p>Mais un autre type d’images satellites est à notre disposition : Sentinel-2. Elles sont open source et l’acquisition se fait tous les 5 jours</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -536,24 +579,27 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<ul>
-<li><span class="orange"><strong>Caractéristiques</strong></span>:
-<ul>
-<li>Résolution spatial : <span class="blue2"><strong>0.5m × 0.5m</strong></span> 🔍</li>
-<li><span class="blue2"><strong>3</strong></span> bandes spectrales (<span class="red2"><strong>R</strong></span><span class="green2"><strong>G</strong></span><span class="blue2"><strong>B</strong></span>) 🎨</li>
-<li><span class="blue2"><strong>Archives</strong></span> gratuites, acquisition <span class="blue2"><strong>sur-demande</strong></span> (<span class="green2"><strong>6-8 mois</strong></span> par département), Airbus © licence 📅</li>
-<li>Taille d’image: <span class="blue2"><strong>1 km²</strong></span> (2000 × 2000 pixels) 🖼️</li>
-</ul></li>
-</ul>
 </section>
-<section id="labels-cosia" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Labels : COSIA</h2>
+<section id="annotations-cosia" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Annotations : COSIA</h2>
 <ul>
-<li><a href="https://cosia.ign.fr/info#visualisation">Significant project</a> by IGN colleagues 👏</li>
-<li><span class="orange"><strong>Land cover generated by AI</strong></span> as vector polygons for France and OTs 🗺️</li>
-<li>Based on IGN <span class="orange"><strong>aerial photography</strong></span> at <span class="blue2"><strong>20cm</strong></span> (!!) resolution</li>
-<li>Used as label for training data despite potential <span class="orange"><strong>temporal misalignment</strong></span></li>
+<li><a href="https://cosia.ign.fr/info#visualisation">Projet Cosia</a> par IGN 👏</li>
+<li><span class="red"><strong>Utilisé pour annoter nos données d’entraînement</strong></span></li>
 </ul>
+<p>METTRE un exemple image et annotation</p>
+<aside class="notes">
+<p>Le projet Cosia présenté précédement par nos collègues de l’IGN. - <span class="orange"><strong>Couverture du sol générée par l’IA</strong></span> - Basé sur les <span class="orange"><strong>photographies aériennes</strong></span> de l’IGN à une résolution <span class="blue2"><strong>20cm</strong></span> 🗺️ Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d’entraînement, malgrès le décalage temporaire entre nos images et la productions de polygones. D’autres sources ont été utilisés comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section id="plan-3" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Plan</h1>
@@ -587,11 +633,9 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
       }</style></aside>
 </section>
 <section id="interactive-dashboard" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Interactive Dashboard 📊</h2>
-<div class="absolute" style="top: 280px; left: 150px; ">
-<p>🌟 <strong>A picture is worth a thousand words!</strong> 🌟</p>
-<p>👉 <span class="orange"><strong>Access the interactive app</strong></span>: <a href="https://inseefrlab.github.io/satellite-images-webapp/">Click here</a> 🚀</p>
-</div>
+<h2>Interactive Dashboard 🚀</h2>
+<iframe src="https://inseefrlab.github.io/satellite-images-webapp/" width="100%" height="500" style="border:none;">
+</iframe>
 <aside class="notes">
 <ul>
 <li>Decided to build a tiny webapp … but we are datascientists be indulgent</li>
