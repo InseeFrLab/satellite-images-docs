@@ -1,13 +1,17 @@
-## Semantic segmentation
+## Segmentation sémantique
 
-![Pleiades © CNES_2022, Distribution AIRBUS DS](../img/segmentation_exemple.png){width=80% fig-align="center"}
+::: {layout-ncol=2}
+![Pleiades © CNES_2023, Distribution AIRBUS DS](../img/pleiades_rennes.png){width=60% fig-align="center"}
 
-## Training a segmentation model
+![COSIA 2023](../img/segmentation.png){width=60% fig-align="center"}
+:::
 
-- Model trained for automatic segmentation [**from annotated examples**]{.orange}
-- [**Requirements**]{.orange}:
-    - [**Satellite image**]{.blue2} collection 🛰️
-    - [**Production of annotations**]{.blue2} (building footprints or land cover, if available) 📍
+## Entraîner un modèle de segmentation
+
+- Modèle entraîné pour de la segmentation automatique [**depuis des exemples d'annotations**]{.orange}
+- [**Il faut**]{.orange}:
+    - Une collection d'[**images satellites**]{.blue2} 🛰️
+    - [**Des annotations**]{.blue2} 📍
 - Model learns to reproduce annotations from images aiming to [**generalize**]{.orange} on new images 🎯
 
 ## From segmentation to change detection
