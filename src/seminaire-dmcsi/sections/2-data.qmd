@@ -1,35 +1,45 @@
 ## Pléiades vs Sentinel-2 🛰️
 
-::: {layout-ncol=3 layout-frac="0.2 0.6 0.2"}
+<div style="display: flex; align-items: center;">
 
-::: {.vertical-center style="font-size: 60%;"}
-**Pléïades** :  
-  - Résolution [**0.5m**]{.blue2}  
-  - [**3**]{.orange} bandes ([**R**]{.red2}[**G**]{.green2}[**B**]{.blue2})  
-  - [**Archives**]{.blue2} gratuites  
-  - Acquisition sur-demande payante  
-:::
+<!-- Colonne gauche : Pléiades -->
+<div style="flex: 2; font-size: 60%; padding-right: 1em;">
+<strong>Pléiades</strong> :  
 
-![Mayotte 2025](../img/pleiades_vs_sentinel2.png){width=100% fig-align="center"}
+- <strong class="blue2">3</strong> bandes (<strong class="red2">R</strong><strong class="green2">G</strong><strong class="blue2">B</strong>)  
+- Résolution <strong class="orange">0.5m</strong>  
+- <strong class="blue2">Archives</strong> gratuites  
+- Acquisition sur-demande payante  
+</div>
 
-::: {.vertical-center style="font-size: 60%;"}
-**Sentinel2** :  
-  - Résolution [**10m, 20m ou 60m**]{.blue2}  
-  - [**13**]{.orange} bandes  
-  - Acquisition [**tous les 5j**]{.blue2}  
-:::
+<!-- Colonne milieu : image + titre -->
+<div style="flex: 6; text-align: center;">
+  <img src="../img/pleiades_vs_sentinel2.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em>Mamoudzou, Mayotte 2024</em></span>
+</div>
 
-:::
+<!-- Colonne droite : Sentinel2 -->
+<div style="flex: 2; font-size: 60%; padding-left: 1em;">
+<strong>Sentinel2</strong> :  
+
+- <strong class="blue2">13</strong> bandes  
+- Résolution <strong class="orange">10m, 20m ou 60m</strong>  
+- Acquisition <strong class="blue2">tous les 5j</strong>  
+</div>
+
+</div>
+
 
 ::: {.notes}
-Les images satellites Pléïades sont un produit intéressant pour notre cas d'usage
+Il existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d'entre eux.  
+Les images satellites Pléiades sont un produit intéressant pour notre cas d'usage
 - [**Caractéristiques**]{.orange}:
-  - Résolution spatial : [**0.5m × 0.5m**]{.blue2} 🔍
   - [**3**]{.orange} bandes spectrales ([**R**]{.red2}[**G**]{.green2}[**B**]{.blue2}) 🎨
+  - Résolution spatial : [**0.5m × 0.5m**]{.blue2} 🔍
   - [**Archives**]{.blue2} gratuites (avec accord)
   - Acquisition [**sur-demande**]{.blue2} et payante ([**6-8 mois**]{.green2} par département), Airbus © licence 📅
 
-Mais un autre type d'images satellites est à notre disposition : Sentinel-2. Elles sont open source et l'acquisition se fait tous les 5 jours
+Mais un autre type d'images satellites est à notre disposition : Sentinel-2. Elles sont open source et l'acquisition se fait tous les 5 jours. Cependant, leur résolution est moins précise que les images pléiades. 
 :::
 
 
@@ -38,7 +48,24 @@ Mais un autre type d'images satellites est à notre disposition : Sentinel-2. El
 - [Projet Cosia](https://cosia.ign.fr/info#visualisation) par IGN 👏
 - [**Utilisé pour annoter nos données d'entraînement**]{.red}
 
-METTRE un exemple image et annotation
+<div style="display: flex; align-items: flex-start;">
+
+<div style="flex: 4; text-align: center;">
+  <img src="../img/pleiades_mayotte_2023.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em>Pleiades © CNES_2023, Distribution AIRBUS DS</em></span>
+</div>
+
+<div style="flex: 4; text-align: center;">
+  <img src="../img/cosia_multiclasse.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em>Couverture du sol COSIA 2023</em></span>
+</div>
+
+<div style="flex: 2; text-align: center;">
+  <img src="../img/../img/legende_cosia.png" style="width: 50%;"><br>
+  <span style="font-size: 50%;"><em>Légende COSIA</em></span>
+</div>
+
+</div>
 
 ::: {.notes}
 Le projet Cosia présenté précédement par nos collègues de l'IGN.
