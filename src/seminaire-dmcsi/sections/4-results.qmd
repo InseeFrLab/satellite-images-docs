@@ -1,3 +1,29 @@
+## Zone de test à Mayotte
+
+<div style="display: flex; align-items: flex-start;">
+
+<div style="flex: 3; text-align: center;">
+  <img src="../img/pleiades_mayotte_2023.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em>Pleiades © CNES_2023, Distribution AIRBUS DS</em></span>
+</div>
+
+<div style="flex: 3; text-align: center;">
+  <img src="../img/cosia_multiclasse.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em>Couverture du sol COSIA 2023</em></span>
+</div>
+
+<div style="flex: 3; text-align: center;">
+  <img src="../img/predictions_test_2023.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em>Prédictions 2023</em></span>
+</div>
+
+<div style="flex: 1; text-align: center;">
+  <img src="../img/../img/legende_cosia.png" style="width: 70%;"><br>
+  <span style="font-size: 50%;"><em>Légende COSIA</em></span>
+</div>
+
+</div>
+
 ::: {.notes}
 - At this point we have built and trained our model, checked its performance
 - Working on notebooks displaying maps... Key questions : how can we share our results ?
