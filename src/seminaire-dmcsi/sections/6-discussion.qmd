@@ -1,10 +1,14 @@
-## Challenges & Perspectives
+## Défis & Perspectives
 
-- [**High maintenance costs**]{.orange} due to technical complexity 💸
-- Need for [**specialized skills**]{.blue2} 🧑‍💻
-- [**Complex technical environment**]{.orange} due to:
-    - [**Large data volumes**]{.blue2} 🗃️
-    - [**High computational requirements**]{.blue2} ⚡
-    - [**Reproducibility requirements**]{.blue2} ♻️
-- [**Promising initial results**]{.orange} supporting cartographic surveys ✅🗺️
-- [**Potential improvements identified**]{.orange} for each pipeline stage 🔧
+- [**Coûts de maintenance élevés**]{.orange} en raison de la complexité technique 💸  
+- Besoin de [**compétences spécialisées**]{.blue2} 🧑‍💻  
+- [**Environnement technique complexe**]{.orange} dû à :  
+    - [**Volumes de données importants**]{.blue2} 🗃️  
+    - [**Forts besoins en calcul**]{.blue2} ⚡  
+    - [**Exigences de reproductibilité**]{.blue2} ♻️  
+- [**Résultats initiaux prometteurs**]{.orange} pour appuyer les campagnes cartographiques  
+- [**Améliorations potentielles identifiées**]{.orange} à chaque étape de la chaîne  
+
+::: {.notes}
+Merci à Onyxia d'avoir rendu ce projet possible en mode DevOps
+:::

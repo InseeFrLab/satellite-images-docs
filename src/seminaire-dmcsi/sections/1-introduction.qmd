@@ -22,7 +22,7 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 
 - Pour compléter le RIL dans les DROM : [**enquête cartographique**]{.blue2} → très [**coûteuse**]{.orange} 💰
 
-- Peut-on utiliser [**l'imagerie satellite**]{.orange} pour optimiser le processus de recensement dans les DROM ? 🛰️
+- Peut-on utiliser [**l'imagerie satellitaire**]{.blue2} pour optimiser le processus de recensement dans les DROM ? 🛰️
 
 ::: {.notes}
 En effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Le développement urbain est extrêmement rapide
@@ -41,10 +41,10 @@ Peut-on utiliser [**l'imagerie satellite**]{.orange} pour optimiser le processus
 
 ## Nos cas d'usage
 
-- Identifier les zones avec [**une forte densité de bâti**]{.blue2}  
-- Détecter [**les évolutions du bâti**]{.orange} de façon automatique  
-- Aider [**l'estimation de la population**]{.blue2} dans les DROM  
-- [**Répondre à une urgence**]{.red2} : cyclone "Chido" à Mayotte
+- Identifier les zones avec [**une forte densité de bâti**]{.blue2} 🏘️  
+- Détecter les [**évolutions du bâti**]{.orange} de façon automatique  
+- Aider [**l'estimation de la population**]{.blue2} dans les DROM 👥  
+- [**Répondre à une urgence**]{.red2} 🚨 : cyclone "Chido" à Mayotte 🌪️
 
 ::: {.notes}
 - Identifier [**les zones prioritaires**]{.blue2} pour l'enquête cartographique  

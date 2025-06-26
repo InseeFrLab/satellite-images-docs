@@ -1,10 +1,12 @@
 ## Segmentation sémantique
 
-::: {layout-ncol=2}
-![Pleiades © CNES_2023, Distribution AIRBUS DS](../img/pleiades_rennes.png){width=60% fig-align="center"}
+- [**Computer vision**]{.orange}  
+- [**Classer chaque pixel**]{.blue2} d’une image  
+- Pour nos besoins : connaître les pixels de [**catégorie "bâtie"**]{.orange}   
 
-![COSIA 2023](../img/segmentation.png){width=60% fig-align="center"}
-:::
+<div style="text-align:center;">
+  ![Exemple de segmentation "bâtiment"](../img/segmentation.png){width=30%}
+</div>
 
 ## Entraîner un modèle de segmentation
 
@@ -12,22 +14,33 @@
 - [**Il faut**]{.orange}:
     - Une collection d'[**images satellites**]{.blue2} 🛰️
     - [**Des annotations**]{.blue2} 📍
-- Model learns to reproduce annotations from images aiming to [**generalize**]{.orange} on new images 🎯
+- Le modèle apprend à reproduire les annotations des images pour [**généraliser**]{.orange} sur de nouvelles images  
 
-## From segmentation to change detection
+## De la segmentation à la détection de changements
 
 ![](../img/strategy_segmentation.png){width=80%}
 
-## Model used
+## Modèle utilisé
 
-- [**Model architecture**]{.orange} 🧩:
-    - [**Backbone**]{.blue2}: SegFormer ([**MiT**]{.green2})
-    - [**Encoder**]{.blue2}: [**Transformer-based**]{.green2} (efficient self-attention, no positional encoding) ⚙️
-    - [**Decoder**]{.blue2}: Lightweight [**MLP head**]{.green2} ✨
+- [**Architecture du modèle**]{.orange}
+    - Backbone : [**SegFormer**]{.blue2} (MiT)
+    - Encodeur : Basé sur [**Transformer**]{.blue2}
+    - Décodeur : MLP head léger
 
-- [**Why SegFormer?**]{.orange} 🚀:
-    - [**No complex decoders**]{.blue2} → Efficient & scalable ⚡
-    - [**Captures local & global context**]{.blue2} → High accuracy 🎯
-    - [**No positional embeddings**]{.blue2} → Improved resolution generalization 📐
+- [**Fine-tuné**]{.orange} sur notre dataset  
 
-- [**Fine-tuned**]{.orange} on our dataset 🗃️
+::: {.notes}
+- [**Architecture du modèle**]{.orange}
+    - Backbone : [**SegFormer**]{.blue2} (MiT)
+    - Encodeur : Basé sur [**Transformer**]{.blue2} (auto-attention efficace, pas d'encodage positionnel)  
+    - Décodeur : MLP head léger
+
+- [**Pourquoi SegFormer ?**]{.orange}  
+    - Pas de décodeurs complexes → Efficace et passe à l’échelle  
+    - Capture le [**contexte local et global**]{.blue2} → Haute précision  
+    - Sans embeddings positionnels → Meilleure généralisation des résolutions  
+
+- [**Fine-tuné**]{.orange} sur nos données
+
+En parlant de données, il est temps de vous présenter ce qui nous sert pour entraîner ce modèle SegFormer
+:::

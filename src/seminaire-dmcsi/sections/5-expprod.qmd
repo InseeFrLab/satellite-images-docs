@@ -6,18 +6,19 @@
 - [**Continuous deployment**]{.orange} of applications 🚀
  -->
 
-## Processing Pipeline 🛠️
+## Pipeline globale 🛠️
 
-![](../img/pipeline_donnees_sat_en.png){#fig-chain2 width=100% height=100%}
+![](../img/pipeline_donnees_sat.png){#fig-chain2 width=100% height=100%}
 
 ::: {.notes}
 
-1. Standardization of data acquisition—currently rudimentary. Need cloud-free, date-specific images with consistent methodology (challenge with Pléiades).
-2. Training stage: cloud removal, dataset balancing, labeling, splitting.
-3. PyTorch with pre-trained model from HuggingFace (requires GPU).
-4. API building: prediction of images, clustering/bounding boxes, and statistics computation (building area).
-5. Deployment via GeoServer and web application.
-6. Results utilized by INSEE colleagues for statistical analyses.
+1. Standardisation de l'acquisition des données — actuellement rudimentaire. Besoin d'images sans nuages, datées précisément, avec une méthodologie cohérente (challenge avec Pléiades).  
+2. Phase d'entraînement : suppression des nuages, équilibrage du jeu de données, annotation, découpage.  
+3. PyTorch avec modèle pré-entraîné depuis HuggingFace (requiert GPU).  
+4. Construction de l’API : prédiction sur images, regroupement / boîtes englobantes, calculs statistiques (surface bâtie).  
+5. Déploiement via GeoServer et application web.  
+6. Résultats utilisés par les collègues de l’INSEE pour analyses statistiques.  
+
 :::
 
 ## Application Architecture 🧩
@@ -25,5 +26,27 @@
 ![](../img/app-architecture.png){fig-align="center" width=100%}
 
 ::: {.notes}
-GeoServer dynamically serves satellite images.
+1. [**Acquisition des données**]{.orange} :  
+    - Imagerie Pléiades fournie par un prestataire national  
+    - Stockage sur infrastructure cloud  
+
+2. [**Préparation des données**]{.orange} :  
+    - Prétraitement des images (filtrage des nuages, normalisation)  
+    - Annotation automatisée à partir des données de bâtiments de référence  
+    - Découpage des images (tuiles de 125 m × 125 m)  
+
+3. [**Développement du modèle**]{.orange} :  
+    - Implémentation deep learning (PyTorch)  
+    - Entraînement avec GPU  
+    - Versionnage du modèle (MLFlow)  
+
+4. [**Système de production**]{.orange} :  
+    - API REST pour l’inférence  
+    - Déploiement containerisé  
+    - Capacités de traitement parallèle  
+
+5. [**Distribution des résultats**]{.orange} :  
+    - GeoServer permet de visualiser dynamiquement les images satellite grâce à des calculs qu'il effectue en amont, de sorte à ce que l'application web soit rapide  
+    - Application web pour la visualisation  
+    - Outils d’analyse statistique  
 :::
