@@ -24,13 +24,17 @@
 
 </div>
 
+METTRE LES METRIQUES MLFLOW + LEGENDE AUTRE PART ??
+
 ::: {.notes}
-- At this point we have built and trained our model, checked its performance
-- Working on notebooks displaying maps... Key questions : how can we share our results ?
-- Goals was not to publish an article but rather help colleagues from overseas territory => anticipate carto survey
+- À ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances
+
+- Questions clés : comment partager nos résultats ?
+
+- L’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel
 :::
 
-## Interactive Dashboard 🚀
+## Dashboard Interactive 🚀
 
 <iframe src="https://inseefrlab.github.io/satellite-images-webapp/"
         width="100%"
@@ -40,27 +44,23 @@
 
 ::: {.notes}
 
-- Decided to build a tiny webapp ... but we are datascientists be indulgent
-- We computed building areas from our predictions this we get binary value for each pixel and aggregated by admin level
+- Nous avons décidé de créer une petite webapp… mais **nous sommes data scientists**, soyez indulgents 😉  
+- Nous avons calculé les surfaces des bâtiments à partir de nos prédictions : cela nous donne une valeur binaire pour chaque pixel, agrégée par niveau administratif  
 
-⚠️ Disclaimer : This is a an early stage of our application. 0 check or data quality process have been done.
+⚠️ **Avertissement :** ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.  
 
-- Standard leaflet map with open Street map layer show Pleiades 2023
+- Carte standard **Leaflet** avec un fond **OpenStreetMap** affichant Pléiades 2023  
 
-97611	0332 : nuages in 2022
+**97611 0332** : nuages en 2022  
+**97610 0608** : méthodologie différente de floutage pour la prison  
+**97611 0237** : notre cas d’usage : détecter les changements de bâtiments en zone précaire  
 
-97610ﾠ0608 : different methodology of blurring for prison
+- [**Suivi des changements de bâtiments au niveau administratif**]{.orange} :  
+  - Sélection par [**unités administratives**]{.blue2} (communes, quartiers)  
+  - [**Contrôle qualité**]{.blue2} des changements détectés  
 
-97611 0237 : Our use case : detect building changes in precarious areas
-
-
-- [**Administrative-level monitoring**]{.orange} of building changes:
-  - Selection by [**administrative units**]{.blue2} (municipalities, districts)
-  - [**Quality control**]{.blue2} of detected changes
-
-- [**Key features**]{.orange}:
-  - Side-by-side temporal comparison
-  - Statistical indicators by area
-  - Interactive visual validation
-  - 
+- [**Fonctionnalités clés**]{.orange} :  
+  - Comparaison temporelle côte à côte  
+  - Indicateurs statistiques par zone  
+  - Validation visuelle interactive  
 :::
