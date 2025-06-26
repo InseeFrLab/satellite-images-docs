@@ -7,6 +7,7 @@
 <strong>Pléiades</strong> :  
 
 - <strong class="blue2">3</strong> bandes (<strong class="red2">R</strong><strong class="green2">G</strong><strong class="blue2">B</strong>)  
+- 4e bande : <strong class="red2">NIR</strong> (pas dans nos données)   
 - Résolution <strong class="orange">0.5m</strong>  
 - <strong class="blue2">Archives</strong> gratuites  
 - Acquisition sur-demande payante  
@@ -23,8 +24,9 @@
 <strong>Sentinel2</strong> :  
 
 - <strong class="blue2">13</strong> bandes  
-- Résolution <strong class="orange">10m, 20m ou 60m</strong>  
+- Résolution <strong class="orange">10m, 20m ou 60m</strong> (en fonction de la bande)  
 - Acquisition <strong class="blue2">tous les 5j</strong>  
+- <strong class="orange">Gratuit</strong>  
 </div>
 
 </div>
@@ -35,6 +37,7 @@ Il existe de nombreux produits satellitaires disponibles. Nous nous sommes surto
 Les images satellites Pléiades sont un produit intéressant pour notre cas d'usage
 - [**Caractéristiques**]{.orange}:
   - [**3**]{.orange} bandes spectrales ([**R**]{.red2}[**G**]{.green2}[**B**]{.blue2}) 🎨
+  - 4e bande : [**NIR**]{.red2} (pas dans nos données)
   - Résolution spatial : [**0.5m × 0.5m**]{.blue2} 🔍
   - [**Archives**]{.blue2} gratuites (avec accord)
   - Acquisition [**sur-demande**]{.blue2} et payante ([**6-8 mois**]{.green2} par département), Airbus © licence 📅

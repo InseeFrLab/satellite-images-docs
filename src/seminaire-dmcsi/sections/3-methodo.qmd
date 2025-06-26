@@ -11,7 +11,7 @@
 ## Entraîner un modèle de segmentation
 
 - Modèle entraîné pour de la segmentation automatique [**depuis des exemples d'annotations**]{.orange}
-- [**Il faut**]{.orange}:
+- [**Il faut**]{.orange} :
     - Une collection d'[**images satellites**]{.blue2} 🛰️
     - [**Des annotations**]{.blue2} 📍
 - Le modèle apprend à reproduire les annotations des images pour [**généraliser**]{.orange} sur de nouvelles images  
@@ -44,3 +44,12 @@
 
 En parlant de données, il est temps de vous présenter ce qui nous sert pour entraîner ce modèle SegFormer
 :::
+
+## Évaluation
+
+Pour évaluer les performances du modèle entraîné :  
+<div style="text-align: center;">
+[**IOU**]{.orange} = Intersection Over Union  
+</div>
+
+![](../img/schemaIOU.png){width=80% fig-align="center"}

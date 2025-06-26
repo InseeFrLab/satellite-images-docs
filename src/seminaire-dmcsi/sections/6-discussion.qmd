@@ -4,9 +4,9 @@
 - Besoin de [**compétences spécialisées**]{.blue2} 🧑‍💻  
 - [**Environnement technique complexe**]{.orange} dû à :  
     - [**Volumes de données importants**]{.blue2} 🗃️  
-    - [**Forts besoins en calcul**]{.blue2} ⚡  
+    - [**Forts besoins en calcul (GPU)**]{.blue2} ⚡  
     - [**Exigences de reproductibilité**]{.blue2} ♻️  
-- [**Résultats initiaux prometteurs**]{.orange} pour appuyer les campagnes cartographiques  
+- [**Résultats initiaux prometteurs**]{.orange} pour appuyer les enquêtes cartographiques  
 - [**Améliorations potentielles identifiées**]{.orange} à chaque étape de la chaîne  
 
 ::: {.notes}

@@ -24,7 +24,10 @@
 
 </div>
 
-METTRE LES METRIQUES MLFLOW + LEGENDE AUTRE PART ??
+|                    | Train | Test |
+|--------------------|-------|------|
+|IOU moyenne ∀classe | 0.81 | 0.78 |
+|IOU "bâtiment"      | 0.84  | 0.76 |
 
 ::: {.notes}
 - À ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances
