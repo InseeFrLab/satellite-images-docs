@@ -419,7 +419,7 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 </li>
 <li>Aider <span class="blue2"><strong>l’estimation de la population</strong></span> dans les DROM 👥<br>
 </li>
-<li><span class="red2"><strong>Répondre à une urgence</strong></span> 🚨 : cyclone “Chido” à Mayotte 🌪️</li>
+<li><span class="red2"><strong>Répondre à une urgence</strong></span> 🚨 : cyclone “Chido” à Mayotte</li>
 </ul>
 <aside class="notes">
 <ul>
@@ -482,7 +482,7 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <h2>Entraîner un modèle de segmentation</h2>
 <ul>
 <li>Modèle entraîné pour de la segmentation automatique <span class="orange"><strong>depuis des exemples d’annotations</strong></span></li>
-<li><span class="orange"><strong>Il faut</strong></span>:
+<li><span class="orange"><strong>Il faut</strong></span> :
 <ul>
 <li>Une collection d’<span class="blue2"><strong>images satellites</strong></span> 🛰️</li>
 <li><span class="blue2"><strong>Des annotations</strong></span> 📍</li>
@@ -536,7 +536,16 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
+</section>
+<section id="évaluation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Évaluation</h2>
+Pour évaluer les performances du modèle entraîné :<br>
+
+<div style="text-align: center;">
+<p><span class="orange"><strong>IOU</strong></span> = Intersection Over Union</p>
+</div>
+
+<img data-src="../img/schemaIOU.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section></section>
 <section id="plan-2" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Plan</h1>
 <p>1️⃣ Introduction</p>
@@ -561,6 +570,8 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <ul>
 <li><strong class="blue2">3</strong> bandes (<strong class="red2">R</strong><strong class="green2">G</strong><strong class="blue2">B</strong>)<br>
 </li>
+<li>4e bande : <strong class="red2">NIR</strong> (pas dans nos données)<br>
+</li>
 <li>Résolution <strong class="orange">0.5m</strong><br>
 </li>
 <li><strong class="blue2">Archives</strong> gratuites<br>
@@ -579,16 +590,18 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <ul>
 <li><strong class="blue2">13</strong> bandes<br>
 </li>
-<li>Résolution <strong class="orange">10m, 20m ou 60m</strong><br>
+<li>Résolution <strong class="orange">10m, 20m ou 60m</strong> (en fonction de la bande)<br>
 </li>
 <li>Acquisition <strong class="blue2">tous les 5j</strong><br>
+</li>
+<li><strong class="orange">Gratuit</strong><br>
 </li>
 </ul>
 </div>
 </div>
 <aside class="notes">
 <p>Il existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d’entre eux.<br>
-Les images satellites Pléiades sont un produit intéressant pour notre cas d’usage - <span class="orange"><strong>Caractéristiques</strong></span>: - <span class="orange"><strong>3</strong></span> bandes spectrales (<span class="red2"><strong>R</strong></span><span class="green2"><strong>G</strong></span><span class="blue2"><strong>B</strong></span>) 🎨 - Résolution spatial : <span class="blue2"><strong>0.5m × 0.5m</strong></span> 🔍 - <span class="blue2"><strong>Archives</strong></span> gratuites (avec accord) - Acquisition <span class="blue2"><strong>sur-demande</strong></span> et payante (<span class="green2"><strong>6-8 mois</strong></span> par département), Airbus © licence 📅</p>
+Les images satellites Pléiades sont un produit intéressant pour notre cas d’usage - <span class="orange"><strong>Caractéristiques</strong></span>: - <span class="orange"><strong>3</strong></span> bandes spectrales (<span class="red2"><strong>R</strong></span><span class="green2"><strong>G</strong></span><span class="blue2"><strong>B</strong></span>) 🎨 - 4e bande : <span class="red2"><strong>NIR</strong></span> (pas dans nos données) - Résolution spatial : <span class="blue2"><strong>0.5m × 0.5m</strong></span> 🔍 - <span class="blue2"><strong>Archives</strong></span> gratuites (avec accord) - Acquisition <span class="blue2"><strong>sur-demande</strong></span> et payante (<span class="green2"><strong>6-8 mois</strong></span> par département), Airbus © licence 📅</p>
 <p>Mais un autre type d’images satellites est à notre disposition : Sentinel-2. Elles sont open source et l’acquisition se fait tous les 5 jours. Cependant, leur résolution est moins précise que les images pléiades.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -664,7 +677,27 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 <p><img src="../img/../img/legende_cosia.png" style="width: 70%;"><br> <span style="font-size: 50%;"><em>Légende COSIA</em></span></p>
 </div>
 </div>
-<p>METTRE LES METRIQUES MLFLOW + LEGENDE AUTRE PART ??</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Train</th>
+<th>Test</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>IOU moyenne ∀classe</td>
+<td>0.81</td>
+<td>0.78</td>
+</tr>
+<tr class="even">
+<td>IOU “bâtiment”</td>
+<td>0.84</td>
+<td>0.76</td>
+</tr>
+</tbody>
+</table>
 <aside class="notes">
 <ul>
 <li><p>À ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances</p></li>
@@ -752,7 +785,7 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </section>
 <section id="pipeline-globale" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Pipeline globale 🛠️</h2>
-<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" width="100%" height="100%">
+<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" height="100%" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="../img/pipeline_donnees_sat.png" id="fig-chain2" style="width:100.0%;height:100.0%">
@@ -870,12 +903,12 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 <ul>
 <li><span class="blue2"><strong>Volumes de données importants</strong></span> 🗃️<br>
 </li>
-<li><span class="blue2"><strong>Forts besoins en calcul</strong></span> ⚡<br>
+<li><span class="blue2"><strong>Forts besoins en calcul (GPU)</strong></span> ⚡<br>
 </li>
 <li><span class="blue2"><strong>Exigences de reproductibilité</strong></span> ♻️<br>
 </li>
 </ul></li>
-<li><span class="orange"><strong>Résultats initiaux prometteurs</strong></span> pour appuyer les campagnes cartographiques<br>
+<li><span class="orange"><strong>Résultats initiaux prometteurs</strong></span> pour appuyer les enquêtes cartographiques<br>
 </li>
 <li><span class="orange"><strong>Améliorations potentielles identifiées</strong></span> à chaque étape de la chaîne</li>
 </ul>

@@ -885,7 +885,7 @@
     "href": "src/seminaire-dmcsi/index.html#nos-cas-dusage",
     "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
     "section": "Nos cas d’usage",
-    "text": "Nos cas d’usage\n\nIdentifier les zones avec une forte densité de bâti 🏘️\n\nDétecter les évolutions du bâti de façon automatique\n\nAider l’estimation de la population dans les DROM 👥\n\nRépondre à une urgence 🚨 : cyclone “Chido” à Mayotte 🌪️\n\n\n\nIdentifier les zones prioritaires pour l’enquête cartographique\n\nDétecter les évolutions du bâti depuis le précédent inventaire du bâti effectué\n\nRéaliser des comparaisons temporelles en utilisant d’anciennes et de nouvelles images satellites du même territoire\n\nAider l’estimation de la population dans les DROM\n\nRépondre à une urgence : conséquences du cyclone “Chido” sur le bâti à Mayotte"
+    "text": "Nos cas d’usage\n\nIdentifier les zones avec une forte densité de bâti 🏘️\n\nDétecter les évolutions du bâti de façon automatique\n\nAider l’estimation de la population dans les DROM 👥\n\nRépondre à une urgence 🚨 : cyclone “Chido” à Mayotte\n\n\n\nIdentifier les zones prioritaires pour l’enquête cartographique\n\nDétecter les évolutions du bâti depuis le précédent inventaire du bâti effectué\n\nRéaliser des comparaisons temporelles en utilisant d’anciennes et de nouvelles images satellites du même territoire\n\nAider l’estimation de la population dans les DROM\n\nRépondre à une urgence : conséquences du cyclone “Chido” sur le bâti à Mayotte"
   },
   {
     "objectID": "src/seminaire-dmcsi/index.html#segmentation-sémantique",
@@ -899,7 +899,7 @@
     "href": "src/seminaire-dmcsi/index.html#entraîner-un-modèle-de-segmentation",
     "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
     "section": "Entraîner un modèle de segmentation",
-    "text": "Entraîner un modèle de segmentation\n\nModèle entraîné pour de la segmentation automatique depuis des exemples d’annotations\nIl faut:\n\nUne collection d’images satellites 🛰️\nDes annotations 📍\n\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images"
+    "text": "Entraîner un modèle de segmentation\n\nModèle entraîné pour de la segmentation automatique depuis des exemples d’annotations\nIl faut :\n\nUne collection d’images satellites 🛰️\nDes annotations 📍\n\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images"
   },
   {
     "objectID": "src/seminaire-dmcsi/index.html#de-la-segmentation-à-la-détection-de-changements",
@@ -916,11 +916,18 @@
     "text": "Modèle utilisé\n\nArchitecture du modèle\n\nBackbone : SegFormer (MiT)\nEncodeur : Basé sur Transformer\nDécodeur : MLP head léger\n\nFine-tuné sur notre dataset\n\n\n\nArchitecture du modèle\n\nBackbone : SegFormer (MiT)\nEncodeur : Basé sur Transformer (auto-attention efficace, pas d’encodage positionnel)\n\nDécodeur : MLP head léger\n\nPourquoi SegFormer ?\n\nPas de décodeurs complexes → Efficace et passe à l’échelle\n\nCapture le contexte local et global → Haute précision\n\nSans embeddings positionnels → Meilleure généralisation des résolutions\n\nFine-tuné sur nos données\n\nEn parlant de données, il est temps de vous présenter ce qui nous sert pour entraîner ce modèle SegFormer"
   },
   {
+    "objectID": "src/seminaire-dmcsi/index.html#évaluation",
+    "href": "src/seminaire-dmcsi/index.html#évaluation",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Évaluation",
+    "text": "Évaluation\nPour évaluer les performances du modèle entraîné :\n\n\nIOU = Intersection Over Union"
+  },
+  {
     "objectID": "src/seminaire-dmcsi/index.html#pléiades-vs-sentinel-2",
     "href": "src/seminaire-dmcsi/index.html#pléiades-vs-sentinel-2",
     "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
     "section": "Pléiades vs Sentinel-2 🛰️",
-    "text": "Pléiades vs Sentinel-2 🛰️\n\n\n\nPléiades :\n\n3 bandes (RGB)\n\nRésolution 0.5m\n\nArchives gratuites\n\nAcquisition sur-demande payante\n\n\n\n\n\n Mamoudzou, Mayotte 2024\n\n\n\nSentinel2 :\n\n13 bandes\n\nRésolution 10m, 20m ou 60m\n\nAcquisition tous les 5j\n\n\n\n\n\nIl existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d’entre eux.\nLes images satellites Pléiades sont un produit intéressant pour notre cas d’usage - Caractéristiques: - 3 bandes spectrales (RGB) 🎨 - Résolution spatial : 0.5m × 0.5m 🔍 - Archives gratuites (avec accord) - Acquisition sur-demande et payante (6-8 mois par département), Airbus © licence 📅\nMais un autre type d’images satellites est à notre disposition : Sentinel-2. Elles sont open source et l’acquisition se fait tous les 5 jours. Cependant, leur résolution est moins précise que les images pléiades."
+    "text": "Pléiades vs Sentinel-2 🛰️\n\n\n\nPléiades :\n\n3 bandes (RGB)\n\n4e bande : NIR (pas dans nos données)\n\nRésolution 0.5m\n\nArchives gratuites\n\nAcquisition sur-demande payante\n\n\n\n\n\n Mamoudzou, Mayotte 2024\n\n\n\nSentinel2 :\n\n13 bandes\n\nRésolution 10m, 20m ou 60m (en fonction de la bande)\n\nAcquisition tous les 5j\n\nGratuit\n\n\n\n\n\nIl existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d’entre eux.\nLes images satellites Pléiades sont un produit intéressant pour notre cas d’usage - Caractéristiques: - 3 bandes spectrales (RGB) 🎨 - 4e bande : NIR (pas dans nos données) - Résolution spatial : 0.5m × 0.5m 🔍 - Archives gratuites (avec accord) - Acquisition sur-demande et payante (6-8 mois par département), Airbus © licence 📅\nMais un autre type d’images satellites est à notre disposition : Sentinel-2. Elles sont open source et l’acquisition se fait tous les 5 jours. Cependant, leur résolution est moins précise que les images pléiades."
   },
   {
     "objectID": "src/seminaire-dmcsi/index.html#annotations-cosia",
@@ -934,7 +941,7 @@
     "href": "src/seminaire-dmcsi/index.html#zone-de-test-à-mayotte",
     "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
     "section": "Zone de test à Mayotte",
-    "text": "Zone de test à Mayotte\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Prédictions 2023\n\n\n Légende COSIA\n\n\nMETTRE LES METRIQUES MLFLOW + LEGENDE AUTRE PART ??\n\n\nÀ ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances\nQuestions clés : comment partager nos résultats ?\nL’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel"
+    "text": "Zone de test à Mayotte\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Prédictions 2023\n\n\n Légende COSIA\n\n\n\n\n\n\nTrain\nTest\n\n\n\n\nIOU moyenne ∀classe\n0.81\n0.78\n\n\nIOU “bâtiment”\n0.84\n0.76\n\n\n\n\n\nÀ ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances\nQuestions clés : comment partager nos résultats ?\nL’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel"
   },
   {
     "objectID": "src/seminaire-dmcsi/index.html#dashboard-interactive",
@@ -962,6 +969,6 @@
     "href": "src/seminaire-dmcsi/index.html#défis-perspectives",
     "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
     "section": "Défis & Perspectives",
-    "text": "Défis & Perspectives\n\nCoûts de maintenance élevés en raison de la complexité technique 💸\n\nBesoin de compétences spécialisées 🧑‍💻\n\nEnvironnement technique complexe dû à :\n\nVolumes de données importants 🗃️\n\nForts besoins en calcul ⚡\n\nExigences de reproductibilité ♻️\n\n\nRésultats initiaux prometteurs pour appuyer les campagnes cartographiques\n\nAméliorations potentielles identifiées à chaque étape de la chaîne\n\n\nMerci à Onyxia d’avoir rendu ce projet possible en mode DevOps"
+    "text": "Défis & Perspectives\n\nCoûts de maintenance élevés en raison de la complexité technique 💸\n\nBesoin de compétences spécialisées 🧑‍💻\n\nEnvironnement technique complexe dû à :\n\nVolumes de données importants 🗃️\n\nForts besoins en calcul (GPU) ⚡\n\nExigences de reproductibilité ♻️\n\n\nRésultats initiaux prometteurs pour appuyer les enquêtes cartographiques\n\nAméliorations potentielles identifiées à chaque étape de la chaîne\n\n\nMerci à Onyxia d’avoir rendu ce projet possible en mode DevOps"
   }
 ]
