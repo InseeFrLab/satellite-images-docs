@@ -391,7 +391,7 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <ul>
 <li><p><span class="orange"><strong>Contexte critique</strong></span>, particulièrement à Mayotte et en Guyane</p></li>
 <li><p>Pour compléter le RIL dans les DROM : <span class="blue2"><strong>enquête cartographique</strong></span> → très <span class="orange"><strong>coûteuse</strong></span> 💰</p></li>
-<li><p>Peut-on utiliser <span class="orange"><strong>l’imagerie satellite</strong></span> pour optimiser le processus de recensement dans les DROM ? 🛰️</p></li>
+<li><p>Peut-on utiliser <span class="blue2"><strong>l’imagerie satellitaire</strong></span> pour optimiser le processus de recensement dans les DROM ? 🛰️</p></li>
 </ul>
 <aside class="notes">
 <p>En effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Le développement urbain est extrêmement rapide avec les bidonvilles rend le suivi du bâti très compliqué avec les nombreuses constructions et destructions de ces habitations précaires et instables. Les autorités, ayant besoin d’avoir les chiffres exacts de la population pour obtenir des subventions, ne sont pas satisfait des chiffres officiels produits par l’Insee : ils pointent du doigt une sous estimation.</p>
@@ -413,13 +413,13 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <section id="nos-cas-dusage" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Nos cas d’usage</h2>
 <ul>
-<li>Identifier les zones avec <span class="blue2"><strong>une forte densité de bâti</strong></span><br>
+<li>Identifier les zones avec <span class="blue2"><strong>une forte densité de bâti</strong></span> 🏘️<br>
 </li>
-<li>Détecter <span class="orange"><strong>les évolutions du bâti</strong></span> de façon automatique<br>
+<li>Détecter les <span class="orange"><strong>évolutions du bâti</strong></span> de façon automatique<br>
 </li>
-<li>Aider <span class="blue2"><strong>l’estimation de la population</strong></span> dans les DROM<br>
+<li>Aider <span class="blue2"><strong>l’estimation de la population</strong></span> dans les DROM 👥<br>
 </li>
-<li><span class="red2"><strong>Répondre à une urgence</strong></span> : cyclone “Chido” à Mayotte</li>
+<li><span class="red2"><strong>Répondre à une urgence</strong></span> 🚨 : cyclone “Chido” à Mayotte 🌪️</li>
 </ul>
 <aside class="notes">
 <ul>
@@ -462,27 +462,19 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 </section>
 <section id="segmentation-sémantique" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Segmentation sémantique</h2>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li><span class="orange"><strong>Computer vision</strong></span><br>
+</li>
+<li><span class="blue2"><strong>Classer chaque pixel</strong></span> d’une image<br>
+</li>
+<li>Pour nos besoins : connaître les pixels de <span class="orange"><strong>catégorie “bâtie”</strong></span></li>
+</ul>
+<div style="text-align:center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="../img/pleiades_rennes.png" style="width:60.0%"></p>
-<figcaption>Pleiades © CNES_2023, Distribution AIRBUS DS</figcaption>
+<p><img data-src="../img/segmentation.png" style="width:30.0%"></p>
+<figcaption>Exemple de segmentation “bâtiment”</figcaption>
 </figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../img/segmentation.png" style="width:60.0%"></p>
-<figcaption>COSIA 2023</figcaption>
-</figure>
-</div>
-</div>
 </div>
 </div>
 </section>
@@ -495,30 +487,55 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <li>Une collection d’<span class="blue2"><strong>images satellites</strong></span> 🛰️</li>
 <li><span class="blue2"><strong>Des annotations</strong></span> 📍</li>
 </ul></li>
-<li>Model learns to reproduce annotations from images aiming to <span class="orange"><strong>generalize</strong></span> on new images 🎯</li>
+<li>Le modèle apprend à reproduire les annotations des images pour <span class="orange"><strong>généraliser</strong></span> sur de nouvelles images</li>
 </ul>
 </section>
-<section id="from-segmentation-to-change-detection" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>From segmentation to change detection</h2>
+<section id="de-la-segmentation-à-la-détection-de-changements" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>De la segmentation à la détection de changements</h2>
 
 <img data-src="../img/strategy_segmentation.png" style="width:80.0%" class="r-stretch"></section>
-<section id="model-used" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Model used</h2>
+<section id="modèle-utilisé" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Modèle utilisé</h2>
 <ul>
-<li><span class="orange"><strong>Model architecture</strong></span> 🧩:
+<li><span class="orange"><strong>Architecture du modèle</strong></span>
 <ul>
-<li><span class="blue2"><strong>Backbone</strong></span>: SegFormer (<span class="green2"><strong>MiT</strong></span>)</li>
-<li><span class="blue2"><strong>Encoder</strong></span>: <span class="green2"><strong>Transformer-based</strong></span> (efficient self-attention, no positional encoding) ⚙️</li>
-<li><span class="blue2"><strong>Decoder</strong></span>: Lightweight <span class="green2"><strong>MLP head</strong></span> ✨</li>
+<li>Backbone : <span class="blue2"><strong>SegFormer</strong></span> (MiT)</li>
+<li>Encodeur : Basé sur <span class="blue2"><strong>Transformer</strong></span></li>
+<li>Décodeur : MLP head léger</li>
 </ul></li>
-<li><span class="orange"><strong>Why SegFormer?</strong></span> 🚀:
-<ul>
-<li><span class="blue2"><strong>No complex decoders</strong></span> → Efficient &amp; scalable ⚡</li>
-<li><span class="blue2"><strong>Captures local &amp; global context</strong></span> → High accuracy 🎯</li>
-<li><span class="blue2"><strong>No positional embeddings</strong></span> → Improved resolution generalization 📐</li>
-</ul></li>
-<li><span class="orange"><strong>Fine-tuned</strong></span> on our dataset 🗃️</li>
+<li><span class="orange"><strong>Fine-tuné</strong></span> sur notre dataset</li>
 </ul>
+<aside class="notes">
+<ul>
+<li><span class="orange"><strong>Architecture du modèle</strong></span>
+<ul>
+<li>Backbone : <span class="blue2"><strong>SegFormer</strong></span> (MiT)</li>
+<li>Encodeur : Basé sur <span class="blue2"><strong>Transformer</strong></span> (auto-attention efficace, pas d’encodage positionnel)<br>
+</li>
+<li>Décodeur : MLP head léger</li>
+</ul></li>
+<li><span class="orange"><strong>Pourquoi SegFormer ?</strong></span>
+<ul>
+<li>Pas de décodeurs complexes → Efficace et passe à l’échelle<br>
+</li>
+<li>Capture le <span class="blue2"><strong>contexte local et global</strong></span> → Haute précision<br>
+</li>
+<li>Sans embeddings positionnels → Meilleure généralisation des résolutions</li>
+</ul></li>
+<li><span class="orange"><strong>Fine-tuné</strong></span> sur nos données</li>
+</ul>
+<p>En parlant de données, il est temps de vous présenter ce qui nous sert pour entraîner ce modèle SegFormer</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section id="plan-2" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Plan</h1>
@@ -589,7 +606,7 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 <h2>Annotations : COSIA</h2>
 <ul>
 <li><a href="https://cosia.ign.fr/info#visualisation">Projet Cosia</a> par IGN 👏</li>
-<li><span class="red"><strong>Utilisé pour annoter nos données d’entraînement</strong></span></li>
+<li><span class="blue2"><strong>Utilisé pour annoter nos données d’entraînement</strong></span></li>
 </ul>
 <div style="display: flex; align-items: flex-start;">
 <div style="flex: 4; text-align: center;">
@@ -603,7 +620,7 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </div>
 </div>
 <aside class="notes">
-<p>Le projet Cosia présenté précédement par nos collègues de l’IGN. - <span class="orange"><strong>Couverture du sol générée par l’IA</strong></span> - Basé sur les <span class="orange"><strong>photographies aériennes</strong></span> de l’IGN à une résolution <span class="blue2"><strong>20cm</strong></span> 🗺️ Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d’entraînement, malgrès le décalage temporaire entre nos images et la productions de polygones. D’autres sources ont été utilisés comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele.</p>
+<p>Pour les annotations, il est possible de prendre des annotations binaires : bâtiment oui ou non, ou des annotations multiclasses comme le projet Cosia présenté précédement par nos collègues de l’IGN. - C’est une <span class="orange"><strong>couverture du sol générée par l’IA</strong></span> - Basé sur les <span class="orange"><strong>photographies aériennes</strong></span> de l’IGN à une résolution <span class="blue2"><strong>20cm</strong></span> 🗺️ Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d’entraînement, malgré un possible décalage temporaire entre nos images et la productions de polygones. D’autres sources ont été utilisés comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele. Pour notre entraînement, les mosaiques d’images et les collections d’annotations de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés, et des zones de test fixées ont été définies.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -647,11 +664,12 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 <p><img src="../img/../img/legende_cosia.png" style="width: 70%;"><br> <span style="font-size: 50%;"><em>Légende COSIA</em></span></p>
 </div>
 </div>
+<p>METTRE LES METRIQUES MLFLOW + LEGENDE AUTRE PART ??</p>
 <aside class="notes">
 <ul>
-<li>At this point we have built and trained our model, checked its performance</li>
-<li>Working on notebooks displaying maps… Key questions : how can we share our results ?</li>
-<li>Goals was not to publish an article but rather help colleagues from overseas territory =&gt; anticipate carto survey</li>
+<li><p>À ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances</p></li>
+<li><p>Questions clés : comment partager nos résultats ?</p></li>
+<li><p>L’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel</p></li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -665,34 +683,38 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
           display:block!important;
       }</style></aside>
 </section>
-<section id="interactive-dashboard" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Interactive Dashboard 🚀</h2>
+<section id="dashboard-interactive" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Dashboard Interactive 🚀</h2>
 <iframe src="https://inseefrlab.github.io/satellite-images-webapp/" width="100%" height="500" style="border:none;">
 </iframe>
 <aside class="notes">
 <ul>
-<li>Decided to build a tiny webapp … but we are datascientists be indulgent</li>
-<li>We computed building areas from our predictions this we get binary value for each pixel and aggregated by admin level</li>
+<li>Nous avons décidé de créer une petite webapp… mais <strong>nous sommes data scientists</strong>, soyez indulgents 😉<br>
+</li>
+<li>Nous avons calculé les surfaces des bâtiments à partir de nos prédictions : cela nous donne une valeur binaire pour chaque pixel, agrégée par niveau administratif</li>
 </ul>
-<p>⚠️ Disclaimer : This is a an early stage of our application. 0 check or data quality process have been done.</p>
+<p>⚠️ <strong>Avertissement :</strong> ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.</p>
 <ul>
-<li>Standard leaflet map with open Street map layer show Pleiades 2023</li>
+<li>Carte standard <strong>Leaflet</strong> avec un fond <strong>OpenStreetMap</strong> affichant Pléiades 2023</li>
 </ul>
-<p>97611 0332 : nuages in 2022</p>
-<p>97610ﾠ0608 : different methodology of blurring for prison</p>
-<p>97611 0237 : Our use case : detect building changes in precarious areas</p>
+<p><strong>97611 0332</strong> : nuages en 2022<br>
+<strong>97610 0608</strong> : méthodologie différente de floutage pour la prison<br>
+<strong>97611 0237</strong> : notre cas d’usage : détecter les changements de bâtiments en zone précaire</p>
 <ul>
-<li><span class="orange"><strong>Administrative-level monitoring</strong></span> of building changes:
+<li><span class="orange"><strong>Suivi des changements de bâtiments au niveau administratif</strong></span> :
 <ul>
-<li>Selection by <span class="blue2"><strong>administrative units</strong></span> (municipalities, districts)</li>
-<li><span class="blue2"><strong>Quality control</strong></span> of detected changes</li>
+<li>Sélection par <span class="blue2"><strong>unités administratives</strong></span> (communes, quartiers)<br>
+</li>
+<li><span class="blue2"><strong>Contrôle qualité</strong></span> des changements détectés</li>
 </ul></li>
-<li><span class="orange"><strong>Key features</strong></span>:
+<li><span class="orange"><strong>Fonctionnalités clés</strong></span> :
 <ul>
-<li>Side-by-side temporal comparison</li>
-<li>Statistical indicators by area</li>
-<li>Interactive visual validation</li>
-<li></li>
+<li>Comparaison temporelle côte à côte<br>
+</li>
+<li>Indicateurs statistiques par zone<br>
+</li>
+<li>Validation visuelle interactive<br>
+</li>
 </ul></li>
 </ul>
 <style type="text/css">
@@ -728,12 +750,12 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 - [**Continuous deployment**]{.orange} of applications &#x1F680;
  -->
 </section>
-<section id="processing-pipeline" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Processing Pipeline 🛠️</h2>
+<section id="pipeline-globale" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Pipeline globale 🛠️</h2>
 <div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" width="100%" height="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="../img/pipeline_donnees_sat_en.png" id="fig-chain2" style="width:100.0%;height:100.0%">
+<img data-src="../img/pipeline_donnees_sat.png" id="fig-chain2" style="width:100.0%;height:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 </figcaption>
@@ -741,12 +763,17 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </div>
 <aside class="notes">
 <ol type="1">
-<li>Standardization of data acquisition—currently rudimentary. Need cloud-free, date-specific images with consistent methodology (challenge with Pléiades).</li>
-<li>Training stage: cloud removal, dataset balancing, labeling, splitting.</li>
-<li>PyTorch with pre-trained model from HuggingFace (requires GPU).</li>
-<li>API building: prediction of images, clustering/bounding boxes, and statistics computation (building area).</li>
-<li>Deployment via GeoServer and web application.</li>
-<li>Results utilized by INSEE colleagues for statistical analyses.</li>
+<li>Standardisation de l’acquisition des données — actuellement rudimentaire. Besoin d’images sans nuages, datées précisément, avec une méthodologie cohérente (challenge avec Pléiades).<br>
+</li>
+<li>Phase d’entraînement : suppression des nuages, équilibrage du jeu de données, annotation, découpage.<br>
+</li>
+<li>PyTorch avec modèle pré-entraîné depuis HuggingFace (requiert GPU).<br>
+</li>
+<li>Construction de l’API : prédiction sur images, regroupement / boîtes englobantes, calculs statistiques (surface bâtie).<br>
+</li>
+<li>Déploiement via GeoServer et application web.<br>
+</li>
+<li>Résultats utilisés par les collègues de l’INSEE pour analyses statistiques.</li>
 </ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -764,7 +791,47 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 <h2>Application Architecture 🧩</h2>
 
 <img data-src="../img/app-architecture.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><aside class="notes">
-<p>GeoServer dynamically serves satellite images.</p>
+<ol type="1">
+<li><span class="orange"><strong>Acquisition des données</strong></span> :
+<ul>
+<li>Imagerie Pléiades fournie par un prestataire national<br>
+</li>
+<li>Stockage sur infrastructure cloud</li>
+</ul></li>
+<li><span class="orange"><strong>Préparation des données</strong></span> :
+<ul>
+<li>Prétraitement des images (filtrage des nuages, normalisation)<br>
+</li>
+<li>Annotation automatisée à partir des données de bâtiments de référence<br>
+</li>
+<li>Découpage des images (tuiles de 125 m × 125 m)</li>
+</ul></li>
+<li><span class="orange"><strong>Développement du modèle</strong></span> :
+<ul>
+<li>Implémentation deep learning (PyTorch)<br>
+</li>
+<li>Entraînement avec GPU<br>
+</li>
+<li>Versionnage du modèle (MLFlow)</li>
+</ul></li>
+<li><span class="orange"><strong>Système de production</strong></span> :
+<ul>
+<li>API REST pour l’inférence<br>
+</li>
+<li>Déploiement containerisé<br>
+</li>
+<li>Capacités de traitement parallèle</li>
+</ul></li>
+<li><span class="orange"><strong>Distribution des résultats</strong></span> :
+<ul>
+<li>GeoServer permet de visualiser dynamiquement les images satellite grâce à des calculs qu’il effectue en amont, de sorte à ce que l’application web soit rapide<br>
+</li>
+<li>Application web pour la visualisation<br>
+</li>
+<li>Outils d’analyse statistique<br>
+</li>
+</ul></li>
+</ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -792,20 +859,39 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 <h1>6️⃣ Discussion</h1>
 
 </section>
-<section id="challenges-perspectives" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Challenges &amp; Perspectives</h2>
+<section id="défis-perspectives" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Défis &amp; Perspectives</h2>
 <ul>
-<li><span class="orange"><strong>High maintenance costs</strong></span> due to technical complexity 💸</li>
-<li>Need for <span class="blue2"><strong>specialized skills</strong></span> 🧑‍💻</li>
-<li><span class="orange"><strong>Complex technical environment</strong></span> due to:
+<li><span class="orange"><strong>Coûts de maintenance élevés</strong></span> en raison de la complexité technique 💸<br>
+</li>
+<li>Besoin de <span class="blue2"><strong>compétences spécialisées</strong></span> 🧑‍💻<br>
+</li>
+<li><span class="orange"><strong>Environnement technique complexe</strong></span> dû à :
 <ul>
-<li><span class="blue2"><strong>Large data volumes</strong></span> 🗃️</li>
-<li><span class="blue2"><strong>High computational requirements</strong></span> ⚡</li>
-<li><span class="blue2"><strong>Reproducibility requirements</strong></span> ♻️</li>
+<li><span class="blue2"><strong>Volumes de données importants</strong></span> 🗃️<br>
+</li>
+<li><span class="blue2"><strong>Forts besoins en calcul</strong></span> ⚡<br>
+</li>
+<li><span class="blue2"><strong>Exigences de reproductibilité</strong></span> ♻️<br>
+</li>
 </ul></li>
-<li><span class="orange"><strong>Promising initial results</strong></span> supporting cartographic surveys ✅🗺️</li>
-<li><span class="orange"><strong>Potential improvements identified</strong></span> for each pipeline stage 🔧</li>
+<li><span class="orange"><strong>Résultats initiaux prometteurs</strong></span> pour appuyer les campagnes cartographiques<br>
+</li>
+<li><span class="orange"><strong>Améliorations potentielles identifiées</strong></span> à chaque étape de la chaîne</li>
 </ul>
+<aside class="notes">
+<p>Merci à Onyxia d’avoir rendu ce projet possible en mode DevOps</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
