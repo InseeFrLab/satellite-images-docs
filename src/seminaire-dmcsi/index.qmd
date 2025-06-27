@@ -125,3 +125,5 @@ ascii: true
 # 6️⃣ Discussion
 
 {{< include sections/6-discussion.qmd >}}
+
+# Merci pour votre attention

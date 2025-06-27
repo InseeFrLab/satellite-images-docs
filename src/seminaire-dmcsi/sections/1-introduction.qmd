@@ -9,10 +9,15 @@
 La [**qualité du RIL**]{.orange} est bonne en France métropolitaine ✅... ...mais loin d'être fiable dans les territoires d'outre mer ⚠️
 
 ::: notes
+Bonjour à tous, merci à nos collègues de l'IGN pour cette présentation très intéressante. A l'Insee, nous avons pu exploiter les données satellitaires grâce à l'IGN. Et vous allez le voir dans la suite de cette présentation sur le sujet des Images satellites pour améliorer le repérage des logements dans les départements et régions d'outre mer.
+
+Comme vous le savez bien, l'Insee doit faire le recensement tous les ans. C'est l'une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement. 
+
+Afin de préparer le recensement dans les DROM, l'Insee tire un échantillon de logements à enquêter dans le RIL.
 Le RIL est disponible pour les communes de 10 000 habitants et plus.\
-Pour chacune des adresses, il existe l'information du nombre de logements dedans, son caractère habitable et et sa géolocalisation.\
+Pour chaque bâtiment recensé, il existe l'information du nombre de logements dedans, son caractère habitable, son adresse et sa géolocalisation.\
 Ce répertoire est utilisé à l'Insee pour constituer les bases de sondage des enquêtes de recensement.\
-La qualité du RIL est bonne en France métropolitaine cependant elle est bien inférieure dans les territoires d'outre mer, aussi appelés DROM.
+La qualité du RIL est bonne en France métropolitaine cependant elle est bien inférieure dans les territoires d'outre mer.
 :::
 
 ## Recensement dans les territoires d'outre mer
@@ -25,6 +30,8 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 
 ::: notes
 En effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Le développement urbain est extrêmement rapide avec les bidonvilles rend le suivi du bâti très compliqué avec les nombreuses constructions et destructions de ces habitations précaires et instables. Les autorités, ayant besoin d'avoir les chiffres exacts de la population pour obtenir des subventions, ne sont pas satisfait des chiffres officiels produits par l'Insee : ils pointent du doigt une sous estimation.
+
+Dans les territoires d'outre mer, chaque DROM est découpé en "îlots". Chaque année, un échantillon d'ilot est tiré au sort et chaque logement y est recensé. Cependant, il est difficile de connaître réellement le nombre de logements à recenser.
 
 Pour compléter le RIL, basé sur les permis de construire, une enquête cartographique est mise en place. C'est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, qui a pour but d'envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse et coûteuse. De plus, les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter, terrains compliqués à atteindre, aggressions...
 
