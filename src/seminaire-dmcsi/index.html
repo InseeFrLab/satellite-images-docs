@@ -385,13 +385,13 @@ Et enfin, on conclura par une discussion plus large sur les perspectives et les 
 <li>Pour constituer les <span class="orange"><strong>bases de sondage</strong></span> des enquêtes de recensement</li>
 </ul></li>
 </ul>
-<p>La <span class="orange"><strong>qualité du RIL</strong></span> est bonne en France métropolitaine ✅… …mais loin d’être fiable dans les territoires d’outre mer ⚠️</p>
+<p>La <span class="orange"><strong>qualité du RIL</strong></span> est bonne en France hexagonale ✅… …mais loin d’être fiable dans les territoires d’outre mer ⚠️</p>
 <aside class="notes">
 <p>Comme vous le savez bien, l’Insee doit faire le recensement tous les ans. C’est l’une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement. Pour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France Métropolitaine.</p>
 <p>Afin de préparer le recensement, l’Insee se sert du <span class="orange"><strong>répertoire</strong></span> des immeubles localisés pour connaître le nombre de logements disponibles dans les communes de 10 000 habitants et plus.<br>
 Pour chaque élément dans le RIL, il existe l’information du nombre de logements au sein du bâtiment, son caractère habitable, son adresse et sa géolocalisation.<br>
 Ce répertoire est utilisé à l’Insee pour constituer les bases de sondage des enquêtes de recensement.<br>
-La qualité du RIL est bonne en France métropolitaine cependant elle est bien inférieure dans les territoires d’outre mer.</p>
+La qualité du RIL est bonne en France hexagonale cependant elle est bien inférieure dans les territoires d’outre mer.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -510,7 +510,6 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <section id="entraîner-un-modèle-de-segmentation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Entraîner un modèle de segmentation</h2>
 <ul>
-<li>Modèle entraîné pour de la segmentation automatique <span class="orange"><strong>depuis des exemples d’annotations</strong></span></li>
 <li><span class="orange"><strong>Il faut</strong></span> :
 <ul>
 <li>Une collection d’<span class="blue2"><strong>images satellites</strong></span> 🛰️</li>
@@ -519,9 +518,9 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <li>Le modèle apprend à reproduire les annotations des images pour <span class="orange"><strong>généraliser</strong></span> sur de nouvelles images</li>
 </ul>
 <aside class="notes">
+<p>Pour entrainer un modele il faut deux choses : des images et des annotations.</p>
 <ul>
-<li><p>Pour notre modèle entraîné pour de la segmentation automatique <span class="orange"><strong>depuis des exemples d’annotations</strong></span>, les mosaiques d’images et les collections d’annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés, et des zones de test fixées ont été définies.</p></li>
-<li><p>Le modèle apprend à reproduire les annotations des images pour <span class="orange"><strong>généraliser</strong></span> sur de nouvelles images</p></li>
+<li>Le modèle apprend à reproduire les annotations des images pour <span class="orange"><strong>généraliser</strong></span> sur de nouvelles images</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -544,17 +543,17 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <ul>
 <li><span class="orange"><strong>Architecture du modèle</strong></span> 🧠
 <ul>
-<li>Base du modèle : <span class="blue2"><strong>SegFormer</strong></span>, un modèle léger et performant</li>
-<li><span class="blue2"><strong>Inspirée des Transformers</strong></span>, utilisés dans l’IA moderne</li>
-<li>Intègre des <span class="blue2"><strong>mécanismes d’attention</strong></span> pour repérer les zones importantes</li>
-<li>Représente <span class="blue2"><strong>l’état de l’art</strong></span> en segmentation d’image</li>
+<li><span class="blue2"><strong>SegFormer</strong></span> : un modèle léger et performant</li>
+<li><span class="blue2"><strong>Transformers</strong></span> :<span class="green2"><strong>mécanismes d’attention</strong></span> pour prendre en compte le contexte local et global</li>
+<li><span class="blue2"><strong>Décodeur</strong></span> : Multi Layer Perceptron</li>
 </ul></li>
 <li><span class="orange"><strong>Adapté</strong></span> à nos données satellites</li>
 </ul>
 <aside class="notes">
-<p>Le modèle que nous avons sélectionné s’appuie sur une architecture appelée <strong>SegFormer</strong>.</p>
-<p>Il est basé sur une technologie appelée <strong>Transformer</strong>, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. En une publication, le Transformer a enterré 10 ans de recherches… et ouvert la voie à BERT, GPT, ViT et tout ce qu’on utilise aujourd’hui.</p>
-<p>Un des atouts de cette architecture, ce sont les <strong>mécanismes d’attention</strong>, qui permettent au modèle de se concentrer sur les parties les plus importantes de l’image pour produire les prédictions.</p>
+<p>Le modèle que nous avons sélectionné s’appuie sur une architecture appelée <strong>SegFormer</strong>. Modele de segmentation d’image entrainé par NVIDIA et opensource Il a l’avantage d’etre très leger et donc rapide à entrainer Pour notre cas d’usage, c’est le modele qui a été le plus performant.</p>
+<p>Il est basé sur une technologie appelée <strong>Transformer</strong>, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. Ce n’est pas la plus répendue en vision par ordinateur.</p>
+<p>Un des atouts de cette architecture, ce sont les <strong>mécanismes d’attention</strong>, qui permettent au modèle de prendre en compte le contexte local et global de l’image pour produire les prédictions.</p>
+<p>Pour le décodeur, c’est Multi Layer Perceptron classique.</p>
 <p>Enfin, nous avons <strong>ajusté le modèle à nos données</strong> spécifiques : des images satellites à 3 bandes, et une annotation en 17 classes correspondant à différents types de surfaces ou de bâtiments.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -687,6 +686,7 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </div>
 <aside class="notes">
 <p>Pour les annotations, il est possible de prendre des annotations binaires : bâtiment oui ou non, ou des annotations multiclasses comme le projet Cosia présenté précédement. - C’est une <span class="orange"><strong>couverture du sol générée par l’IA</strong></span> - Basé sur les <span class="orange"><strong>photographies aériennes</strong></span> de l’IGN à une résolution <span class="blue2"><strong>20cm</strong></span> 🗺️ Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d’entraînement, malgré un possible décalage temporaire entre nos images et la productions de polygones. D’autres sources ont été testées comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele.</p>
+<p>les mosaiques d’images et les collections d’annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés pour entrainer notre modele, et des zones de test fixées ont été définies. Passons aux résultats.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -789,9 +789,9 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 <ul>
 <li>Carte standard <strong>Leaflet</strong> avec un fond <strong>OpenStreetMap</strong> affichant Pléiades 2023</li>
 </ul>
-<p><strong>97611 0332</strong> : nuages en 2022<br>
-<strong>97610 0608</strong> : méthodologie différente de floutage pour la prison<br>
-<strong>97611 0237</strong> : notre cas d’usage : détecter les changements de bâtiments en zone précaire</p>
+<p><strong>97610 0608</strong> : méthodologie différente de floutage pour la prison<br>
+<strong>97611 0332</strong> : nuages en 2022<br>
+<strong>97611 0330</strong> : notre cas d’usage : détecter les changements de bâtiments en zone précaire</p>
 <ul>
 <li><span class="orange"><strong>Suivi des changements de bâtiments au niveau administratif</strong></span> :
 <ul>
@@ -967,9 +967,7 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 <li><span class="blue2"><strong>Exigences de reproductibilité</strong></span> ♻️<br>
 </li>
 </ul></li>
-<li><span class="orange"><strong>Résultats initiaux prometteurs</strong></span> pour appuyer les enquêtes cartographiques<br>
-</li>
-<li><span class="orange"><strong>Améliorations potentielles identifiées</strong></span> à chaque étape de la chaîne</li>
+<li><span class="orange"><strong>Résultats initiaux prometteurs</strong></span> pour appuyer les enquêtes cartographiques</li>
 </ul>
 </section></section>
 <section id="merci-pour-votre-attention" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
