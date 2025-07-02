@@ -49,4 +49,6 @@
     - GeoServer permet de visualiser dynamiquement les images satellite grâce à des calculs qu'il effectue en amont, de sorte à ce que l'application web soit rapide  
     - Application web pour la visualisation  
     - Outils d’analyse statistique  
+
+Merci à Onyxia d'avoir rendu ce projet possible en mode DevOps
 :::

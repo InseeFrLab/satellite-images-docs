@@ -1,12 +1,16 @@
 ## Segmentation sémantique
 
-- [**Computer vision**]{.orange}  
+- [**Vision par ordinateur**]{.orange}  
 - [**Classer chaque pixel**]{.blue2} d’une image  
 - Pour nos besoins : connaître les pixels de [**catégorie "bâtie"**]{.orange}   
 
 <div style="text-align:center;">
   ![Exemple de segmentation "bâtiment"](../img/segmentation.png){width=30%}
 </div>
+
+::: notes
+Pour détecter le bâti de façon automatique, nous nous sommes tourné vers la vision par ordinateur, qui est une branche du domaine de l'intelligence artificielle. La segmentation sémantique permet de classer chaque pixel d'une image dans l'une des classes définie en amont. La segmentation semantique peut utiliser toute sorte de classe, mais voici un exemple de résultat qui nous interesse :
+:::
 
 ## Entraîner un modèle de segmentation
 
@@ -16,34 +20,38 @@
     - [**Des annotations**]{.blue2} 📍
 - Le modèle apprend à reproduire les annotations des images pour [**généraliser**]{.orange} sur de nouvelles images  
 
+::: notes
+
+- Pour notre modèle entraîné pour de la segmentation automatique [**depuis des exemples d'annotations**]{.orange}, les mosaiques d'images et les collections d'annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés, et des zones de test fixées ont été définies.
+
+- Le modèle apprend à reproduire les annotations des images pour [**généraliser**]{.orange} sur de nouvelles images 
+:::
+
 ## De la segmentation à la détection de changements
 
 ![](../img/strategy_segmentation.png){width=80%}
 
 ## Modèle utilisé
 
-- [**Architecture du modèle**]{.orange}
-    - Backbone : [**SegFormer**]{.blue2} (MiT)
-    - Encodeur : Basé sur [**Transformer**]{.blue2}
-    - Décodeur : MLP head léger
+- [**Architecture du modèle**]{.orange} 🧠
+    - Base du modèle : [**SegFormer**]{.blue2}, un modèle léger et performant
+    - [**Inspirée des Transformers**]{.blue2}, utilisés dans l’IA moderne
+    - Intègre des [**mécanismes d’attention**]{.blue2} pour repérer les zones importantes
+    - Représente [**l’état de l’art**]{.blue2} en segmentation d’image
 
-- [**Fine-tuné**]{.orange} sur notre dataset  
+- [**Adapté**]{.orange} à nos données satellites
 
-::: {.notes}
-- [**Architecture du modèle**]{.orange}
-    - Backbone : [**SegFormer**]{.blue2} (MiT)
-    - Encodeur : Basé sur [**Transformer**]{.blue2} (auto-attention efficace, pas d'encodage positionnel)  
-    - Décodeur : MLP head léger
 
-- [**Pourquoi SegFormer ?**]{.orange}  
-    - Pas de décodeurs complexes → Efficace et passe à l’échelle  
-    - Capture le [**contexte local et global**]{.blue2} → Haute précision  
-    - Sans embeddings positionnels → Meilleure généralisation des résolutions  
+::: notes
+Le modèle que nous avons sélectionné s’appuie sur une architecture appelée **SegFormer**.
 
-- [**Fine-tuné**]{.orange} sur nos données
+Il est basé sur une technologie appelée **Transformer**, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. En une publication, le Transformer a enterré 10 ans de recherches… et ouvert la voie à BERT, GPT, ViT et tout ce qu’on utilise aujourd’hui.
 
-En parlant de données, il est temps de vous présenter ce qui nous sert pour entraîner ce modèle SegFormer
+Un des atouts de cette architecture, ce sont les **mécanismes d’attention**, qui permettent au modèle de se concentrer sur les parties les plus importantes de l’image pour produire les prédictions.
+
+Enfin, nous avons **ajusté le modèle à nos données** spécifiques : des images satellites à 3 bandes, et une annotation en 17 classes correspondant à différents types de surfaces ou de bâtiments.
 :::
+
 
 ## Évaluation
 
@@ -53,3 +61,20 @@ Pour évaluer les performances du modèle entraîné :
 </div>
 
 ![](../img/schemaIOU.png){width=80% fig-align="center"}
+
+::: notes
+L'IoU, ou *Intersection over Union*, est une mesure qu'on utilise pour évaluer la qualité d’une prédiction en segmentation d’image.
+
+Concrètement, on compare deux zones :  
+- celle que le modèle a prédite comme appartenant à une certaine classe,  
+- et la zone réelle, qu’on appelle le *label de vérité terrain*.
+
+On mesure alors **l’intersection** entre ces deux zones – c’est la partie correctement prédite –  
+et on la divise par **l’union** des deux – c’est-à-dire l’ensemble de tout ce qui a été soit prédit, soit annoté.
+
+Un IoU de 1 signifie une correspondance parfaite.  
+Un IoU de 0 signifie aucune correspondance.
+
+Plus l’IoU est élevé, plus la prédiction est précise.  
+C’est une métrique particulièrement adaptée pour des tâches comme la nôtre, où on doit prédire la forme exacte des bâtiments ou des routes, pixel par pixel.
+:::
