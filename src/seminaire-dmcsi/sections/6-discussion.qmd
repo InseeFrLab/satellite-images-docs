@@ -8,7 +8,3 @@
     - [**Exigences de reproductibilité**]{.blue2} ♻️  
 - [**Résultats initiaux prometteurs**]{.orange} pour appuyer les enquêtes cartographiques  
 - [**Améliorations potentielles identifiées**]{.orange} à chaque étape de la chaîne  
-
-::: {.notes}
-Merci à Onyxia d'avoir rendu ce projet possible en mode DevOps
-:::

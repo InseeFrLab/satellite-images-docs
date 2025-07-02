@@ -26,7 +26,7 @@
 
 |                    | Train | Test |
 |--------------------|-------|------|
-|IOU moyenne ∀classe | 0.81 | 0.78 |
+|IOU moyenne ∀classe | 0.81  | 0.78 |
 |IOU "bâtiment"      | 0.84  | 0.76 |
 
 ::: {.notes}
@@ -35,19 +35,25 @@
 - Questions clés : comment partager nos résultats ?
 
 - L’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel
+
+Dans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considérée comme un excellent score, surtout dans des zones complexes comme les DOM où l’environnement est très hétérogène, et des écarts peuvent se créer un peu partout.
 :::
 
 ## Dashboard Interactive 🚀
 
-<iframe src="https://inseefrlab.github.io/satellite-images-webapp/"
+:::{.absolute top=280 left=150}
+👉 [**Application interactive**]{.orange}: [Cliquez ici](https://inseefrlab.github.io/satellite-images-webapp/)
+:::
+
+<!-- <iframe src="https://inseefrlab.github.io/satellite-images-webapp/"
         width="100%"
         height="500"
         style="border:none;">
-</iframe>
+</iframe> -->
 
 ::: {.notes}
 
-- Nous avons décidé de créer une petite webapp… mais **nous sommes data scientists**, soyez indulgents 😉  
+- Nous avons décidé de créer une petite webapp 
 - Nous avons calculé les surfaces des bâtiments à partir de nos prédictions : cela nous donne une valeur binaire pour chaque pixel, agrégée par niveau administratif  
 
 ⚠️ **Avertissement :** ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.  

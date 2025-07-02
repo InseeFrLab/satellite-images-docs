@@ -12,6 +12,9 @@ chalkboard:
 format:
   onyxia-revealjs:
     output-file: index.html
+    title-slide-attributes:
+      data-notes: |
+        Bonjour à tous, tout d'abord merci à nos collègues de l'IGN pour cette présentation très intéressante. C'est avec leur aide qu'à l'Insee, nous avons pu exploiter les données satellitaires. Je ne vous en dis pas plus vous allez le voir dans la suite de cette présentation. Présentation qui est sur le sujet des Images satellites pour améliorer le repérage des logements dans les départements et régions d'outre mer.
 controls: true
 css: ../custom.css
 ascii: true
@@ -30,6 +33,14 @@ ascii: true
 5️⃣ De l'expérimentation à la production ?
 
 6️⃣ Discussion
+
+::: notes
+On commencera par une introduction pour poser le contexte et expliquer les enjeux du recensement dans les départements et régions d'outre mer, les DROM.  
+Ensuite, on vous présentera la méthodologie que nous avons adoptée, puis les données utilisées, notamment les images satellites.  
+Ce qui nous permettra de passer ensuite aux résultats obtenus.  
+La cinquième partie portera sur la question du passage de l’expérimentation à une utilisation en production.  
+Et enfin, on conclura par une discussion plus large sur les perspectives et les limites.
+:::
 
 
 # 1️⃣ Introduction
