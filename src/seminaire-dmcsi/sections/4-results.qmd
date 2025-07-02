@@ -60,9 +60,9 @@ Dans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considér�
 
 - Carte standard **Leaflet** avec un fond **OpenStreetMap** affichant Pléiades 2023  
 
-**97611 0332** : nuages en 2022  
 **97610 0608** : méthodologie différente de floutage pour la prison  
-**97611 0237** : notre cas d’usage : détecter les changements de bâtiments en zone précaire  
+**97611 0332** : nuages en 2022  
+**97611 0330** : notre cas d’usage : détecter les changements de bâtiments en zone précaire  
 
 - [**Suivi des changements de bâtiments au niveau administratif**]{.orange} :  
   - Sélection par [**unités administratives**]{.blue2} (communes, quartiers)  

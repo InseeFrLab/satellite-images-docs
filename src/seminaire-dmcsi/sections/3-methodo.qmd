@@ -14,7 +14,6 @@ Pour détecter le bâti de façon automatique, nous nous sommes tourné vers la 
 
 ## Entraîner un modèle de segmentation
 
-- Modèle entraîné pour de la segmentation automatique [**depuis des exemples d'annotations**]{.orange}
 - [**Il faut**]{.orange} :
     - Une collection d'[**images satellites**]{.blue2} 🛰️
     - [**Des annotations**]{.blue2} 📍
@@ -22,7 +21,7 @@ Pour détecter le bâti de façon automatique, nous nous sommes tourné vers la 
 
 ::: notes
 
-- Pour notre modèle entraîné pour de la segmentation automatique [**depuis des exemples d'annotations**]{.orange}, les mosaiques d'images et les collections d'annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés, et des zones de test fixées ont été définies.
+Pour entrainer un modele il faut deux choses : des images et des annotations.
 
 - Le modèle apprend à reproduire les annotations des images pour [**généraliser**]{.orange} sur de nouvelles images 
 :::
@@ -34,20 +33,24 @@ Pour détecter le bâti de façon automatique, nous nous sommes tourné vers la 
 ## Modèle utilisé
 
 - [**Architecture du modèle**]{.orange} 🧠
-    - Base du modèle : [**SegFormer**]{.blue2}, un modèle léger et performant
-    - [**Inspirée des Transformers**]{.blue2}, utilisés dans l’IA moderne
-    - Intègre des [**mécanismes d’attention**]{.blue2} pour repérer les zones importantes
-    - Représente [**l’état de l’art**]{.blue2} en segmentation d’image
+    - [**SegFormer**]{.blue2} : un modèle léger et performant
+    - [**Transformers**]{.blue2} :[**mécanismes d’attention**]{.green2} pour prendre en compte le contexte local et global
+    - [**Décodeur**]{.blue2} : Multi Layer Perceptron
 
 - [**Adapté**]{.orange} à nos données satellites
 
 
 ::: notes
 Le modèle que nous avons sélectionné s’appuie sur une architecture appelée **SegFormer**.
+Modele de segmentation d'image entrainé par NVIDIA et opensource
+Il a l'avantage d'etre très leger et donc rapide à entrainer
+Pour notre cas d'usage, c'est le modele qui a été le plus performant.
 
-Il est basé sur une technologie appelée **Transformer**, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. En une publication, le Transformer a enterré 10 ans de recherches… et ouvert la voie à BERT, GPT, ViT et tout ce qu’on utilise aujourd’hui.
+Il est basé sur une technologie appelée **Transformer**, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. Ce n'est pas la plus répendue en vision par ordinateur.
 
-Un des atouts de cette architecture, ce sont les **mécanismes d’attention**, qui permettent au modèle de se concentrer sur les parties les plus importantes de l’image pour produire les prédictions.
+Un des atouts de cette architecture, ce sont les **mécanismes d’attention**, qui permettent au modèle de prendre en compte le contexte local et global de l’image pour produire les prédictions. 
+
+Pour le décodeur, c'est Multi Layer Perceptron classique.
 
 Enfin, nous avons **ajusté le modèle à nos données** spécifiques : des images satellites à 3 bandes, et une annotation en 17 classes correspondant à différents types de surfaces ou de bâtiments.
 :::

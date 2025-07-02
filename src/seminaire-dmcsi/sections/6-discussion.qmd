@@ -7,4 +7,3 @@
     - [**Forts besoins en calcul (GPU)**]{.blue2} ⚡  
     - [**Exigences de reproductibilité**]{.blue2} ♻️  
 - [**Résultats initiaux prometteurs**]{.orange} pour appuyer les enquêtes cartographiques  
-- [**Améliorations potentielles identifiées**]{.orange} à chaque étape de la chaîne  
