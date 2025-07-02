@@ -332,7 +332,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="../_extensions/InseeFrLab/onyxia/background.svg" data-background-size="contain" class="quarto-title-block center">
+<section id="title-slide" data-background-image="../_extensions/InseeFrLab/onyxia/background.svg" data-background-size="contain" data-notes="<p>Bonjour à tous, tout d’abord merci à nos collègues de l’IGN pour cette présentation très intéressante. C’est avec leur aide qu’à l’Insee, nous avons pu exploiter les données satellitaires. Je ne vous en dis pas plus vous allez le voir dans la suite de cette présentation. Présentation qui est sur le sujet des Images satellites pour améliorer le repérage des logements dans les départements et régions d’outre mer.</p>" class="quarto-title-block center">
   <h1 class="title">Images satellites pour améliorer le repérage des logements dans les DROM</h1>
   <p class="subtitle"></p><p><span class="orange"><strong>Raya Berova</strong></span>, <strong><span class="blue2">Thomas Faria</span></strong></p><p></p>
 
@@ -349,6 +349,23 @@
 <p>4️⃣ Résultats</p>
 <p>5️⃣ De l’expérimentation à la production ?</p>
 <p>6️⃣ Discussion</p>
+<aside class="notes">
+<p>On commencera par une introduction pour poser le contexte et expliquer les enjeux du recensement dans les départements et régions d’outre mer, les DROM.<br>
+Ensuite, on vous présentera la méthodologie que nous avons adoptée, puis les données utilisées, notamment les images satellites.<br>
+Ce qui nous permettra de passer ensuite aux résultats obtenus.<br>
+La cinquième partie portera sur la question du passage de l’expérimentation à une utilisation en production.<br>
+Et enfin, on conclura par une discussion plus large sur les perspectives et les limites.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section>
@@ -370,10 +387,9 @@
 </ul>
 <p>La <span class="orange"><strong>qualité du RIL</strong></span> est bonne en France métropolitaine ✅… …mais loin d’être fiable dans les territoires d’outre mer ⚠️</p>
 <aside class="notes">
-<p>Bonjour à tous, merci à nos collègues de l’IGN pour cette présentation très intéressante. A l’Insee, nous avons pu exploiter les données satellitaires grâce à l’IGN. Et vous allez le voir dans la suite de cette présentation sur le sujet des Images satellites pour améliorer le repérage des logements dans les départements et régions d’outre mer.</p>
-<p>Comme vous le savez bien, l’Insee doit faire le recensement tous les ans. C’est l’une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement.</p>
-<p>Afin de préparer le recensement dans les DROM, l’Insee tire un échantillon de logements à enquêter dans le RIL. Le RIL est disponible pour les communes de 10 000 habitants et plus.<br>
-Pour chaque bâtiment recensé, il existe l’information du nombre de logements dedans, son caractère habitable, son adresse et sa géolocalisation.<br>
+<p>Comme vous le savez bien, l’Insee doit faire le recensement tous les ans. C’est l’une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement. Pour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France Métropolitaine.</p>
+<p>Afin de préparer le recensement, l’Insee se sert du <span class="orange"><strong>répertoire</strong></span> des immeubles localisés pour connaître le nombre de logements disponibles dans les communes de 10 000 habitants et plus.<br>
+Pour chaque élément dans le RIL, il existe l’information du nombre de logements au sein du bâtiment, son caractère habitable, son adresse et sa géolocalisation.<br>
 Ce répertoire est utilisé à l’Insee pour constituer les bases de sondage des enquêtes de recensement.<br>
 La qualité du RIL est bonne en France métropolitaine cependant elle est bien inférieure dans les territoires d’outre mer.</p>
 <style type="text/css">
@@ -392,14 +408,14 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <h2>Recensement dans les territoires d’outre mer</h2>
 <ul>
 <li><p><span class="orange"><strong>Contexte critique</strong></span>, particulièrement à Mayotte et en Guyane</p></li>
-<li><p>Pour compléter le RIL dans les DROM : <span class="blue2"><strong>enquête cartographique</strong></span> → très <span class="orange"><strong>coûteuse</strong></span> 💰</p></li>
-<li><p>Peut-on utiliser <span class="blue2"><strong>l’imagerie satellitaire</strong></span> pour optimiser le processus de recensement dans les DROM ? 🛰️</p></li>
+<li><p>Pour compléter le RIL dans les DROM : <span class="blue2"><strong>enquête cartographique</strong></span> → très <span class="orange"><strong>lourde</strong></span></p></li>
+<li><p><span class="blue2"><strong>L’imagerie satellitaire</strong></span> pour optimiser le processus du recensement dans les DROM ? 🛰️</p></li>
 </ul>
 <aside class="notes">
-<p>En effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Le développement urbain est extrêmement rapide avec les bidonvilles rend le suivi du bâti très compliqué avec les nombreuses constructions et destructions de ces habitations précaires et instables. Les autorités, ayant besoin d’avoir les chiffres exacts de la population pour obtenir des subventions, ne sont pas satisfait des chiffres officiels produits par l’Insee : ils pointent du doigt une sous estimation.</p>
-<p>Dans les territoires d’outre mer, chaque DROM est découpé en “îlots”. Chaque année, un échantillon d’ilot est tiré au sort et chaque logement y est recensé. Cependant, il est difficile de connaître réellement le nombre de logements à recenser.</p>
-<p>Pour compléter le RIL, basé sur les permis de construire, une enquête cartographique est mise en place. C’est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, qui a pour but d’envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse et coûteuse. De plus, les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter, terrains compliqués à atteindre, aggressions…</p>
-<p>Peut-on utiliser <span class="orange"><strong>l’imagerie satellite</strong></span> pour optimiser le processus de recensement dans les DROM ? 🛰️</p>
+<p>En effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Les informations sur le bâti issu des permis de construire et des informations des mairies ne sont pas assez fournies. De plus, le développement urbain y est extrêmement rapide avec les bidonvilles, rendant le suivi du bâti très compliqué avec les nombreuses constructions et destructions des habitations précaires et instables. Les autorités, ayant besoin d’avoir les chiffres exacts de la population pour obtenir des subventions de l’Etat, ne sont pas satisfait des chiffres officiels produits par l’Insee : ils pointent du doigt une sous estimation.</p>
+<p>Dans les territoires d’outre mer, chacun des DROM est découpé en “îlots”. Chaque année, un échantillon d’ilot est tiré au sort et tous les logements y sont recensés. Cependant, il est difficile de connaître réellement le nombre de logements.</p>
+<p>Pour compléter le RIL, une enquête cartographique est mise en place. C’est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, et qui a pour but d’envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse, coûteuse et peut s’avérer dangereuse. Les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter pour la quantité d’agents envoyés sur place, terrains compliqués à atteindre, aggressions…</p>
+<p>Peut-on utiliser <span class="orange"><strong>l’imagerie satellite</strong></span> pour optimiser le processus du recensement dans les DROM ? 🛰️</p>
 <p><span class="orange"><strong>Les données satellitaires représentent</strong></span>: - une source d’information indépendante - permettent une veille territoriale continue - la méthodologie est transparente et reproductible</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -426,15 +442,12 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 </ul>
 <aside class="notes">
 <ul>
-<li>Identifier <span class="blue2"><strong>les zones prioritaires</strong></span> pour l’enquête cartographique<br>
-</li>
-<li>Détecter <span class="blue2"><strong>les évolutions du bâti</strong></span> depuis le précédent inventaire du bâti effectué<br>
-</li>
-<li>Réaliser des <span class="blue2"><strong>comparaisons temporelles</strong></span> en utilisant d’anciennes et de nouvelles images satellites du même territoire<br>
+<li>Identifier les zones avec <span class="blue2"><strong>une forte densité de bâti</strong></span>, c’est à dire <span class="blue2"><strong>les zones prioritaires</strong></span> pour l’enquête cartographique et pour lesquelles il faut envoyer le plus d’agents.</li>
+<li>Pouvoir détecter <span class="blue2"><strong>les évolutions du bâti</strong></span> de façon automatique, notamment depuis le précédent inventaire du bâti effectué<br>
 </li>
 <li>Aider l’estimation de la population dans les DROM<br>
 </li>
-<li><span class="red2"><strong>Répondre à une urgence</strong></span> : conséquences du cyclone “Chido” sur le bâti à Mayotte</li>
+<li><span class="red2"><strong>Répondre à une urgence</strong></span> : les conséquences du cyclone “Chido” sur le bâti à Mayotte</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -466,7 +479,7 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <section id="segmentation-sémantique" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Segmentation sémantique</h2>
 <ul>
-<li><span class="orange"><strong>Computer vision</strong></span><br>
+<li><span class="orange"><strong>Vision par ordinateur</strong></span><br>
 </li>
 <li><span class="blue2"><strong>Classer chaque pixel</strong></span> d’une image<br>
 </li>
@@ -480,6 +493,19 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 </figure>
 </div>
 </div>
+<aside class="notes">
+<p>Pour détecter le bâti de façon automatique, nous nous sommes tourné vers la vision par ordinateur, qui est une branche du domaine de l’intelligence artificielle. La segmentation sémantique permet de classer chaque pixel d’une image dans l’une des classes définie en amont. La segmentation semantique peut utiliser toute sorte de classe, mais voici un exemple de résultat qui nous interesse :</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="entraîner-un-modèle-de-segmentation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Entraîner un modèle de segmentation</h2>
@@ -492,6 +518,22 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 </ul></li>
 <li>Le modèle apprend à reproduire les annotations des images pour <span class="orange"><strong>généraliser</strong></span> sur de nouvelles images</li>
 </ul>
+<aside class="notes">
+<ul>
+<li><p>Pour notre modèle entraîné pour de la segmentation automatique <span class="orange"><strong>depuis des exemples d’annotations</strong></span>, les mosaiques d’images et les collections d’annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés, et des zones de test fixées ont été définies.</p></li>
+<li><p>Le modèle apprend à reproduire les annotations des images pour <span class="orange"><strong>généraliser</strong></span> sur de nouvelles images</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="de-la-segmentation-à-la-détection-de-changements" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>De la segmentation à la détection de changements</h2>
@@ -500,34 +542,20 @@ La qualité du RIL est bonne en France métropolitaine cependant elle est bien i
 <section id="modèle-utilisé" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Modèle utilisé</h2>
 <ul>
-<li><span class="orange"><strong>Architecture du modèle</strong></span>
+<li><span class="orange"><strong>Architecture du modèle</strong></span> 🧠
 <ul>
-<li>Backbone : <span class="blue2"><strong>SegFormer</strong></span> (MiT)</li>
-<li>Encodeur : Basé sur <span class="blue2"><strong>Transformer</strong></span></li>
-<li>Décodeur : MLP head léger</li>
+<li>Base du modèle : <span class="blue2"><strong>SegFormer</strong></span>, un modèle léger et performant</li>
+<li><span class="blue2"><strong>Inspirée des Transformers</strong></span>, utilisés dans l’IA moderne</li>
+<li>Intègre des <span class="blue2"><strong>mécanismes d’attention</strong></span> pour repérer les zones importantes</li>
+<li>Représente <span class="blue2"><strong>l’état de l’art</strong></span> en segmentation d’image</li>
 </ul></li>
-<li><span class="orange"><strong>Fine-tuné</strong></span> sur notre dataset</li>
+<li><span class="orange"><strong>Adapté</strong></span> à nos données satellites</li>
 </ul>
 <aside class="notes">
-<ul>
-<li><span class="orange"><strong>Architecture du modèle</strong></span>
-<ul>
-<li>Backbone : <span class="blue2"><strong>SegFormer</strong></span> (MiT)</li>
-<li>Encodeur : Basé sur <span class="blue2"><strong>Transformer</strong></span> (auto-attention efficace, pas d’encodage positionnel)<br>
-</li>
-<li>Décodeur : MLP head léger</li>
-</ul></li>
-<li><span class="orange"><strong>Pourquoi SegFormer ?</strong></span>
-<ul>
-<li>Pas de décodeurs complexes → Efficace et passe à l’échelle<br>
-</li>
-<li>Capture le <span class="blue2"><strong>contexte local et global</strong></span> → Haute précision<br>
-</li>
-<li>Sans embeddings positionnels → Meilleure généralisation des résolutions</li>
-</ul></li>
-<li><span class="orange"><strong>Fine-tuné</strong></span> sur nos données</li>
-</ul>
-<p>En parlant de données, il est temps de vous présenter ce qui nous sert pour entraîner ce modèle SegFormer</p>
+<p>Le modèle que nous avons sélectionné s’appuie sur une architecture appelée <strong>SegFormer</strong>.</p>
+<p>Il est basé sur une technologie appelée <strong>Transformer</strong>, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. En une publication, le Transformer a enterré 10 ans de recherches… et ouvert la voie à BERT, GPT, ViT et tout ce qu’on utilise aujourd’hui.</p>
+<p>Un des atouts de cette architecture, ce sont les <strong>mécanismes d’attention</strong>, qui permettent au modèle de se concentrer sur les parties les plus importantes de l’image pour produire les prédictions.</p>
+<p>Enfin, nous avons <strong>ajusté le modèle à nos données</strong> spécifiques : des images satellites à 3 bandes, et une annotation en 17 classes correspondant à différents types de surfaces ou de bâtiments.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -548,7 +576,29 @@ Pour évaluer les performances du modèle entraîné :<br>
 <p><span class="orange"><strong>IOU</strong></span> = Intersection Over Union</p>
 </div>
 
-<img data-src="../img/schemaIOU.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section></section>
+<img data-src="../img/schemaIOU.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><aside class="notes">
+<p>L’IoU, ou <em>Intersection over Union</em>, est une mesure qu’on utilise pour évaluer la qualité d’une prédiction en segmentation d’image.</p>
+<p>Concrètement, on compare deux zones :<br>
+- celle que le modèle a prédite comme appartenant à une certaine classe,<br>
+- et la zone réelle, qu’on appelle le <em>label de vérité terrain</em>.</p>
+<p>On mesure alors <strong>l’intersection</strong> entre ces deux zones – c’est la partie correctement prédite –<br>
+et on la divise par <strong>l’union</strong> des deux – c’est-à-dire l’ensemble de tout ce qui a été soit prédit, soit annoté.</p>
+<p>Un IoU de 1 signifie une correspondance parfaite.<br>
+Un IoU de 0 signifie aucune correspondance.</p>
+<p>Plus l’IoU est élevé, plus la prédiction est précise.<br>
+C’est une métrique particulièrement adaptée pour des tâches comme la nôtre, où on doit prédire la forme exacte des bâtiments ou des routes, pixel par pixel.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
 <section id="plan-2" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Plan</h1>
 <p>1️⃣ Introduction</p>
@@ -572,8 +622,6 @@ Pour évaluer les performances du modèle entraîné :<br>
 <p><strong>Pléiades</strong> :</p>
 <ul>
 <li><strong class="blue2">3</strong> bandes (<strong class="red2">R</strong><strong class="green2">G</strong><strong class="blue2">B</strong>)<br>
-</li>
-<li>4e bande : <strong class="red2">NIR</strong> (pas dans nos données)<br>
 </li>
 <li>Résolution <strong class="orange">0.5m</strong><br>
 </li>
@@ -605,6 +653,8 @@ Pour évaluer les performances du modèle entraîné :<br>
 <aside class="notes">
 <p>Il existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d’entre eux.<br>
 Les images satellites Pléiades sont un produit intéressant pour notre cas d’usage - <span class="orange"><strong>Caractéristiques</strong></span>: - <span class="orange"><strong>3</strong></span> bandes spectrales (<span class="red2"><strong>R</strong></span><span class="green2"><strong>G</strong></span><span class="blue2"><strong>B</strong></span>) 🎨 - 4e bande : <span class="red2"><strong>NIR</strong></span> (pas dans nos données) - Résolution spatial : <span class="blue2"><strong>0.5m × 0.5m</strong></span> 🔍 - <span class="blue2"><strong>Archives</strong></span> gratuites (avec accord) - Acquisition <span class="blue2"><strong>sur-demande</strong></span> et payante (<span class="green2"><strong>6-8 mois</strong></span> par département), Airbus © licence 📅</p>
+<p>Pour le cyclone Chido qui a ravagé Mayotte, un plan d’urgence a été mis en place. Nous avons pu obtenir une mosaique d’images Pléiades de Mayotte post cyclone datant du premier trimestre de 2025 gratuitement.</p>
+<p>Comme je vous disais au début, c’est grâce à l’IGN que nous avons pu mener à bien notre projet car ils nous fournissent des mosaiques d’images Pléiades. Une mosaique est une reconstitution complète d’un territoire avec des prises de vues de plusieurs dates, permettant ainsi d’avoir une couverture le moins ennuagée et la plus propre possible. Ce travail est très important pour avoir de bonnes images pour l’entraînement.</p>
 <p>Mais un autre type d’images satellites est à notre disposition : Sentinel-2. Elles sont open source et l’acquisition se fait tous les 5 jours. Cependant, leur résolution est moins précise que les images pléiades.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -636,7 +686,7 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </div>
 </div>
 <aside class="notes">
-<p>Pour les annotations, il est possible de prendre des annotations binaires : bâtiment oui ou non, ou des annotations multiclasses comme le projet Cosia présenté précédement par nos collègues de l’IGN. - C’est une <span class="orange"><strong>couverture du sol générée par l’IA</strong></span> - Basé sur les <span class="orange"><strong>photographies aériennes</strong></span> de l’IGN à une résolution <span class="blue2"><strong>20cm</strong></span> 🗺️ Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d’entraînement, malgré un possible décalage temporaire entre nos images et la productions de polygones. D’autres sources ont été utilisés comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele. Pour notre entraînement, les mosaiques d’images et les collections d’annotations de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés, et des zones de test fixées ont été définies.</p>
+<p>Pour les annotations, il est possible de prendre des annotations binaires : bâtiment oui ou non, ou des annotations multiclasses comme le projet Cosia présenté précédement. - C’est une <span class="orange"><strong>couverture du sol générée par l’IA</strong></span> - Basé sur les <span class="orange"><strong>photographies aériennes</strong></span> de l’IGN à une résolution <span class="blue2"><strong>20cm</strong></span> 🗺️ Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d’entraînement, malgré un possible décalage temporaire entre nos images et la productions de polygones. D’autres sources ont été testées comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -707,6 +757,7 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 <li><p>Questions clés : comment partager nos résultats ?</p></li>
 <li><p>L’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel</p></li>
 </ul>
+<p>Dans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considérée comme un excellent score, surtout dans des zones complexes comme les DOM où l’environnement est très hétérogène, et des écarts peuvent se créer un peu partout.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -721,12 +772,17 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </section>
 <section id="dashboard-interactive" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Dashboard Interactive 🚀</h2>
-<iframe src="https://inseefrlab.github.io/satellite-images-webapp/" width="100%" height="500" style="border:none;">
-</iframe>
+<div class="absolute" style="top: 280px; left: 150px; ">
+<p>👉 <span class="orange"><strong>Application interactive</strong></span>: <a href="https://inseefrlab.github.io/satellite-images-webapp/">Cliquez ici</a></p>
+</div>
+<!-- <iframe src="https://inseefrlab.github.io/satellite-images-webapp/"
+        width="100%"
+        height="500"
+        style="border:none;">
+</iframe> -->
 <aside class="notes">
 <ul>
-<li>Nous avons décidé de créer une petite webapp… mais <strong>nous sommes data scientists</strong>, soyez indulgents 😉<br>
-</li>
+<li>Nous avons décidé de créer une petite webapp</li>
 <li>Nous avons calculé les surfaces des bâtiments à partir de nos prédictions : cela nous donne une valeur binaire pour chaque pixel, agrégée par niveau administratif</li>
 </ul>
 <p>⚠️ <strong>Avertissement :</strong> ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.</p>
@@ -864,10 +920,10 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </li>
 <li>Application web pour la visualisation<br>
 </li>
-<li>Outils d’analyse statistique<br>
-</li>
+<li>Outils d’analyse statistique</li>
 </ul></li>
 </ol>
+<p>Merci à Onyxia d’avoir rendu ce projet possible en mode DevOps</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -915,19 +971,6 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </li>
 <li><span class="orange"><strong>Améliorations potentielles identifiées</strong></span> à chaque étape de la chaîne</li>
 </ul>
-<aside class="notes">
-<p>Merci à Onyxia d’avoir rendu ce projet possible en mode DevOps</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section id="merci-pour-votre-attention" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Merci pour votre attention</h1>
