@@ -40,7 +40,7 @@ Pour entrainer un modele il faut deux choses : des images et des annotations.
     - [**Transformers**]{.blue2} : [**mécanismes d’attention**]{.green2} pour prendre en compte le contexte local et global
     - [**Décodeur**]{.blue2} : Multi Layer Perceptron
 
-- [**Adapté**]{.orange} à nos données satellites
+- [**Adapté**]{.orange} pour nos données satellites
 
 
 ::: notes
