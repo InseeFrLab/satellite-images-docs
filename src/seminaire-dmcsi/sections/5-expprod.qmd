@@ -11,6 +11,7 @@
 ![](../img/pipeline_donnees_sat.png){#fig-chain2 width=100% height=100%}
 
 ::: {.notes}
+Voici la pipeline globale. Les étapes 2 et 3 ne sont faites que lors de l'entrainement du modele. Ayant un entraînement qualitatif à notre disposition, pour prédire de nouvelles images, nous passons directement de l'étape 1 à l'étape 4. Un exemple très parlant et récent : le cyclone chido en une nuit -> pred
 
 1. Standardisation de l'acquisition des données — actuellement rudimentaire. Besoin d'images sans nuages, datées précisément, avec une méthodologie cohérente (challenge avec Pléiades).  
 2. Phase d'entraînement : suppression des nuages, équilibrage du jeu de données, annotation, découpage.  
@@ -26,6 +27,12 @@
 ![](../img/app-architecture.png){fig-align="center" width=100%}
 
 ::: {.notes}
+Merci à Onyxia d'avoir rendu ce projet possible en mode DevOps
+
+Un point notable est que nous utilisons un Geoserver pour permettre un affichage dynamique de nos images satellites sur la webapp, rendu possible grace aux calculs effectués en interne pour fluidifier l'affichage de zones spécifiques.
+
+Cette architecture étant très technique, je ne vais pas m'attarder longtemps dessus, on pourra y revenir s'il y a des questions. Même si ça semble être la force de ce projet, c'est également une grande limite.
+
 1. [**Acquisition des données**]{.orange} :  
     - Imagerie Pléiades fournie par un prestataire national  
     - Stockage sur infrastructure cloud  
@@ -50,5 +57,4 @@
     - Application web pour la visualisation  
     - Outils d’analyse statistique  
 
-Merci à Onyxia d'avoir rendu ce projet possible en mode DevOps
 :::

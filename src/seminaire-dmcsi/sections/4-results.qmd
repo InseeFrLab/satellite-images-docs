@@ -30,13 +30,13 @@
 |IOU "bâtiment"      | 0.84  | 0.76 |
 
 ::: {.notes}
+Dans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considérée comme un excellent score, surtout dans des zones complexes comme les DOM où l’environnement est très hétérogène, et des écarts peuvent se créer un peu partout.
+
 - À ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances
 
 - Questions clés : comment partager nos résultats ?
 
 - L’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel
-
-Dans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considérée comme un excellent score, surtout dans des zones complexes comme les DOM où l’environnement est très hétérogène, et des écarts peuvent se créer un peu partout.
 :::
 
 ## Dashboard Interactive 🚀
@@ -52,6 +52,7 @@ Dans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considér�
 </iframe> -->
 
 ::: {.notes}
+Transition : Notre entraînement a plutot bien marché, notre application web permet une bonne visualisation de nos prédictions... on peut dire que nous avons mené notre petite expérience à bien. Serait il temps de passer de l'experience à la "pseudo" production ?
 
 - Nous avons décidé de créer une petite webapp 
 - Nous avons calculé les surfaces des bâtiments à partir de nos prédictions : cela nous donne une valeur binaire pour chaque pixel, agrégée par niveau administratif  

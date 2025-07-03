@@ -9,7 +9,8 @@
 </div>
 
 ::: notes
-Pour détecter le bâti de façon automatique, nous nous sommes tourné vers la vision par ordinateur, qui est une branche du domaine de l'intelligence artificielle. La segmentation sémantique permet de classer chaque pixel d'une image dans l'une des classes définie en amont. La segmentation semantique peut utiliser toute sorte de classe, mais voici un exemple de résultat qui nous interesse :
+Pour détecter le bâti de façon automatique, nous nous sommes tourné vers la vision par ordinateur, qui est une branche du domaine de l'intelligence artificielle. La segmentation sémantique permet de classer chaque pixel d'une image dans l'une des classes définie en amont. La segmentation semantique peut utiliser toute sorte de classe, mais voici un exemple de résultat qui nous interesse : ex.
+J'AIMERAI PRECISER QU'avec uniquement de l'imagerie satellitaire, nous ne pourrons pas décider du caractère habitable ou non d'un bâtiment ni du nombre de logements à l'intérieur. Par conséquent, nous ne pouvons pas remplacer l'enquête cartographique, l'idée est d'aider les enquêteurs en mettant en valeur les zones avec le plus de bâtiments à visiter. 
 :::
 
 ## Entraîner un modèle de segmentation
@@ -22,6 +23,8 @@ Pour détecter le bâti de façon automatique, nous nous sommes tourné vers la 
 ::: notes
 
 Pour entrainer un modele il faut deux choses : des images et des annotations.
+
+- Une annotation est "la vérité attendue", comme par exemple l'image qui a été présentée à la slide précédente
 
 - Le modèle apprend à reproduire les annotations des images pour [**généraliser**]{.orange} sur de nouvelles images 
 :::
@@ -48,11 +51,9 @@ Pour notre cas d'usage, c'est le modele qui a été le plus performant.
 
 Il est basé sur une technologie appelée **Transformer**, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. Ce n'est pas la plus répendue en vision par ordinateur.
 
-Un des atouts de cette architecture, ce sont les **mécanismes d’attention**, qui permettent au modèle de prendre en compte le contexte local et global de l’image pour produire les prédictions. 
+Un des atouts de cette architecture, ce sont les **mécanismes d’attention**, qui permettent au modèle de prendre en compte le contexte local et global de l’image. Pour le décodeur, c'est Multi Layer Perceptron classique.
 
-Pour le décodeur, c'est Multi Layer Perceptron classique.
-
-Enfin, nous avons **ajusté le modèle à nos données** spécifiques : des images satellites à 3 bandes, et une annotation en 17 classes correspondant à différents types de surfaces ou de bâtiments.
+Enfin, nous avons **ajusté le modèle à nos données** spécifiques : des images satellites et des annotations.
 :::
 
 
@@ -66,6 +67,8 @@ Pour évaluer les performances du modèle entraîné :
 ![](../img/schemaIOU.png){width=80% fig-align="center"}
 
 ::: notes
+Transition pour la suite : pour faire un entraînement, il ne faut plus que des données...
+
 L'IoU, ou *Intersection over Union*, est une mesure qu'on utilise pour évaluer la qualité d’une prédiction en segmentation d’image.
 
 Concrètement, on compare deux zones :  

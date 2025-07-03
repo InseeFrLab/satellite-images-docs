@@ -80,5 +80,5 @@ Pour les annotations, il est possible de prendre des annotations binaires : bât
 Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d'entraînement, malgré un possible décalage temporaire entre nos images et la productions de polygones.
 D'autres sources ont été testées comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele.
 
-les mosaiques d'images et les collections d'annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés pour entrainer notre modele, et des zones de test fixées ont été définies. Passons aux résultats.
+les mosaiques d'images et les collections d'annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés pour entrainer notre modele, et des zones de test fixées ont été définies. Voyons voir les résultats produits par notre fameux entraînement.
 :::
