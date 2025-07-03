@@ -48,7 +48,7 @@ Peut-on utiliser [**l'imagerie satellite**]{.orange} pour optimiser le processus
 ## Nos cas d'usage
 
 -   Identifier les zones avec [**une forte densité de bâti**]{.orange} 🏘️\
--   Détecter les [**évolutions du bâti**]{.orange} de façon automatique\
+-   Détecter les [**évolutions du bâti**]{.blue2} de façon automatique\
 -   Aider [**l'estimation de la population**]{.orange} dans les DROM 👥\
 -   [**Répondre à une urgence**]{.red2} 🚨 : cyclone "Chido" à Mayotte
 
