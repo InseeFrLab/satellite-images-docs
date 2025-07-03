@@ -2,7 +2,7 @@
 
 - Mission principale de l'Insee : le [**recensement**]{.orange} de la population
 - Chaque DROM découpé en [**îlots**]{.orange}
-- [**Nombre de logements**]{orange} par îlots ?
+- [**Nombre de logements**]{.orange} par îlots ?
 
 ::: notes
 Comme vous le savez bien, l'Insee doit faire le recensement tous les ans. C'est l'une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement. Pour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France Métropolitaine.
