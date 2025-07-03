@@ -6,7 +6,7 @@
 - Information du [**nombre de logements**]{.orange} ?
 
 ::: notes
-Comme vous le savez bien, l'Insee doit faire le recensement tous les ans. C'est l'une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement. Pour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France hexagonale.
+Comme vous le savez bien, l'Insee doit faire le recensement tous les ans. C'est l'une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement.
 
 Tous les ans, 8% des logements des communes de +10k hab sont recensés et un cinquième des communes de -10k hab. Les communes de -10k hab sont recensés en entier.
 Pour tirer ces échantillons, il faut avoir l'information du nombre de logements dans les commune de + de 10k hab
@@ -29,6 +29,8 @@ Afin de préparer le recensement, l'Insee se sert du [**répertoire**]{.orange} 
 Pour chaque élément dans le RIL, il existe l'information du nombre de logements au sein du bâtiment, son caractère habitable, son adresse et sa géolocalisation.\
 Ce répertoire est utilisé à l'Insee pour constituer les bases de sondage des enquêtes de recensement.\
 La qualité du RIL est bonne en France hexagonale cependant elle est bien inférieure dans les territoires d'outre mer.
+
+Pour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France hexagonale.
 
 Dans les territoires d'outre mer, chacun des DROM est découpé en "îlots". Chaque année, dans les communes de +10k hab, un cinquième des îlots sont tirés, et 40% des logements y seront recensés. Cependant, il est difficile de connaître réellement le nombre de logements à recenser.
 :::
