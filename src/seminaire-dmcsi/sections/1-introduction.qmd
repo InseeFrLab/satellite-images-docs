@@ -1,7 +1,7 @@
 ## Contexte
 
 - Mission principale de l'Insee : [**le recensement de la population**]{.orange}
-- Les DROM découpés en [**îlots**]{.blue2}
+- Chaque DROM découpé en [**îlots**]{.blue2}
 - Nombre de logements par îlots ?
 
 ::: notes
