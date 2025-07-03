@@ -5,5 +5,4 @@
 - [**Environnement technique complexe**]{.orange} dû à :  
     - [**Volumes de données importants**]{.blue2} 🗃️  
     - [**Forts besoins en calcul (GPU)**]{.blue2} ⚡  
-    - [**Exigences de reproductibilité**]{.blue2} ♻️  
-- [**Résultats initiaux prometteurs**]{.orange} pour appuyer les enquêtes cartographiques  
+- [**Résultats initiaux prometteurs**]{.orange} pour accompagner les enquêtes cartographiques  
