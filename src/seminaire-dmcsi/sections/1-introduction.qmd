@@ -1,8 +1,8 @@
 ## Contexte
 
-- Mission principale de l'Insee : [**le recensement de la population**]{.orange}
-- Chaque DROM découpé en [**îlots**]{.blue2}
-- Nombre de logements par îlots ?
+- Mission principale de l'Insee : le [**recensement**]{.orange} de la population
+- Chaque DROM découpé en [**îlots**]{.orange}
+- [**Nombre de logements**]{orange} par îlots ?
 
 ::: notes
 Comme vous le savez bien, l'Insee doit faire le recensement tous les ans. C'est l'une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement. Pour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France Métropolitaine.
@@ -11,11 +11,11 @@ Dans les territoires d'outre mer, chacun des DROM est découpé en "îlots". Cha
 :::
 
 ## 
--   [**RIL**]{.orange} 
+-  Le [**RIL**]{.orange} 
     -   [**Inventaire du bâti**]{.blue2}
-    -   Communes de [**+10 000 habitants**]{.orange}
+    -   Communes de [**+10 000 habitants**]{.blue2}
     -   Basé sur les [**permis de construire**]{.blue2} et informations locales\
-    -   [**Bases de sondage**]{.orange} des enquêtes de recensement
+    -   [**Bases de sondage**]{.blue2} des enquêtes de recensement
 
 La [**qualité du RIL**]{.orange} est bonne en France hexagonale ✅... 
 mais loin d'être fiable dans les DROM ⚠️
@@ -33,7 +33,7 @@ La qualité du RIL est bonne en France hexagonale cependant elle est bien infér
 
 -   Pour compléter le RIL dans les DROM : [**enquête cartographique**]{.blue2} → très [**lourde**]{.orange}
 
--   [**L'imagerie satellitaire**]{.blue2} pour optimiser le processus du recensement dans les DROM ? 🛰️
+-   [**L'imagerie satellitaire**]{.orange} pour optimiser le processus du recensement dans les DROM ? 🛰️
 
 ::: notes
 En effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Les informations sur le bâti issu des permis de construire et des informations des mairies ne sont pas assez fournies. De plus, le développement urbain y est extrêmement rapide avec les bidonvilles, rendant le suivi du bâti très compliqué avec les nombreuses constructions et destructions des habitations précaires et instables.
@@ -47,9 +47,9 @@ Peut-on utiliser [**l'imagerie satellite**]{.orange} pour optimiser le processus
 
 ## Nos cas d'usage
 
--   Identifier les zones avec [**une forte densité de bâti**]{.blue2} 🏘️\
+-   Identifier les zones avec [**une forte densité de bâti**]{.orange} 🏘️\
 -   Détecter les [**évolutions du bâti**]{.orange} de façon automatique\
--   Aider [**l'estimation de la population**]{.blue2} dans les DROM 👥\
+-   Aider [**l'estimation de la population**]{.orange} dans les DROM 👥\
 -   [**Répondre à une urgence**]{.red2} 🚨 : cyclone "Chido" à Mayotte
 
 ::: notes
