@@ -1,0 +1,9 @@
+1. Segmentation sémantique (def, méthode choisie (CV pour seg sem auto), historique IA (ancien to new model SAM))
+2. Données **Raya**
+    2.1 Images satellites (def, produits, acquisition/livraison (partenariat IGN a promouvoir))
+    2.2 Annotations (nerf de la guerre) : on a fait tout automatique, dire ce que ca coute pour belles annot. RIL (Insee), BDTOPO (better), finally 
+
+3. Evaluation **Raya**
+IOU, Loss, zone de test manuel (calculer la taille des zones de test)
+
+inférence (parler moyenne mobile) -> mise à dispo d'une API
