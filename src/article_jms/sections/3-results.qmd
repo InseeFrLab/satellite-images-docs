@@ -1,6 +1,16 @@
-1. Metriques et images **Raya**
-2. Diffusion
-    2.1 Webapp : pour enqueteurs
-    2.2 Fichiers parquet : pour statisticiens
+## Evaluation des performances <!-- Raya -->
 
-IV - Cas d'usage (DMTR)
+Metriques et images
+
+inférence à grande échelle et robustesse des résultats (inférence avec fenetre mouvante)
+parler des ressources computationnelles requises
+
+## Mise à disposition pour les statisticiens <!-- Thomas -->
+
+### Une application interactive
+
+Pour les enquêteurs
+
+### Vers de nouveaux indicateurs statistiques ?
+
+Fichiers parquet d'évolution de bâti
