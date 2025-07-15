@@ -57,8 +57,6 @@ format:
 
 # Introduction {.unnumbered}
 
-blabla
-
 {{< include sections/1-introduction.qmd >}}
 
 {{< pagebreak >}}
@@ -69,7 +67,7 @@ blabla
 
 {{< pagebreak >}}
 
-# Résultats et inférence
+# Résultats
 
 {{< include sections/3-results.qmd >}}
 
@@ -80,7 +78,3 @@ blabla
 {{< include sections/4-use_case.qmd >}}
 
 {{< pagebreak >}}
-
-# Pistes et évolutions
-
-{{< include sections/5-pistes-evolutions_discussion.qmd >}}
