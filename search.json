@@ -1,115 +1,381 @@
 [
   {
-    "objectID": "src/seminaire-dmcsi/index.html#contexte",
-    "href": "src/seminaire-dmcsi/index.html#contexte",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Contexte",
-    "text": "Contexte\n\nMission principale de l’Insee → le recensement de la population :\n\nCommunes ≥ 10 000 hab : 8% /an\nCommunes &lt; 10 000 hab : 100% /5 ans\n\nInformation du nombre de logements ?\n\n\nComme vous le savez bien, l’Insee doit faire le recensement tous les ans. C’est l’une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement.\nTous les ans, 8% des logements des communes de +10k hab sont recensés et un cinquième des communes de -10k hab. Les communes de -10k hab sont recensés en entier. Pour tirer ces échantillons, il faut avoir l’information du nombre de logements dans les commune de + de 10k hab"
+    "objectID": "src/seminaire-dirag/index.html#origine-du-projet",
+    "href": "src/seminaire-dirag/index.html#origine-du-projet",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Origine du projet",
+    "text": "Origine du projet\n\nDans le cadre du stage de Quentin Chabennet en 2022, participation au Challenge Data “Land cover predictive modeling from satellite images”\nSSM Agriculture: travail avec le Centre d’études spatiales de la biosphère (Cesbio). Comparaison de la carte d’occupation du sol issue de l’enquête Teruti avec une carte construite avec des données de télédétection\nEn Guyane, fonds de carte issus de données Pléiades utilisés pour la collecte\nDiscussion sur la possibilité d’utiliser de l’imagerie satellite pour faciliter l’organisation de l’enquête cartographique en Guyane et à Mayotte"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#répertoire-des-immeubles-localisés",
-    "href": "src/seminaire-dmcsi/index.html#répertoire-des-immeubles-localisés",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Répertoire des Immeubles Localisés",
-    "text": "Répertoire des Immeubles Localisés\n\nLe RIL :\n\nInventaire du bâti\nCommunes de +10 000 habitants\nPermis de construire et informations locales\n\nBases de sondage des enquêtes de recensement\n\n\nLa qualité du RIL est bonne en France hexagonale ✅… mais loin d’être fiable dans les DROM ⚠️\n→ Autre méthode : découpage en îlots\n\nAfin de préparer le recensement, l’Insee se sert du répertoire des immeubles localisés pour connaître le nombre de logements disponibles dans les communes de 10 000 habitants et plus.\nPour chaque élément dans le RIL, il existe l’information du nombre de logements au sein du bâtiment, son caractère habitable, son adresse et sa géolocalisation.\nCe répertoire est utilisé à l’Insee pour constituer les bases de sondage des enquêtes de recensement.\nLa qualité du RIL est bonne en France hexagonale cependant elle est bien inférieure dans les territoires d’outre mer.\nPour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France hexagonale.\nDans les territoires d’outre mer, chacun des DROM est découpé en “îlots”. Chaque année, dans les communes de +10k hab, un cinquième des îlots sont tirés, et 40% des logements y seront recensés. Cependant, il est difficile de connaître réellement le nombre de logements à recenser."
+    "objectID": "src/seminaire-dirag/index.html#une-source-de-données-à-fort-potentiel",
+    "href": "src/seminaire-dirag/index.html#une-source-de-données-à-fort-potentiel",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Une source de données à fort potentiel",
+    "text": "Une source de données à fort potentiel\n\nEn théorie, observation de tout le territoire quasiment en temps réel\nSentinel-2 : données haute résolution en accès libre à haute fréquence temporelle. Un même territoire est couvert environ tous les 5 jours\nUne grande communauté utilise ces données, ce qui donne lieu à la publication de contenu open-source (détection de nuages, etc.)"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#recensement-dans-les-territoires-doutre-mer",
-    "href": "src/seminaire-dmcsi/index.html#recensement-dans-les-territoires-doutre-mer",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Recensement dans les territoires d’outre mer",
-    "text": "Recensement dans les territoires d’outre mer\n\nContexte critique : Mayotte et Guyane\nPour compléter le RIL dans les DROM : enquête cartographique → très lourde\nL’imagerie satellitaire pour optimiser le processus du recensement dans les DROM ? 🛰️\n\n\nEn effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Les informations sur le bâti issu des permis de construire et des informations des mairies ne sont pas assez fournies. De plus, le développement urbain y est extrêmement rapide avec les bidonvilles, rendant le suivi du bâti très compliqué avec les nombreuses constructions et destructions des habitations précaires et instables.\nPour compléter le RIL, une enquête cartographique est mise en place. C’est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, et qui a pour but d’envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse, coûteuse et peut s’avérer dangereuse. Les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter pour la quantité d’agents envoyés sur place, terrains compliqués à atteindre, aggressions…\nPeut-on utiliser l’imagerie satellite pour optimiser le processus du recensement dans les DROM ? 🛰️\nLes données satellitaires représentent: - une source d’information indépendante - permettent une veille territoriale continue - la méthodologie est transparente et reproductible"
+    "objectID": "src/seminaire-dirag/index.html#une-source-de-données-à-fort-potentiel-1",
+    "href": "src/seminaire-dirag/index.html#une-source-de-données-à-fort-potentiel-1",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Une source de données à fort potentiel",
+    "text": "Une source de données à fort potentiel\n\nPléiades : données très haute résolution. Archives disponibles gratuitement pour l’Insee, et possibilité de faire des commandes (tasking), gratuites sous un certain quota"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#nos-cas-dusage",
-    "href": "src/seminaire-dmcsi/index.html#nos-cas-dusage",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Nos cas d’usage",
-    "text": "Nos cas d’usage\n\nIdentifier les zones avec une forte densité de bâti 🏘️\n\nDétecter les évolutions du bâti de façon automatique\n\nAider l’estimation de la population dans les DROM 👥\n\nRépondre à une urgence 🚨 : cyclone “Chido” à Mayotte\n\n\n\nIdentifier les zones avec une forte densité de bâti, c’est à dire les zones prioritaires pour l’enquête cartographique et pour lesquelles il faut envoyer le plus d’agents.\nPouvoir détecter les évolutions du bâti de façon automatique, notamment depuis le précédent inventaire du bâti effectué\n\nAider l’estimation de la population dans les DROM\n\nRépondre à une urgence : les conséquences du cyclone “Chido” sur le bâti à Mayotte\n\n-&gt; On va maintenant se pencher sur la méthodologie utilisée pour répondre à ces besoins."
+    "objectID": "src/seminaire-dirag/index.html#utilisation-pour-la-statistique-publique",
+    "href": "src/seminaire-dirag/index.html#utilisation-pour-la-statistique-publique",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Utilisation pour la statistique publique",
+    "text": "Utilisation pour la statistique publique\n\nMémorandum de Varsovie adopté par le Comité du Système statistique européen, pour encourager l’utilisation des données satellites pour l’élaboration de statistiques publiques\nUtilisation en complément des sources traditionnelles pour améliorer la connaissance de l’Insee sur le bâti :\n\nEn particulier dans les DROM, facilitation de l’organisation des enquêtes cartographiques\nCartographie du bâti à un instant précis\nEtudes ponctuelles (consommation d’espace)"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#segmentation-sémantique",
-    "href": "src/seminaire-dmcsi/index.html#segmentation-sémantique",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "objectID": "src/seminaire-dirag/index.html#utilisation-pour-la-statistique-publique-1",
+    "href": "src/seminaire-dirag/index.html#utilisation-pour-la-statistique-publique-1",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Utilisation pour la statistique publique",
+    "text": "Utilisation pour la statistique publique\n\nPossibilité d’aller jusqu’à contribuer à des estimations de population ?\nNombreux acteurs intéressés : DMS (DMRG), DMTR, directions Antilles-Guyane et La Réunion-Mayotte"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#début-des-travaux",
+    "href": "src/seminaire-dirag/index.html#début-des-travaux",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Début des travaux",
+    "text": "Début des travaux\n\nDétection automatique de changements (apparitions, disparitions) sur le bâti dans les DROM (Mayotte)\nAppui pour l’organisation des enquêtes cartographiques :\n\nOn sélectionne les îlots concernés\nOn récupère des données satellites couvrant ces îlots à la date de la précédente enquête cartographique et des données fraîches\nA l’aide de la méthode développée, on repère les ilots avec beaucoup de nouveaux bâtiments, etc."
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#segmentation-sémantique",
+    "href": "src/seminaire-dirag/index.html#segmentation-sémantique",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
     "section": "Segmentation sémantique",
-    "text": "Segmentation sémantique\n\nVision par ordinateur\n\nClasser chaque pixel d’une image\n\nPour nos besoins : connaître les pixels de catégorie “bâtie”\n\n\n\n\n\nExemple de segmentation “bâtiment”\n\n\n\n\nPour détecter le bâti de façon automatique, nous nous sommes tourné vers la vision par ordinateur, qui est une branche du domaine de l’intelligence artificielle. La segmentation sémantique permet de classer chaque pixel d’une image dans l’une des classes définie en amont. La segmentation semantique peut utiliser toute sorte de classe, mais voici un exemple de résultat qui nous interesse : ex. J’AIMERAI PRECISER QU’avec uniquement de l’imagerie satellitaire, nous ne pourrons pas décider du caractère habitable ou non d’un bâtiment ni du nombre de logements à l’intérieur. Par conséquent, nous ne pouvons pas remplacer l’enquête cartographique, l’idée est d’aider les enquêteurs en mettant en valeur les zones avec le plus de bâtiments à visiter."
+    "text": "Segmentation sémantique\n\nPleiades © CNES_2022, Distribution AIRBUS DS"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#entraîner-un-modèle-de-segmentation",
-    "href": "src/seminaire-dmcsi/index.html#entraîner-un-modèle-de-segmentation",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Entraîner un modèle de segmentation",
-    "text": "Entraîner un modèle de segmentation\n\nIl faut :\n\nUne collection d’images satellites 🛰️\nDes annotations 📍\n\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images\n\n\nPour entrainer un modele il faut deux choses : des images et des annotations.\n\nUne annotation est “la vérité attendue”, comme par exemple l’image qui a été présentée à la slide précédente\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images"
+    "objectID": "src/seminaire-dirag/index.html#entrainement-dun-modèle-de-segmentation",
+    "href": "src/seminaire-dirag/index.html#entrainement-dun-modèle-de-segmentation",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Entrainement d’un modèle de segmentation",
+    "text": "Entrainement d’un modèle de segmentation\n\nOn entraîne un modèle à segmenter automatiquement à partir d’exemples annotés. Pour cela il faut :\n\nCollecter des images satellites\nProduire les annotations de ces images (emplacement des bâtiments)\n\nOn apprend au modèle à reproduire les annotations en partant des images. On espère qu’il pourra généraliser à d’autres images"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#de-la-segmentation-à-la-détection-de-changements",
-    "href": "src/seminaire-dmcsi/index.html#de-la-segmentation-à-la-détection-de-changements",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "De la segmentation à la détection de changements",
-    "text": "De la segmentation à la détection de changements"
+    "objectID": "src/seminaire-dirag/index.html#de-segmentation-à-détection-de-changements",
+    "href": "src/seminaire-dirag/index.html#de-segmentation-à-détection-de-changements",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "De segmentation à détection de changements",
+    "text": "De segmentation à détection de changements"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#modèle-utilisé",
-    "href": "src/seminaire-dmcsi/index.html#modèle-utilisé",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Modèle utilisé",
-    "text": "Modèle utilisé\n\nArchitecture du modèle 🧠\n\nSegFormer : un modèle léger et performant\nTransformers : mécanismes d’attention pour prendre en compte le contexte local et global\nDécodeur : Multi Layer Perceptron\n\nAdapté pour nos données satellites\n\n\nLe modèle que nous avons sélectionné s’appuie sur une architecture appelée SegFormer. Modele de segmentation d’image entrainé par NVIDIA et opensource Il a l’avantage d’etre très leger et donc rapide à entrainer Pour notre cas d’usage, c’est le modele qui a été le plus performant.\nIl est basé sur une technologie appelée Transformer, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. Ce n’est pas la plus répendue en vision par ordinateur.\nUn des atouts de cette architecture, ce sont les mécanismes d’attention, qui permettent au modèle de prendre en compte le contexte local et global de l’image. Pour le décodeur, c’est Multi Layer Perceptron classique.\nEnfin, nous avons ajusté le modèle à nos données spécifiques : des images satellites et des annotations."
+    "objectID": "src/seminaire-dirag/index.html#quest-ce-quune-image",
+    "href": "src/seminaire-dirag/index.html#quest-ce-quune-image",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Qu’est-ce qu’une image ?",
+    "text": "Qu’est-ce qu’une image ?\nUne image en couleurs concatène plusieurs tableaux de chiffres, un tableau pour chaque couleur Rouge (R), Vert (G), Bleu (B) :"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#évaluation",
-    "href": "src/seminaire-dmcsi/index.html#évaluation",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Évaluation",
-    "text": "Évaluation\nPour évaluer les performances du modèle entraîné :\n\n\nIOU = Intersection Over Union\n\n\n\nTransition pour la suite : pour faire un entraînement, il ne faut plus que des données…\nL’IoU, ou Intersection over Union, est une mesure qu’on utilise pour évaluer la qualité d’une prédiction en segmentation d’image.\nConcrètement, on compare deux zones :\n- celle que le modèle a prédite comme appartenant à une certaine classe,\n- et la zone réelle, qu’on appelle le label de vérité terrain.\nOn mesure alors l’intersection entre ces deux zones – c’est la partie correctement prédite –\net on la divise par l’union des deux – c’est-à-dire l’ensemble de tout ce qui a été soit prédit, soit annoté.\nUn IoU de 1 signifie une correspondance parfaite.\nUn IoU de 0 signifie aucune correspondance.\nPlus l’IoU est élevé, plus la prédiction est précise.\nC’est une métrique particulièrement adaptée pour des tâches comme la nôtre, où on doit prédire la forme exacte des bâtiments ou des routes, pixel par pixel."
+    "objectID": "src/seminaire-dirag/index.html#une-image-satellite",
+    "href": "src/seminaire-dirag/index.html#une-image-satellite",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Une image satellite",
+    "text": "Une image satellite\n\nUne image satellite peut avoir d’autres couches (ou bandes) que les RGB : infrarouge par exemple\nLes images satellites contiennent des informations géographiques → chaque pixel a des coordonnées dans l’espace"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#pléiades-vs-sentinel-2",
-    "href": "src/seminaire-dmcsi/index.html#pléiades-vs-sentinel-2",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Pléiades vs Sentinel-2 🛰️",
-    "text": "Pléiades vs Sentinel-2 🛰️\n\n\n\nPléiades :\n\n3 bandes (RGB)\n\nRésolution 0.5m\n\nArchives gratuites\n\nAcquisition sur-demande payante\n\n\n\n\n\n Mamoudzou, Mayotte 2024\n\n\n\nSentinel2 :\n\n13 bandes\n\nRésolution 10m, 20m ou 60m (en fonction de la bande)\n\nAcquisition tous les 5j\n\nGratuit\n\n\n\n\n\nIl existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d’entre eux.\nLes images satellites Pléiades sont un produit intéressant pour notre cas d’usage - Caractéristiques: - 3 bandes spectrales (RGB) 🎨 - 4e bande : NIR (pas dans nos données) - Résolution spatial : 0.5m × 0.5m 🔍 - Archives gratuites (avec accord) - Acquisition sur-demande et payante (6-8 mois par département), Airbus © licence 📅\nPour le cyclone Chido qui a ravagé Mayotte, un plan d’urgence a été mis en place. Nous avons pu obtenir une mosaique d’images Pléiades de Mayotte post cyclone datant du premier trimestre de 2025 gratuitement.\nComme je vous disais au début, c’est grâce à l’IGN que nous avons pu mener à bien notre projet car ils nous fournissent des mosaiques d’images Pléiades. Une mosaique est une reconstitution complète d’un territoire avec des prises de vues de plusieurs dates, permettant ainsi d’avoir une couverture le moins ennuagée et la plus propre possible. Ce travail est très important pour avoir de bonnes images pour l’entraînement.\nMais un autre type d’images satellites est à notre disposition : Sentinel-2. Elles sont open source et l’acquisition se fait tous les 5 jours. Cependant, leur résolution est moins précise que les images pléiades."
+    "objectID": "src/seminaire-dirag/index.html#caractéristiques-dune-image-satellite",
+    "href": "src/seminaire-dirag/index.html#caractéristiques-dune-image-satellite",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Caractéristiques d’une image satellite",
+    "text": "Caractéristiques d’une image satellite\nPlusieurs caractéristiques existent pour une image satellite :\n\nLa résolution spatiale\nLa fréquence d’acquisition\nLa résolution spectrale\nLa couverture géographique\n\nLa fréquence d’acquisition et la couverture géographique nous intéressent tout particulièrement ici !"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#annotations-cosia",
-    "href": "src/seminaire-dmcsi/index.html#annotations-cosia",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Annotations : COSIA",
-    "text": "Annotations : COSIA\n\nProjet Cosia par IGN 👏\nUtilisé pour annoter nos données d’entraînement\n\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Légende COSIA\n\n\n\nPour les annotations, il est possible de prendre des annotations binaires : bâtiment oui ou non, ou des annotations multiclasses comme le projet Cosia présenté précédement. - C’est une couverture du sol générée par l’IA - Basé sur les photographies aériennes de l’IGN à une résolution 20cm 🗺️ Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d’entraînement, malgré un possible décalage temporaire entre nos images et la productions de polygones. D’autres sources ont été testées comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele.\nles mosaiques d’images et les collections d’annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés pour entrainer notre modele, et des zones de test fixées ont été définies. Voyons voir les résultats produits par notre fameux entraînement."
+    "objectID": "src/seminaire-dirag/index.html#images-satellite-à-notre-disposition",
+    "href": "src/seminaire-dirag/index.html#images-satellite-à-notre-disposition",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Images satellite à notre disposition",
+    "text": "Images satellite à notre disposition\n\nImages très haute résolution : Pléiades (Airbus)\nImages haute résolution : Sentinel2"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#zone-de-test-à-mayotte",
-    "href": "src/seminaire-dmcsi/index.html#zone-de-test-à-mayotte",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Zone de test à Mayotte",
-    "text": "Zone de test à Mayotte\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Prédictions 2023\n\n\n Légende COSIA\n\n\n\n\n\n\nTrain\nTest\n\n\n\n\nIOU moyenne ∀classe\n0.81\n0.78\n\n\nIOU “bâtiment”\n0.84\n0.76\n\n\n\n\nDans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considérée comme un excellent score, surtout dans des zones complexes comme les DOM où l’environnement est très hétérogène, et des écarts peuvent se créer un peu partout.\n\nÀ ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances\nQuestions clés : comment partager nos résultats ?\nL’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel"
+    "objectID": "src/seminaire-dirag/index.html#images-pléiades",
+    "href": "src/seminaire-dirag/index.html#images-pléiades",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Images Pléiades",
+    "text": "Images Pléiades\n\nFréquence d’acquisition :\n\nArchives gratuites\nPayant sur demande (1,80€/km²): 6 à 8 mois pour avoir un département\n\nRésolution spectrale : 3 bandes (RGB)\nRésolution spatiale : un pixel = \\(0.5m \\times 0.5m\\)\nTaille d’une image : \\(2000 \\times 2000\\) pixels = 1km²"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#dashboard-interactive",
-    "href": "src/seminaire-dmcsi/index.html#dashboard-interactive",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Dashboard Interactive 🚀",
-    "text": "Dashboard Interactive 🚀\n\n👉 Application interactive: Cliquez ici\n\n\n\nTransition : Notre entraînement a plutot bien marché, notre application web permet une bonne visualisation de nos prédictions… on peut dire que nous avons mené notre petite expérience à bien. Serait il temps de passer de l’experience à la “pseudo” production ?\n\nNous avons décidé de créer une petite webapp\nNous avons calculé les surfaces des bâtiments à partir de nos prédictions : cela nous donne une valeur binaire pour chaque pixel, agrégée par niveau administratif\n\n⚠️ Avertissement : ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.\n\nCarte standard Leaflet avec un fond OpenStreetMap affichant Pléiades 2023\n\n97610 0608 : méthodologie différente de floutage pour la prison\n97611 0332 : nuages en 2022\n97611 0330 : notre cas d’usage : détecter les changements de bâtiments en zone précaire\n\nSuivi des changements de bâtiments au niveau administratif :\n\nSélection par unités administratives (communes, quartiers)\n\nContrôle qualité des changements détectés\n\nFonctionnalités clés :\n\nComparaison temporelle côte à côte\n\nIndicateurs statistiques par zone\n\nValidation visuelle interactive"
+    "objectID": "src/seminaire-dirag/index.html#images-sentinel2",
+    "href": "src/seminaire-dirag/index.html#images-sentinel2",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Images Sentinel2",
+    "text": "Images Sentinel2\n\nFréquence d’acquisition : tous les 5 jours et gratuit\nRésolution spectrale : 13\nRésolution spatiale : un pixel = \\(10m \\times 10m\\)\nTaille d’une image : \\(250 \\times 250\\) = 6.25 km²"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#pipeline-globale",
-    "href": "src/seminaire-dmcsi/index.html#pipeline-globale",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Pipeline globale 🛠️",
-    "text": "Pipeline globale 🛠️\n\n\n\n\n\n\n\n\n\n\nVoici la pipeline globale. Les étapes 2 et 3 ne sont faites que lors de l’entrainement du modele. Ayant un entraînement qualitatif à notre disposition, pour prédire de nouvelles images, nous passons directement de l’étape 1 à l’étape 4. Un exemple très parlant et récent : le cyclone chido en une nuit -&gt; pred\n\nStandardisation de l’acquisition des données — actuellement rudimentaire. Besoin d’images sans nuages, datées précisément, avec une méthodologie cohérente (challenge avec Pléiades).\n\nPhase d’entraînement : suppression des nuages, équilibrage du jeu de données, annotation, découpage.\n\nPyTorch avec modèle pré-entraîné depuis HuggingFace (requiert GPU).\n\nConstruction de l’API : prédiction sur images, regroupement / boîtes englobantes, calculs statistiques (surface bâtie).\n\nDéploiement via GeoServer et application web.\n\nRésultats utilisés par les collègues de l’INSEE pour analyses statistiques."
+    "objectID": "src/seminaire-dirag/index.html#pléiades-vs-sentinel-2",
+    "href": "src/seminaire-dirag/index.html#pléiades-vs-sentinel-2",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Pléiades vs Sentinel-2",
+    "text": "Pléiades vs Sentinel-2\n\n\n\n\n\n\n\n\n\nPleiades © CNES_2022, Distribution AIRBUS DS\n\n\n\n\n\n\n\nSentinel2"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#application-architecture",
-    "href": "src/seminaire-dmcsi/index.html#application-architecture",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Application Architecture 🧩",
-    "text": "Application Architecture 🧩\n\n\nMerci à Onyxia d’avoir rendu ce projet possible en mode DevOps\nUn point notable est que nous utilisons un Geoserver pour permettre un affichage dynamique de nos images satellites sur la webapp, rendu possible grace aux calculs effectués en interne pour fluidifier l’affichage de zones spécifiques.\nCette architecture étant très technique, je ne vais pas m’attarder longtemps dessus, on pourra y revenir s’il y a des questions. Même si ça semble être la force de ce projet, c’est également une grande limite.\n\nAcquisition des données :\n\nImagerie Pléiades fournie par un prestataire national\n\nStockage sur infrastructure cloud\n\nPréparation des données :\n\nPrétraitement des images (filtrage des nuages, normalisation)\n\nAnnotation automatisée à partir des données de bâtiments de référence\n\nDécoupage des images (tuiles de 125 m × 125 m)\n\nDéveloppement du modèle :\n\nImplémentation deep learning (PyTorch)\n\nEntraînement avec GPU\n\nVersionnage du modèle (MLFlow)\n\nSystème de production :\n\nAPI REST pour l’inférence\n\nDéploiement containerisé\n\nCapacités de traitement parallèle\n\nDistribution des résultats :\n\nGeoServer permet de visualiser dynamiquement les images satellite grâce à des calculs qu’il effectue en amont, de sorte à ce que l’application web soit rapide\n\nApplication web pour la visualisation\n\nOutils d’analyse statistique"
+    "objectID": "src/seminaire-dirag/index.html#sources-disponibles-de-localisation-de-bâtiments",
+    "href": "src/seminaire-dirag/index.html#sources-disponibles-de-localisation-de-bâtiments",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Sources disponibles de localisation de bâtiments",
+    "text": "Sources disponibles de localisation de bâtiments\nDeux sources d’annotations envisagées pour les bâtiments :\n\nLe RIL (INSEE)\nLa BDTOPO (IGN)"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#défis-perspectives",
-    "href": "src/seminaire-dmcsi/index.html#défis-perspectives",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Défis & Perspectives",
-    "text": "Défis & Perspectives\n\nCoûts de maintenance élevés en raison de la complexité technique 💸\n\nBesoin de compétences spécialisées 🧑‍💻\n\nEnvironnement technique complexe dû à :\n\nVolumes de données importants 🗃️\n\nForts besoins en calcul (GPU) ⚡\n\n\nRésultats initiaux prometteurs pour accompagner les enquêtes cartographiques"
+    "objectID": "src/seminaire-dirag/index.html#le-ril",
+    "href": "src/seminaire-dirag/index.html#le-ril",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Le RIL",
+    "text": "Le RIL\n\nAnnotation d’un bâtiment = un point qui donne l’emplacement du bâtiment (porte d’entrée ?)\nLe répertoire des immeubles localisés est une base de sondage actualisée dans les DOM par l’enquête cartographique\nAnnotations en quantité limitée : l’enquête cartographique ne met à jour qu’un cinquième des logements du RIL dans les DOM\nConcept de logement"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#exemple-dannotations-ril",
+    "href": "src/seminaire-dirag/index.html#exemple-dannotations-ril",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Exemple d’annotations RIL",
+    "text": "Exemple d’annotations RIL\n\nMasque RIL, Pleiades © CNES_2022, Distribution AIRBUS DS"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#la-bdtopo",
+    "href": "src/seminaire-dirag/index.html#la-bdtopo",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "La BDTOPO",
+    "text": "La BDTOPO\n\nAnnotation d’un bâtiment = un polygone\nElle est construite à partir de plusieurs sources, notamment à partir d’ortho-photos de l’IGN (prises de vue aériennes)\nLes éléments de la BDTOPO produite une année donnée ne sont pas datés précisément\nLa BDTOPO n’est pas synchronisée avec les images Pléiades que l’INSEE acquiert\n\nOn la retient tout de même pour annoter les images Pléiades."
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#exemple-dannotations-bdtopo",
+    "href": "src/seminaire-dirag/index.html#exemple-dannotations-bdtopo",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Exemple d’annotations BDTOPO",
+    "text": "Exemple d’annotations BDTOPO\n\nMasque BDTOPO, Pleiades © CNES_2022, Distribution AIRBUS DS"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#résultats-de-mayotte",
+    "href": "src/seminaire-dirag/index.html#résultats-de-mayotte",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Résultats de Mayotte",
+    "text": "Résultats de Mayotte\n\nPleiades © CNES_2022, Distribution AIRBUS DS"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#section",
+    "href": "src/seminaire-dirag/index.html#section",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "",
+    "text": "Prédictions originales 2023 de Mayotte et localisation des quartiers de l’île (Insee 2012), Pleiades © CNES_2022, Distribution AIRBUS DS"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#étalement-urbain",
+    "href": "src/seminaire-dirag/index.html#étalement-urbain",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Étalement urbain",
+    "text": "Étalement urbain\n\nPleiades © CNES_2022, Distribution AIRBUS DS"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#construction-de-logements",
+    "href": "src/seminaire-dirag/index.html#construction-de-logements",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Construction de logements",
+    "text": "Construction de logements\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrédictions 2023 sur fond d’image 2020 et sur fond d’image 2023, Pleiades © CNES_2022, Distribution AIRBUS DS"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#prédictions-dun-centre-ville",
+    "href": "src/seminaire-dirag/index.html#prédictions-dun-centre-ville",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Prédictions d’un centre-ville",
+    "text": "Prédictions d’un centre-ville\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrédictions originales 2023 d’une zone de Mayotte, Pleiades © CNES_2022, Distribution AIRBUS DS"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#imperfections-du-modèle",
+    "href": "src/seminaire-dirag/index.html#imperfections-du-modèle",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Imperfections du modèle",
+    "text": "Imperfections du modèle\n\n\n\nFrontières entre les images\nDélimitations imprécises\nMinuscules polygones"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#nettoyage-des-polygones",
+    "href": "src/seminaire-dirag/index.html#nettoyage-des-polygones",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Nettoyage des polygones",
+    "text": "Nettoyage des polygones\n\nApplication d’un buffer positif puis négatif\n\nPropriétés de lissage (arrondis)\nClôture des petites brèches dans les bâtiments\n\n\n\n\nFusion des polygones qui s’interceptent pour effacer les frontières"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#petits-polygones",
+    "href": "src/seminaire-dirag/index.html#petits-polygones",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Petits polygones ?",
+    "text": "Petits polygones ?\nPrésence de petits polygones (de 1m² à 10m²) : qu’en faire ?\n\nLogement décent : 9m²\nMayotte : 30% environ des logements n’ont pas accès à l’eau potable\n\nOn ne cherche pas que les logements décents :\n\nRecherche d’exhaustivité pour soutenir les enquêteurs\nObjectifs d’estimation de population (nombre de bâtiments ou surface ?)"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#petits-polygones-1",
+    "href": "src/seminaire-dirag/index.html#petits-polygones-1",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Petits polygones ?",
+    "text": "Petits polygones ?\n\nObservations manuelles : les petits polygones pointent souvent sur des bâtiments qui n’ont pas été repérés entièrement par l’algorithme. Ce n’est donc pas que du bruit.\n\nConclusion : dans la mesure du possible, on conserve ces polygones."
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#résultat-du-nettoyage",
+    "href": "src/seminaire-dirag/index.html#résultat-du-nettoyage",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Résultat du nettoyage",
+    "text": "Résultat du nettoyage"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#evolution-du-bâti",
+    "href": "src/seminaire-dirag/index.html#evolution-du-bâti",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Evolution du bâti",
+    "text": "Evolution du bâti\nPour estimer l’évolution de la population, on se penche sur l’évolution de la surface construite.\nPlusieurs approches considérées :\n\nCréations et suppressions “pures” : aucune intersection avec un bâtiment existant\nSoustraction du bâti de deux années distinctes\n\nC’est la deuxième approche qui est privilégiée car les créations pures peuvent passer à côté de l’étalement d’un quartier."
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#soustraction-du-bâti",
+    "href": "src/seminaire-dirag/index.html#soustraction-du-bâti",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Soustraction du bâti",
+    "text": "Soustraction du bâti"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#soustraction-du-bâti-1",
+    "href": "src/seminaire-dirag/index.html#soustraction-du-bâti-1",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Soustraction du bâti",
+    "text": "Soustraction du bâti"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#nettoyage-de-la-soustraction",
+    "href": "src/seminaire-dirag/index.html#nettoyage-de-la-soustraction",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Nettoyage de la soustraction",
+    "text": "Nettoyage de la soustraction\n\\[\n\\text{Indice de Compacite} = (4 * \\pi * \\text{Aire}) / (\\text{Perimetre} ^2)\n\\]\nSeuiller les polygones selon cet indice permet de supprimer les plus longilignes."
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#résultat",
+    "href": "src/seminaire-dirag/index.html#résultat",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Résultat",
+    "text": "Résultat\n\nOn obtient donc la différence de bâti d’une année à l’autre."
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#outils-utilisés",
+    "href": "src/seminaire-dirag/index.html#outils-utilisés",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Outils utilisés",
+    "text": "Outils utilisés\n\nProjet techniquement complexe pour diverses raisons :\n\nDonnées non traditionnelles\nVolumétrie des données\nBesoins ressources computationnelles élevées\nReproductibilité nécéssaire\n\nNécessité d’utiliser des technologies spécifiques, pas forcément dans le toolkit standard du statisticien\nPlateforme SSPCloud centrale pour la réalisation d’un tel projet\nProjet construit en 6 étapes séquentielles"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#chaîne-de-traitement",
+    "href": "src/seminaire-dirag/index.html#chaîne-de-traitement",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Chaîne de traitement",
+    "text": "Chaîne de traitement"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#etape-1-acquisition-des-images-satellitaires",
+    "href": "src/seminaire-dirag/index.html#etape-1-acquisition-des-images-satellitaires",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Etape 1 : Acquisition des images satellitaires",
+    "text": "Etape 1 : Acquisition des images satellitaires\n\nRécupération artisanale des images Pléiades :\n\nDemandes réalisées par mail à l’IGN, échanges via FTP\nGroupe DMRG créé sur Dinamis, mais non utilisé\n\nImages de Guyane via ST973\nDatation des images peu précise et non standardisée\nStockage des images orthos 8bits sur le SSPCloud"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#etape-2-nettoyage-et-annotation-des-images",
+    "href": "src/seminaire-dirag/index.html#etape-2-nettoyage-et-annotation-des-images",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Etape 2 : Nettoyage et annotation des images",
+    "text": "Etape 2 : Nettoyage et annotation des images\n\nPipeline Python  pour formatter les images brutes :\n\nSélection des images pour une zone d’intérêt\nSuppression des images ennuagées\nDécoupage des images \\(125m \\times 125m\\)\n\nPipeline de labellisation des images satellites avec la BDTOPO\nAutomatisation avec Argo Workflow"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#etape-3-modélisation-et-entraînement",
+    "href": "src/seminaire-dirag/index.html#etape-3-modélisation-et-entraînement",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Etape 3 : Modélisation et entraînement",
+    "text": "Etape 3 : Modélisation et entraînement\n\nEntraînement avec le package Pytorch\nSuivi et comparaison des modèles avec MLFlow\nUtilisation GPU indispensable (10h d’entraînement sur le SSP Cloud)\nAutomatisation avec Argo Workflow"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#etape-4-inférence-du-modèle",
+    "href": "src/seminaire-dirag/index.html#etape-4-inférence-du-modèle",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Etape 4 : Inférence du modèle",
+    "text": "Etape 4 : Inférence du modèle\n\nUtilisation de MLFlow pour l’entrepôt de modèle\nDéploiement d’une API pour réaliser l’inférence pour :\n\nune image donnée\nun îlot donné\nun contour géographique donné\n\nDéploiement continu de l’API avec ArgoCD\nRéalisation de l’inférence sur l’ensemble des images en parallèle avec Argo Workflow"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#etape-5-mise-à-disposition-des-résultats",
+    "href": "src/seminaire-dirag/index.html#etape-5-mise-à-disposition-des-résultats",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Etape 5 : Mise à disposition des résultats",
+    "text": "Etape 5 : Mise à disposition des résultats\n\nDéploiement d’un Geoserver pour mettre à disposition les fichiers géographiques (images et prédictions)\nDéveloppement d’une application React pour visualiser les résultats\n\nCRATT"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#etape-6-analyses-des-résultats-selon-les-cas-dusages",
+    "href": "src/seminaire-dirag/index.html#etape-6-analyses-des-résultats-selon-les-cas-dusages",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Etape 6 : Analyses des résultats selon les cas d’usages",
+    "text": "Etape 6 : Analyses des résultats selon les cas d’usages\n\nTravail statistique sur les prédictions :\n\nDétection des zones à forte créations/disparitions\nProduction de statistiques par îlot\nEvaluation des résultats\n\nDépendant des cas d’usages, quelles priorisations ?"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#en-résumé",
+    "href": "src/seminaire-dirag/index.html#en-résumé",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "En résumé",
+    "text": "En résumé\n\n🛠️ Multitude d’outils à utiliser :\n\nKubernetes, Docker, stockage MinIO, API, ArgoCD, Argo Workflow, MLFlow, React…\n\n… mais dont le coût d’apprentissage est rapidement rentabilisé :\n\nTechnologies “state of the art”\nDe plus en plus utilisées à l’Insee (LS3)\n\n⚠️ Coût de maintenance élevé ! Compétences rares à l’INSEE (ou ailleurs ?)"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#résultats-de-lexpérimentation",
+    "href": "src/seminaire-dirag/index.html#résultats-de-lexpérimentation",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Résultats de l’expérimentation",
+    "text": "Résultats de l’expérimentation\n\nRésultats prometteurs pour le soutien de l’enquête cartographique\nPremière utilisation des algorithmes effectuée par la DMTR pour prioriser l’envoi d’agents sur le terrain\nOpportunité pour le soutien des estimations de population à Mayotte\nParti pris de présenter une chaîne complète de production en guise de POC !\nChoix rapides ➡️ nombreuses améliorations possibles"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#etape-1",
+    "href": "src/seminaire-dirag/index.html#etape-1",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Etape 1",
+    "text": "Etape 1\n\n\n\n\n\n\nLes données Pleiades dont nous disposons sont fournies par l’IGN et ne sont datées qu’à l’année\nTravail à fournir pour maîtriser l’acquisition de données PLEIADES\nIndispensable si on veut des estimations précisément datées"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#etape-2",
+    "href": "src/seminaire-dirag/index.html#etape-2",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Etape 2",
+    "text": "Etape 2\n\n\n\n\n\n\nLe nettoyage (filtering des nuages, normalisation) doit être consolidé et demande validation\nAnnotation ou récupération d’autres données annotées, 2 possibilités :\n\nAméliorer les annotations actuelles manuellement\nRécupérer d’autres images annotées ou annotations pour nos images"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#etape-3",
+    "href": "src/seminaire-dirag/index.html#etape-3",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Etape 3",
+    "text": "Etape 3\n\n\n\n\n\n\nAméliorations secondaires par rapport à l’amélioration de la qualité des annotations\nSuivre l’état de l’art à l’affût de nouveautés (modèle pré-entraînés sur HuggingFace)"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#etape-4",
+    "href": "src/seminaire-dirag/index.html#etape-4",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Etape 4",
+    "text": "Etape 4\n\n\n\n\n\n\nAPI à développer au delà du prototype actuel en fonction des besoins des clients"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#etape-5",
+    "href": "src/seminaire-dirag/index.html#etape-5",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Etape 5",
+    "text": "Etape 5\n\n\n\n\n\n\nApplication de visualisation à développer au delà du prototype actuel en fonction des besoins des clients"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#etape-6",
+    "href": "src/seminaire-dirag/index.html#etape-6",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "Etape 6 :",
+    "text": "Etape 6 :\n\n\n\n\n\n\nAnalyse des résultats encore insuffisante et à pousser"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#en-plus",
+    "href": "src/seminaire-dirag/index.html#en-plus",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "En plus",
+    "text": "En plus\n\nSentinel 2 : Poursuite des travaux de Judith Nabec sur images Sentinel 2 plus simples d’acquisition, et à résolution spectrale plus élevée (ou sur d’autres images)"
+  },
+  {
+    "objectID": "src/seminaire-dirag/index.html#la-suite",
+    "href": "src/seminaire-dirag/index.html#la-suite",
+    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "section": "La suite",
+    "text": "La suite\n\nFin de la phase d’expérimentation\nBeaucoup de cas d’usage identifiés et de clients finaux\nNécessité de monter un véritable projet pour chaque cas d’usage avec des moyens adaptés\nCe qui permettra de hiérarchiser les améliorations"
   },
   {
     "objectID": "src/ntts-2025/index.html#context",
@@ -601,381 +867,115 @@
     "text": "Challenges & Perspectives\n\nHigh maintenance costs due to technical complexity\nNeed for specialized skills\nPromising results for cartographic survey support\nPotential improvements identified for each pipeline stage"
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#origine-du-projet",
-    "href": "src/seminaire-dirag/index.html#origine-du-projet",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Origine du projet",
-    "text": "Origine du projet\n\nDans le cadre du stage de Quentin Chabennet en 2022, participation au Challenge Data “Land cover predictive modeling from satellite images”\nSSM Agriculture: travail avec le Centre d’études spatiales de la biosphère (Cesbio). Comparaison de la carte d’occupation du sol issue de l’enquête Teruti avec une carte construite avec des données de télédétection\nEn Guyane, fonds de carte issus de données Pléiades utilisés pour la collecte\nDiscussion sur la possibilité d’utiliser de l’imagerie satellite pour faciliter l’organisation de l’enquête cartographique en Guyane et à Mayotte"
+    "objectID": "src/seminaire-dmcsi/index.html#contexte",
+    "href": "src/seminaire-dmcsi/index.html#contexte",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Contexte",
+    "text": "Contexte\n\nMission principale de l’Insee → le recensement de la population :\n\nCommunes ≥ 10 000 hab : 8% /an\nCommunes &lt; 10 000 hab : 100% /5 ans\n\nInformation du nombre de logements ?\n\n\nComme vous le savez bien, l’Insee doit faire le recensement tous les ans. C’est l’une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement.\nTous les ans, 8% des logements des communes de +10k hab sont recensés et un cinquième des communes de -10k hab. Les communes de -10k hab sont recensés en entier. Pour tirer ces échantillons, il faut avoir l’information du nombre de logements dans les commune de + de 10k hab"
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#une-source-de-données-à-fort-potentiel",
-    "href": "src/seminaire-dirag/index.html#une-source-de-données-à-fort-potentiel",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Une source de données à fort potentiel",
-    "text": "Une source de données à fort potentiel\n\nEn théorie, observation de tout le territoire quasiment en temps réel\nSentinel-2 : données haute résolution en accès libre à haute fréquence temporelle. Un même territoire est couvert environ tous les 5 jours\nUne grande communauté utilise ces données, ce qui donne lieu à la publication de contenu open-source (détection de nuages, etc.)"
+    "objectID": "src/seminaire-dmcsi/index.html#répertoire-des-immeubles-localisés",
+    "href": "src/seminaire-dmcsi/index.html#répertoire-des-immeubles-localisés",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Répertoire des Immeubles Localisés",
+    "text": "Répertoire des Immeubles Localisés\n\nLe RIL :\n\nInventaire du bâti\nCommunes de +10 000 habitants\nPermis de construire et informations locales\n\nBases de sondage des enquêtes de recensement\n\n\nLa qualité du RIL est bonne en France hexagonale ✅… mais loin d’être fiable dans les DROM ⚠️\n→ Autre méthode : découpage en îlots\n\nAfin de préparer le recensement, l’Insee se sert du répertoire des immeubles localisés pour connaître le nombre de logements disponibles dans les communes de 10 000 habitants et plus.\nPour chaque élément dans le RIL, il existe l’information du nombre de logements au sein du bâtiment, son caractère habitable, son adresse et sa géolocalisation.\nCe répertoire est utilisé à l’Insee pour constituer les bases de sondage des enquêtes de recensement.\nLa qualité du RIL est bonne en France hexagonale cependant elle est bien inférieure dans les territoires d’outre mer.\nPour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France hexagonale.\nDans les territoires d’outre mer, chacun des DROM est découpé en “îlots”. Chaque année, dans les communes de +10k hab, un cinquième des îlots sont tirés, et 40% des logements y seront recensés. Cependant, il est difficile de connaître réellement le nombre de logements à recenser."
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#une-source-de-données-à-fort-potentiel-1",
-    "href": "src/seminaire-dirag/index.html#une-source-de-données-à-fort-potentiel-1",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Une source de données à fort potentiel",
-    "text": "Une source de données à fort potentiel\n\nPléiades : données très haute résolution. Archives disponibles gratuitement pour l’Insee, et possibilité de faire des commandes (tasking), gratuites sous un certain quota"
+    "objectID": "src/seminaire-dmcsi/index.html#recensement-dans-les-territoires-doutre-mer",
+    "href": "src/seminaire-dmcsi/index.html#recensement-dans-les-territoires-doutre-mer",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Recensement dans les territoires d’outre mer",
+    "text": "Recensement dans les territoires d’outre mer\n\nContexte critique : Mayotte et Guyane\nPour compléter le RIL dans les DROM : enquête cartographique → très lourde\nL’imagerie satellitaire pour optimiser le processus du recensement dans les DROM ? 🛰️\n\n\nEn effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Les informations sur le bâti issu des permis de construire et des informations des mairies ne sont pas assez fournies. De plus, le développement urbain y est extrêmement rapide avec les bidonvilles, rendant le suivi du bâti très compliqué avec les nombreuses constructions et destructions des habitations précaires et instables.\nPour compléter le RIL, une enquête cartographique est mise en place. C’est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, et qui a pour but d’envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse, coûteuse et peut s’avérer dangereuse. Les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter pour la quantité d’agents envoyés sur place, terrains compliqués à atteindre, aggressions…\nPeut-on utiliser l’imagerie satellite pour optimiser le processus du recensement dans les DROM ? 🛰️\nLes données satellitaires représentent: - une source d’information indépendante - permettent une veille territoriale continue - la méthodologie est transparente et reproductible"
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#utilisation-pour-la-statistique-publique",
-    "href": "src/seminaire-dirag/index.html#utilisation-pour-la-statistique-publique",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Utilisation pour la statistique publique",
-    "text": "Utilisation pour la statistique publique\n\nMémorandum de Varsovie adopté par le Comité du Système statistique européen, pour encourager l’utilisation des données satellites pour l’élaboration de statistiques publiques\nUtilisation en complément des sources traditionnelles pour améliorer la connaissance de l’Insee sur le bâti :\n\nEn particulier dans les DROM, facilitation de l’organisation des enquêtes cartographiques\nCartographie du bâti à un instant précis\nEtudes ponctuelles (consommation d’espace)"
+    "objectID": "src/seminaire-dmcsi/index.html#nos-cas-dusage",
+    "href": "src/seminaire-dmcsi/index.html#nos-cas-dusage",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Nos cas d’usage",
+    "text": "Nos cas d’usage\n\nIdentifier les zones avec une forte densité de bâti 🏘️\n\nDétecter les évolutions du bâti de façon automatique\n\nAider l’estimation de la population dans les DROM 👥\n\nRépondre à une urgence 🚨 : cyclone “Chido” à Mayotte\n\n\n\nIdentifier les zones avec une forte densité de bâti, c’est à dire les zones prioritaires pour l’enquête cartographique et pour lesquelles il faut envoyer le plus d’agents.\nPouvoir détecter les évolutions du bâti de façon automatique, notamment depuis le précédent inventaire du bâti effectué\n\nAider l’estimation de la population dans les DROM\n\nRépondre à une urgence : les conséquences du cyclone “Chido” sur le bâti à Mayotte\n\n-&gt; On va maintenant se pencher sur la méthodologie utilisée pour répondre à ces besoins."
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#utilisation-pour-la-statistique-publique-1",
-    "href": "src/seminaire-dirag/index.html#utilisation-pour-la-statistique-publique-1",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Utilisation pour la statistique publique",
-    "text": "Utilisation pour la statistique publique\n\nPossibilité d’aller jusqu’à contribuer à des estimations de population ?\nNombreux acteurs intéressés : DMS (DMRG), DMTR, directions Antilles-Guyane et La Réunion-Mayotte"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#début-des-travaux",
-    "href": "src/seminaire-dirag/index.html#début-des-travaux",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Début des travaux",
-    "text": "Début des travaux\n\nDétection automatique de changements (apparitions, disparitions) sur le bâti dans les DROM (Mayotte)\nAppui pour l’organisation des enquêtes cartographiques :\n\nOn sélectionne les îlots concernés\nOn récupère des données satellites couvrant ces îlots à la date de la précédente enquête cartographique et des données fraîches\nA l’aide de la méthode développée, on repère les ilots avec beaucoup de nouveaux bâtiments, etc."
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#segmentation-sémantique",
-    "href": "src/seminaire-dirag/index.html#segmentation-sémantique",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
+    "objectID": "src/seminaire-dmcsi/index.html#segmentation-sémantique",
+    "href": "src/seminaire-dmcsi/index.html#segmentation-sémantique",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
     "section": "Segmentation sémantique",
-    "text": "Segmentation sémantique\n\nPleiades © CNES_2022, Distribution AIRBUS DS"
+    "text": "Segmentation sémantique\n\nVision par ordinateur\n\nClasser chaque pixel d’une image\n\nPour nos besoins : connaître les pixels de catégorie “bâtie”\n\n\n\n\n\nExemple de segmentation “bâtiment”\n\n\n\n\nPour détecter le bâti de façon automatique, nous nous sommes tourné vers la vision par ordinateur, qui est une branche du domaine de l’intelligence artificielle. La segmentation sémantique permet de classer chaque pixel d’une image dans l’une des classes définie en amont. La segmentation semantique peut utiliser toute sorte de classe, mais voici un exemple de résultat qui nous interesse : ex. J’AIMERAI PRECISER QU’avec uniquement de l’imagerie satellitaire, nous ne pourrons pas décider du caractère habitable ou non d’un bâtiment ni du nombre de logements à l’intérieur. Par conséquent, nous ne pouvons pas remplacer l’enquête cartographique, l’idée est d’aider les enquêteurs en mettant en valeur les zones avec le plus de bâtiments à visiter."
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#entrainement-dun-modèle-de-segmentation",
-    "href": "src/seminaire-dirag/index.html#entrainement-dun-modèle-de-segmentation",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Entrainement d’un modèle de segmentation",
-    "text": "Entrainement d’un modèle de segmentation\n\nOn entraîne un modèle à segmenter automatiquement à partir d’exemples annotés. Pour cela il faut :\n\nCollecter des images satellites\nProduire les annotations de ces images (emplacement des bâtiments)\n\nOn apprend au modèle à reproduire les annotations en partant des images. On espère qu’il pourra généraliser à d’autres images"
+    "objectID": "src/seminaire-dmcsi/index.html#entraîner-un-modèle-de-segmentation",
+    "href": "src/seminaire-dmcsi/index.html#entraîner-un-modèle-de-segmentation",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Entraîner un modèle de segmentation",
+    "text": "Entraîner un modèle de segmentation\n\nIl faut :\n\nUne collection d’images satellites 🛰️\nDes annotations 📍\n\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images\n\n\nPour entrainer un modele il faut deux choses : des images et des annotations.\n\nUne annotation est “la vérité attendue”, comme par exemple l’image qui a été présentée à la slide précédente\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images"
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#de-segmentation-à-détection-de-changements",
-    "href": "src/seminaire-dirag/index.html#de-segmentation-à-détection-de-changements",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "De segmentation à détection de changements",
-    "text": "De segmentation à détection de changements"
+    "objectID": "src/seminaire-dmcsi/index.html#de-la-segmentation-à-la-détection-de-changements",
+    "href": "src/seminaire-dmcsi/index.html#de-la-segmentation-à-la-détection-de-changements",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "De la segmentation à la détection de changements",
+    "text": "De la segmentation à la détection de changements"
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#quest-ce-quune-image",
-    "href": "src/seminaire-dirag/index.html#quest-ce-quune-image",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Qu’est-ce qu’une image ?",
-    "text": "Qu’est-ce qu’une image ?\nUne image en couleurs concatène plusieurs tableaux de chiffres, un tableau pour chaque couleur Rouge (R), Vert (G), Bleu (B) :"
+    "objectID": "src/seminaire-dmcsi/index.html#modèle-utilisé",
+    "href": "src/seminaire-dmcsi/index.html#modèle-utilisé",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Modèle utilisé",
+    "text": "Modèle utilisé\n\nArchitecture du modèle 🧠\n\nSegFormer : un modèle léger et performant\nTransformers : mécanismes d’attention pour prendre en compte le contexte local et global\nDécodeur : Multi Layer Perceptron\n\nAdapté pour nos données satellites\n\n\nLe modèle que nous avons sélectionné s’appuie sur une architecture appelée SegFormer. Modele de segmentation d’image entrainé par NVIDIA et opensource Il a l’avantage d’etre très leger et donc rapide à entrainer Pour notre cas d’usage, c’est le modele qui a été le plus performant.\nIl est basé sur une technologie appelée Transformer, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. Ce n’est pas la plus répendue en vision par ordinateur.\nUn des atouts de cette architecture, ce sont les mécanismes d’attention, qui permettent au modèle de prendre en compte le contexte local et global de l’image. Pour le décodeur, c’est Multi Layer Perceptron classique.\nEnfin, nous avons ajusté le modèle à nos données spécifiques : des images satellites et des annotations."
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#une-image-satellite",
-    "href": "src/seminaire-dirag/index.html#une-image-satellite",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Une image satellite",
-    "text": "Une image satellite\n\nUne image satellite peut avoir d’autres couches (ou bandes) que les RGB : infrarouge par exemple\nLes images satellites contiennent des informations géographiques → chaque pixel a des coordonnées dans l’espace"
+    "objectID": "src/seminaire-dmcsi/index.html#évaluation",
+    "href": "src/seminaire-dmcsi/index.html#évaluation",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Évaluation",
+    "text": "Évaluation\nPour évaluer les performances du modèle entraîné :\n\n\nIOU = Intersection Over Union\n\n\n\nTransition pour la suite : pour faire un entraînement, il ne faut plus que des données…\nL’IoU, ou Intersection over Union, est une mesure qu’on utilise pour évaluer la qualité d’une prédiction en segmentation d’image.\nConcrètement, on compare deux zones :\n- celle que le modèle a prédite comme appartenant à une certaine classe,\n- et la zone réelle, qu’on appelle le label de vérité terrain.\nOn mesure alors l’intersection entre ces deux zones – c’est la partie correctement prédite –\net on la divise par l’union des deux – c’est-à-dire l’ensemble de tout ce qui a été soit prédit, soit annoté.\nUn IoU de 1 signifie une correspondance parfaite.\nUn IoU de 0 signifie aucune correspondance.\nPlus l’IoU est élevé, plus la prédiction est précise.\nC’est une métrique particulièrement adaptée pour des tâches comme la nôtre, où on doit prédire la forme exacte des bâtiments ou des routes, pixel par pixel."
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#caractéristiques-dune-image-satellite",
-    "href": "src/seminaire-dirag/index.html#caractéristiques-dune-image-satellite",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Caractéristiques d’une image satellite",
-    "text": "Caractéristiques d’une image satellite\nPlusieurs caractéristiques existent pour une image satellite :\n\nLa résolution spatiale\nLa fréquence d’acquisition\nLa résolution spectrale\nLa couverture géographique\n\nLa fréquence d’acquisition et la couverture géographique nous intéressent tout particulièrement ici !"
+    "objectID": "src/seminaire-dmcsi/index.html#pléiades-vs-sentinel-2",
+    "href": "src/seminaire-dmcsi/index.html#pléiades-vs-sentinel-2",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Pléiades vs Sentinel-2 🛰️",
+    "text": "Pléiades vs Sentinel-2 🛰️\n\n\n\nPléiades :\n\n3 bandes (RGB)\n\nRésolution 0.5m\n\nArchives gratuites\n\nAcquisition sur-demande payante\n\n\n\n\n\n Mamoudzou, Mayotte 2024\n\n\n\nSentinel2 :\n\n13 bandes\n\nRésolution 10m, 20m ou 60m (en fonction de la bande)\n\nAcquisition tous les 5j\n\nGratuit\n\n\n\n\n\nIl existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d’entre eux.\nLes images satellites Pléiades sont un produit intéressant pour notre cas d’usage - Caractéristiques: - 3 bandes spectrales (RGB) 🎨 - 4e bande : NIR (pas dans nos données) - Résolution spatial : 0.5m × 0.5m 🔍 - Archives gratuites (avec accord) - Acquisition sur-demande et payante (6-8 mois par département), Airbus © licence 📅\nPour le cyclone Chido qui a ravagé Mayotte, un plan d’urgence a été mis en place. Nous avons pu obtenir une mosaique d’images Pléiades de Mayotte post cyclone datant du premier trimestre de 2025 gratuitement.\nComme je vous disais au début, c’est grâce à l’IGN que nous avons pu mener à bien notre projet car ils nous fournissent des mosaiques d’images Pléiades. Une mosaique est une reconstitution complète d’un territoire avec des prises de vues de plusieurs dates, permettant ainsi d’avoir une couverture le moins ennuagée et la plus propre possible. Ce travail est très important pour avoir de bonnes images pour l’entraînement.\nMais un autre type d’images satellites est à notre disposition : Sentinel-2. Elles sont open source et l’acquisition se fait tous les 5 jours. Cependant, leur résolution est moins précise que les images pléiades."
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#images-satellite-à-notre-disposition",
-    "href": "src/seminaire-dirag/index.html#images-satellite-à-notre-disposition",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Images satellite à notre disposition",
-    "text": "Images satellite à notre disposition\n\nImages très haute résolution : Pléiades (Airbus)\nImages haute résolution : Sentinel2"
+    "objectID": "src/seminaire-dmcsi/index.html#annotations-cosia",
+    "href": "src/seminaire-dmcsi/index.html#annotations-cosia",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Annotations : COSIA",
+    "text": "Annotations : COSIA\n\nProjet Cosia par IGN 👏\nUtilisé pour annoter nos données d’entraînement\n\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Légende COSIA\n\n\n\nPour les annotations, il est possible de prendre des annotations binaires : bâtiment oui ou non, ou des annotations multiclasses comme le projet Cosia présenté précédement. - C’est une couverture du sol générée par l’IA - Basé sur les photographies aériennes de l’IGN à une résolution 20cm 🗺️ Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d’entraînement, malgré un possible décalage temporaire entre nos images et la productions de polygones. D’autres sources ont été testées comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele.\nles mosaiques d’images et les collections d’annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés pour entrainer notre modele, et des zones de test fixées ont été définies. Voyons voir les résultats produits par notre fameux entraînement."
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#images-pléiades",
-    "href": "src/seminaire-dirag/index.html#images-pléiades",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Images Pléiades",
-    "text": "Images Pléiades\n\nFréquence d’acquisition :\n\nArchives gratuites\nPayant sur demande (1,80€/km²): 6 à 8 mois pour avoir un département\n\nRésolution spectrale : 3 bandes (RGB)\nRésolution spatiale : un pixel = \\(0.5m \\times 0.5m\\)\nTaille d’une image : \\(2000 \\times 2000\\) pixels = 1km²"
+    "objectID": "src/seminaire-dmcsi/index.html#zone-de-test-à-mayotte",
+    "href": "src/seminaire-dmcsi/index.html#zone-de-test-à-mayotte",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Zone de test à Mayotte",
+    "text": "Zone de test à Mayotte\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Prédictions 2023\n\n\n Légende COSIA\n\n\n\n\n\n\nTrain\nTest\n\n\n\n\nIOU moyenne ∀classe\n0.81\n0.78\n\n\nIOU “bâtiment”\n0.84\n0.76\n\n\n\n\nDans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considérée comme un excellent score, surtout dans des zones complexes comme les DOM où l’environnement est très hétérogène, et des écarts peuvent se créer un peu partout.\n\nÀ ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances\nQuestions clés : comment partager nos résultats ?\nL’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel"
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#images-sentinel2",
-    "href": "src/seminaire-dirag/index.html#images-sentinel2",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Images Sentinel2",
-    "text": "Images Sentinel2\n\nFréquence d’acquisition : tous les 5 jours et gratuit\nRésolution spectrale : 13\nRésolution spatiale : un pixel = \\(10m \\times 10m\\)\nTaille d’une image : \\(250 \\times 250\\) = 6.25 km²"
+    "objectID": "src/seminaire-dmcsi/index.html#dashboard-interactive",
+    "href": "src/seminaire-dmcsi/index.html#dashboard-interactive",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Dashboard Interactive 🚀",
+    "text": "Dashboard Interactive 🚀\n\n👉 Application interactive: Cliquez ici\n\n\n\nTransition : Notre entraînement a plutot bien marché, notre application web permet une bonne visualisation de nos prédictions… on peut dire que nous avons mené notre petite expérience à bien. Serait il temps de passer de l’experience à la “pseudo” production ?\n\nNous avons décidé de créer une petite webapp\nNous avons calculé les surfaces des bâtiments à partir de nos prédictions : cela nous donne une valeur binaire pour chaque pixel, agrégée par niveau administratif\n\n⚠️ Avertissement : ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.\n\nCarte standard Leaflet avec un fond OpenStreetMap affichant Pléiades 2023\n\n97610 0608 : méthodologie différente de floutage pour la prison\n97611 0332 : nuages en 2022\n97611 0330 : notre cas d’usage : détecter les changements de bâtiments en zone précaire\n\nSuivi des changements de bâtiments au niveau administratif :\n\nSélection par unités administratives (communes, quartiers)\n\nContrôle qualité des changements détectés\n\nFonctionnalités clés :\n\nComparaison temporelle côte à côte\n\nIndicateurs statistiques par zone\n\nValidation visuelle interactive"
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#pléiades-vs-sentinel-2",
-    "href": "src/seminaire-dirag/index.html#pléiades-vs-sentinel-2",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Pléiades vs Sentinel-2",
-    "text": "Pléiades vs Sentinel-2\n\n\n\n\n\n\n\n\n\nPleiades © CNES_2022, Distribution AIRBUS DS\n\n\n\n\n\n\n\nSentinel2"
+    "objectID": "src/seminaire-dmcsi/index.html#pipeline-globale",
+    "href": "src/seminaire-dmcsi/index.html#pipeline-globale",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Pipeline globale 🛠️",
+    "text": "Pipeline globale 🛠️\n\n\n\n\n\n\n\n\n\n\nVoici la pipeline globale. Les étapes 2 et 3 ne sont faites que lors de l’entrainement du modele. Ayant un entraînement qualitatif à notre disposition, pour prédire de nouvelles images, nous passons directement de l’étape 1 à l’étape 4. Un exemple très parlant et récent : le cyclone chido en une nuit -&gt; pred\n\nStandardisation de l’acquisition des données — actuellement rudimentaire. Besoin d’images sans nuages, datées précisément, avec une méthodologie cohérente (challenge avec Pléiades).\n\nPhase d’entraînement : suppression des nuages, équilibrage du jeu de données, annotation, découpage.\n\nPyTorch avec modèle pré-entraîné depuis HuggingFace (requiert GPU).\n\nConstruction de l’API : prédiction sur images, regroupement / boîtes englobantes, calculs statistiques (surface bâtie).\n\nDéploiement via GeoServer et application web.\n\nRésultats utilisés par les collègues de l’INSEE pour analyses statistiques."
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#sources-disponibles-de-localisation-de-bâtiments",
-    "href": "src/seminaire-dirag/index.html#sources-disponibles-de-localisation-de-bâtiments",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Sources disponibles de localisation de bâtiments",
-    "text": "Sources disponibles de localisation de bâtiments\nDeux sources d’annotations envisagées pour les bâtiments :\n\nLe RIL (INSEE)\nLa BDTOPO (IGN)"
+    "objectID": "src/seminaire-dmcsi/index.html#application-architecture",
+    "href": "src/seminaire-dmcsi/index.html#application-architecture",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Application Architecture 🧩",
+    "text": "Application Architecture 🧩\n\n\nMerci à Onyxia d’avoir rendu ce projet possible en mode DevOps\nUn point notable est que nous utilisons un Geoserver pour permettre un affichage dynamique de nos images satellites sur la webapp, rendu possible grace aux calculs effectués en interne pour fluidifier l’affichage de zones spécifiques.\nCette architecture étant très technique, je ne vais pas m’attarder longtemps dessus, on pourra y revenir s’il y a des questions. Même si ça semble être la force de ce projet, c’est également une grande limite.\n\nAcquisition des données :\n\nImagerie Pléiades fournie par un prestataire national\n\nStockage sur infrastructure cloud\n\nPréparation des données :\n\nPrétraitement des images (filtrage des nuages, normalisation)\n\nAnnotation automatisée à partir des données de bâtiments de référence\n\nDécoupage des images (tuiles de 125 m × 125 m)\n\nDéveloppement du modèle :\n\nImplémentation deep learning (PyTorch)\n\nEntraînement avec GPU\n\nVersionnage du modèle (MLFlow)\n\nSystème de production :\n\nAPI REST pour l’inférence\n\nDéploiement containerisé\n\nCapacités de traitement parallèle\n\nDistribution des résultats :\n\nGeoServer permet de visualiser dynamiquement les images satellite grâce à des calculs qu’il effectue en amont, de sorte à ce que l’application web soit rapide\n\nApplication web pour la visualisation\n\nOutils d’analyse statistique"
   },
   {
-    "objectID": "src/seminaire-dirag/index.html#le-ril",
-    "href": "src/seminaire-dirag/index.html#le-ril",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Le RIL",
-    "text": "Le RIL\n\nAnnotation d’un bâtiment = un point qui donne l’emplacement du bâtiment (porte d’entrée ?)\nLe répertoire des immeubles localisés est une base de sondage actualisée dans les DOM par l’enquête cartographique\nAnnotations en quantité limitée : l’enquête cartographique ne met à jour qu’un cinquième des logements du RIL dans les DOM\nConcept de logement"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#exemple-dannotations-ril",
-    "href": "src/seminaire-dirag/index.html#exemple-dannotations-ril",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Exemple d’annotations RIL",
-    "text": "Exemple d’annotations RIL\n\nMasque RIL, Pleiades © CNES_2022, Distribution AIRBUS DS"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#la-bdtopo",
-    "href": "src/seminaire-dirag/index.html#la-bdtopo",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "La BDTOPO",
-    "text": "La BDTOPO\n\nAnnotation d’un bâtiment = un polygone\nElle est construite à partir de plusieurs sources, notamment à partir d’ortho-photos de l’IGN (prises de vue aériennes)\nLes éléments de la BDTOPO produite une année donnée ne sont pas datés précisément\nLa BDTOPO n’est pas synchronisée avec les images Pléiades que l’INSEE acquiert\n\nOn la retient tout de même pour annoter les images Pléiades."
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#exemple-dannotations-bdtopo",
-    "href": "src/seminaire-dirag/index.html#exemple-dannotations-bdtopo",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Exemple d’annotations BDTOPO",
-    "text": "Exemple d’annotations BDTOPO\n\nMasque BDTOPO, Pleiades © CNES_2022, Distribution AIRBUS DS"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#résultats-de-mayotte",
-    "href": "src/seminaire-dirag/index.html#résultats-de-mayotte",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Résultats de Mayotte",
-    "text": "Résultats de Mayotte\n\nPleiades © CNES_2022, Distribution AIRBUS DS"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#section",
-    "href": "src/seminaire-dirag/index.html#section",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "",
-    "text": "Prédictions originales 2023 de Mayotte et localisation des quartiers de l’île (Insee 2012), Pleiades © CNES_2022, Distribution AIRBUS DS"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#étalement-urbain",
-    "href": "src/seminaire-dirag/index.html#étalement-urbain",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Étalement urbain",
-    "text": "Étalement urbain\n\nPleiades © CNES_2022, Distribution AIRBUS DS"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#construction-de-logements",
-    "href": "src/seminaire-dirag/index.html#construction-de-logements",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Construction de logements",
-    "text": "Construction de logements\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrédictions 2023 sur fond d’image 2020 et sur fond d’image 2023, Pleiades © CNES_2022, Distribution AIRBUS DS"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#prédictions-dun-centre-ville",
-    "href": "src/seminaire-dirag/index.html#prédictions-dun-centre-ville",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Prédictions d’un centre-ville",
-    "text": "Prédictions d’un centre-ville\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrédictions originales 2023 d’une zone de Mayotte, Pleiades © CNES_2022, Distribution AIRBUS DS"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#imperfections-du-modèle",
-    "href": "src/seminaire-dirag/index.html#imperfections-du-modèle",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Imperfections du modèle",
-    "text": "Imperfections du modèle\n\n\n\nFrontières entre les images\nDélimitations imprécises\nMinuscules polygones"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#nettoyage-des-polygones",
-    "href": "src/seminaire-dirag/index.html#nettoyage-des-polygones",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Nettoyage des polygones",
-    "text": "Nettoyage des polygones\n\nApplication d’un buffer positif puis négatif\n\nPropriétés de lissage (arrondis)\nClôture des petites brèches dans les bâtiments\n\n\n\n\nFusion des polygones qui s’interceptent pour effacer les frontières"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#petits-polygones",
-    "href": "src/seminaire-dirag/index.html#petits-polygones",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Petits polygones ?",
-    "text": "Petits polygones ?\nPrésence de petits polygones (de 1m² à 10m²) : qu’en faire ?\n\nLogement décent : 9m²\nMayotte : 30% environ des logements n’ont pas accès à l’eau potable\n\nOn ne cherche pas que les logements décents :\n\nRecherche d’exhaustivité pour soutenir les enquêteurs\nObjectifs d’estimation de population (nombre de bâtiments ou surface ?)"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#petits-polygones-1",
-    "href": "src/seminaire-dirag/index.html#petits-polygones-1",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Petits polygones ?",
-    "text": "Petits polygones ?\n\nObservations manuelles : les petits polygones pointent souvent sur des bâtiments qui n’ont pas été repérés entièrement par l’algorithme. Ce n’est donc pas que du bruit.\n\nConclusion : dans la mesure du possible, on conserve ces polygones."
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#résultat-du-nettoyage",
-    "href": "src/seminaire-dirag/index.html#résultat-du-nettoyage",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Résultat du nettoyage",
-    "text": "Résultat du nettoyage"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#evolution-du-bâti",
-    "href": "src/seminaire-dirag/index.html#evolution-du-bâti",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Evolution du bâti",
-    "text": "Evolution du bâti\nPour estimer l’évolution de la population, on se penche sur l’évolution de la surface construite.\nPlusieurs approches considérées :\n\nCréations et suppressions “pures” : aucune intersection avec un bâtiment existant\nSoustraction du bâti de deux années distinctes\n\nC’est la deuxième approche qui est privilégiée car les créations pures peuvent passer à côté de l’étalement d’un quartier."
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#soustraction-du-bâti",
-    "href": "src/seminaire-dirag/index.html#soustraction-du-bâti",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Soustraction du bâti",
-    "text": "Soustraction du bâti"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#soustraction-du-bâti-1",
-    "href": "src/seminaire-dirag/index.html#soustraction-du-bâti-1",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Soustraction du bâti",
-    "text": "Soustraction du bâti"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#nettoyage-de-la-soustraction",
-    "href": "src/seminaire-dirag/index.html#nettoyage-de-la-soustraction",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Nettoyage de la soustraction",
-    "text": "Nettoyage de la soustraction\n\\[\n\\text{Indice de Compacite} = (4 * \\pi * \\text{Aire}) / (\\text{Perimetre} ^2)\n\\]\nSeuiller les polygones selon cet indice permet de supprimer les plus longilignes."
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#résultat",
-    "href": "src/seminaire-dirag/index.html#résultat",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Résultat",
-    "text": "Résultat\n\nOn obtient donc la différence de bâti d’une année à l’autre."
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#outils-utilisés",
-    "href": "src/seminaire-dirag/index.html#outils-utilisés",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Outils utilisés",
-    "text": "Outils utilisés\n\nProjet techniquement complexe pour diverses raisons :\n\nDonnées non traditionnelles\nVolumétrie des données\nBesoins ressources computationnelles élevées\nReproductibilité nécéssaire\n\nNécessité d’utiliser des technologies spécifiques, pas forcément dans le toolkit standard du statisticien\nPlateforme SSPCloud centrale pour la réalisation d’un tel projet\nProjet construit en 6 étapes séquentielles"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#chaîne-de-traitement",
-    "href": "src/seminaire-dirag/index.html#chaîne-de-traitement",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Chaîne de traitement",
-    "text": "Chaîne de traitement"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#etape-1-acquisition-des-images-satellitaires",
-    "href": "src/seminaire-dirag/index.html#etape-1-acquisition-des-images-satellitaires",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 1 : Acquisition des images satellitaires",
-    "text": "Etape 1 : Acquisition des images satellitaires\n\nRécupération artisanale des images Pléiades :\n\nDemandes réalisées par mail à l’IGN, échanges via FTP\nGroupe DMRG créé sur Dinamis, mais non utilisé\n\nImages de Guyane via ST973\nDatation des images peu précise et non standardisée\nStockage des images orthos 8bits sur le SSPCloud"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#etape-2-nettoyage-et-annotation-des-images",
-    "href": "src/seminaire-dirag/index.html#etape-2-nettoyage-et-annotation-des-images",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 2 : Nettoyage et annotation des images",
-    "text": "Etape 2 : Nettoyage et annotation des images\n\nPipeline Python  pour formatter les images brutes :\n\nSélection des images pour une zone d’intérêt\nSuppression des images ennuagées\nDécoupage des images \\(125m \\times 125m\\)\n\nPipeline de labellisation des images satellites avec la BDTOPO\nAutomatisation avec Argo Workflow"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#etape-3-modélisation-et-entraînement",
-    "href": "src/seminaire-dirag/index.html#etape-3-modélisation-et-entraînement",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 3 : Modélisation et entraînement",
-    "text": "Etape 3 : Modélisation et entraînement\n\nEntraînement avec le package Pytorch\nSuivi et comparaison des modèles avec MLFlow\nUtilisation GPU indispensable (10h d’entraînement sur le SSP Cloud)\nAutomatisation avec Argo Workflow"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#etape-4-inférence-du-modèle",
-    "href": "src/seminaire-dirag/index.html#etape-4-inférence-du-modèle",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 4 : Inférence du modèle",
-    "text": "Etape 4 : Inférence du modèle\n\nUtilisation de MLFlow pour l’entrepôt de modèle\nDéploiement d’une API pour réaliser l’inférence pour :\n\nune image donnée\nun îlot donné\nun contour géographique donné\n\nDéploiement continu de l’API avec ArgoCD\nRéalisation de l’inférence sur l’ensemble des images en parallèle avec Argo Workflow"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#etape-5-mise-à-disposition-des-résultats",
-    "href": "src/seminaire-dirag/index.html#etape-5-mise-à-disposition-des-résultats",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 5 : Mise à disposition des résultats",
-    "text": "Etape 5 : Mise à disposition des résultats\n\nDéploiement d’un Geoserver pour mettre à disposition les fichiers géographiques (images et prédictions)\nDéveloppement d’une application React pour visualiser les résultats\n\nCRATT"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#etape-6-analyses-des-résultats-selon-les-cas-dusages",
-    "href": "src/seminaire-dirag/index.html#etape-6-analyses-des-résultats-selon-les-cas-dusages",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 6 : Analyses des résultats selon les cas d’usages",
-    "text": "Etape 6 : Analyses des résultats selon les cas d’usages\n\nTravail statistique sur les prédictions :\n\nDétection des zones à forte créations/disparitions\nProduction de statistiques par îlot\nEvaluation des résultats\n\nDépendant des cas d’usages, quelles priorisations ?"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#en-résumé",
-    "href": "src/seminaire-dirag/index.html#en-résumé",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "En résumé",
-    "text": "En résumé\n\n🛠️ Multitude d’outils à utiliser :\n\nKubernetes, Docker, stockage MinIO, API, ArgoCD, Argo Workflow, MLFlow, React…\n\n… mais dont le coût d’apprentissage est rapidement rentabilisé :\n\nTechnologies “state of the art”\nDe plus en plus utilisées à l’Insee (LS3)\n\n⚠️ Coût de maintenance élevé ! Compétences rares à l’INSEE (ou ailleurs ?)"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#résultats-de-lexpérimentation",
-    "href": "src/seminaire-dirag/index.html#résultats-de-lexpérimentation",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Résultats de l’expérimentation",
-    "text": "Résultats de l’expérimentation\n\nRésultats prometteurs pour le soutien de l’enquête cartographique\nPremière utilisation des algorithmes effectuée par la DMTR pour prioriser l’envoi d’agents sur le terrain\nOpportunité pour le soutien des estimations de population à Mayotte\nParti pris de présenter une chaîne complète de production en guise de POC !\nChoix rapides ➡️ nombreuses améliorations possibles"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#etape-1",
-    "href": "src/seminaire-dirag/index.html#etape-1",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 1",
-    "text": "Etape 1\n\n\n\n\n\n\nLes données Pleiades dont nous disposons sont fournies par l’IGN et ne sont datées qu’à l’année\nTravail à fournir pour maîtriser l’acquisition de données PLEIADES\nIndispensable si on veut des estimations précisément datées"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#etape-2",
-    "href": "src/seminaire-dirag/index.html#etape-2",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 2",
-    "text": "Etape 2\n\n\n\n\n\n\nLe nettoyage (filtering des nuages, normalisation) doit être consolidé et demande validation\nAnnotation ou récupération d’autres données annotées, 2 possibilités :\n\nAméliorer les annotations actuelles manuellement\nRécupérer d’autres images annotées ou annotations pour nos images"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#etape-3",
-    "href": "src/seminaire-dirag/index.html#etape-3",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 3",
-    "text": "Etape 3\n\n\n\n\n\n\nAméliorations secondaires par rapport à l’amélioration de la qualité des annotations\nSuivre l’état de l’art à l’affût de nouveautés (modèle pré-entraînés sur HuggingFace)"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#etape-4",
-    "href": "src/seminaire-dirag/index.html#etape-4",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 4",
-    "text": "Etape 4\n\n\n\n\n\n\nAPI à développer au delà du prototype actuel en fonction des besoins des clients"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#etape-5",
-    "href": "src/seminaire-dirag/index.html#etape-5",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 5",
-    "text": "Etape 5\n\n\n\n\n\n\nApplication de visualisation à développer au delà du prototype actuel en fonction des besoins des clients"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#etape-6",
-    "href": "src/seminaire-dirag/index.html#etape-6",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "Etape 6 :",
-    "text": "Etape 6 :\n\n\n\n\n\n\nAnalyse des résultats encore insuffisante et à pousser"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#en-plus",
-    "href": "src/seminaire-dirag/index.html#en-plus",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "En plus",
-    "text": "En plus\n\nSentinel 2 : Poursuite des travaux de Judith Nabec sur images Sentinel 2 plus simples d’acquisition, et à résolution spectrale plus élevée (ou sur d’autres images)"
-  },
-  {
-    "objectID": "src/seminaire-dirag/index.html#la-suite",
-    "href": "src/seminaire-dirag/index.html#la-suite",
-    "title": "Travaux exploratoires avec des données satellites : Bilan des résultats obtenus",
-    "section": "La suite",
-    "text": "La suite\n\nFin de la phase d’expérimentation\nBeaucoup de cas d’usage identifiés et de clients finaux\nNécessité de monter un véritable projet pour chaque cas d’usage avec des moyens adaptés\nCe qui permettra de hiérarchiser les améliorations"
+    "objectID": "src/seminaire-dmcsi/index.html#défis-perspectives",
+    "href": "src/seminaire-dmcsi/index.html#défis-perspectives",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Défis & Perspectives",
+    "text": "Défis & Perspectives\n\nCoûts de maintenance élevés en raison de la complexité technique 💸\n\nBesoin de compétences spécialisées 🧑‍💻\n\nEnvironnement technique complexe dû à :\n\nVolumes de données importants 🗃️\n\nForts besoins en calcul (GPU) ⚡\n\n\nRésultats initiaux prometteurs pour accompagner les enquêtes cartographiques"
   }
 ]
