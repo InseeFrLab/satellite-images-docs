@@ -1,9 +1,36 @@
-1. Segmentation sémantique (def, méthode choisie (CV pour seg sem auto), historique IA (ancien to new model SAM))
-2. Données **Raya**
-    2.1 Images satellites (def, produits, acquisition/livraison (partenariat IGN a promouvoir))
-    2.2 Annotations (nerf de la guerre) : on a fait tout automatique, dire ce que ca coute pour belles annot. RIL (Insee), BDTOPO (better), finally 
+## Segmentation sémantique
 
-3. Evaluation **Raya**
+def, méthode choisie (CV pour seg sem auto), historique IA (ancien to new model SAM)
+
+## Données
+
+### Images satellites
+
+Une image satellite est une matrice à trois dimensions. Chaque élément de cette image est un **pixel**, qui correspond à une surface au sol (par exemple 10m\*10m). Le pixel contient plusieurs valeurs numériques. Ces valeurs expriment l'intensité du rayonnement solaire reflété dans chaque **bande spectrale** pour ce pixel. Une bande spectrale correspond à une portion du spectre électromagnétique, qui peut être par exemple le bleu, le rouge, le vert, le proche infrarouge. Donc, pour une image satellite de 200\*200 pixels avec les trois bandes du visible (rouge, vert, bleu), chaque pixel aura trois valeurs différentes représentant l'intensité dans chacune des bandes du visible. Ainsi, un pixel qui représente 10m\*10m au sol donnera une couleur : du violet sur l'exemple de la @fig-pixel.
+
+![Exemple d'un pixel d'une image satellite](../img/rgb.png){#fig-pixel width=30%}
+
+Il existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d'entre eux : **Pléiades et Sentinel2**.
+
+![Mamoudzou, Mayotte (2024)](../img/pleiades_vs_sentinel2.png){#fig-pleiadesvssentinel width=80%}
+
+Les images satellites **Pléiades** constituent une ressource précieuse dans notre cas d’usage. Ce sont des images à très haute résolution, spécifiquement conçues pour l’observation fine des territoires. Elles offrent trois bandes spectrales dans le visible (**rouge, vert, bleu**) auxquelles s’ajoute une quatrième bande dans le proche infrarouge (NIR), bien que cette dernière ne soit pas disponible dans nos données actuelles. Leur résolution spatiale remarquable de **0,5m** par pixel permet une détection très précise des objets au sol, ce qui est essentiel pour nos traitements d’analyse fine.
+
+Ces images peuvent être obtenues soit via les **archives gratuites** (sous conditions d’accord), soit par acquisition à la demande, un service payant encadré par une licence Airbus©, avec des délais d’environ 6 à 8 mois par département.
+
+Dans le cadre du cyclone Chido qui a frappé Mayotte en décembre 2024, un plan d’urgence a permis l’accès gratuit à une mosaïque d’images Pléiades post-cyclone couvrant l’île. Une **mosaïque** est une image composite constituée d’assemblages de prises de vues réalisées à différentes dates. Elle permet d’obtenir une couverture complète, avec un minimum de zones nuageuses et une meilleure homogénéité visuelle. Ce travail de reconstitution, mené par **l'Institut National de l'information géographique et forestière** (IGN), est crucial pour garantir des données exploitables, notamment dans le cadre de l’entraînement de modèles d’analyse automatique.
+
+Mais Pléiades n’est pas notre seule source d’imagerie satellite. Les satellites **Sentinel-2**, développés par l’Agence spatiale européenne (ESA) dans le cadre du programme Copernicus, offrent une alternative open source, particulièrement intéressante pour les analyses à large échelle ou à forte fréquence temporelle. Contrairement à Pléiades, Sentinel-2 capte **treize bandes spectrales**, réparties entre le visible, le proche infrarouge (NIR) et l’infrarouge à ondes courtes (SWIR), ce qui ouvre la voie à une multitude d’indices et d’analyses thématiques (comme la détection de la végétation, de l’humidité, ou des matériaux).
+
+En revanche, la résolution spatiale de Sentinel-2 est moindre : selon les bandes, elle varie entre **10 m**, 20 m et 60 m, ce qui rend l'observation de petits objets ou de détails fins plus difficile. Néanmoins, ces images ont l’avantage d’être acquises automatiquement **tous les cinq jours**, garantissant une fréquence de revisite élevée et une mise à disposition régulière des données, y compris en période de crise.
+
+Ainsi, les images Pléiades semblent être les plus adaptés pour de la détection de bâtiment dans les DROM.
+
+### Annotations
+nerf de la guerre : on a fait tout automatique, dire ce que ca coute pour belles annot. RIL (Insee), BDTOPO (better), finally 
+
+## Evaluation
+
 IOU, Loss, zone de test manuel (calculer la taille des zones de test)
 
 inférence (parler moyenne mobile) -> mise à dispo d'une API
