@@ -55,7 +55,7 @@ format:
 
 {{< pagebreak >}}
 
-# Introduction {.unnumbered}
+# Introduction
 
 {{< include sections/1-introduction.qmd >}}
 

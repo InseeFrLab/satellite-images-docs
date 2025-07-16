@@ -1,8 +1,83 @@
-## Méthodologie <!-- Thomas -->
+Nous allons dans cette partie revenir sur les concepts d'apprentissage profond (*deep learning*) afin d'expliquer notre démarche et l'application de ces méthodes à nos problématiques précises. Nous définirons ensuite les données que nous avons utilisée avant de détailler les méthodes d'évaluation que nous avons appliqués à nos algorithmes.
+
+## Les modèles de d'apprentissage profond pour l'analyse d'images
+
+Dans le domaine de l'apprentissage statistique, les réseaux de neurones profonds en sont un sous-domaine. Si les premiers algorithmes de réseaux de neurones ont été développé dès les années, les réseaux de neurones profonds ont eux fait leur révolution dans les années 2010 grâce notamment aux développement de nouvelles cartes graphiques (GPU) et d'algorithmes optimisées pour celles ci. En effet, leur développement a longtemps été freiné par la quantité de données nécessaires pour obtenir de bons résultats impliquant donc des temps de calculs très longs et des coûts d'annotations prohibitifs. La conception des réseaux de neurones profond est inspirée du fonctionnement du cerveau humain. En effet, l'idée est de représenter les neurones par des fonctions mathématiques très simples qui s'activent si le signal reçu en entrée est suffisamment fort et transmettent alors leur "activation" dans ce cas. Un grand nombre de neurones correctement organisés permet alors de réaliser des opérations plus complexes, résultantes des différentes activations.
+
+Si l'apprentissage profond est devenu la solution de facto pour l'analyse d'images par ordinateur, et notamment les tâches de segmentation sémantique c'est en parti grâce aux travaux fondateurs de @long2015fullyconvolutionalnetworkssemantic qui ont développé les réseaux entièrement convolutifs, une extension de l'architecture des réseaux de neurones convolutif proposé par @LeCun1989.
+
+### Réseaux de neurones convolutifs
+
+Les réseaux de neurones convolutifs (CNN) tirent leur inspiration du cortex visuel des animaux et se composent de deux parties (voir @fig-CNN) :
+
+1. Une première partie composée par des couches de convolutions successives qui permet d'extraire des prédicteurs de l'image en entrée du réseau;
+2. Une seconde partie permettant de classifier les pixels de l'image en entrée à partir des prédicteurs obtenus dans la première partie.
+
+::: {}
+![Réseau de neurones convolutif](../img/CNN.png){#fig-CNN width=75%}
+*Note de lecture : La partie convolutive est représentée par les différents cubes à gauche et la partie classifiante est représentée par les rectangles fins et bleus à droite* 
+:::
+
+Dans la partie convolutive, l'image en entrée du réseau se voit appliquer des filtres appelés convolutions, représentés par des matrices $A = (a_{ij})$ de petite taille appelés noyaux de convolution. L'image en sortie de l'opération de convolution est obtenue à partir de chaque pixel de l'image en entrée en calculant la somme des pixels avoisinant, pondérée par les coefficients $a_{ij}$ du noyau de convolution. Cette opération de convolution est illustrée dans la @fig-ex_conv, extraite de l'ouvrage @Kim_2017.
+
+::: {}
+![](../img/conv.jpg){#fig-ex_conv width=50%}
+*L'image résultante est une image plus petite dont les pixels sont égaux à la somme des pixels de l'image en entrée pondérée par les coefficients du noyau de convolution.* 
+:::
+
+
+Une convolution vise ainsi à résumer l'information présente dans une région de l’image. Il est d'ailleurs intéressant de remarquer que lorsque le voisinage d’un pixel ressemble à la structure du noyau de convolution, la valeur de sortie est élevée. Ainsi, si le filtre est, par exemple, un détecteur de ligne verticale, il génèrera une grande valeur sur les pixels appartenant à des lignes verticales. Un filtre de convolution permet donc d'obtenir une sorte de carte de caractéristiques de l'image. Une couche convolutive correspond finalement à l'application d'un nombre $n_f$ de filtres différents en parallèle. Ainsi, en sortie d'une couche, il y a autant d'images (carte de caractéristiques) que de filtres appliqués. Ces $n_f$ cartes deviennent les canaux d’entrée de la couche suivante.
+
+Les CNN se composent de couches successives, chacune ayant un rôle spécifique.  Les premières couches détectent des motifs simples dans l'image (bords, textures, lignes horizontales ou verticales...) tandis que les couches intermédiaires et profondes, plus spécialisées, combinent ces motifs simples pour repérer des formes de plus en plus complexes (motifs, objets, visages…). La @fig-Convolution schématise un réseau de neurones convolutif.
+
+::: {}
+![Représentation d'une convolution](../img/convolution.png){#fig-Convolution width=75%}
+*Les premières couches convolutives reconnaissent les formes simples tandis que les couches les plus profondes à droite reconnaissent des formes plus concrètes.* 
+:::
+
+Après une couche de convolution, la taille des cartes de caractéristiques reste identique à celle de l'image, ce qui peut rapidement entraîner un volume de données important et rendre le modèle coûteux à entraîner. Pour pallier cela, une méthode couramment utilisée est le *max pooling*. Cette opération, représenté par la @fig-Maxpool consiste à diviser chaque carte de caractéristiques en petites régions, puis à ne conserver, pour chacune, que la valeur maximale. Le *max pooling* permet ainsi de réduire la dimension spatiale des données tout en conservant l’information la plus pertinente. Cette réduction favorise également une certaine invariance locale aux petites translations ou déformations de l’image, et contribue à limiter le nombre de paramètres et la complexité de calcul du réseau, tout en mettant en valeur les motifs les plus discriminants. D'autres opérations telles que le padding détaillé dans la @fig-Padding permettent malgré tout de contrôler la dimension de l'image en sortie.
+
+::: {}
+![Représentation du maxpool](../img/maxpool.png){#fig-Maxpool width=40%}
+*L'image résultante de l'opération de max-pooling est égale au maximum de chaque pixel dans chacune des zones dessinées sur l'image de gauche.* 
+:::
+
+
+::: {}
+![Représentation du padding](../img/padding.png){#fig-Padding width=40%}
+*Note de lecture : l'ajout d'une bande de 0 autour de l'image avant d'appliquer la convolution permet de limiter la réduction de dimension de l'image résultante.* 
+:::
+
+
+Une fonction d’activation non linéaire, comme la ReLU (Rectified Linear Unit), est appliquée systématiquement après chaque couche de convolution (cf. @fig-ReLU). Inspirée du fonctionnement des neurones biologiques, cette opération introduit une non-linéarité dans le réseau. Sans cette étape, l’empilement de couches convolutives ne ferait qu’appliquer une combinaison linéaire de filtres, ce qui limiterait la capacité du modèle à apprendre des relations complexes. L’ajout de fonctions d’activation non linéaires permet ainsi au réseau d’extraire et de modéliser des motifs variés et des structures non linéaires présentes dans les données, ce qui est essentiel pour traiter efficacement des images. L’utilisation de fonctions d’activation non linéaires ne se limite pas aux réseaux convolutifs, c’est justement une composante fondamentale de l’ensemble des architectures d'apprentissage profond.
+
+::: {}
+![Fonction d'activation ReLu](../img/relu-2.png){#fig-ReLu width=40%}
+*Note de lecture : la fonction ReLU "s'active" quand l'argument est positif.* 
+:::
+
+Contrairement aux approches classiques du machine learning, la particularité des réseaux convolutifs réside dans l’automatisation de l’extraction des caractéristiques (*feature extraction*) de l’image. Dans un cadre traditionnel, cette étape est généralement réalisée de manière manuelle ou repose sur l’expertise métier : on choisit alors à l’avance quels prédicteurs utiliser (par exemple, des statistiques sur certaines bandes spectrales ou des filtres définis à la main). À l’inverse, dans un réseau de neurones convolutif, ce sont les poids des noyaux de convolution eux-mêmes qui sont appris automatiquement au cours de l’entraînement. Ces coefficients font partie du vecteur de paramètres du modèle, noté $\theta$. Ainsi, une fois le réseau entraîné, l’ensemble des filtres optimaux $\theta^{*}$ représente la meilleure façon de transformer et d’extraire les informations pertinentes de l’image. Les cartes de caractéristiques produites par l’enchaînement de ces filtres alimentent ensuite la partie classifiante du réseau. Cette approche permet au modèle de découvrir de manière autonome les motifs les plus discriminants pour la tâche visée, sans intervention manuelle dans la conception des prédicteurs.
+
+
+En sortie d’un réseau de neurones convolutif classique, la partie dite classifiante permet d’associer une catégorie à l’image analysée. Par exemple, on peut vouloir déterminer si une image représente un chien ou un chat. Pour cela, la sortie de la partie convolutive (c’est-à‑dire les cartes de caractéristiques extraites par les filtres) est d’abord transformée en un seul vecteur grâce à une opération de mise à plat (*flattening*). Ce vecteur est ensuite traité par un réseau de neurones dense, appelé aussi *fully connected*, qui produit en sortie un vecteur de scores \$x = (x\_0, ..., x\_9)\$ lorsqu’on cherche à classer l’image parmi 10 classes possibles.
+
+Pour interpréter ces scores comme des probabilités, on applique la fonction *softmax* :
+
+$$
+\text{Softmax}(x_i) = \frac{\exp{x_i}} {\sum\limits_{j=0}^{9}{\exp{x_j}}}.
+$$
+
+Cette opération convertit les scores en une distribution de probabilité, dont la somme vaut 1, et permet de sélectionner la classe associée à la probabilité la plus élevée comme prédiction finale. La fonction *softmax* est particulièrement utile car elle est infiniment dérivable, ce qui garantit la dérivabilité de tout le modèle \$f\_{\theta}\$ par rapport à ses paramètres \$\theta\$. Cela rend possible l’utilisation de la descente de gradient pour ajuster les poids du réseau au cours de l’apprentissage.
+
 
 ### Segmentation sémantique
 
-Rappeler notre objectif : detecter des changements de batis
+L'objectif premier de notre projet est d'être capable d'identifier des zones de bâtis à partir d'images satellites. Les récents développements en apprentissage profond ont permis d'obtenir de très bons résultats en terme d'analyse d'image par ordinateur sur diverses tâches comme la classification d'images, la détection d'objets, le suivi d'objets ou encore la segmentation sémantique. En l’occurrence, c'est cette dernière méthode qui va nous intéresser puisque les algorithmes de segmentation sémantique consistent à classifier les différents pixels d'une image dans diverses classes pré-définie. L'idée est donc détecter automatiquement les pixels qui réfèrent à une zone de bâtis et ainsi être capable de délimiter au mieux les frontières entre les bâtiments et les autres classe. 
+
+La segmentation sémantique moderne repose historiquement sur les réseaux de neurones convolutionnels (CN) et utilise généralement des techniques d'apprentissage supervisé nécessitant des jeux de données étiquetés au niveau pixel[6][7]. Les modèles sont entraînés pour apprendre des caractéristiques hiérarchiques complexes permettant de distinguer les différentes classes sémantiques présentes dans les images
+
+Si l'apprentissage profond est devenu la solution de facto pour les tâches de segmentation sémantique c'est en parti grâce aux travaux fondateurs de @long2015fullyconvolutionalnetworkssemantic qui 
+
 Définition, qu'est ce que c'est ?
 les modèles originaux (FCN) et Unet
 Jonathan Long, Evan Shelhamer, and Trevor Darrell. Fully convolutional networks for semantic segmentation. In CVPR, 2015
@@ -12,8 +87,7 @@ puis l'évolution récente vers les transformers (ViT)
 Dans ce contexte on a choisi Segformer. Rappeler qu'on utilise des modèles pré-entrainer qu'on finetune simplement avec les données qu'on a a notre dispo (voir partie suivante)
 
 De la segmentation sémantique à la detection de changement => approche temporelle 
-Mentionner les modèles de change detection et dire les différences avec notre approche
-
+Mentionner les modèles de change detection et dire les différences avec notre approche -->
 
 
 ## Données
