@@ -46,7 +46,7 @@ Des opérations dites de "max pooling" illustrées dans la @fig-Maxpool permette
 
 Une fonction d'activation (concept proche de la neurobiologie) non linéaire de type ReLU (Rectifiar Linear Unit) est appliquée systématiquement après chaque couche (cf. @fig-ReLu). L'utilisation de fonctions non linéaires n'est pas réservée aux seuls réseaux de neurones convolutifs mais à l'ensemble des modèles de *deep learning*. Ces fonctions non linéaires vont permettre *in fine* de former des réseaux de neurones capables de prédire des phénomènes non linéaires. Ces réseaux s'adapteront mieux au traitement des images.
 
-![Fonction d'activation ReLu](../img/relu-2.png){#fig-ReLu width=40%}
+![Fonction d'activation ReLu](../img/relu.png){#fig-ReLu width=40%}
 
 <!-- Note de lecture : la fonction ReLU "s'active" quand l'argument est positif. -->
 
