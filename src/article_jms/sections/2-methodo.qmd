@@ -76,11 +76,19 @@ Cette opération convertit les scores en une distribution de probabilité, dont 
 
 ### Segmentation sémantique
 
-L'objectif premier de notre projet est d'être capable d'identifier des zones de bâtis à partir d'images satellites. Les récents développements en apprentissage profond ont permis d'obtenir de très bons résultats en terme d'analyse d'image par ordinateur sur diverses tâches comme la classification d'images, la détection d'objets, le suivi d'objets ou encore la segmentation sémantique. En l’occurrence, c'est cette dernière méthode qui va nous intéresser puisque les algorithmes de segmentation sémantique consistent à classifier les différents pixels d'une image dans diverses classes pré-définie. L'idée est donc détecter automatiquement les pixels qui réfèrent à une zone de bâtis et ainsi être capable de délimiter au mieux les frontières entre les bâtiments et les autres classe. 
+1 Parler de notre objectif
+2 Presenter le seminal paper des reseaux convolutif vers la segmentation semantique
+3 Présenter les nouveaux types de modèles basé sur Segformer
+4 Transition vers le fine tuning et donc des données que nous possédons
+
+On vient de le voir, les réseaux de neurones convolutifs sont particulièrement adaptés pour faire une prédiction par image. C'est pour cela qu'ils ont été historiquement utilisé pour réaliser de la classification d'image (par exemple, classer des écritures manuscrites de chiffre). Dans le cadre de notre projet, l'objectif est plutôt d'être capable d'identifier automatiquement des zones de bâtis sur des images satellites. L'idée n'est donc pas de faire une classification à l'échelle de l'image entière mais à l'échelle du pixel. De sorte à ce qu'il soit possible de délimiter des zones appartenant à une même classe pré-définie au sein même d'une image. C'est justement le principe de la segmentation sémantique.
+
+
+Les récents développements en apprentissage profond ont permis d'obtenir de très bons résultats en terme d'analyse d'image par ordinateur sur diverses tâches comme la classification d'images, la détection d'objets, le suivi d'objets ou encore la segmentation sémantique. En l’occurrence, c'est cette dernière méthode qui va nous intéresser puisque les algorithmes de segmentation sémantique consistent à classifier les différents pixels d'une image dans diverses classes pré-définie. L'idée est donc détecter automatiquement les pixels qui réfèrent à une zone de bâtis et ainsi être capable de délimiter au mieux les frontières entre les bâtiments et les autres classe. 
+
 
 La segmentation sémantique moderne repose historiquement sur les réseaux de neurones convolutionnels (CN) et utilise généralement des techniques d'apprentissage supervisé nécessitant des jeux de données étiquetés au niveau pixel[6][7]. Les modèles sont entraînés pour apprendre des caractéristiques hiérarchiques complexes permettant de distinguer les différentes classes sémantiques présentes dans les images
 
-Si l'apprentissage profond est devenu la solution de facto pour les tâches de segmentation sémantique c'est en parti grâce aux travaux fondateurs de @long2015fullyconvolutionalnetworkssemantic qui 
 
 Définition, qu'est ce que c'est ?
 les modèles originaux (FCN) et Unet
@@ -138,4 +146,8 @@ peut etre rappeler la difficulté d'avoir des couples qui sont iso temporel
 
 - IOU, Loss, zone de test manuel (calculer la taille des zones de test)
 
-- inférence (parler moyenne mobile) -> mise à dispo d'une API
+## Inférence et mise à disposition des résultats
+
+Une fois le modèle entraîné et validé, l'étape d'inférence consiste à appliquer ce modèle sur de nouvelles images satellites pour prédire la présence de bâtiments. Afin de lisser les prédictions et réduire le bruit, nous avons utilisé une moyenne mobile sur les sorties du modèle. Cette technique permet d'améliorer la cohérence spatiale des résultats, en atténuant les fausses détections isolées et en renforçant les zones de prédiction continue.
+
+Pour faciliter l'accès aux résultats, nous avons mis en place une API dédiée. Cette API permet d'interroger le modèle à la demande, en soumettant de nouvelles images satellites et en récupérant les cartes de segmentation correspondantes. Cette approche garantit une intégration aisée dans des chaînes de traitement existantes et permet une exploitation rapide des prédictions, que ce soit pour des analyses ponctuelles ou pour un suivi opérationnel à grande échelle.
