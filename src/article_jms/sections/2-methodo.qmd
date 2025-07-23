@@ -78,23 +78,22 @@ Cette opération convertit les scores en une distribution de probabilité, dont 
 
 1 Parler de notre objectif
 2 Presenter le seminal paper des reseaux convolutif vers la segmentation semantique
-3 Présenter les nouveaux types de modèles basé sur Segformer
+3 Présenter les nouveaux types de modèles basé sur Segformer (ViT)
 4 Transition vers le fine tuning et donc des données que nous possédons
 
-On vient de le voir, les réseaux de neurones convolutifs sont particulièrement adaptés pour faire une prédiction par image. C'est pour cela qu'ils ont été historiquement utilisé pour réaliser de la classification d'image (par exemple, classer des écritures manuscrites de chiffre). Dans le cadre de notre projet, l'objectif est plutôt d'être capable d'identifier automatiquement des zones de bâtis sur des images satellites. L'idée n'est donc pas de faire une classification à l'échelle de l'image entière mais à l'échelle du pixel. De sorte à ce qu'il soit possible de délimiter des zones appartenant à une même classe pré-définie au sein même d'une image. C'est justement le principe de la segmentation sémantique.
+On vient de le voir, les réseaux de neurones convolutifs sont particulièrement adaptés pour réaliser une prédiction par image. C'est pour cela qu'ils ont été historiquement utilisé pour accomplir de la classification d'image (par exemple, classer des écritures manuscrites de chiffre). Dans le cadre de notre projet, l'objectif est plutôt d'être capable d'identifier automatiquement des zones de bâtis sur des images satellites. L'idée n'est donc pas de faire une classification à l'échelle de l'image entière mais à l'échelle du pixel. De sorte à ce qu'il soit possible de délimiter des zones appartenant à une même classe pré-définie au sein même d'une image. C'est justement le principe de la segmentation sémantique qui retourne donc une sortie dense, c'est à dire des labels de même taille que l'image en entrée. Cette tâche a réellement fait de gros progrès suite au papier fondateur de @long2015fullyconvolutionalnetworkssemantic sur les réseaux de neurones entièrement convolutifs. 
 
+Pour rappel, avec les réseaux de neurones convolutifs classiques on empile des couches de convolution et afin d'accroître la profondeur de l'image et grâce au mécanisme de *max pooling* on réduit sa taille. Au final, on aplatit tout afin de recréer un réseau de neurones dense *classique* permettant de réaliser une classification. Cependant cette étape d'aplatissement fait perdre complètement la structure spatiale de l'image (les liens entre pixels voisins), qui est absolument nécessaire pour faire de la segmentation sémantique, à savoir "à quel classe appartient chaque pixel ?". L'idée derrière les FCN est donc de supprimer cet aplatissement ainsi que les couches entièrement connectées pour les remplacer par une convolution 1*1. De cette manière, chaque pixel devient un classifieur local qui prédit sa classe en fonction de ce que les couches profondes ont extrait, on a alors autant de petites images que de classes dans lesquelles on souhaite segmenter.
 
-Les récents développements en apprentissage profond ont permis d'obtenir de très bons résultats en terme d'analyse d'image par ordinateur sur diverses tâches comme la classification d'images, la détection d'objets, le suivi d'objets ou encore la segmentation sémantique. En l’occurrence, c'est cette dernière méthode qui va nous intéresser puisque les algorithmes de segmentation sémantique consistent à classifier les différents pixels d'une image dans diverses classes pré-définie. L'idée est donc détecter automatiquement les pixels qui réfèrent à une zone de bâtis et ainsi être capable de délimiter au mieux les frontières entre les bâtiments et les autres classe. 
+Le problème est qu'après cette convolution 1*1, et suite à toutes les couches de *max pooling*, l'image en sortie est de plus petite taille que l'image en entrée, or pour prédire un label par pixel, l'image en sortie doit être de même taille que l'image en entrée. @long2015fullyconvolutionalnetworkssemantic propose alors une solution : la déconvolution (ou *transposed convolution*). Bien qu'il s'agissent d'un abus de langage, on peut considérer la déconvolution comme le processus inverse de la convolution dans le sens ou elle augmente la résolution. La @fig-deconvolution représente schématiquement ce mécanisme.
 
+Ainsi, les modèles de segmentation sont généralement représenté par une structure en forme de U avec :
 
-La segmentation sémantique moderne repose historiquement sur les réseaux de neurones convolutionnels (CN) et utilise généralement des techniques d'apprentissage supervisé nécessitant des jeux de données étiquetés au niveau pixel[6][7]. Les modèles sont entraînés pour apprendre des caractéristiques hiérarchiques complexes permettant de distinguer les différentes classes sémantiques présentes dans les images
+- Une partie descendante, l’encodeur, qui va permettre de transformer l’image en entrée en un vecteur numérique de taille réduite par rapport au nombre de pixels initial de précédente grâce à des couches successives de convolution.
+- Une partie ascendante, le décodeur, qui va partir du vecteur obtenu précédemment (aussi appelé embedding) et remonter par opérations de déconvolutions à une sortie de la même dimension que l’image.
+Il est important de noter que ces deux parties du U sont paramétrées. En effet, les poids des différents noyaux de convolution et de déconvolution sont appris lors de l'entraînement.
 
-
-Définition, qu'est ce que c'est ?
-les modèles originaux (FCN) et Unet
-Jonathan Long, Evan Shelhamer, and Trevor Darrell. Fully convolutional networks for semantic segmentation. In CVPR, 2015
-
-puis l'évolution récente vers les transformers (ViT)
+Parmi les extensions aux FCN les plus remarquables ont peu citer le modèle U-net @unet. Dans les architectures FCN classique, les couches de convolution associée au pooling réduisent progressivement la taille des cartes de caractéristiques ce qui supprime les détails spatiaux fin et génère des segmentations floues. L'idée novatrice des auteurs est de construire une architecture en U symétrique de sorte à réutiliser les cartes caractéristiques produites lors de la partie descendante dans la partie ascendante afin qu'elle bénéficie des détails locaux
 
 Dans ce contexte on a choisi Segformer. Rappeler qu'on utilise des modèles pré-entrainer qu'on finetune simplement avec les données qu'on a a notre dispo (voir partie suivante)
 
