@@ -54,8 +54,8 @@ Après une couche de convolution, la taille des cartes de caractéristiques rest
 
 Une fonction d’activation non linéaire, comme la ReLU (Rectified Linear Unit), est appliquée systématiquement après chaque couche de convolution (cf. @fig-relu). Inspirée du fonctionnement des neurones biologiques, cette opération introduit une non-linéarité dans le réseau. Sans cette étape, l’empilement de couches convolutives ne ferait qu’appliquer une combinaison linéaire de filtres, ce qui limiterait la capacité du modèle à apprendre des relations complexes. L’ajout de fonctions d’activation non linéaires permet ainsi au réseau d’extraire et de modéliser des motifs variés et des structures non linéaires présentes dans les données, ce qui est essentiel pour traiter efficacement des images. L’utilisation de fonctions d’activation non linéaires ne se limite pas aux réseaux convolutifs, c’est justement une composante fondamentale de l’ensemble des architectures d'apprentissage profond.
 
-::: {.center}
-![Fonction d'activation ReLu](../img/relu.png){#fig-relu width=40%}
+::: {.center width=40%}
+![Fonction d'activation ReLu](../img/relu.png){#fig-relu}
 
 *Note de lecture : la fonction ReLU "s'active" quand l'argument est positif.* 
 :::
@@ -78,9 +78,21 @@ Cette opération convertit les scores en une distribution de probabilité, dont 
 
 On vient de le voir, les réseaux de neurones convolutifs sont particulièrement adaptés pour réaliser une prédiction par image. C'est pour cela qu'ils ont été historiquement utilisé pour accomplir de la classification d'image (par exemple, classer des écritures manuscrites de chiffre). Dans le cadre de notre projet, l'objectif est plutôt d'être capable d'identifier automatiquement des zones de bâtis sur des images satellites. L'idée n'est donc pas de faire une classification à l'échelle de l'image entière mais à l'échelle du pixel. De sorte à ce qu'il soit possible de délimiter des zones appartenant à une même classe pré-définie au sein même d'une image. C'est justement le principe de la segmentation sémantique qui retourne donc une sortie dense, c'est à dire des labels de même taille que l'image en entrée. Cette tâche a réellement fait de gros progrès suite au papier fondateur de @long2015fullyconvolutionalnetworkssemantic sur les réseaux de neurones entièrement convolutifs. 
 
-Pour rappel, avec les réseaux de neurones convolutifs classiques on empile des couches de convolution et afin d'accroître la profondeur de l'image et grâce au mécanisme de *max pooling* on réduit sa taille. Au final, on aplatit tout afin de recréer un réseau de neurones dense *classique* permettant de réaliser une classification. Cependant cette étape d'aplatissement fait perdre complètement la structure spatiale de l'image (les liens entre pixels voisins), qui est absolument nécessaire pour faire de la segmentation sémantique, à savoir "à quel classe appartient chaque pixel ?". L'idée derrière les FCN est donc de supprimer cet aplatissement ainsi que les couches entièrement connectées pour les remplacer par une convolution 1*1. De cette manière, chaque pixel devient un classifieur local qui prédit sa classe en fonction de ce que les couches profondes ont extrait, on a alors autant de petites images que de classes dans lesquelles on souhaite segmenter.
+Pour rappel, avec les réseaux de neurones convolutifs classiques on empile des couches de convolution et afin d'accroître la profondeur de l'image et grâce au mécanisme de *max pooling* on réduit sa taille. Au final, on aplatit tout afin de recréer un réseau de neurones dense *classique* permettant de réaliser une classification. Cependant cette étape d'aplatissement fait perdre complètement la structure spatiale de l'image (les liens entre pixels voisins), qui est absolument nécessaire pour faire de la segmentation sémantique, à savoir "à quel classe appartient chaque pixel ?". L'idée derrière les FCN est donc de supprimer cet aplatissement ainsi que les couches entièrement connectées pour les remplacer par une convolution $1 \times 1$. De cette manière, chaque pixel devient un classifieur local qui prédit sa classe en fonction de ce que les couches profondes ont extrait, on a alors autant de petites images que de classes dans lesquelles on souhaite segmenter.
 
-Le problème est qu'après cette convolution 1*1, et suite à toutes les couches de *max pooling*, l'image en sortie est de plus petite taille que l'image en entrée, or pour prédire un label par pixel, l'image en sortie doit être de même taille que l'image en entrée. @long2015fullyconvolutionalnetworkssemantic propose alors une solution : la déconvolution (ou *transposed convolution*). Bien qu'il s'agissent d'un abus de langage, on peut considérer la déconvolution comme le processus inverse de la convolution dans le sens ou elle augmente la résolution. La @fig-deconvolution représente schématiquement ce mécanisme.
+Le problème est qu'après cette convolution $1 \times 1$, et suite à toutes les couches de *max pooling*, l'image en sortie est de plus petite taille que l'image en entrée, or pour prédire un label par pixel, l'image en sortie doit être de même taille que l'image en entrée. @long2015fullyconvolutionalnetworkssemantic propose alors une solution : la déconvolution (ou *transposed convolution*). Bien qu'il s'agissent d'un abus de langage, on peut considérer la déconvolution comme le processus inverse de la convolution dans le sens ou elle augmente la résolution. La @fig-deconvolution représente schématiquement ce mécanisme.
+
+
+::: {.center}
+![Représentation de la déconvolution](../img/transposed_conv.png){#fig-deconvolution}
+
+*Note de lecture : TODO.* 
+:::
+
+
+<!-- The transpose of convolving a 3 × 3 kernel over a 4 × 4 input using unit strides (i.e., i = 4, k = 3, s = 1 and p = 0). It is equivalent to convolving a 3 × 3 kernel over a 2 × 2 input padded with a 2 × 2 border of zeros using unit strides (i.e., i' = 2, k' = k, s'= 1 and p' = 2). 
+SOURCE : https://arxiv.org/pdf/1603.07285 Page 23-->
+
 
 Ainsi pour résumer, les modèles de segmentation sont généralement représentés par une structure en forme de U avec :
 
@@ -90,6 +102,12 @@ Il est important de noter que ces deux parties du U sont paramétrées. En effet
 
 Parmi les extensions aux FCN les plus remarquables on peut citer le modèle U-net @Ronneberger_Fischer_Brox_2015b. Dans les architectures FCN classique, les couches de convolution associée au pooling réduisent progressivement la taille des cartes de caractéristiques ce qui supprime les détails spatiaux fin et génère des segmentations floues. L'idée novatrice des auteurs est de construire une architecture en U symétrique de sorte à réutiliser les cartes caractéristiques produites lors de la partie descendante dans la partie ascendante afin qu'elle bénéficie des détails locaux comme le montre la @fig-unet. D'autres architectures comme le modèle DeepLabv3 proposé par @chen2017rethinking ont également permis de minimiser la perte d'information lors de l'opération de pooling. Leur idée est d'utiliser des convolutions dilatés (*atrous convolution* ou *dilated convolution*), c'est-à-dire des convolutions de plus grande taille mais avec des zéros entre les poids du filtre. Cela permet de maintenir une quantité d'information suffisante sans augmenter le nombre de paramètre à estimer.
 
+::: {.center}
+![Représentation schématique du U-Net](../img/Unet-remanie.png){#fig-unet}
+
+*Note de lecture : TODO*
+:::
+
 Malgré ces réelles avancées, les architectures basées sur les convolutions présentent plusieurs limites. En effet, par construction ils sont une portée très locale puisqu'une convolution n'observe qu'un voisinage local. Pour élargir le contexte il est nécessaire d'empiler des couches au coût d'un accroissement du temps de calcul. Ainsi, s'ils sont très bon localement, ils ont tendance à ne pas être invariant spatialement (i.e. une voiture en haut à gauche de l’image ou en bas à droite reste une voiture.) et deux parties d'un même objet éloignées dans l'image sont rarement reliés ensemble.
 
 La révolution amorcée par les Transformers (voir @vaswani2017attention) dans le traitement automatique du langage naturel (NLP) a également marqué un tournant dans le domaine de la vision par ordinateur. En 2020, les Vision Transformers (ViT), introduits par @dosovitskiy2021image chercheurs de Google, ont bouleversé les approches classiques de la vision artificielle. Leur particularité réside dans l’adoption du même mécanisme fondamental que celui utilisé en NLP : le *self-attention*. Ce mécanisme permet au modèle de se concentrer sur différentes parties d’une image (comme il le ferait avec des mots dans une phrase), afin de mieux en comprendre la structure et le contenu.
@@ -98,14 +116,26 @@ Contrairement aux réseaux convolutifs (CNN) qui balayent une image via des filt
 
 <!--Note:  Pour comprendre intuitivement le mecanisme d'attention, chaque split de l'image est un vecteur de grande dimension au départ. Ensuite on le compare aux vecteur de tous les autres split (patches) de l'image et on ajuste les poids du vecteur. On fait ca pour tous les splits et plusieurs fois en changeant la taille du vecteur pour chaque patch puis on utile tout les vecteurs pour de la classif ou segmentation -->
 
+::: {.center}
+![Représentation schématique du Vision Transformer (ViT)](../img/vit_schema.png){#fig-vit}
+
+*Note de lecture : TODO*
+:::
+
 Le succès des ViT, originalement conçus plutôt pour des tâches de classification d'images a permis de nouvelles avancées pour la segmentation d'image. Les ViT classiques présentent plusieurs limites pour réaliser de la segmentation : 
 
 1. Les informations fines de localisation sont perdues et l'encodage positionnel n'est pas assez précis pour de la segmentation
 2. Contrairement aux CNN qui construisent des représentations à différentes échelles (petits détails et vue globale), le ViT standard traite tous les *patches* à la même résolution.
 3. Le mécanisme d’attention a un coût quadratique avec la taille des patches. Plus on veut de détails (donc des patches plus petits), plus ça devient lourd à calculer.
 
-Ce sont ces limites que le modèle Segformer @xie2021segformer, développé par Nvidia,  tentent de palier. Le modèle SegFormer, est défini par deux blocs clés un encodeur (hiérarchique) basé sur des couches Transformer et un décodeur très simple pour produire la carte de segmentation. L'idée derrière le SegFormer est de faire un mix entre les bénéfices des CNN (hiérarchie et efficacité locale) et ceux des ViT (efficacité globale). Ainsi, au lieu d’un seul niveau comme dans les ViT, le SegFormer propose un encodeur en plusieurs étages, comme un CNN. L’image passe par plusieurs couches Transformer, chacune réduisant la résolution progressivement. De plus, les patchs sont construits en se chevauchant  (*Overlapped Patch Merging*) de sorte à garder une meilleure continuité spatiale. Les auteurs montrent que cette structure hiérarchique à multi-résolution ainsi que ces fenêtres locales chevauchantes permettent de se passer de l'encodage positionnel utilisé dans les ViT.
+Ce sont ces limites que le modèle Segformer @xie2021segformer, développé par Nvidia,  tentent de palier. Le modèle SegFormer, est défini par deux blocs clés un encodeur (hiérarchique) basé sur des couches Transformer et un décodeur très simple pour produire la carte de segmentation représenté dans la @fig-segformer. L'idée derrière le SegFormer est de faire un mix entre les bénéfices des CNN (hiérarchie et efficacité locale) et ceux des ViT (efficacité globale). Ainsi, au lieu d’un seul niveau comme dans les ViT, le SegFormer propose un encodeur en plusieurs étages, comme un CNN. L’image passe par plusieurs couches Transformer, chacune réduisant la résolution progressivement. De plus, les patchs sont construits en se chevauchant  (*Overlapped Patch Merging*) de sorte à garder une meilleure continuité spatiale. Les auteurs montrent que cette structure hiérarchique à multi-résolution ainsi que ces fenêtres locales chevauchantes permettent de se passer de l'encodage positionnel utilisé dans les ViT.
 Finalement, l'une des particularité du Segformer est également son décodeur très simple qui contraste avec les décodeurs complexes de l'U-Net ou DeepLab. En effet, il prend les sorties des différents niveaux - 4 dans le papier - de l'encodeur qui représentent des résolutions différentes. Il les projette dans un espace commun, les interpole à la même taille, puis les concatène pour produire la carte de segmentation via quelques couches simples. Tout cela permet au Segformer d'être un modèle avec relativement peu de paramètres et donc très rapide à entraîner ou inférer.
+
+::: {.center}
+![Représentation schématique du Segformer](../img/segformer_architecture.png){#fig-segformer}
+
+*Note de lecture : TODO*
+:::
 
 
 D'autres modèles de segmentation peuvent être considéré à l'état de l'art comme le SETR @zheng2021SETR,  Swin Transformer @liu2021swin ou encore l'impressionnant SAM 2 (Segment Anything Model) @ravi2024sam2segmentimages développé par Meta. Cependant, dans le cadre de notre projet, après avoir testé des modèles DeepLabv3, nous avons choisi d'utiliser exclusivement le modèle Segformer-B5[^segformer] avec lequel nous avons obtenus les meilleurs résultats avec des temps de calculs tout à fait raisonnable. Pour cela, nous avons utilisé le modèle pré-entrainé mis à disposition par Nvidia et nous l'avons spécialisé sur nos images satellites des DROM.
