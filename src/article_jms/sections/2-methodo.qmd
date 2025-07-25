@@ -182,13 +182,3 @@ Ainsi, les images Pléiades semblent être les plus adaptés pour de la détecti
 - CoSIA 
 
 peut etre rappeler la difficulté d'avoir des couples qui sont iso temporel
-
-##  Evaluation <!--  Raya -->
-
-- IOU, Loss, zone de test manuel (calculer la taille des zones de test)
-
-## Inférence et mise à disposition des résultats
-
-Une fois le modèle entraîné et validé, l'étape d'inférence consiste à appliquer ce modèle sur de nouvelles images satellites pour prédire la présence de bâtiments. Afin de lisser les prédictions et réduire le bruit, nous avons utilisé une moyenne mobile sur les sorties du modèle. Cette technique permet d'améliorer la cohérence spatiale des résultats, en atténuant les fausses détections isolées et en renforçant les zones de prédiction continue.
-
-Pour faciliter l'accès aux résultats, nous avons mis en place une API dédiée. Cette API permet d'interroger le modèle à la demande, en soumettant de nouvelles images satellites et en récupérant les cartes de segmentation correspondantes. Cette approche garantit une intégration aisée dans des chaînes de traitement existantes et permet une exploitation rapide des prédictions, que ce soit pour des analyses ponctuelles ou pour un suivi opérationnel à grande échelle.
