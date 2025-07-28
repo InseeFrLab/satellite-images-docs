@@ -5,22 +5,55 @@
 
 Metriques et images
 
-inférence à grande échelle et robustesse des résultats (inférence avec fenetre mouvante)
-parler des ressources computationnelles requises
+
 
 ## Inférence 
+
 
 Une fois le modèle entraîné et validé, l'étape d'inférence consiste à appliquer ce modèle sur de nouvelles images satellites pour prédire la présence de bâtiments. Afin de lisser les prédictions et réduire le bruit, nous avons utilisé une moyenne mobile sur les sorties du modèle. Cette technique permet d'améliorer la cohérence spatiale des résultats, en atténuant les fausses détections isolées et en renforçant les zones de prédiction continue.
 
 Pour faciliter l'accès aux résultats, nous avons mis en place une API dédiée. Cette API permet d'interroger le modèle à la demande, en soumettant de nouvelles images satellites et en récupérant les cartes de segmentation correspondantes. Cette approche garantit une intégration aisée dans des chaînes de traitement existantes et permet une exploitation rapide des prédictions, que ce soit pour des analyses ponctuelles ou pour un suivi opérationnel à grande échelle.
 
 
+- Différence avec l'entraînement :
+
+  * Contrairement à l'entraînement, qui mobilise des GPU l’inférence peut être réalisée efficacement sur des CPU ce qui permet une mise en production plus légère et plus accessible.
+  * Le modèle une fois figé est directement exploitable sans nécessiter de recalibrage ni d'ajustements supplémentaires.
+
+- API :
+
+  * Une API a été développée pour permettre l’inférence à la demande sur de nouvelles images satellites. Rappeler que la majorité des images que l'on dispose sont seulement utilisées pour l'inférence.
+  * Cette API prend en entrée une image et retourne la carte de segmentation correspondante, facilitant son intégration dans des chaînes de traitement ou des applications existantes. Plusieurs endpoint dépoyé (à définir)
+  * API à disposition des statisticiens => ajustable en fonction des besoins remontés
+
+- Post-traitement des prédictions :
+
+  * Actuellement, aucune étape de post-traitement n’est appliquée. Résultats bruts
+  * Pour optimiser la qualité : 
+    * Inférence par **fenêtre glissante (*sliding window*)** : evite les artefact de bordure + moyennise proba donc cohérence spatiale et réduit bruit
+    * Faire un pipeline de post traitement : 
+      1. On défini un seuil de confiance. Pour tout les pixel sous ce seuil => replis contextuel => on réattribu  une classe basé sur le voisinage (vote majoritaire, moyenne pondéré des prob...)
+      2. Nettoyage morphologique classe par classe
+      3. Un filtre pour supprimer les objets trop petit classe par classe (avec des tailles diff en fonction des classe ?)
+
+
 ## Mise à disposition pour les statisticiens <!-- Thomas -->
-
-### Une application interactive
-
-Pour les enquêteurs
 
 ### Vers de nouveaux indicateurs statistiques ?
 
-Fichiers parquet d'évolution de bâti
+- Le développement d’un modèle performant n’a de valeur que s’il permet de produire des informations utiles pour la statistique publique.
+- L’enjeu est désormais d’identifier quels indicateurs pertinents et exploitables peuvent être dérivés à partir des prédictions du modèle. Partenariat avec des équipes de l'insee
+- Des fichiers au format Parquet ont été générés pour tracer l’évolution du bâti dans le temps, constituant une première base exploitable pour des analyses statistiques. Recensement
+
+### Une application interactive pour les agents de terrain
+
+- Une application web interactive a été développée pour permettre une consultation directe des résultats
+- Cette application s’appuie sur un GeoServer qui héberge et diffuse les images satellites et les cartes de segmentation associées.
+- Elle offre une interface cartographique permettant aux agents de l’Insee en charge des enquêtes de terrain :
+
+  - d’accéder aux images avant/après sur une zone donnée,
+  - de visualiser les détections de destructions et de créations de bâtiments,
+  - et ainsi de mieux préparer les opérations de terrain ou de **vérifier des résultats étranges post collecte.
+
+
+Dans tous les cas l'enjeu c'est les données. Plus tot on a accès à des données le mieux c'est => partenariat avec l'IGN indispensable
