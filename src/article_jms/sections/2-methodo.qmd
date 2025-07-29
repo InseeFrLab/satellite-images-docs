@@ -1,4 +1,4 @@
-Nous allons dans cette partie revenir sur les concepts d'apprentissage profond (*deep learning*) afin d'expliquer notre démarche et l'application de ces méthodes à nos problématiques précises. Nous définirons ensuite les données que nous avons utilisée avant de détailler les méthodes d'évaluation que nous avons appliqués à nos algorithmes.
+Nous allons dans cette partie revenir sur les concepts d'apprentissage profond (*deep learning*) afin d'expliquer notre démarche et l'application de ces méthodes à nos problématiques précises. Nous définirons ensuite les données que nous avons utilisée pour appliquer notre méthodologie.
 
 ## Les modèles de d'apprentissage profond pour l'analyse d'images
 
@@ -77,7 +77,8 @@ Cette opération convertit les scores en une distribution de probabilité, dont 
 ### Segmentation sémantique
 
 Comme nous l’avons vu, les réseaux de neurones convolutifs (CNN) sont particulièrement bien adaptés aux tâches de classification d’images. Historiquement, ils ont démontré leur efficacité sur des problèmes comme la reconnaissance de chiffres manuscrits (ex. : MNIST[^mnist]), où l’objectif est d’assigner une étiquette à une image dans son ensemble.
-[^mnist]: [https://fr.wikipedia.org/wiki/Base_de_donn%C3%A9es_MNIST](https://fr.wikipedia.org/wiki/Base_de_donn%C3%A9es_MNIST)
+
+[^mnist]: [https://fr.wikipedia.org/wiki/Base_de_données_MNIST](https://fr.wikipedia.org/wiki/Base_de_donn%C3%A9es_MNIST)
 
 Dans notre projet, la problématique est différente : il s’agit d’identifier automatiquement les zones bâties sur des images satellites. Autrement dit, on ne cherche pas à classifier une image globalement, mais à déterminer pour chaque pixel s’il appartient à une catégorie donnée (bâti ou non bâti, par exemple). Cette tâche s'inscrit dans le cadre de la segmentation sémantique, dont l’objectif est de produire une prédiction dense, c’est-à-dire une carte de labels de même dimension spatiale que l’image d’entrée.
 
