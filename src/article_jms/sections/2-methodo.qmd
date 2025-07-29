@@ -197,6 +197,7 @@ Ainsi, les images Pléiades semblent être les plus adaptés pour de la détecti
 - produits
 - acquisition/livraison (partenariat IGN a promouvoir)
 
+Faire un atbleau récapitulant toutes les données que l'on a evec le millesime
 
 ### Annotations
 
