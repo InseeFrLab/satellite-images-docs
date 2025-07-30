@@ -53,4 +53,4 @@ Néanmoins, la diffusion de résultats via une API n’est pas toujours la modal
 Dans tous les cas l'enjeu c'est les données. Plus tot on a accès à des données le mieux c'est => partenariat avec l'IGN indispensable
 
 
-![Schéma de la pipeline](../img/app-architecture.png){#fig-CNN width=75%}
+![Schéma de la pipeline](../img/app-architecture.png){#fig-pipeline width=75%}
