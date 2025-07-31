@@ -21,9 +21,9 @@ Cette inférence multiple est complétée par un pipeline de post-traitement mul
 
 Afin d’industrialiser l’ensemble de la phase d’inférence, une API a été développée. Elle encapsule l’ensemble des étapes précédentes (inférence, post-traitement) et permet une exploitation simple et flexible du modèle par les différentes équipes concernées. Trois points d’entrée sont disponibles :
 
-- fourniture directe d’une image satellite à prédire,
-- sélection d’une zone géographique via coordonnées GPS (bounding box) et année d’observation,
-- saisie d’un identifiant d’îlot (entité géographique infra-communale) pour obtenir les prédictions correspondantes.
+1. fourniture directe d’une image satellite à prédire,
+2. sélection d’une zone géographique via coordonnées GPS (*bounding box*) et année d’observation,
+3. saisie d’un identifiant d’îlot (entité géographique infra-communale) pour obtenir les prédictions correspondantes.
 
 L’API intègre un mécanisme de cache qui évite de recalculer une prédiction déjà effectuée pour une même zone géographique et un même modèle. L’ensemble est déployé sur CPU et permet une chaîne de traitement entièrement automatisée, assurant une inférence rapide dès la réception de nouvelles images satellites.
 
@@ -35,11 +35,21 @@ Néanmoins, la diffusion de résultats via une API n’est pas toujours la modal
 
 ### Vers de nouveaux indicateurs statistiques ?
 
-- Le développement d’un modèle performant n’a de valeur que s’il permet de produire des informations utiles pour la statistique publique.
-- L’enjeu est désormais d’identifier quels indicateurs pertinents et exploitables peuvent être dérivés à partir des prédictions du modèle. Partenariat avec des équipes de l'insee
-- Des fichiers au format Parquet ont été générés pour tracer l’évolution du bâti dans le temps, constituant une première base exploitable pour des analyses statistiques. Recensement
+Contrairement à d’autres applications de l’apprentissage automatique déjà déployées à l’Insee, comme les modèles de classification de textes pour la codification automatique dans des nomenclatures, les sorties brutes d’un modèle de segmentation d’images ne constituent pas, en soi, des données statistiques directement exploitables ou diffusables. Une carte de segmentation s’apparente davantage à un support intermédiaire, qui doit faire l’objet d’une interprétation, d’un traitement spatial et d’une contextualisation pour devenir une information statistique pertinente.
+Comme le souligne le Mémorandum de Varsovie, ces nouvelles formes de données issues de sources non traditionnelles peuvent cependant jouer un rôle essentiel : elles peuvent soit conduire à la construction de nouveaux indicateurs, soit servir de proxies statistiques utiles pour améliorer la qualité ou la finesse d’indicateurs existants.
+En ce sens, le développement d’un modèle de segmentation performant n’a de valeur, dans le contexte de la statistique publique, que s’il permet effectivement de produire de l’information utile, fiable, et intégrable dans les systèmes d’observation existants. À défaut, l’usage d’un tel outil par les statisticiens resterait discutable, car sans finalité opérationnelle claire.
+
+À ce stade du projet, l’enjeu est donc de déterminer les indicateurs statistiques pouvant être dérivés des sorties du modèle. Cette démarche doit reposer sur une co-construction entre les équipes métiers de l’Insee, qui expriment les besoins statistiques concrets, et la DMGC, appuyée par le SSP Lab, qui assure l’évaluation de la faisabilité technique, la pertinence méthodologique, et le développement des outils associés.
+
+Plusieurs cas d’usage ont d’ores et déjà été identifiés. L’un d'eux, détaillé en Section 4, concerne la construction d’indicateurs d’évolution du bâti. Étant donné que le modèle attribue une classe à chaque pixel, et que chaque pixel représente une surface de $0,25 m^2$, il est possible de calculer la surface bâtie dans une zone géographique donnée à une date donnée. En comparant ces surfaces sur plusieurs dates, on peut alors quantifier les dynamiques de construction ou de disparition de bâtiments. Croisées avec d’autres sources de données, comme le Répertoire d’Immeubles Localisés (RIL), ces surfaces bâties peuvent fournir des proxies de l’évolution du parc de logements et, par extension, de la population. De telles approches ouvrent des perspectives intéressantes pour l’enrichissement des dispositifs de suivi, en particulier dans les zones où les données administratives sont lacunaires ou peu à jour comme c'est le cas dans certains DROM.
+
+Concrètement, nous avons produit des fichiers millésimés pour chacun des DROM, retraçant l’évolution de la surface bâtie par îlot, pour chaque année disponible. Cette base de données constitue une ressource structurée et directement exploitable pour des analyses statistiques, déjà mobilisée par la DMTR pour évaluer la qualité de l'enquête cartographique. Ces premiers résultats illustrent le potentiel d’une telle approche pour renforcer la couverture, la réactivité et la granularité des indicateurs mobilisés dans les travaux de la statistique publique territorialisée.
+
+
+<!-- Parler de la politique ZAN ? -->
 
 ### Une application interactive pour les agents de terrain
+
 
 - Une application web interactive a été développée pour permettre une consultation directe des résultats
 - Cette application s’appuie sur un GeoServer qui héberge et diffuse les images satellites et les cartes de segmentation associées.
