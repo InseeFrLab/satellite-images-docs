@@ -89,7 +89,9 @@ Dans les CNN classiques, on empile des couches de convolution qui extraient des 
 L’idée clé des FCN est de supprimer ces couches entièrement connectées et l’étape d’aplatissement, et de les remplacer par des convolutions $1 \times 1$. Cette opération permet de transformer chaque vecteur de caractéristiques (par pixel) en un score de classe, tout en conservant la structure spatiale. On obtient alors, en sortie, une carte par classe, où chaque pixel contient une prédiction de probabilité.
 
 Un problème subsiste toutefois : à cause des opérations de *pooling* successives, la sortie du réseau est plus petite que l’image d’entrée. Or, pour produire une prédiction par pixel à la résolution d’origine, il est nécessaire de restaurer la taille initiale. Pour cela, @long2015fullyconvolutionalnetworkssemantic proposent l’utilisation de la convolution transposée (souvent appelée déconvolution, bien que ce terme soit techniquement incorrect), qui agit comme une opération inverse de la convolution en augmentant la résolution spatiale. La @fig-deconvolution illustre schématiquement ce mécanisme.
+
 <!-- J'ai pas capté comment ca marche la déconvolution, ca assigne la valeur d'un pixel aux pixels voisins créés ? -->
+
 ::: {.center}
 ![Représentation de la déconvolution](../img/transposed_conv.png){#fig-deconvolution}
 
