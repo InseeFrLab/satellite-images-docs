@@ -35,7 +35,7 @@ Néanmoins, la diffusion de résultats via une API n’est pas toujours la modal
 
 ## Mise à disposition pour les statisticiens <!-- Thomas -->
 
-### Vers de nouveaux indicateurs statistiques ?
+### Vers de nouveaux indicateurs statistiques ? {#sec-indic_stats}
 
 Contrairement à d’autres applications de l’apprentissage automatique déjà déployées à l’Insee, comme les modèles de classification de textes pour la codification automatique dans des nomenclatures, les sorties brutes d’un modèle de segmentation d’images ne constituent pas, en soi, des données statistiques directement exploitables ou diffusables. Une carte de segmentation s’apparente davantage à un support intermédiaire, qui doit faire l’objet d’une interprétation, d’un traitement spatial et d’une contextualisation pour devenir une information statistique pertinente.
 Comme le souligne le Mémorandum de Varsovie, ces nouvelles formes de données issues de sources non traditionnelles peuvent cependant jouer un rôle essentiel : elles peuvent soit conduire à la construction de nouveaux indicateurs, soit servir de proxies statistiques utiles pour améliorer la qualité ou la finesse d’indicateurs existants.
@@ -43,7 +43,7 @@ En ce sens, le développement d’un modèle de segmentation performant n’a de
 
 À ce stade du projet, l’enjeu est donc de déterminer les indicateurs statistiques pouvant être dérivés des sorties du modèle. Cette démarche doit reposer sur une co-construction entre les équipes métiers de l’Insee, qui expriment les besoins statistiques concrets, et la DMGC<!-- t'y as pensé bg -->, appuyée par le SSP Lab, qui assure l’évaluation de la faisabilité technique, la pertinence méthodologique, et le développement des outils associés.
 
-Plusieurs cas d’usage ont d’ores et déjà été identifiés. L’un d'eux, détaillé en Section 4, concerne la construction d’indicateurs d’évolution du bâti. Étant donné que le modèle attribue une classe à chaque pixel, et que chaque pixel représente une surface de $0,25 m^2$ <!-- c'est 0.5 -->, il est possible de calculer la surface bâtie dans une zone géographique donnée à une date donnée. En comparant ces surfaces sur plusieurs dates, on peut alors quantifier les dynamiques de construction ou de disparition de bâtiments. Croisées avec d’autres sources de données, comme le Répertoire d’Immeubles Localisés (RIL), ces surfaces bâties peuvent fournir des proxies de l’évolution du parc de logements et, par extension, de la population. De telles approches ouvrent des perspectives intéressantes pour l’enrichissement des dispositifs de suivi, en particulier dans les zones où les données administratives sont lacunaires ou peu à jour comme c'est le cas dans certains DROM.
+Plusieurs cas d’usage ont d’ores et déjà été identifiés. L’un d'eux, détaillé en @sec-use_case, concerne la construction d’indicateurs d’évolution du bâti. Étant donné que le modèle attribue une classe à chaque pixel, et que chaque pixel représente une surface de $0,25 m^2$, il est possible de calculer la surface bâtie dans une zone géographique donnée à une date donnée. En comparant ces surfaces sur plusieurs dates, on peut alors quantifier les dynamiques de construction ou de disparition de bâtiments. Croisées avec d’autres sources de données, comme le Répertoire d’immeubles Localisés (RIL), ces surfaces bâties peuvent fournir des proxies de l’évolution du parc de logements et, par extension, de la population. De telles approches ouvrent des perspectives intéressantes pour l’enrichissement des dispositifs de suivi, en particulier dans les zones où les données administratives sont lacunaires ou peu à jour comme c'est le cas dans certains DROM.
 
 Concrètement, nous avons produit des fichiers millésimés pour chacun des DROM, retraçant l’évolution de la surface bâtie par îlot, pour chaque année disponible. Cette base de données constitue une ressource structurée et directement exploitable pour des analyses statistiques, déjà mobilisée par la DMTR pour évaluer la qualité de l'enquête cartographique. Ces premiers résultats illustrent le potentiel d’une telle approche pour renforcer la couverture, la réactivité et la granularité des indicateurs mobilisés dans les travaux de la statistique publique territorialisée.
 
@@ -53,17 +53,19 @@ Concrètement, nous avons produit des fichiers millésimés pour chacun des DROM
 ### Une application interactive pour les agents de terrain
 
 
-- Une application web interactive a été développée pour permettre une consultation directe des résultats
-- Cette application s’appuie sur un GeoServer qui héberge et diffuse les images satellites et les cartes de segmentation associées.
-- Elle offre une interface cartographique permettant aux agents de l’Insee en charge des enquêtes de terrain :
+Les résultats obtenus et agregée dans la base d'évolution de surface bâti peuvent être utile, on l'a vu, pour de l'analyse post enquête cartographique ou en assistant la production des chiffres de recensement ou bien encore pour réaliser des études sur l'évaluation des politiques publique comme la ZAN par exemple et l'évolution de la couverture du sol. Cependant, un autre besoin nous a été rapidement remonté directement par les agents de terrain en charge de l'organisation de l'enquête cartographique. Leur besoin est d'être capable d'estimer en amont la charge que représente une zone donnée en temps d'enquête. EN effet, dans les zones ou les habitats précaires sont nombreux les évolutions de batiments peuvent être très rapide générant alors des difficultés de gestion de l'enquête. En plus, de pouvoir identifier les zones  prioritaires pour l'enquête cartographiques les agents souhaiteraient pouvoir visualiser les changements de bâtis qu'il y a eu entre l'ancienne enquête et celles qui sont en train de préparer.   
+Pour toutes ces raisons nous avons décidé de développer une application web interactive de sorte à pouvoir visualiser rapidement et facilement les résultats issus de notre modèle. L'objectif était de rendre accessible le plus simplement possible au agent de terrain de l'information issus de nos résultats. 
+Ainsi cette application permet de visualiser les images satellites et leur millésimes que nous possédons pour les différents DROM (Guadeloupe, Martinique, Guyane, Réunion, Mayotte). Il est donc possible de comparer très rapidement les images pour deux années données et repérer les potentiels changements. En plus de cela nous permettons l'affichage des cartes de segmentation de sorte à visualiser les prédictions du modèles à grande echelle et de manière globale. Aussi, pour optimiser les processus de détection de changement nous calculons des masques de création et de construction à partir de 2 cartes de segmentation que nous affichons également. Un enquêteur peut ainsi très rapidement repérer les zones qui ont subi le plus de changement entre deux années. 
+L'application intègre également les statistiques de surfaces évoquée en @sec-indic_stats. En effet, la carte contient les délimitations des îlots et il est possible d'accèder au information de l'îlot de manière interactive en cliquant sur la carte. Un tableau récapitulatifs avec les statistiques de tous les îlots est également présent et une fonction "recherche" est disponible pour obtenir directement les statistiques d'un ilots précis et recentrer la carte sur celui ci. L'application est accessible à l'adresse suivante : [https://inseefrlab.github.io/satellite-images-webapp/](). 
 
-  - d’accéder aux images avant/après sur une zone donnée,
-  - de visualiser les détections de destructions et de créations de bâtiments,
-  - et ainsi de mieux préparer les opérations de terrain ou de **vérifier des résultats étranges post collecte.
-  <!-- localiser les ilots, les zones à enqueter -->
+L'application est totalement modulaire et se veut répondre au besoin des enquêteurs et bénéficiera de toutes les remontées qui pourront lui en être fait afin d'amléliorer son usage.
 
 
+<!-- Mettre une capture de l'appli -->
+
+ <!-- mieux préparer les opérations de terrain ou de vérifier des résultats étranges post collecte.
+<!-- localiser les ilots, les zones à enqueter
 Dans tous les cas l'enjeu c'est les données. Plus tot on a accès à des données le mieux c'est => partenariat avec l'IGN indispensable
-
+ -->
 
 ![Schéma de la pipeline](../img/app-architecture.png){#fig-pipeline width=75%}
