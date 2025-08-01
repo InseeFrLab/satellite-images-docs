@@ -73,7 +73,7 @@ format:
 
 {{< pagebreak >}}
 
-# Cas d'usage
+# Cas d'usage {#sec-use_case}
 
 {{< include sections/4-use_case.qmd >}}
 
