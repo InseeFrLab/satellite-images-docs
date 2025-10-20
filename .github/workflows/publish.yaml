@@ -1,13 +1,13 @@
-name: Publish slides
+name: Publish Quarto Site
 
 on:
   push:
     branches:
-      - "main"
+      - main
   workflow_dispatch:
 
 jobs:
-  publish-slides:
+  publish-site:
     runs-on: ubuntu-latest
 
     permissions:
@@ -22,29 +22,21 @@ jobs:
         with:
           version: 1.5.37
 
-      # --- Cache TinyTeX ---
-      - name: Cache TinyTeX
-        uses: actions/cache@v4
-        with:
-          path: ~/.TinyTeX
-          key: ${{ runner.os }}-tinytex
-
-      - name: Install TinyTeX if missing
+      # --- Installer TinyTeX (si nécessaire) ---
+      - name: Install TinyTeX
         run: |
           if [ ! -d ~/.TinyTeX ]; then
             quarto install tinytex
           fi
+          export PATH="$HOME/.TinyTeX/bin/x86_64-linux:$PATH"
+          tlmgr update --self --all
+          # Installer les packages nécessaires
+          tlmgr install biblatex biber csquotes logreq xstring etoolbox kvoptions l3kernel l3packages l3backend french babel-french titling dsfont
 
       - name: Check TinyTeX installation
         run: quarto check tinytex
 
-      # --- Installation manuelle de biblatex et biber ---
-      - name: Install LaTeX packages
-        run: |
-          tlmgr install biblatex biber csquotes logreq xstring etoolbox kvoptions l3kernel l3packages l3backend
-          tlmgr install french babel-french
-
-      # --- Compilation & Publication ---
+      # --- Render et publish ---
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
