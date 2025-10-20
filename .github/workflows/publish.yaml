@@ -21,15 +21,6 @@ jobs:
           uses: quarto-dev/quarto-actions/setup@v2
           with:
             version: 1.5.37
-<<<<<<< Updated upstream
-            
-        - name: Install libcurl4
-          run:  sudo apt install libcurl4-openssl-dev
-  
-        - name: Install Latex
-          run:  quarto install tinytex
-        
-=======
         
         - name: Installs TeX Gyre Heros
           run: |
@@ -47,7 +38,6 @@ jobs:
 
             echo "✅ Done!"
 
->>>>>>> Stashed changes
         - name: Render and Publish
           uses: quarto-dev/quarto-actions/publish@v2
           with:
