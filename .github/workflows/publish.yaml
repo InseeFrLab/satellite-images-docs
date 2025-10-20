@@ -21,6 +21,11 @@ jobs:
           uses: quarto-dev/quarto-actions/setup@v2
           with:
             version: 1.5.37
+        
+        # --- Installer TinyTeX pour LaTeX / PDF ---
+        - name: Install TinyTeX
+          run: |
+            quarto install tinytex
 
         - name: Render and Publish
           uses: quarto-dev/quarto-actions/publish@v2
