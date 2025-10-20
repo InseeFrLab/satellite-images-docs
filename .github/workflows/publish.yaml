@@ -21,7 +21,13 @@ jobs:
           uses: quarto-dev/quarto-actions/setup@v2
           with:
             version: 1.5.37
-
+            
+        - name: Install libcurl4
+          run:  sudo apt install libcurl4-openssl-dev
+  
+        - name: Install Latex
+          run:  quarto install tinytex
+        
         - name: Render and Publish
           uses: quarto-dev/quarto-actions/publish@v2
           with:
