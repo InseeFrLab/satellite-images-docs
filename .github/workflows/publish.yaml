@@ -8,40 +8,25 @@ on:
 
 jobs:
   publish-slides:
-    runs-on: ubuntu-latest
+      runs-on: ubuntu-latest
+      container:
+        image: inseefrlab/onyxia-vscode-python:py3.13.8
 
-    permissions:
-      contents: write
+      permissions:
+        contents: read
+      steps:
 
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
+        - name: Check out repository
+          uses: actions/checkout@v3
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: 1.5.37
+        - name: Set up Quarto
+          uses: quarto-dev/quarto-actions/setup@v2
+          with:
+            version: 1.5.37
 
-      # --- Installation de TinyTeX (pour LaTeX / PDF) ---
-      - name: Cache TinyTeX
-        uses: actions/cache@v4
-        with:
-          path: ~/.TinyTeX
-          key: ${{ runner.os }}-tinytex
-
-      - name: Install TinyTeX if missing
-        run: |
-          if [ ! -d ~/.TinyTeX ]; then
-            quarto install tinytex
-          fi
-
-      - name: Check TinyTeX installation
-        run: quarto check tinytex
-
-      # --- Compilation & Publication ---
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_CI }}
+        - name: Render and Publish
+          uses: quarto-dev/quarto-actions/publish@v2
+          with:
+            target: gh-pages
+          env:
+            GITHUB_TOKEN: ${{ secrets.TOKEN_CI }}
