@@ -97,7 +97,7 @@ bibliography: biblio.bib
 
 {{< pagebreak >}}
 
-# Cas d'usage {#sec-use_case}
+# Application : contôle de la qualité des enquêtes cartographiques du recensement de la population à Mayotte {#sec-use_case}
 
 {{< include sections/4-use_case.qmd >}}
 
