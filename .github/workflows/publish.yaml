@@ -9,8 +9,6 @@ on:
 jobs:
   publish-slides:
       runs-on: ubuntu-latest
-      container:
-        image: inseefrlab/onyxia-vscode-python:py3.13.8
 
       permissions:
         contents: read
