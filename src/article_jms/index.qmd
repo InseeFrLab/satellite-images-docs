@@ -43,6 +43,7 @@ format:
     keep-tex: true
     classoption: french
     cite-method: biblatex
+    biblio-style: authoryear
     pdf-engine: pdflatex
     fontsize: 12pt
     papersize: A4
