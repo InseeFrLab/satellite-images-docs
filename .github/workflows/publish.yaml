@@ -26,6 +26,7 @@ jobs:
         - name: Install TinyTeX
           run: |
             quarto install tinytex
+            tlmgr install biblatex biber csquotes logreq xstring etoolbox kvoptions l3kernel l3packages l3backend french babel-french titling dsfont mathrsfs
 
         - name: Render and Publish
           uses: quarto-dev/quarto-actions/publish@v2
