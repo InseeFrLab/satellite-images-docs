@@ -22,7 +22,7 @@ jobs:
         with:
           version: 1.5.37
 
-      # --- Installation de TinyTeX (pour LaTeX / PDF) ---
+      # --- Cache TinyTeX ---
       - name: Cache TinyTeX
         uses: actions/cache@v4
         with:
@@ -37,6 +37,12 @@ jobs:
 
       - name: Check TinyTeX installation
         run: quarto check tinytex
+
+      # --- Installation manuelle de biblatex et biber ---
+      - name: Install LaTeX packages
+        run: |
+          tlmgr install biblatex biber csquotes logreq xstring etoolbox kvoptions l3kernel l3packages l3backend
+          tlmgr install french babel-french
 
       # --- Compilation & Publication ---
       - name: Render and Publish
