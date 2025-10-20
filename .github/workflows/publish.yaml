@@ -11,6 +11,7 @@ jobs:
       runs-on: ubuntu-latest
       container:
         image: inseefrlab/onyxia-vscode-python:py3.13.8
+        options: --volume /home/runner/work:/__w
 
       permissions:
         contents: write
