@@ -1,104 +1,86 @@
 ---
 title: "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte"
-author:
-  - name: Maëlys Bernard
-    email: maelys.bernard@insee.fr
-    affiliations: 
-      - id: Insee
-        name: Insee
-        department: DMTR
-        city: Montrouge
-  - name: Raya Berova
-    email: raya.berova@insee.fr
-    affiliations: 
-      - id: Insee
-        name: Insee
-        department: DMGC
-        city: Montrouge
-  - name: Thomas Faria
-    email: thomas.faria@insee.fr
-    affiliations:
-      - id: Insee
-        name: Insee
-        department: SSP Lab
-        city: Montrouge
+authors:
+    - name: Maëlys Bernard
+      email: <maelys.bernard@insee.fr>
+      affiliation: Insee, Département de la Démographie
+    - name: Raya Berova
+      email: <raya.berova@insee.fr>
+      affiliation: Insee, Direction de la méthodologie et de la coordination statistique et internationale
+    - name: Thomas Faria
+      email: <thomas.faria@insee.fr>
+      affiliation: Insee, Direction de la méthodologie et de la coordination statistique et internationale
+keywords: # 6 maximum
+  - données satellites
+  - enquêtes cartographiques
+  - Mayotte
+  - recensement de la population
+  - vision par ordinateur
+  - apprentissage profond
+domains: # utiliser la nomenclature du site (menu déroulant) 
+  - Science des données – Apprentissage statistique (machine learning, deep learning, réseaux de neurones, ...)
+resume: |
+    Malgré leur disponibilité de plus en plus accrue, les images satellites très haute résolution sont jusqu’ici très peu utilisées au sein de la statistique publique. La manipulation de ces données non conventionnelles n’appartient pas encore aux pratiques usuelles des statisticiens publics, bien qu’elles offrent des opportunités significatives pour améliorer ou créer de nouveaux indicateurs statistiques. Cet article vise justement à démontrer qu’il est possible d’intégrer ces données satellitaires dans les processus statistiques afin d’assurer leur qualité.
+    Mayotte constitue un cas emblématique où les difficultés d’accès au terrain et la forte dynamique de développement urbain complexifient l’organisation des enquêtes cartographiques qui permettent de repérer les logements en amont du recensement. Afin d’orienter les travaux de contrôle de la qualité de ces enquêtes, nous avons exploré l’utilisation des images satellitaires très haute résolution Pléiades (0,5 m de résolution spatiale), en combinaison avec des méthodes d’apprentissage profond, spécifiquement via des modèles de segmentation sémantique.
+    La méthodologie développée consiste en l’entraînement d’un modèle SegFormer, fondé sur une architecture de type Transformer, largement reconnue dans la littérature puisqu’elle est à la base des modèles GPT. Le modèle a été entraîné grâce aux annotations issues du projet CoSIA de l’IGN, qui fournit une référence précise de la couverture du sol. À partir des prédictions du modèle, il est possible de produire des estimations précises des surfaces bâties sur un territoire donné, permettant ainsi d’analyser efficacement leur évolution dans le temps.
+    Les résultats obtenus démontrent une performance élevée dans la détection automatisée des évolutions urbaines dans les DROM. Ces résultats sont disponibles sous la forme d’un tableau de bord interactif permettant aux équipes opérationnelles de cibler efficacement les zones prioritaires pour la réalisation d’enquêtes cartographiques de contrôle sur le terrain.
 
-date: last-modified
-lang: fr
+    Après avoir décrit la méthode de prédiction de surface du bâti sur les images satellites, cet article présentera un cas pratique d’utilisation de ces prédictions à travers le contrôle qualité des enquêtes cartographiques de la population à Mayotte.
+    Depuis 2021, le recensement à Mayotte fonctionne sur un cycle quinquennal comme en métropole et dans les autres DOM. En amont de la collecte auprès des habitants, une enquête cartographique permet de repérer les logements. Le résultat de l’enquête cartographique détermine la base d’immeubles au sein de laquelle est sélectionné l’échantillon1 de l’enquête annuelle de recensement. Ainsi, si l’enquête cartographique ne couvre pas bien l’intégralité du bâti du territoire à enquêter, les populations et nombre de logements déduits de l’enquête annuelle de recensement seront sous-estimés du fait de ce défaut de couverture.
+    Les données satellites permettent de contrôler la qualité des enquêtes cartographiques en comparant l’évolution de la couverture de bâti avec celle du nombre de logements observé suite aux enquêtes cartographiques au sein de chaque îlot2 à enquêter une année donnée. Les îlots sont répartis en cinq groupes de rotation correspondant à l’année à laquelle a lieu l’enquête annuelle de recensement. Afin d’assurer la qualité des enquêtes cartographiques, un deuxième passage sur le terrain a été planifié dans les grandes communes mahoraises pour certains îlots identifiés comme les plus prioritaires. Cet ordre de priorité a été défini par une méthode mobilisant les images satellites pour repérer les plus susceptibles d’être concernés par des manques potentiels dans les enquêtes cartographiques. L’enquête cartographique corrective ciblant ces îlots a permis d’assurer une meilleure couverture de ces enquêtes et d’éviter un risque de sous-estimation des logements.
+    `#lorem(30)`{=typst}
 abstract: |
-  \textbf{Résumé}\par
-  \vspace{1ex}
-  Malgré leur disponibilité de plus en plus accrue, les images satellites très haute résolution sont jusqu’ici très peu utilisées au sein de la statistique publique. La manipulation de ces données non conventionnelles n’appartient pas encore aux pratiques usuelles des statisticiens publics, bien qu’elles offrent des opportunités significatives pour améliorer ou créer de nouveaux indicateurs statistiques. Cet article vise justement à démontrer qu’il est possible d’intégrer ces données satellitaires dans les processus statistiques afin d’assurer leur qualité.
-  Mayotte constitue un cas emblématique où les difficultés d’accès au terrain et la forte dynamique de développement urbain complexifient l’organisation des enquêtes cartographiques qui permettent de repérer les logements en amont du recensement. Afin d’orienter les travaux de contrôle de la qualité de ces enquêtes, nous avons exploré l’utilisation des images satellitaires très haute résolution Pléiades (0,5 m de résolution spatiale), en combinaison avec des méthodes d’apprentissage profond, spécifiquement via des modèles de segmentation sémantique.
-  La méthodologie développée consiste en l’entraînement d’un modèle SegFormer, fondé sur une architecture de type Transformer, largement reconnue dans la littérature puisqu’elle est à la base des modèles GPT. Le modèle a été entraîné grâce aux annotations issues du projet CoSIA de l’IGN, qui fournit une référence précise de la couverture du sol. À partir des prédictions du modèle, il est possible de produire des estimations précises des surfaces bâties sur un territoire donné, permettant ainsi d’analyser efficacement leur évolution dans le temps.
-  Les résultats obtenus démontrent une performance élevée dans la détection automatisée des évolutions urbaines dans les DROM. Ces résultats sont disponibles sous la forme d’un tableau de bord interactif permettant aux équipes opérationnelles de cibler efficacement les zones prioritaires pour la réalisation d’enquêtes cartographiques de contrôle sur le terrain.
-
-  Après avoir décrit la méthode de prédiction de surface du bâti sur les images satellites, cet article présentera un cas pratique d’utilisation de ces prédictions à travers le contrôle qualité des enquêtes cartographiques de la population à Mayotte.
-  Depuis 2021, le recensement à Mayotte fonctionne sur un cycle quinquennal comme en métropole et dans les autres DOM. En amont de la collecte auprès des habitants, une enquête cartographique permet de repérer les logements. Le résultat de l’enquête cartographique détermine la base d’immeubles au sein de laquelle est sélectionné l’échantillon1 de l’enquête annuelle de recensement. Ainsi, si l’enquête cartographique ne couvre pas bien l’intégralité du bâti du territoire à enquêter, les populations et nombre de logements déduits de l’enquête annuelle de recensement seront sous-estimés du fait de ce défaut de couverture.
-  Les données satellites permettent de contrôler la qualité des enquêtes cartographiques en comparant l’évolution de la couverture de bâti avec celle du nombre de logements observé suite aux enquêtes cartographiques au sein de chaque îlot2 à enquêter une année donnée. Les îlots sont répartis en cinq groupes de rotation correspondant à l’année à laquelle a lieu l’enquête annuelle de recensement. Afin d’assurer la qualité des enquêtes cartographiques, un deuxième passage sur le terrain a été planifié dans les grandes communes mahoraises pour certains îlots identifiés comme les plus prioritaires. Cet ordre de priorité a été défini par une méthode mobilisant les images satellites pour repérer les plus susceptibles d’être concernés par des manques potentiels dans les enquêtes cartographiques. L’enquête cartographique corrective ciblant ces îlots a permis d’assurer une meilleure couverture de ces enquêtes et d’éviter un risque de sous-estimation des logements.
-
-format: 
-  pdf:
-    include-in-header: template/preambule.tex
-    keep-tex: true
-    classoption: french
-    cite-method: biblatex
-    biblio-style: authoryear
-    pdf-engine: pdflatex
-    fontsize: 12pt
-    papersize: A4
-    fig-width: 7.5
-    fig-height: 3.5
-    toc: false
-    fig-pos: 'H'
-    geometry:
-      - hmargin = 25mm
-      - vmargin = 25mm
-  # Si tu veux aussi générer en DOCX à l’occasion :
-  # docx:
-  #   number-sections: true
-  #   fig-width: 6.3
-  #   crossref:
-  #     title-delim: "-"
-
-crossref:
-  tbl-prefix: tableau
-  fig-prefix: figure
-  sec-prefix: section
-  eq-prefix: équation
-
-execute: 
-  cache: true
-  echo: false
-
-number-sections: true
-tbl-cap-location: top
-fig-cap-location: top
+    (Texte en anglais de 5 à 10 lignes)\ 
+    `#lorem(30)`{=typst}
 bibliography: biblio.bib
+format:
+  jms2025-typst:
+    logo:
+      location: center-top
+      width: 160mm
+    mainfont: "tex gyre heros" # peut être modifié si nécessaire
+    footer: 15^e^ édition des journées de méthodologie statistique de l'Insee (JMS 2025)
+    section-numbering: 1.1.1.
+    keep-typ: true
+    # Options fusionnées de typst
+    toc: true
+    toc-indent: auto
+    columns: 1
+    bibliography: biblio.bib
+    bibliographystyle: apa
+    include-in-header: 
+      - text: |
+          #show outline.entry.where(
+            level: 1): it => {
+              v(12pt, weak: true)
+              strong(it)
+            }
+date: last-modified
+lang: fr-FR
 ---
 
-{{< pagebreak >}}
+#page
 
 # Introduction
 
-{{< include sections/1-introduction.qmd >}}
+`include("sections/1-introduction.qmd")`{=typst}
 
-{{< pagebreak >}}
+#page
 
 # Méthodologie
 
-{{< include sections/2-methodo.qmd >}}
+`include("sections/2-methodo.qmd")`{=typst}
 
-{{< pagebreak >}}
+#page
 
 # Résultats
 
-{{< include sections/3-results.qmd >}}
+`include("sections/3-results.qmd")`{=typst}
 
-{{< pagebreak >}}
+#page
 
 # Application : contôle de la qualité des enquêtes cartographiques du recensement de la population à Mayotte {#sec-use_case}
 
-{{< include sections/4-use_case.qmd >}}
+`include("sections/4-use_case.qmd")`{=typst}
 
-{{< pagebreak >}}
+#page

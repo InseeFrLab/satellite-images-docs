@@ -11,7 +11,7 @@ jobs:
       runs-on: ubuntu-latest
 
       permissions:
-        contents: read
+        contents: write
       steps:
 
         - name: Check out repository
@@ -21,6 +21,7 @@ jobs:
           uses: quarto-dev/quarto-actions/setup@v2
           with:
             version: 1.5.37
+<<<<<<< Updated upstream
             
         - name: Install libcurl4
           run:  sudo apt install libcurl4-openssl-dev
@@ -28,6 +29,25 @@ jobs:
         - name: Install Latex
           run:  quarto install tinytex
         
+=======
+        
+        - name: Installs TeX Gyre Heros
+          run: |
+            echo "🔍 Checking for root privileges..."
+            if [ "$EUID" -ne 0 ]; then
+              echo "❌ Please run this script as root (use: sudo $0)"
+              exit 1
+            fi
+
+            echo "✅ Updating package lists..."
+            apt update -y
+
+            echo "📦 Installing TeX Gyre fonts..."
+            apt install -y fonts-texgyre
+
+            echo "✅ Done!"
+
+>>>>>>> Stashed changes
         - name: Render and Publish
           uses: quarto-dev/quarto-actions/publish@v2
           with:
