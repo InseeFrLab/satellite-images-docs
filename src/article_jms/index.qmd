@@ -37,7 +37,7 @@ bibliography: biblio.bib
 format:
   jms2025-typst:
     logo:
-      path: "src/article_jms/_extensions/InseeFrLab/jms2025/head_jms2025.png"
+      path: "src/_extensions/InseeFrLab/jms2025/head_jms2025.png"
       location: center-top # ne pas modifier
       width: 160mm # ne pas modifier
     mainfont: "tex gyre heros" # peut être modifié pour "calibri" sous windows, voir le script install-fonts.sh

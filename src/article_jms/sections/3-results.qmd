@@ -32,7 +32,7 @@ Conçue comme un outil évolutif au service des équipes métiers de l’Insee, 
 
 Néanmoins, la diffusion de résultats via une API n’est pas toujours la modalité la plus adaptée aux usages internes. C’est pourquoi deux modes de restitution complémentaires ont été développés : d’une part, la production de fichiers Parquet contenant les résultats structurés pour exploitation statistique ; d’autre part, une application interactive cartographique, destinée aux agents de terrain. Cette application s’appuie sur un GeoServer <!-- def --> pour diffuser les images satellites, les cartes de segmentation, ainsi que les évolutions détectées (créations, destructions de bâti) <!-- les evolutions sont calculées en amont et stockées sur le geoserver au meme titre que les pred -->, facilitant ainsi le croisement avec les informations d’enquête et les validations sur le terrain.
 
-![Schéma de la pipeline](img/app-architecture.png){#fig-pipeline width=75%}
+![Schéma de la pipeline](../img/app-architecture.png){#fig-pipeline width=75%}
 
 ## Mise à disposition pour les statisticiens <!-- Thomas -->
 
