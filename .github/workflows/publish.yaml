@@ -20,7 +20,7 @@ jobs:
         - name: Set up Quarto
           uses: quarto-dev/quarto-actions/setup@v2
           with:
-            version: 1.8.0  # Compatible extension jms
+            version: 1.8.25  # Compatible extension jms
         
         - name: Installs TeX Gyre Heros
           run: |
@@ -28,6 +28,7 @@ jobs:
             sudo apt update -y
             sudo apt install -y fonts-texgyre
             echo "✅ Done!"
+            quarto check
 
         - name: Render and Publish
           uses: quarto-dev/quarto-actions/publish@v2
