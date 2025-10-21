@@ -1,28 +1,37 @@
+name: Publish slides
+
+on:
+  push:
+    branches:
+      - "main"
+  workflow_dispatch:
+
 jobs:
   publish-slides:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+      runs-on: ubuntu-latest
 
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
+      permissions:
+        contents: write
+      steps:
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: 1.8.0  # <-- version compatible avec l'extension jms
+        - name: Check out repository
+          uses: actions/checkout@v3
 
-      - name: Install TeX Gyre Heros
-        run: |
-          echo "📦 Installing TeX Gyre fonts..."
-          sudo apt update -y
-          sudo apt install -y fonts-texgyre
-          echo "✅ Done!"
+        - name: Set up Quarto
+          uses: quarto-dev/quarto-actions/setup@v2
+          with:
+            version: 1.8.0  # Compatible extension jms
+        
+        - name: Installs TeX Gyre Heros
+          run: |
+            echo "📦 Installing TeX Gyre fonts..."
+            sudo apt update -y
+            sudo apt install -y fonts-texgyre
+            echo "✅ Done!"
 
-      - name: Publish Quarto site
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - name: Render and Publish
+          uses: quarto-dev/quarto-actions/publish@v2
+          with:
+            target: gh-pages
+          env:
+            GITHUB_TOKEN: ${{ secrets.TOKEN_CI }}
