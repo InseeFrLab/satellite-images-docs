@@ -37,6 +37,7 @@ format:
   jms2025-typst:
     logo:
       location:
+        path: src/article_jms/_extensions/InseeFrLab/jms2025/head_jms2025.png
         x: center
         y: top
       width: 160mm
