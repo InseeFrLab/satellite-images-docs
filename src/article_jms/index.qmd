@@ -36,7 +36,7 @@ bibliography: biblio.bib
 format:
   jms2025-typst:
     logo:
-      location: center-top
+      location: (x: center, y: top)
       width: 160mm
     mainfont: "tex gyre heros" # peut être modifié si nécessaire
     footer: 15^e^ édition des journées de méthodologie statistique de l'Insee (JMS 2025)
