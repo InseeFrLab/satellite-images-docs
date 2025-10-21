@@ -14,7 +14,7 @@ Les réseaux de neurones convolutifs (CNN) tirent leur inspiration du cortex vis
 2. Une seconde partie permettant de classifier les pixels de l'image en entrée à partir des prédicteurs obtenus dans la première partie.
 
 ::: {}
-![Réseau de neurones convolutif](../img/CNN.png){#fig-CNN width=75%}
+![Réseau de neurones convolutif](img/CNN.png){#fig-CNN width=75%}
 
 *Note de lecture : La partie convolutive est représentée par les différents cubes à gauche et la partie classifiante est représentée par les rectangles fins et bleus à droite* 
 :::
@@ -22,7 +22,7 @@ Les réseaux de neurones convolutifs (CNN) tirent leur inspiration du cortex vis
 Dans la partie convolutive, l'image en entrée du réseau se voit appliquer des filtres appelés convolutions, représentés par des matrices $A = (a_{ij})$ de petite taille appelés noyaux de convolution. L'image en sortie de l'opération de convolution est obtenue à partir de chaque pixel de l'image en entrée en calculant la somme des pixels avoisinant, pondérée par les coefficients $a_{ij}$ du noyau de convolution. Cette opération de convolution est illustrée dans la @fig-ex_conv, extraite de l'ouvrage @Kim_2017.
 
 ::: {}
-![Opération de convolution](../img/conv.jpg){#fig-ex_conv width=50%}
+![Opération de convolution](img/conv.jpg){#fig-ex_conv width=50%}
 
 *Note de lecture : L'image résultante est une image plus petite dont les pixels sont égaux à la somme des pixels de l'image en entrée pondérée par les coefficients du noyau de convolution.* 
 :::
@@ -32,7 +32,7 @@ Une convolution vise ainsi à résumer l'information présente dans une région 
 Les CNN se composent de couches successives, chacune ayant un rôle spécifique.  Les premières couches détectent des motifs simples dans l'image (bords, textures, lignes horizontales ou verticales...) tandis que les couches intermédiaires et profondes, plus spécialisées, combinent ces motifs simples pour repérer des formes de plus en plus complexes (motifs, objets, visages…). La @fig-Convolution schématise un réseau de neurones convolutif.
 
 ::: {}
-![Représentation d'une convolution](../img/convolution.png){#fig-Convolution width=75%}
+![Représentation d'une convolution](img/convolution.png){#fig-Convolution width=75%}
 
 *Note de lecture : Les premières couches convolutives reconnaissent les formes simples tandis que les couches les plus profondes à droite reconnaissent des formes plus concrètes.* 
 :::
@@ -40,13 +40,13 @@ Les CNN se composent de couches successives, chacune ayant un rôle spécifique.
 Après une couche de convolution, la taille des cartes de caractéristiques reste identique à celle de l'image, ce qui peut rapidement entraîner un volume de données important et rendre le modèle coûteux à entraîner. Pour pallier cela, une méthode couramment utilisée est le *pooling*. Cette opération, représenté par la @fig-Maxpool consiste à diviser chaque carte de caractéristiques en petites régions, puis à ne conserver, pour chacune, que, dans cette exemple, la valeur maximale. Lorsqu'il s'agit de prendre la valeur maximale, on parle de *max pooling* mais d'autres opérations peuvent être utilisées comme le minimum, la moyenne ou la médiane. Le *pooling* permet ainsi de réduire la dimension spatiale des données tout en conservant l’information la plus pertinente. Cette réduction favorise également une certaine invariance locale aux petites translations ou déformations de l’image, et contribue à limiter le nombre de paramètres et la complexité de calcul du réseau, tout en mettant en valeur les motifs les plus discriminants. D'autres opérations telles que le padding détaillé dans la @fig-Padding permettent malgré tout de contrôler la dimension de l'image en sortie.
 
 ::: {}
-![Représentation du max pooling](../img/maxpool.png){#fig-Maxpool width=50%}
+![Représentation du max pooling](img/maxpool.png){#fig-Maxpool width=50%}
 
 *Note de lecture : L'image résultante de l'opération de max-pooling est égale au maximum des pixel dans chacune des zones dessinées sur l'image de gauche.* 
 :::
 
 ::: {}
-![Représentation du padding](../img/padding.png){#fig-Padding width=75%}
+![Représentation du padding](img/padding.png){#fig-Padding width=75%}
 
 *Note de lecture : l'ajout d'une bande de 0 autour de l'image avant d'appliquer la convolution permet de limiter la réduction de dimension de l'image résultante.* 
 :::
@@ -55,7 +55,7 @@ Après une couche de convolution, la taille des cartes de caractéristiques rest
 Une fonction d’activation non linéaire, comme la ReLU (Rectified Linear Unit), est appliquée systématiquement après chaque couche de convolution (cf. @fig-relu). Inspirée du fonctionnement des neurones biologiques, cette opération introduit une non-linéarité dans le réseau. Sans cette étape, l’empilement de couches convolutives ne ferait qu’appliquer une combinaison linéaire de filtres, ce qui limiterait la capacité du modèle à apprendre des relations complexes. L’ajout de fonctions d’activation non linéaires permet ainsi au réseau d’extraire et de modéliser des motifs variés et des structures non linéaires présentes dans les données, ce qui est essentiel pour traiter efficacement des images. L’utilisation de fonctions d’activation non linéaires ne se limite pas aux réseaux convolutifs, c’est justement une composante fondamentale de l’ensemble des architectures d'apprentissage profond.
 
 ::: {.center width=40%}
-![Fonction d'activation ReLu](../img/relu.png){#fig-relu}
+![Fonction d'activation ReLu](img/relu.png){#fig-relu}
 
 *Note de lecture : la fonction ReLU "s'active" quand l'argument est positif.* 
 :::
@@ -93,7 +93,7 @@ Un problème subsiste toutefois : à cause des opérations de *pooling* successi
 <!-- J'ai pas capté comment ca marche la déconvolution, ca assigne la valeur d'un pixel aux pixels voisins créés ? -->
 
 ::: {.center}
-![Représentation de la déconvolution](../img/transposed_conv.png){#fig-deconvolution}
+![Représentation de la déconvolution](img/transposed_conv.png){#fig-deconvolution}
 
 *Note de lecture : TODO.* 
 :::
@@ -116,7 +116,7 @@ L'idée novatrice des auteurs réside dans sa structure symétrique en U, où ch
 Une autre avancée majeure est le modèle DeepLabv3, introduit par @chen2017rethinking. Ce dernier cherche également à atténuer la perte d’information due à l'opération de *pooling*, mais en adoptant une approche différente : l’utilisation de convolutions dilatées (*atrous convolutions*). Le principe est d’étendre la taille du noyau de convolution en insérant des espaces (zéros) entre les éléments du filtre. Cela permet d’augmenter le champ réceptif (vision globale du réseau) sans augmenter le nombre de paramètres à estimer.
 
 ::: {.center}
-![Représentation schématique du U-Net](../img/Unet-remanie.png){#fig-unet}
+![Représentation schématique du U-Net](img/Unet-remanie.png){#fig-unet}
 
 *Note de lecture : TODO*
 :::
@@ -138,7 +138,7 @@ On obtient alors de nouveaux vecteurs qui sont des représentations des *patches
 <!--Note:  Pour comprendre intuitivement le mecanisme d'attention, chaque split de l'image est un vecteur de grande dimension au départ. Ensuite on le compare aux vecteur de tous les autres split (patches) de l'image et on ajuste les poids du vecteur. On fait ca pour tous les splits et plusieurs fois en changeant la taille du vecteur pour chaque patch puis on utile tout les vecteurs pour de la classif ou segmentation -->
 
 ::: {.center}
-![Représentation schématique du Vision Transformer (ViT)](../img/vit_schema.png){#fig-vit}
+![Représentation schématique du Vision Transformer (ViT)](img/vit_schema.png){#fig-vit}
 
 *Note de lecture : TODO*
 :::
@@ -158,7 +158,7 @@ De plus, le partitionnement de l’image se fait en *patches* chevauchants (*Ove
 Finalement, l'une des particularité du Segformer est également son décodeur très simple qui contraste avec les décodeurs complexes de l'U-Net ou du DeepLab. En effet, il prend les sorties des différents niveaux - 4 dans le papier - de l'encodeur qui représentent des résolutions différentes. Il les projette dans un espace commun, les interpole à la même taille, puis les concatène pour produire la carte de segmentation via quelques couches simples. Cette conception permet au SegFormer de rester relativement léger en nombre de paramètres, tout en offrant des performances compétitives. En conséquence, le modèle est rapide à entraîner, efficace à l’inférence, et bien adapté aux contraintes de déploiement en production.
 
 ::: {.center}
-![Représentation schématique du Segformer](../img/segformer_architecture.png){#fig-segformer}
+![Représentation schématique du Segformer](img/segformer_architecture.png){#fig-segformer}
 
 *Note de lecture : TODO*
 :::
@@ -177,11 +177,11 @@ Dans le cadre de notre projet, après avoir évalué plusieurs architectures, no
 
 Une image satellite est une matrice à trois dimensions. Chaque élément de cette image est un **pixel**, qui correspond à une surface au sol (par exemple 10m\*10m). Le pixel contient plusieurs valeurs numériques. Ces valeurs expriment l'intensité du rayonnement solaire reflété dans chaque **bande spectrale** pour ce pixel. Une bande spectrale correspond à une portion du spectre électromagnétique, qui peut être par exemple le bleu, le rouge, le vert, le proche infrarouge. Donc, pour une image satellite de 200\*200 pixels avec les trois bandes du visible (rouge, vert, bleu), chaque pixel aura trois valeurs différentes représentant l'intensité dans chacune des bandes du visible. Ainsi, un pixel qui représente 10m\*10m au sol donnera une couleur : du violet sur l'exemple de la @fig-pixel.
 
-![Exemple d'un pixel d'une image satellite](../img/rgb.png){#fig-pixel width=30%}
+![Exemple d'un pixel d'une image satellite](img/rgb.png){#fig-pixel width=30%}
 
 Il existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d'entre eux : **Pléiades et Sentinel2**.
 
-![Mamoudzou, Mayotte (2024)](../img/pleiades_vs_sentinel2.png){#fig-pleiadesvssentinel width=80%}
+![Mamoudzou, Mayotte (2024)](img/pleiades_vs_sentinel2.png){#fig-pleiadesvssentinel width=80%}
 
 Les images satellites **Pléiades** constituent une ressource précieuse dans notre cas d’usage. Ce sont des images à très haute résolution, spécifiquement conçues pour l’observation fine des territoires. Elles offrent trois bandes spectrales dans le visible (**rouge, vert, bleu**) auxquelles s’ajoute une quatrième bande dans le proche infrarouge (NIR), bien que cette dernière ne soit pas disponible dans nos données actuelles. Leur résolution spatiale remarquable de **0,5m** par pixel permet une détection très précise des objets au sol, ce qui est essentiel pour nos traitements d’analyse fine.
 
