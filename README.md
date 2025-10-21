@@ -38,3 +38,9 @@ Fermer le site ouvert sur le port 5000 :
 ```sh
 fuser -k 5000/tcp
 ```
+
+Installer fuser :
+
+```sh
+sudo apt install psmisc
+```

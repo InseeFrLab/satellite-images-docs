@@ -6,5 +6,7 @@
 *favicon-32x32.png
 *.csv
 index.typ
+index.pdf
+definitions.typ
 
 **/*.quarto_ipynb
