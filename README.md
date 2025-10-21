@@ -14,13 +14,17 @@ Le site contient :
 
 ## Build
 
+Ouvrir un service VScode-Python sur Onyxia et cloner le dépot Git.
+
+```sh
+git clone https://github.com/InseeFrLab/satellite-images-docs.git
+cd satellite-images-docs/
+```
+
 Pour build le site de documentation, il faut installer une pre-release de Quarto:
 
 ```sh
-wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.5.37/quarto-1.5.37-linux-amd64.deb -O quarto.deb
-sudo dpkg -i quarto.deb
-quarto check install
-rm quarto.deb
+sudo ./install-fonts.sh
 ```
 
 Pour render le site, exécutez la commande suivante depuis la racine du projet
