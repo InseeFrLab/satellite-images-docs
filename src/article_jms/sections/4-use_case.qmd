@@ -108,7 +108,7 @@ Finalement, tous les îlots avec un ordre de priorité 1 à 8 ont pu bénéficie
 Dans cet îlot de la commune de Bandrele (voir @fig-exemple), les contours bleus représentent la prédiction des bâtis en 2021, les points verts ceux cartographiés initialement en 2021 et les points rouges représentent les logements identifiés dans une enquête cartographique complémentaire réalisée en 2024. 
 
 ::: {}
-![Exemple d'un examen en 2024 d'un îlot de 2021](../img/exemple.png)]{#fig-exemple width=75%}
+![Exemple d'un examen en 2024 d'un îlot de 2021](../img/exemple.png){#fig-exemple width=75%}
 :::
 
 D’une part, on observe l’apparition de nouveaux logements en 2024, qui ne semblaient pas exister au moment de l’enquête cartographique initiale. Ces ajouts sont particulièrement visibles sur la partie supérieure droite de l’image dans la zone circulaire verte : les points rouges apparaissent sans contours bleus.
@@ -126,5 +126,5 @@ Bien que l’utilisation des données satellites permette de diminuer le risque 
 Les images satellites peuvent donc servir pour prédire les moyens à mobiliser zone par zone (il est plus long de cartographier une zone où le bâti a fortement évolué), pour contrôler/questionner en bureau le travail de repérage des enquêteurs sur le terrain mais elles ne le remplacent pas. Arpenter tout le territoire de façon systématique et méthodique reste indispensable à la qualité et à la précision du recensement.
 
 ::: {}
-![Présence d'une zone industrielle dans 2 îlots de Kaweni](../img/zone_industrielle.png)]{#fig-zone-indu width=75%}
+![Présence d'une zone industrielle dans 2 îlots de Kaweni](../img/zone_industrielle.png){#fig-zone-indu width=75%}
 :::
