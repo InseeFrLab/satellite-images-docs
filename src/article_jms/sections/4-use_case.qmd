@@ -4,9 +4,9 @@ Depuis 2004, le recensement de la population est réalisé, en France, par sonda
 
 À Mayotte, le recensement exhaustif, réalisé tous les 5 ans sur l’ensemble du territoire, est resté en vigueur jusqu’en 2017. Lorsque que Mayotte est devenu un département français, la volonté des acteurs locaux a été d’avoir un recensement similaire à celui des autres départements. La première EAR a donc eu lieu à Mayotte en 2021, avec un fonctionnement sur un cycle quinquennal, comme en métropole et dans les autres DROM. En 2025, du fait du cyclone Chido, la cinquième et dernière enquête du premier cycle n’a pas pu être réalisée. Il a alors été décidé de réaliser de nouveau un recensement exhaustif de la population, au plus tôt, afin de pouvoir authentifier de nouvelles populations de référence. Ce recensement exhaustif aura lieu du 27 novembre 2025 au 10 janvier 2026. Les travaux mentionnés ci-dessous sont antérieurs à cette opération, ils font référence aux enquêtes ayant eu lieu de 2021 à 2024.
 
-À Mayotte ainsi que dans l’ensemble des autres DOM, en l’absence de sources administratives fiables pour alimenter le répertoire d’immeubles localisés (RIL), des enquêtes cartographiques conduites par des enquêteurs de l’Insee sont réalisées chaque année entre cinq et dix mois avant l’EAR pour repérer l’ensemble des logements en amont de la collecte. Pour étaler la charge d’enquête dans le temps, les enquêtes ne sont menées chaque année que sur un cinquième du territoire de chacune des grandes communes. Pour ce faire, la commune a été divisée en îlots, qui est un ensemble d’habitations contiguës délimitées par des frontières facilement repérables sur le terrain (voie, cours d’eau…). Ces îlots ont été répartis en cinq groupe de rotation (GR) correspondant à l’année à laquelle a lieu l’enquête annuelle de recensement. Les îlots d’un groupe qui feront l’objet de l’enquête de recensement l’année N feront l’objet d’une enquête cartographique préalable durant l’année N-1.
+À Mayotte ainsi que dans l’ensemble des autres DROM, en l’absence de sources administratives fiables pour alimenter le répertoire d’immeubles localisés (RIL), des enquêtes cartographiques conduites par des enquêteurs de l’Insee sont réalisées chaque année entre cinq et dix mois avant l’EAR pour repérer l’ensemble des logements en amont de la collecte. Pour étaler la charge d’enquête dans le temps, les enquêtes ne sont menées chaque année que sur un cinquième du territoire de chacune des grandes communes. Pour ce faire, la commune a été divisée en îlots, qui est un ensemble d’habitations contiguës délimitées par des frontières facilement repérables sur le terrain (voie, cours d’eau…). Ces îlots ont été répartis en cinq groupe de rotation (GR) correspondant à l’année à laquelle a lieu l’enquête annuelle de recensement. Les îlots d’un groupe qui feront l’objet de l’enquête de recensement l’année N feront l’objet d’une enquête cartographique préalable durant l’année N-1.
 
-Le résultat de cette enquête cartographique détermine la base de sondage d’adresses (BSA) dans laquelle est tiré l’échantillon de l’EAR pour les communes de plus de 10 000 habitants. Cet échantillon représente 40 % des logements des îlots du groupe à enquêter. Toutefois, les spécificités du terrain mahorais ont fait que le plan de sondage habituellement employé dans les DOM a dû être adapté[^4-use_case-1]. En effet, 39 % des logements recensés au RP 2017 sont des habitations de fortune (zones de bangas). Ce type d’habitat évolue très rapidement et pose des problèmes de repérage sur le terrain. Cela peut affecter les estimateurs produits par la méthode classiquement appliquée dans les grandes communes des DOM, principalement à cause des défauts de couverture (à la hausse ou à la baisse) engendrés. En effet, de nombreuses habitations de fortune ont rendu inadaptées les techniques d’échantillonnage qui supposent que la situation soit cohérente entre l’enquête cartographique réalisée au printemps et à l’été N-1 et l’enquête de recensement réalisée au début de l’année N. De ce fait, les habitations en dur[^4-use_case-2] et les habitations de fortune sont traitées différemment. Les habitations de fortune ont été recensées exhaustivement pour que l’enquête correspondent bien à la réalité observée au moment de la collecte. L’EAR porte par ailleurs sur 40 % des logements en dur. Au total, près de deux tiers des logements du groupe de rotation ont été enquêtés à Mayotte une année donnée. Pour les petites communes mahoraises, le recensement était exhaustif, comme dans en métropole et dans les autres DOM.
+Le résultat de cette enquête cartographique détermine la base de sondage d’adresses (BSA) dans laquelle est tiré l’échantillon de l’EAR pour les communes de plus de 10 000 habitants. Cet échantillon représente 40 % des logements des îlots du groupe à enquêter. Toutefois, les spécificités du terrain mahorais ont fait que le plan de sondage habituellement employé dans les DROM a dû être adapté[^4-use_case-1]. En effet, 39 % des logements recensés au RP 2017 sont des habitations de fortune (zones de bangas). Ce type d’habitat évolue très rapidement et pose des problèmes de repérage sur le terrain. Cela peut affecter les estimateurs produits par la méthode classiquement appliquée dans les grandes communes des DROM, principalement à cause des défauts de couverture (à la hausse ou à la baisse) engendrés. En effet, de nombreuses habitations de fortune ont rendu inadaptées les techniques d’échantillonnage qui supposent que la situation soit cohérente entre l’enquête cartographique réalisée au printemps et à l’été N-1 et l’enquête de recensement réalisée au début de l’année N. De ce fait, les habitations en dur[^4-use_case-2] et les habitations de fortune ont été traitées différemment. Les habitations de fortune ont été recensées exhaustivement pour que l’enquête correspondent bien à la réalité observée au moment de la collecte. L’EAR porte par ailleurs sur 40 % des logements en dur. Au total, près de deux tiers des logements du groupe de rotation ont été enquêtés à Mayotte une année donnée. Pour les petites communes mahoraises, le recensement était exhaustif, comme dans en métropole et dans les autres DROM.
 
 [^4-use_case-1]: Pour plus d’informations sur la définition du plan de sondage à Mayotte, se référer au [document de travail n°2022-10](https://www.insee.fr/fr/statistiques/6477571).
 
@@ -36,7 +36,7 @@ Deux évolutions ont été comparées, nécessitant l’utilisation de deux sour
 
 [Construction d’un score/indicateur de cohérence]{.underline}
 
-Pour définir un indicateur qui priorise les îlots à examiner, le rapport entre l’évolution du bâti et celle des logements en dur d’une part et l’ensemble des logements d’autre part ont été calculés.
+Pour définir un indicateur qui priorise les îlots à examiner, le rapport entre l’évolution du bâti et celle des logements en dur d’une part et l’ensemble des logements d’autre part a été calculé.
 
 Dans un premier groupe d’îlots, les deux évolutions sont concordantes (rapport proche de 1). Dans un deuxième groupe d’îlots, plus petit, l’évolution issue des enquêtes cartographiques est plus importante que celle issue des données satellites (rapport inférieur à 1). Dans un troisième et dernier groupe d’îlots, l’évolution du bâti issu des données satellites est plus importante que l’évolution issue des enquêtes cartographiques (rapport supérieur à 1). L’objectif étant d’évaluer une potentielle sous-couverture du bâti lors de l’enquête cartographique, on s’intéresse uniquement aux îlots du troisième groupe.
 
@@ -46,11 +46,15 @@ Un score total appelé $score$ a été défini de manière à identifier les îl
 
 Ce score total représente la somme de trois scores explicités ci-dessous. Ces scores ont été calculés pour 2 sous-catégories de logements :
 
-1\. pour l’ensemble des logements
+-   
 
-2\. pour les logements dits « durs » uniquement
+    1.  pour l’ensemble des logements
 
-Pour chacun de ces sous-ensembles, $score=score\_{évolution} + score\_{sens} + score\_{distance}$ et vaut entre 0 et 5.
+-   
+
+    2.  pour les logements dits « durs » uniquement
+
+Pour chacun de ces sous-ensembles, $score=score_{évolution} + score_{sens} + score_{distance}$ et vaut entre 0 et 5.
 
 **Une évolution du nombre de logements cartographiés moindre que l’évolution du bâti ?**
 
@@ -76,20 +80,18 @@ Pour chaque îlot, $score_{distance}$ vaut :
 
 -   0 si $distance\_{ilot} ≤ Q1$
 
--   1 si $Q1 ≺ distance\_{ilot} ≤ médiane$
+-   1 si $Q1 < distance\_{ilot} ≤ médiane$
 
--   2 si $médiane ≺ distance\_{ilot} ≤ Q3$
+-   2 si $médiane < distance\_{ilot} ≤ Q3$
 
--   3 si $distance\_{ilot} ≻ Q3$
+-   3 si $distance\_{ilot} > Q3$
 
 #### Définition des ordres de priorité
 
 L’ordre de priorité est calculé en prenant en compte, à la fois le score total sur l’ensemble des logements d’une part et les logements en dur uniquement d’autre part (tableau @tbl-ordre_p).
 
-Table : (#tbl-ordre_p) Ordres de priorité des îlots avec sous-couverture de logements supposée
-
 | Ordre de priorité | Score (ensemble des logements – logements durs) |
-|:------------------|-------------------------------------------------|
+|-------------------|-------------------------------------------------|
 | 1                 | 5-5                                             |
 | 2                 | 4-5 ou 5-4                                      |
 | 3                 | 4-4                                             |
@@ -99,32 +101,22 @@ Table : (#tbl-ordre_p) Ordres de priorité des îlots avec sous-couverture de lo
 | 7                 | 2-5 ou 5-2                                      |
 | 8                 | 2-4 ou 4-2                                      |
 
+: Ordres de priorité des îlots avec sous-couverture de logements supposée {#tbl-ordre_p}
+
 *Note de lecture : L’ordre de priorité 2 (score 5-4 ou 4-5) signifie que le score total vaut 5 pour l’ensemble des logements et 4 pour les logements durs ou inversement.*
 
 Finalement, tous les îlots avec un ordre de priorité 1 à 8 ont pu bénéficier d’une cartographie complémentaire
 
 ### Un exemple d’îlot
 
-Dans cet îlot de la commune de Bandrele (voir @fig-exemple), les contours bleus représentent la prédiction des bâtis en 2021, les points verts ceux cartographiés initialement en 2021 et les points rouges représentent les logements identifiés dans une enquête cartographique complémentaire réalisée en 2024. 
+Dans cet îlot de la commune de Bandrele (voir @fig-exemple), les contours bleus représentent la prédiction des bâtis en 2021, les points verts ceux cartographiés initialement en 2021 et les points rouges représentent les logements identifiés dans une enquête cartographique complémentaire réalisée en 2024.
 
-::: {}
-![Exemple d'un examen en 2024 d'un îlot de 2021](../img/exemple.png){#fig-exemple width=75%}
-:::
+<div>
 
-D’une part, on observe l’apparition de nouveaux logements en 2024, qui ne semblaient pas exister au moment de l’enquête cartographique initiale. Ces ajouts sont particulièrement visibles sur la partie supérieure droite de l’image dans la zone circulaire verte : les points rouges apparaissent sans contours bleus.
+![Exemple d'un examen en 2024 d'un îlot de 2021](../img/exemple.png){#fig-exemple width="75%"}
+
+</div>
+
+D’une part, on observe l’apparition de nouveaux logements en 2024, qui ne semblaient pas exister au moment de l’enquête cartographique initiale (en 2021). Ces ajouts sont particulièrement visibles sur la partie supérieure droite de l’image dans la zone circulaire verte : les points rouges apparaissent sans contours bleus.
 
 Néanmoins, des logements semblent avoir été omis lors de la cartographie initiale de 2021 et ont pu être ajoutés lors du rééxamen de 2024. Ceci est bien illustré par les logements présents par exemple dans la zone circulaire noire. On y remarque que plusieurs logements semblaient exister (présence d’un contour bleu), mais seuls deux avaient été cartographiés, matérialisés par les points verts. Ce constat confirme que l’utilisation d’images satellites traitées peut permettre de s’assurer de l’exhaustivité de la collecte des logements.
-
-## Conclusions et perspectives
-
-Dans les premières enquêtes annuelles du recensement à Mayotte, les données satellites ont permis de cibler des îlots pour lesquels les logements identifiés dans l’enquête cartographique initial paraissaient sous-estimés. Une enquête cartographie corrective a pu être réalisée dans ces îlots, améliorant la qualité des pondérations des logements dans les enquêtes annuelles de recensement et qui aurait pu être prise en compte avant la publication des populations si le premier cycle quinquennal avait été mené à son terme.
-
-Cette expertise des données satellites et de leur traitement a toutefois de nouveau été mobilisée lors de l’enquête cartographique 2025, enquête exhaustive préalable au recensement exhaustif de la population prévu du 27 novembre 2025 au 10 janvier 2026. Les données satellites de Pléiades de mars 2025, postérieures au cyclone Chido, ont, en effet, également été utilisées dans le cadre de cetteenquête cartographique préparatrice à la collecte exhaustive de fin 2025. En effet, d’une part pour orienter au mieux la collecte, ces fonds de cartes sont présents sur les tablettes des enquêteurs D’autre part, des contrôles qualité ont été effectués en bureau au fur et à mesure de la collecte pour garantir son exhaustivité.
-
-Bien que l’utilisation des données satellites permette de diminuer le risque de sous-couverture des logements à Mayotte, la prédiction de surface du bâti du modèle de segmentation sémantique ici mobilisé comporte quelques limites. Premièrement, \[qualité des prédictions\]. Deuxièmement, \[fréquence de mise à jour des données\]. Troisièmement, les données satellites fournissent une estimation de la surface bâtie au sol. Néanmoins, elles ne fournissent pas d’informations sur le nombre de logements. Par exemple, la surface au sol d’une maison peut être identique à celle d’un immeuble de plusieurs étages alors que leur nombre de logements peut être très différent. Par ailleurs, la prédiction s’appuie sur tous type de bâtis, y compris les locaux à vocation industrielle et commerciale. Or, la surface au sol de ces locaux peut être importante, notamment dans des iris contenant des zones industrielles ou commerciale. Par exemple, dans 2 îlots de Kaweni (voir @fig-zone-indu), le bâti de la zone industrielle (surface rose) est important par rapport au bâti résidentiel. Pour un de ces 2 îlots, plusieurs établissements scolaires sont également présents. Ces bâtiments ont une influence sur l’évolution du bâti puisqu’une destruction ou une construction de ce type de bâti faussera l’évolution du bâti résidentiel que l’on cherche à approcher via les données satellites.
-
-Les images satellites peuvent donc servir pour prédire les moyens à mobiliser zone par zone (il est plus long de cartographier une zone où le bâti a fortement évolué), pour contrôler/questionner en bureau le travail de repérage des enquêteurs sur le terrain mais elles ne le remplacent pas. Arpenter tout le territoire de façon systématique et méthodique reste indispensable à la qualité et à la précision du recensement.
-
-::: {}
-![Présence d'une zone industrielle dans 2 îlots de Kaweni](../img/zone_industrielle.png){#fig-zone-indu width=75%}
-:::
