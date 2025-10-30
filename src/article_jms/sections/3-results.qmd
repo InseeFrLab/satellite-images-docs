@@ -1,10 +1,45 @@
 
 ## Entraînement et évaluation <!--  Raya -->
 
-- IOU, Loss, zone de test manuel (calculer la taille des zones de test)
+Les mosaïques d’images et les annotations COSIA de Mayotte (2023), Martinique (2022) et Guadeloupe (2022) ont été utilisées pour l’entraînement du modèle. Des zones de test, sélectionnées manuellement pour représenter une diversité de contextes (quartiers résidentiels, bidonvilles, zones naturelles, centres urbains), ont été définies afin d’évaluer les performances de l’entraînement.
 
-Metriques et images
+<!-- mettre le nombre di'mages 250*250 pour train et pour test -->
 
+La loss utilisée est la **CrossEntropyWeighted**, avec un poids de 2 pour la classe bâtiment. Cette loss est une version pondérée de la CrossEntropy, qui permet de donner plus d’importance aux classes rares, comme les bâtiments, afin de compenser leur sous-représentation dans les données. En effet, sur un territoire, la surface de bâtiment est relativement faible comparé à la surface de verdure ou de sol nu.  
+
+La **CrossEntropyWeighted** pour un pixel i s’écrit :
+
+$$
+\text{CEWeighted}_i = - w_c \cdot \log(p_{i,c^*})
+$$
+
+avec :  
+$$
+\text{- c*} : \text{classe vraie du pixel i},
+$$
+$$
+\text{-} p_{i,c^*} : \text{probabilité prédite pour cette classe},
+$$
+$$
+\text{- w_c}: \text{poids associé à la classe}
+$$
+
+La loss finale sur tous les pixels est la moyenne :
+
+$$
+\text{Loss} = \frac{1}{N} \sum_{i=1}^{N} \text{CEWeighted}_i
+$$
+
+Il est toutefois difficile de juger de l’efficacité de l’entraînement uniquement avec cette métrique.
+Pour avoir une idée plus concrète des performances du modèle, une autre métrique, largement utilisée en segmentation d’images, a été implémentée: l’**Intersection Over Union** (IOU), représentée en @fig-iou.
+
+![Présentation du calcul de l’IOU](../img/IOUschema.png){#fig-iou width=60%}
+
+L’IOU se définit comme le rapport entre l’intersection des annotations et des prédictions et leur union. Plus l’IOU est proche de 1, plus les prédictions correspondent à la réalité. Dans la pratique, une IOU considérée comme très satisfaisante se situe autour de 0,6, car un certain décalage entre les annotations et les prédictions est inévitable. Néanmoins, cela n’empêche pas d’obtenir des prédictions fiables et qualitatives.
+
+Pour notre modèle, l'IOU moyenne lors de l'entraînement se trouve autour de **0.81** pour l'ensemble des classes, et plus précisement de **0.84** pour la classe bâtiment. Dans les zones de test, on retrouve des IOU respectivement de **0.78** et **0.76**.
+
+<!-- mettre images -->
 
 
 ## Inférence 
