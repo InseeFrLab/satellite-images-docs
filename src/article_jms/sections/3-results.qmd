@@ -3,17 +3,19 @@
 
 Les mosaïques d’images Pléiades et les annotations COSIA de Mayotte (2023), Martinique (2022) et Guadeloupe (2022) ont été utilisées pour l’entraînement du modèle. Des zones de test, ont été sélectionnées manuellement au sein de ces couples images annotations, pour représenter une diversité de contextes (quartiers résidentiels, bidonvilles, zones naturelles, centres urbains).  
 
-Une image Pléiade telle qu'elle est livrée par l'IGN contient 2000\*2000 pixels. Elle est trop volumineuse pour être prise en entrée d’un réseau de neurones avec les capacités usuelles disponibles de mémoire vive du processeur graphique GPU (Graphics Processing Unit). Pour prévenir cela, l'ensemble des images des mosaïques seront découpées en plusieurs sous-images de 250\*250 pixels, appelées des patchs. Comme un pixel sur une image Pléiades équivaut à 0.5\*0.5m², alors un patch a une superficie de 15 625m². La @fig-surface montre le nombre de patchs par mosaïque envoyés pour l'entraînement mais également le nombre de patchs gardés pour l'évaluation. Pour mieux comprendre ce que cela représente, la superficie associée est exprimée en km².
+Une image Pléiade telle qu'elle est livrée par l'IGN contient 2000\*2000 pixels. Elle est trop volumineuse pour être prise en entrée d’un réseau de neurones avec les capacités usuelles disponibles de mémoire vive du processeur graphique **GPU** (Graphics Processing Unit). Pour prévenir cela, l'ensemble des images des mosaïques sont découpées en plusieurs sous-images de 250\*250 pixels traitées indépendamment, appelées des tuiles.  
+
+Comme un pixel sur une image Pléiades équivaut à 0.5\*0.5m², alors **un tuile a une superficie de 15 625m²**. La @fig-surface montre le nombre de tuiles par mosaïque envoyés pour l'entraînement mais également le nombre de tuiles gardés pour l'évaluation. Pour mieux comprendre ce que cela représente, la superficie associée est exprimée en km².
 
 ::: {#fig-surface .cell-output-display}
 |     | train (**superficie km²**) | test (**superficie km²**) |
-|:---------------------|:--------------------:|:--------------:|
-| Guadeloupe  (2022)   |  >80 000 (**1 600**) | 1280 (**20**)  |
-| Martinique  (2022)   |  >80 000 (**1 100**) | 1229 (**19**)  |
-| Mayotte     (2023)   |  22 875  (**357**)   |  841 (**13**)  |
+|:---------------------|:---------------------:|:--------------:|
+| Guadeloupe  (2022)   |  >100 000 (**1 600**) | 1280 (**20**)  |
+| Martinique  (2022)   |  >70 000 (**1 100**)  | 1230 (**19**)  |
+| Mayotte     (2023)   |  23 000  (**357**)    |  840 (**13**)  |
 :::
 
-<!-- mc cp -r s3/projet-slums-detection/data-preprocessed/patchs/COSIA/segmentation/PLEIADES/MARTINIQUE/2022/250/test/ .
+<!-- mc cp -r s3/projet-slums-detection/data-preprocessed/tuiles/COSIA/segmentation/PLEIADES/MARTINIQUE/2022/250/test/ .
 cd 250/train/
 ls -1 | wc -l 
 -->
@@ -66,7 +68,7 @@ Dans le cadre de notre projet de détection automatique des zones bâties à par
 
 À l’inverse, la phase d’inférence s’apparente à une mise en production opérationnelle du modèle entraîné. Une fois les poids du modèle estimés, la génération de prédictions devient relativement peu coûteuse, notamment grâce à la possibilité d’exécuter les inférences sur CPU avec un temps de latence acceptable. L’enjeu devient alors de concevoir un dispositif fiable, reproductible et facilement mobilisable pour mettre à disposition les résultats du modèle, en particulier lorsque de nouvelles images satellites sont acquises.
 
-Actuellement, les inférences sont réalisées sur des tuiles disjointes de taille $250 \times 250$ pixels, qui correspondent à la taille utilisée lors de l’entraînement. Chaque image satellite de $2000 \times 2000$ pixels est ainsi découpée en 64 sous-images traitées indépendamment. Cette stratégie, bien que simple, présente plusieurs inconvénients. Elle introduit des artefacts de bordure, limite la vision contextuelle du modèle, et empêche une prise en compte fluide des objets situés à la jonction de deux tuiles.
+Actuellement, les inférences sont réalisées, comme l'entraînement, sur des tuiles disjointes de taille $250 \times 250$ pixels. Cette découpage présente plusieurs inconvénients. Elle introduit des artefacts de bordure, limite la vision contextuelle du modèle, et empêche une prise en compte fluide des objets situés à la jonction de deux tuiles.
 
 Afin d’améliorer la cohérence spatiale des prédictions, nous mettons en œuvre une stratégie d’inférence par fenêtre glissante (*sliding window*). Celle-ci consiste à réaliser plusieurs prédictions pour un même pixel, à partir de fenêtres décalées les unes par rapport aux autres. Les probabilités ainsi obtenues sont ensuite moyennées, ce qui permet de lisser les effets de bord, de renforcer la stabilité des contours et de réduire le bruit.
 
@@ -111,6 +113,10 @@ Plus précisément, ces agents souhaitent pouvoir visualiser les changements int
 
 Pour répondre à ces attentes, une application web interactive a été développée. Son objectif principal est de rendre accessibles, de manière simple et ergonomique, les résultats issus du modèle de segmentation aux agents de terrain. L’application permet de visualiser l’ensemble des images satellite disponibles pour les différents départements d’outre-mer (Guadeloupe, Martinique, Guyane, La Réunion, Mayotte), selon différents millésimes. Les utilisateurs peuvent ainsi comparer les images entre deux années données afin d’identifier visuellement les évolutions notables.
 Au-delà de la simple visualisation des images, l’application intègre également les cartes de segmentation générées par le modèle. Ces cartes fournissent une lecture globale et à grande échelle de la répartition des classes (bâti, végétation, etc.). Afin d’optimiser la détection des évolutions, des masques de changement ont été calculés entre deux années à partir des cartes de segmentation. Ces masques mettent en évidence les zones de création ou de transformation du bâti, facilitant ainsi l’identification des secteurs à fort changement.
+
+![Application web, statistiques sur le bâti (Mayotte 2017/2018)](../img/cratt_stat.png){#fig-cratt-stat width=75%}
+
+![Application web, visualisation des prédictions (Mayotte 2017)](../img/cratt_carte.png){#fig-cratt-carte width=75%}
 
 <!-- Mettre une capture de l'appli -->
 
