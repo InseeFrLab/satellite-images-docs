@@ -1,7 +1,7 @@
 
 ## Entraînement et évaluation <!--  Raya -->
 
-Les mosaïques d’images et les annotations COSIA de Mayotte (2023), Martinique (2022) et Guadeloupe (2022) ont été utilisées pour l’entraînement du modèle. Des zones de test, sélectionnées manuellement pour représenter une diversité de contextes (quartiers résidentiels, bidonvilles, zones naturelles, centres urbains), ont été définies afin d’évaluer les performances de l’entraînement.
+Les mosaïques d’images Pléiades et les annotations COSIA de Mayotte (2023), Martinique (2022) et Guadeloupe (2022) ont été utilisées pour l’entraînement du modèle. Des zones de test, ont été sélectionnées manuellement au sein de ces couples images annotations, pour représenter une diversité de contextes (quartiers résidentiels, bidonvilles, zones naturelles, centres urbains).
 
 <!-- mettre le nombre di'mages 250*250 pour train et pour test -->
 
