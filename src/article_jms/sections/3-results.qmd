@@ -5,7 +5,8 @@ Les mosaïques d’images et les annotations COSIA de Mayotte (2023), Martinique
 
 <!-- mettre le nombre di'mages 250*250 pour train et pour test -->
 
-La loss utilisée est la **CrossEntropyWeighted**, avec un poids de 2 pour la classe bâtiment. Cette loss est une version pondérée de la CrossEntropy, qui permet de donner plus d’importance aux classes rares, comme les bâtiments, afin de compenser leur sous-représentation dans les données. En effet, sur un territoire, la surface de bâtiment est relativement faible comparé à la surface de verdure ou de sol nu.  
+La loss utilisée est la **CrossEntropyWeighted**, avec un poids de 2 pour la classe bâtiment. Cette loss est une version pondérée de la CrossEntropy, qui permet de donner plus d’importance aux classes rares, comme les bâtiments, afin de compenser leur sous-représentation dans les données. En effet, sur un territoire, la surface de bâtiment est relativement faible comparé à la surface de verdure ou de sol nu.
+ <!-- Remplacer "loss" par "fonction de perte" en précisant (loss) à la première occurrence ? --> 
 
 La **CrossEntropyWeighted** pour un pixel i s’écrit :
 
@@ -15,13 +16,13 @@ $$
 
 avec :  
 $$
-\text{- c*} : \text{classe vraie du pixel i},
+\text{- } c^* : \text{classe vraie du pixel } i,
 $$
 $$
-\text{-} p_{i,c^*} : \text{probabilité prédite pour cette classe},
+\text{- } p_{i,c^*} : \text{probabilité prédite pour cette classe},
 $$
 $$
-\text{- w_c}: \text{poids associé à la classe}
+\text{- } w_c : \text{poids associé à la classe}
 $$
 
 La loss finale sur tous les pixels est la moyenne :
@@ -37,7 +38,7 @@ Pour avoir une idée plus concrète des performances du modèle, une autre métr
 
 L’IOU se définit comme le rapport entre l’intersection des annotations et des prédictions et leur union. Plus l’IOU est proche de 1, plus les prédictions correspondent à la réalité. Dans la pratique, une IOU considérée comme très satisfaisante se situe autour de 0,6, car un certain décalage entre les annotations et les prédictions est inévitable. Néanmoins, cela n’empêche pas d’obtenir des prédictions fiables et qualitatives.
 
-Pour notre modèle, l'IOU moyenne lors de l'entraînement se trouve autour de **0.81** pour l'ensemble des classes, et plus précisement de **0.84** pour la classe bâtiment. Dans les zones de test, on retrouve des IOU respectivement de **0.78** et **0.76**.
+Pour notre modèle, l'IOU moyenne lors de l'entraînement se trouve autour de **0.81** pour l'ensemble des classes, et plus précisément de **0.84** pour la classe bâtiment. Dans les zones de test, on retrouve des IOU respectivement de **0.78** et **0.76**.
 
 <!-- mettre images -->
 
@@ -78,10 +79,12 @@ Comme le souligne le Mémorandum de Varsovie, ces nouvelles formes de données i
 En ce sens, le développement d’un modèle de segmentation performant n’a de valeur, dans le contexte de la statistique publique, que s’il permet effectivement de produire de l’information utile, fiable, et intégrable dans les systèmes d’observation existants. À défaut, l’usage d’un tel outil par les statisticiens resterait discutable, car sans finalité opérationnelle claire.
 
 À ce stade du projet, l’enjeu est donc de déterminer les indicateurs statistiques pouvant être dérivés des sorties du modèle. Cette démarche doit reposer sur une co-construction entre les équipes métiers de l’Insee, qui expriment les besoins statistiques concrets, et la DMGC, appuyée par le SSP Lab, qui assure l’évaluation de la faisabilité technique, la pertinence méthodologique, et le développement des outils associés.
+<!-- Expliquer ou détailler ces abréviations ? -->
 
 Plusieurs cas d’usage ont d’ores et déjà été identifiés. L’un d'eux, détaillé en @sec-use_case, concerne la construction d’indicateurs d’évolution du bâti. Étant donné que le modèle attribue une classe à chaque pixel, et que chaque pixel représente une surface de $0,25 m^2$, il est possible de calculer la surface bâtie dans une zone géographique donnée à une date donnée. En comparant ces surfaces sur plusieurs dates, on peut alors quantifier les dynamiques de construction ou de disparition de bâtiments. Croisées avec d’autres sources de données, comme le Répertoire d’immeubles Localisés (RIL), ces surfaces bâties peuvent fournir des proxies de l’évolution du parc de logements et, par extension, de la population. De telles approches ouvrent des perspectives intéressantes pour l’enrichissement des dispositifs de suivi, en particulier dans les zones où les données administratives sont lacunaires ou peu à jour comme c'est le cas dans certains DROM.
 
 Concrètement, nous avons produit des fichiers millésimés pour chacun des DROM, retraçant l’évolution de la surface bâtie par îlot, pour chaque année disponible. Cette base de données constitue une ressource structurée et directement exploitable pour des analyses statistiques, déjà mobilisée par la DMTR pour évaluer la qualité de l'enquête cartographique. Ces premiers résultats illustrent le potentiel d’une telle approche pour renforcer la couverture, la réactivité et la granularité des indicateurs mobilisés dans les travaux de la statistique publique territorialisée.
+<!-- Expliquer ou détailler l'abréviation DMTR ? -->
 
 
 ### Une application interactive pour les agents de terrain
