@@ -208,7 +208,13 @@ La **BDTOPO** est une base de type géométrique produite par l'IGN pour l'ensem
 
 Une autre source a été explorée : le **Répertoire des Immeubles Localisés (RIL)**, produite par l'Insee. Il est donc possible de produire des zones tampons autour des points localisant les bâtiments et de s’en servir comme une approximation pour labelliser les logements. Cette base de données n’englobe donc pas tous les bâtiments, mais uniquement ceux qui sont habités. Dans les DROM, les données sont en quantité limitée, puisque chaque année seulement un cinquième de la base est mis à jour, c'est-à-dire que les données peuvent dater d'il y a plus de quatre ans. Si la qualité du RIL est satisfaisante en France hexagonale, elle est loin d’être fiable dans les territoires d'outre-mer. Cette source ne permet pas de faire des labellisations adaptées pour l'entraînement et a été écartée.
 
-Les deux sources précédentes offrent des annotations binaires : bâtiment oui/non. Il est également possible d'utiliser des annotations multiclasses. La base **COSIA**, générée par IA à partir des photographies aériennes de l’IGN à une résolution de 20 cm, offre des polygones multiclasses précis, disponibles également pour les DROM. Parmi ces classes, la classe bâtiment est incluse, ce qui constitue un avantage pour les performances du modèle. C’est cette source qui a été retenue pour l’entraînement. La @fig-millesimescosia informe de la couverture du sol COSIA disponible par millésime et par territoire. 
+![Zone en Guyane Pleiades © CNES_2022, points RIL 2022 (gauche) VS polygones BDTOPO 2022 (droite)](../img/ril_vs_bdtopo.png){#fig-ril-bdtopo width=100%}
+
+Les deux sources précédentes offrent des annotations binaires : bâtiment oui/non. Il est également possible d'utiliser des annotations multiclasses. La base **COSIA**, générée par IA à partir des photographies aériennes de l’IGN à une résolution de 20 cm, offre des polygones multiclasses précis, disponibles également pour les DROM. Parmi ces classes, la classe bâtiment est incluse, ce qui constitue un avantage pour les performances du modèle. C’est cette source qui a été retenue pour l’entraînement.
+
+![Zone à Mayotte Pleiades © CNES_2023, couverture du sol COSIA 2023 et légende COSIA](../img/image_annotation_legende.png){#fig-img-annot-leg width=100%}
+
+La @fig-millesimescosia informe de la couverture du sol COSIA disponible par millésime et par territoire. 
 
 ::: {#fig-millesimescosia .cell-output-display}
 |                      | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 |

@@ -1,20 +1,22 @@
 
 ## Entraînement et évaluation <!--  Raya -->
 
-Les mosaïques d’images Pléiades et les annotations COSIA de Mayotte (2023), Martinique (2022) et Guadeloupe (2022) ont été utilisées pour l’entraînement du modèle. Des zones de test, ont été sélectionnées manuellement au sein de ces couples images annotations, pour représenter une diversité de contextes (quartiers résidentiels, bidonvilles, zones naturelles, centres urbains).
-Une image Pléiade telle qu'elle est livrée par l'IGN contient 2000\*2000 pixels. Elle est trop volumineuse pour être prise en entrée d’un réseau de neurones avec les capacités usuelles disponibles de mémoire vive du processeur graphique GPU (Graphics Processing Unit). Pour prévenir cela, l'ensemble des images des mosaïques seront découpées en plusieurs sous-images de 250\*250 pixels, appelées des patchs. Comme un pixel sur une image Pléiades équivaut à 0.5\*0.5m², alors un patch a une superficie de 15 625m². La @fig-surface montre le nombre de patchs par mosaïque envoyés pour l'entraînement, et également la superficie représentée en km².
+Les mosaïques d’images Pléiades et les annotations COSIA de Mayotte (2023), Martinique (2022) et Guadeloupe (2022) ont été utilisées pour l’entraînement du modèle. Des zones de test, ont été sélectionnées manuellement au sein de ces couples images annotations, pour représenter une diversité de contextes (quartiers résidentiels, bidonvilles, zones naturelles, centres urbains).  
+
+Une image Pléiade telle qu'elle est livrée par l'IGN contient 2000\*2000 pixels. Elle est trop volumineuse pour être prise en entrée d’un réseau de neurones avec les capacités usuelles disponibles de mémoire vive du processeur graphique GPU (Graphics Processing Unit). Pour prévenir cela, l'ensemble des images des mosaïques seront découpées en plusieurs sous-images de 250\*250 pixels, appelées des patchs. Comme un pixel sur une image Pléiades équivaut à 0.5\*0.5m², alors un patch a une superficie de 15 625m². La @fig-surface montre le nombre de patchs par mosaïque envoyés pour l'entraînement mais également le nombre de patchs gardés pour l'évaluation. Pour mieux comprendre ce que cela représente, la superficie associée est exprimée en km².
 
 ::: {#fig-surface .cell-output-display}
-|  | train (nombre) | train (superficie)| test (nombre) | test (superficie)|
-|:---------------------|:----------:|:--------:|:------:|:--------:|
-| Guadeloupe  (2022)   |      | ** **  |      |  ** **  | |
-| Martinique  (2022)   |      | ** **  |      |  ** **  |
-| Mayotte     (2023)   | 22 875     | **357**  |   841  |  **13**  |
+|     | train (**superficie km²**) | test (**superficie km²**) |
+|:---------------------|:--------------------:|:--------------:|
+| Guadeloupe  (2022)   |  >80 000 (**1 600**) | 1280 (**20**)  |
+| Martinique  (2022)   |  >80 000 (**1 100**) | 1229 (**19**)  |
+| Mayotte     (2023)   |  22 875  (**357**)   |  841 (**13**)  |
 :::
 
-<!-- mc cp -r s3/projet-slums-detection/data-preprocessed/patchs/COSIA/segmentation/PLEIADES/MARTINIQUE/2022/ .
+<!-- mc cp -r s3/projet-slums-detection/data-preprocessed/patchs/COSIA/segmentation/PLEIADES/MARTINIQUE/2022/250/test/ .
 cd 250/train/
-ls -1 | wc -l -->
+ls -1 | wc -l 
+-->
 
 La fonction de perte (loss) utilisée est la **CrossEntropyWeighted**, avec un poids de 2 pour la classe bâtiment. Cette loss est une version pondérée de la CrossEntropy, qui permet de donner plus d’importance aux classes rares, comme les bâtiments, afin de compenser leur sous-représentation dans les données. En effet, sur un territoire, la surface de bâtiment est relativement faible comparé à la surface de verdure ou de sol nu.
  <!-- Remplacer "loss" par "fonction de perte" en précisant (loss) à la première occurrence ? --> 
@@ -27,13 +29,11 @@ $$
 
 avec :  
 $$
-\text{- } c^* : \text{classe vraie du pixel } i,
-$$
-$$
-\text{- } p_{i,c^*} : \text{probabilité prédite pour cette classe},
-$$
-$$
-\text{- } w_c : \text{poids associé à la classe}
+\begin{align*}
+- & \ c^* : \text{classe vraie du pixel } i, \\
+- & \ p_{i,c^*} : \text{probabilité prédite pour cette classe}, \\
+- & \ w_c : \text{poids associé à la classe}
+\end{align*}
 $$
 
 La loss finale sur tous les pixels est la moyenne :
@@ -47,26 +47,17 @@ Pour avoir une idée plus concrète des performances du modèle, une autre métr
 
 ![Présentation du calcul de l’IOU](../img/IOUschema.png){#fig-iou width=60%}
 
-L’IOU se définit comme le rapport entre l’intersection des annotations et des prédictions et leur union. Plus l’IOU est proche de 1, plus les prédictions correspondent à la réalité. Dans la pratique, une IOU considérée comme très satisfaisante se situe autour de 0,6, car un certain décalage entre les annotations et les prédictions est inévitable. Néanmoins, cela n’empêche pas d’obtenir des prédictions fiables et qualitatives.
+L’IOU se définit comme le rapport entre l’intersection des annotations et des prédictions et leur union. Plus l’IOU est proche de 1, plus les prédictions correspondent à la réalité. Dans la pratique, une IOU considérée comme très satisfaisante se situe autour de 0.6, car un certain décalage entre les annotations et les prédictions est inévitable. Néanmoins, cela n’empêche pas d’obtenir des prédictions fiables et qualitatives.
 
 Pour notre modèle, l'IOU moyenne lors de l'entraînement se trouve autour de **0.81** pour l'ensemble des classes, et plus précisément de **0.84** pour la classe bâtiment. Dans les zones de test, on retrouve des IOU respectivement de **0.78** et **0.76**.
 
 <!-- mettre texte pour expliquer les images  -->
-<!-- faire avec excalidraw -->
-::: {#fig-pred .cell-output-display}
-<table>
-<tr>
-<td><img src="../img/pleiades_mayotte_2023.png" width="30%"><br><em>Pleiades © CNES_2023</em></td>
-<td><img src="../img/cosia_multiclasse.png" width="30%"><br><em>Couverture du sol COSIA</em></td>
-<td><img src="../img/predictions_test_2023.png" width="30%"><br><em>Prédictions</em></td>
-<td><img src="../img/../img/legende_cosia.png" width="30%"><br><em>Légende COSIA</em></td>
-</tr>
-</table>
 
-**Figure : Comparaison visuelle sur une zone de test de Mayotte (2023)**
-:::
+La @fig-img-leg illustre une portion de zone de test issue de la mosaïque Mayotte 2023, avec en @fig-annot-pred la réalité terrain COSIA 2023 (gauche) et les prédictions produites par le modèle entraîné (droite).
 
-<!-- mettre images -->
+![Zone de test Mayotte Pleiades © CNES_2023 et légende COSIA](../img/image_legende.png){#fig-img-leg width=80%}
+
+![Couverture de sol COSIA 2023 VS prédictions](../img/annotations_vs_pred.png){#fig-annot-pred width=100%}
 
 
 ## Inférence 
