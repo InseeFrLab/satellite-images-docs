@@ -11,6 +11,7 @@ Chaque année, une centaine d'agents recenseurs sont mobilisés dans les Départ
 Un RIL de qualité permet aux enquêteurs de localiser plus facilement les logements à enquêter sur une année donnée. Le calcul de la population dépend du nombre de logements présents dans le RIL. En effet, cette estimation est le produit du nombre moyen de personnes par logement, obtenu via le recensement, et du nombre de logements comptabilisés. L’impact d’un bon RIL sur la qualité des estimations produites par l’Insee est donc considérable.
 
 De ce fait, le contrôle de la qualité de ces enquêtes cartographique est important pour garantir une bonne qualité du RIL, notamment dans le territoire Mahorais, où les difficultés d’accès au terrain et la forte dynamique de développement urbain complexifient l’organisation des enquêtes cartographiques. Dans ce contexe, l'utilisation d'images satellites s'est averée très utile.
+
 Par ailleurs, l'enquête cartographique se déroule d’avril à août chaque année et mobilise près de 100 enquêteurs dans les DROM, ce qui en fait une opération coûteuse. L’utilisation de l’imagerie satellite, et notamment des méthodes de détection de logements sur ces images, pourrait également permettre d'améliorer l’organisation de l’enquête cartographique en optimisant notamment le temps de travail des enquêteurs du RP.
 
 
