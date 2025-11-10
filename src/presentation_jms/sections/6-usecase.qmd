@@ -6,7 +6,7 @@
 
 <!-- Ajouter graphiques cycle recensement -->
 
-::: note
+::: notes
 Pour précisier, ces travaux font référence aux enquêtes ayant eu lieu de 2021 à 2024. En 2025, du fait du cyclone Chido, la cinquième et dernière enquête du premier cycle n’a pas pu être réalisée. Il a alors été décidé de réaliser de nouveau un recensement exhaustif de la population qui aura lieu du 27 novembre 2025 au 10 janvier 2026.
 
 A la différence des autres départements, à Mayotte la méthode est différente entre les habitations en dur et les habitations de fortune. Pour les habitations de fortune, le recensement y est exhaustif que ça soit en petite ou grande commune, par contre pour les logements en dur; il n'est exhaustif qu'en petite commune et par sondage dans les communes de plus de 10 000 habitants.
@@ -14,16 +14,36 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 ## Contrôle de la couverture de l'enquête cartographique
 
-Enquête cartographique → alimente le RIL → constitue la [**base de sondage**]{.orange} des logements en dur des communes ≥ 10 000 hab
+-   Enquête cartographique → alimente le RIL → constitue la [**base de sondage**]{.orange} des logements en dur des communes ≥ 10 000 hab
 
-[**Sous-estimation**]{.orange} du nb [**logements**]{.blue} dans l'enquête carto → [**populations**]{.blue} et [**logements**]{.blue} déduit [**sous-estimé**]{.blue}
+-   [**Sous-estimation**]{.orange} du nb logements dans l'enquête carto → populations et logements déduit [**sous-estimé**]{.orange}
 
-=\> [**Contrôle qualité**]{.orange} de l'enquête cartographique [**important**]{.blue} : utilisation des [**données satellites**]{.orange}
+
+ →  [**Contrôle qualité**]{.orange} de l'enquête cartographique [**important**]{.blue} : utilisation des [**données satellites**]{.orange}
 
 ## Identification des îlots avec une sous-couverture potentielle
 
+# Données utilisées
+
 2 évolutions comparées : 
--   évolution de la surface bâtie prédites entre 2017 et 2021/2022
-  -   [*données satellites*]{.orange}
--   évolution du nombre de logements entre le RP 2017 et les enquêtes cartographiques 2021/2022 
-  -   [*collecte 2017, enquête cartographique 2021, 2022*]
+
+-   [**surface bâtie**]{.orange} prédites entre 2017 et 2021/2022
+    -   [*données satellites*]{.grey}
+
+-   [**nombre de logements**]{.orange} entre le RP 2017 et les enquêtes cartographiques 2021/2022 
+    -   [*collecte 2017, enquête cartographique 2021, 2022*]{.grey}
+
+## Identification des îlots avec une sous-couverture potentielle
+
+# Construction d'un score 
+
+<div style="background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; font-size: 0.8em; text-align: center; width: fit-content; margin: 0 auto;">
+  On s'intéresse uniquement aux îlots pour lesquels l'évolution du bâti issue des données satellites est plus importante que l'évolution issue de l'enquête cartographique
+</div>
+
+
+Le $score$ est calculé sur 2 sous ensemble : 
+-   ensemble des logements
+-   uniquement les logements en dur
+
+# Construction d'un score 
