@@ -153,10 +153,10 @@ Pour répondre à ces attentes, une application web interactive a été dévelop
 Au-delà de la simple visualisation des images, l’application intègre également les cartes de segmentation générées par le modèle. Ces cartes fournissent une lecture globale et à grande échelle de la répartition des classes (bâti, végétation, etc.). Afin d’optimiser la détection des évolutions, des masques de changement ont été calculés entre deux années à partir des cartes de segmentation. Ces masques mettent en évidence les zones de création ou de transformation du bâti, facilitant ainsi l’identification des secteurs à fort changement.
 
 
-![Application web, statistiques sur le bâti (Mayotte 2017/2018)](../img/cratt_stat.png){#fig-cratt-stat width=75%}
+![Application web, statistiques sur le bâti (Mayotte 2017/2018)](../img/cratt_stat.png){#fig-cratt-stat width=100%}
 
 
-![Application web, visualisation des prédictions (Mayotte 2017)](../img/cratt_carte.png){#fig-cratt-carte width=75%}
+![Application web, visualisation des prédictions (Mayotte 2017)](../img/cratt_carte.png){#fig-cratt-carte width=100%}
 
 
 <!-- Mettre une capture de l'appli -->
