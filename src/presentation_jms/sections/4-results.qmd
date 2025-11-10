@@ -1,0 +1,76 @@
+## Zone de test à Mayotte
+
+<div style="display: flex; align-items: flex-start;">
+
+<div style="flex: 3; text-align: center;">
+  <img src="../img/pleiades_mayotte_2023.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em>Pleiades © CNES_2023, Distribution AIRBUS DS</em></span>
+</div>
+
+<div style="flex: 3; text-align: center;">
+  <img src="../img/cosia_multiclasse.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em>Couverture du sol COSIA 2023</em></span>
+</div>
+
+<div style="flex: 3; text-align: center;">
+  <img src="../img/predictions_test_2023.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em>Prédictions 2023</em></span>
+</div>
+
+<div style="flex: 1; text-align: center;">
+  <img src="../img/../img/legende_cosia.png" style="width: 70%;"><br>
+  <span style="font-size: 50%;"><em>Légende COSIA</em></span>
+</div>
+
+</div>
+
+|                    | Train | Test |
+|--------------------|-------|------|
+|IOU moyenne ∀classe | 0.81  | 0.78 |
+|IOU "bâtiment"      | 0.84  | 0.76 |
+
+::: {.notes}
+Dans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considérée comme un excellent score, surtout dans des zones complexes comme les DOM où l’environnement est très hétérogène, et des écarts peuvent se créer un peu partout.
+
+- À ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances
+
+- Questions clés : comment partager nos résultats ?
+
+- L’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel
+:::
+
+## Dashboard Interactive 🚀
+
+:::{.absolute top=280 left=150}
+👉 [**Application interactive**]{.orange}: [Cliquez ici](https://inseefrlab.github.io/satellite-images-webapp/)
+:::
+
+<!-- <iframe src="https://inseefrlab.github.io/satellite-images-webapp/"
+        width="100%"
+        height="500"
+        style="border:none;">
+</iframe> -->
+
+::: {.notes}
+Transition : Notre entraînement a plutot bien marché, notre application web permet une bonne visualisation de nos prédictions... on peut dire que nous avons mené notre petite expérience à bien. Serait il temps de passer de l'experience à la "pseudo" production ?
+
+- Nous avons décidé de créer une petite webapp 
+- Nous avons calculé les surfaces des bâtiments à partir de nos prédictions : cela nous donne une valeur binaire pour chaque pixel, agrégée par niveau administratif  
+
+⚠️ **Avertissement :** ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.  
+
+- Carte standard **Leaflet** avec un fond **OpenStreetMap** affichant Pléiades 2023  
+
+**97610 0608** : méthodologie différente de floutage pour la prison  
+**97611 0332** : nuages en 2022  
+**97611 0330** : notre cas d’usage : détecter les changements de bâtiments en zone précaire  
+
+- [**Suivi des changements de bâtiments au niveau administratif**]{.orange} :  
+  - Sélection par [**unités administratives**]{.blue2} (communes, quartiers)  
+  - [**Contrôle qualité**]{.blue2} des changements détectés  
+
+- [**Fonctionnalités clés**]{.orange} :  
+  - Comparaison temporelle côte à côte  
+  - Indicateurs statistiques par zone  
+  - Validation visuelle interactive  
+:::

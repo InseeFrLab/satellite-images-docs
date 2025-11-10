@@ -1,0 +1,8 @@
+## Défis & Perspectives
+
+- [**Coûts de maintenance élevés**]{.orange} en raison de la complexité technique 💸  
+- Besoin de [**compétences spécialisées**]{.blue2} 🧑‍💻  
+- [**Environnement technique complexe**]{.orange} dû à :  
+    - [**Volumes de données importants**]{.blue2} 🗃️  
+    - [**Forts besoins en calcul (GPU)**]{.blue2} ⚡  
+- [**Résultats initiaux prometteurs**]{.orange} pour accompagner les enquêtes cartographiques  

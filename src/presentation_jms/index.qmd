@@ -1,0 +1,172 @@
+---
+title: "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte"
+subtitle: |
+  [**Maëlys Bernard**]{.blue2}, [**Raya Berova**]{.orange}, [**Thomas Faria**]{.blue2} **(Insee)**
+date: "11/25/2025"
+date-format: "D MMMM YYYY"
+slide-number: true
+lang: fr-FR
+slide-tone: false
+chalkboard:
+  theme: whiteboard
+format:
+  onyxia-revealjs:
+    output-file: index.html
+    title-slide-attributes:
+      data-notes: |
+        Bonjour à tous ...
+controls: true
+css: ../custom.css
+ascii: true
+---
+
+# Plan
+
+1️⃣ Introduction
+
+2️⃣ Méthodologie
+
+3️⃣ Données
+
+4️⃣ Résultats
+
+5️⃣ De l'expérimentation à la production ?
+
+6️⃣ Cas d'usage
+
+7️⃣ Discussion
+
+::: notes
+On commencera par une introduction pour poser le contexte et expliquer les enjeux du recensement dans les départements et régions d'outre mer, les DROM.  
+Ensuite, on vous présentera la méthodologie que nous avons adoptée, puis les données utilisées, notamment les images satellites.  
+Ce qui nous permettra de passer ensuite aux résultats obtenus.  
+La cinquième partie portera sur la question du passage de l’expérimentation à une utilisation en production.  
+Et enfin, on conclura par une discussion plus large sur les perspectives et les limites.
+:::
+
+
+# 1️⃣ Introduction
+
+{{< include sections/1-introduction.qmd >}}
+
+# Plan
+
+1️⃣ Introduction
+
+**2️⃣ Méthodologie**
+
+3️⃣ Données
+
+4️⃣ Résultats
+
+5️⃣ De l'expérimentation à la production ?
+
+6️⃣ Cas d'usage
+
+7️⃣ Discussion
+
+# 2️⃣ Méthodologie
+
+{{< include sections/3-methodo.qmd >}}
+
+# Plan
+
+1️⃣ Introduction
+
+2️⃣ Méthodologie
+
+**3️⃣ Données**
+
+4️⃣ Résultats
+
+5️⃣ De l'expérimentation à la production ?
+
+6️⃣ Cas d'usage
+
+7️⃣ Discussion
+
+# 3️⃣ Données
+
+{{< include sections/2-data.qmd >}}
+
+# Plan
+
+1️⃣ Introduction
+
+2️⃣ Méthodologie
+
+3️⃣ Données
+
+**4️⃣ Résultats**
+
+5️⃣ De l'expérimentation à la production ?
+
+6️⃣ Cas d'usage
+
+7️⃣ Discussion
+
+# 4️⃣ Résultats
+
+{{< include sections/4-results.qmd >}}
+
+# Plan
+
+1️⃣ Introduction
+
+2️⃣ Méthodologie
+
+3️⃣ Données
+
+4️⃣ Résultats
+
+**5️⃣ De l'expérimentation à la production ?**
+
+6️⃣ Cas d'usage
+
+7️⃣ Discussion
+
+# 5️⃣ De l'expérimentation à la production ?
+
+{{< include sections/5-expprod.qmd >}}
+
+# Plan
+
+1️⃣ Introduction
+
+2️⃣ Méthodologie
+
+3️⃣ Données
+
+4️⃣ Résultats
+
+5️⃣ De l'expérimentation à la production ?
+
+**6️⃣ Cas d'usage**
+
+7️⃣ Discussion
+
+# 6️⃣ Cas d'usage
+
+{{< include sections/6-usecase.qmd >}}
+
+# Plan
+
+1️⃣ Introduction
+
+2️⃣ Méthodologie
+
+3️⃣ Données
+
+4️⃣ Résultats
+
+5️⃣ De l'expérimentation à la production ?
+
+6️⃣ Cas d'usage
+
+**7️⃣ Discussion**
+
+# 7️⃣ Discussion
+
+{{< include sections/7-discussion.qmd >}}
+
+# Merci pour votre attention

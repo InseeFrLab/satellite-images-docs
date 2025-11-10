@@ -1,0 +1,84 @@
+## Pléiades vs Sentinel-2 🛰️
+
+<div style="display: flex; align-items: center;">
+
+<!-- Colonne gauche : Pléiades -->
+<div style="flex: 2; font-size: 60%; padding-right: 1em;">
+<strong>Pléiades</strong> :  
+
+- <strong class="blue2">3</strong> bandes (<strong class="red2">R</strong><strong class="green2">G</strong><strong class="blue2">B</strong>)  
+- Résolution <strong class="orange">0.5m</strong>  
+- <strong class="blue2">Archives</strong> gratuites  
+- Acquisition sur-demande payante  
+</div>
+
+<!-- Colonne milieu : image + titre -->
+<div style="flex: 6; text-align: center;">
+  <img src="../img/pleiades_vs_sentinel2.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em>Mamoudzou, Mayotte 2024</em></span>
+</div>
+
+<!-- Colonne droite : Sentinel2 -->
+<div style="flex: 2; font-size: 60%; padding-left: 1em;">
+<strong>Sentinel2</strong> :  
+
+- <strong class="blue2">13</strong> bandes  
+- Résolution <strong class="orange">10m, 20m ou 60m</strong> (en fonction de la bande)  
+- Acquisition <strong class="blue2">tous les 5j</strong>  
+- <strong class="orange">Gratuit</strong>  
+</div>
+
+</div>
+
+
+::: {.notes}
+Il existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d'entre eux.  
+Les images satellites Pléiades sont un produit intéressant pour notre cas d'usage
+- [**Caractéristiques**]{.orange}:
+  - [**3**]{.orange} bandes spectrales ([**R**]{.red2}[**G**]{.green2}[**B**]{.blue2}) 🎨
+  - 4e bande : [**NIR**]{.red2} (pas dans nos données)
+  - Résolution spatial : [**0.5m × 0.5m**]{.blue2} 🔍
+  - [**Archives**]{.blue2} gratuites (avec accord)
+  - Acquisition [**sur-demande**]{.blue2} et payante ([**6-8 mois**]{.green2} par département), Airbus © licence 📅
+
+Pour le cyclone Chido qui a ravagé Mayotte, un plan d'urgence a été mis en place. Nous avons pu obtenir une mosaique d'images Pléiades de Mayotte post cyclone datant du premier trimestre de 2025 gratuitement.
+
+Comme je vous disais au début, c'est grâce à l'IGN que nous avons pu mener à bien notre projet car ils nous fournissent des mosaiques d'images Pléiades. Une mosaique est une reconstitution complète d'un territoire avec des prises de vues de plusieurs dates, permettant ainsi d'avoir une couverture le moins ennuagée et la plus propre possible. Ce travail est très important pour avoir de bonnes images pour l'entraînement. 
+
+Mais un autre type d'images satellites est à notre disposition : Sentinel-2. Elles sont open source et l'acquisition se fait tous les 5 jours. Cependant, leur résolution est moins précise que les images pléiades. 
+:::
+
+
+## Annotations : COSIA
+
+- [Projet Cosia](https://cosia.ign.fr/info#visualisation) par IGN 👏
+- [**Utilisé pour annoter nos données d'entraînement**]{.blue2}
+
+<div style="display: flex; align-items: flex-start;">
+
+<div style="flex: 4; text-align: center;">
+  <img src="../img/pleiades_mayotte_2023.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em>Pleiades © CNES_2023, Distribution AIRBUS DS</em></span>
+</div>
+
+<div style="flex: 4; text-align: center;">
+  <img src="../img/cosia_multiclasse.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em>Couverture du sol COSIA 2023</em></span>
+</div>
+
+<div style="flex: 2; text-align: center;">
+  <img src="../img/../img/legende_cosia.png" style="width: 50%;"><br>
+  <span style="font-size: 50%;"><em>Légende COSIA</em></span>
+</div>
+
+</div>
+
+::: {.notes}
+Pour les annotations, il est possible de prendre des annotations binaires : bâtiment oui ou non, ou des annotations multiclasses comme le projet Cosia présenté précédement.
+- C'est une [**couverture du sol générée par l'IA**]{.orange}
+- Basé sur les [**photographies aériennes**]{.orange} de l'IGN à une résolution [**20cm**]{.blue2} 🗺️
+Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d'entraînement, malgré un possible décalage temporaire entre nos images et la productions de polygones.
+D'autres sources ont été testées comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele.
+
+les mosaiques d'images et les collections d'annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés pour entrainer notre modele, et des zones de test fixées ont été définies. Voyons voir les résultats produits par notre fameux entraînement.
+:::
