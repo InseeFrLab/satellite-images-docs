@@ -18,7 +18,7 @@ keywords: # 6 maximum
   - vision par ordinateur
   - apprentissage profond
 domains: # utiliser la nomenclature du site (menu déroulant) --> a modifier
-  - Apprentissage statistique
+  - apprentissage statistique
 resume: |
     Malgré leur disponibilité de plus en plus accrue, les images satellites très haute résolution sont jusqu’ici très peu utilisées au sein de la statistique publique. La manipulation de ces données non conventionnelles n’appartient pas encore aux pratiques usuelles des statisticiens publics, bien qu’elles offrent des opportunités significatives pour améliorer ou créer de nouveaux indicateurs statistiques. Cet article vise justement à démontrer qu’il est possible d’intégrer ces données satellitaires dans les processus statistiques afin d’assurer leur qualité.
     Mayotte constitue un cas emblématique où la forte dynamique de développement urbain complexifie l’organisation des enquêtes cartographiques qui permettent de repérer les logements en amont du recensement. Afin d’orienter les travaux de contrôle de la qualité de ces enquêtes, nous avons exploré l’utilisation des images satellitaires très haute résolution Pléiades (0,5 m de résolution spatiale), en combinaison avec des méthodes d’apprentissage profond, spécifiquement via des modèles de segmentation sémantique.
