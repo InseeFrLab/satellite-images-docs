@@ -23,7 +23,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 ## Identification des îlots avec une sous-couverture potentielle
 
-# Données utilisées
+### Données utilisées
 
 2 évolutions comparées : 
 
@@ -32,8 +32,6 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 -   [**nombre de logements**]{.orange} entre le RP 2017 et les enquêtes cartographiques 2021/2022 
     -   [*collecte 2017, enquête cartographique 2021, 2022*]{.grey}
-
-## Identification des îlots avec une sous-couverture potentielle
 
 ### Construction d'un score 
 
@@ -82,7 +80,7 @@ $score_{distance}$ vaut :
 -   3 si $distance\_{ilot} > Q3$
 
 
-### Définition des ordres de priorité
+## Définition des ordres de priorité
 
 | Ordre de priorité | Score (ensemble des logements – logements durs) |
 |-------------------|-------------------------------------------------|
