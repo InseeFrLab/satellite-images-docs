@@ -838,13 +838,19 @@ Figure&nbsp;1
 <li><span class="grey"><em>collecte 2017, enquête cartographique 2021, 2022</em></span></li>
 </ul></li>
 </ul>
+</section>
+<section id="identification-des-îlots-avec-une-sous-couverture-potentielle-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Identification des îlots avec une sous-couverture potentielle</h2>
 <h3 data-background-image="background.svg" data-background-size="contain" id="construction-dun-score">Construction d’un score</h3>
 <div style="background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; font-size: 0.8em; text-align: center; width: fit-content; margin: 0 auto;">
 <p>On s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des données satellites est plus importante que l’évolution issue de l’enquête cartographique</p>
 </div>
 <p>Le <span class="math inline">\(score\)</span> est calculé sur 2 sous ensemble : - ensemble des logements - uniquement les logements en dur</p>
-<h3 data-background-image="background.svg" data-background-size="contain" id="construction-dun-score-1">Construction d’un score</h3>
 <p><span class="math inline">\(score=score_{évolution} + score_{sens} + score_{distance}\)</span></p>
+</section>
+<section id="identification-des-îlots-avec-une-sous-couverture-potentielle-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Identification des îlots avec une sous-couverture potentielle</h2>
+<h3 data-background-image="background.svg" data-background-size="contain" id="construction-dun-score-1">Construction d’un score</h3>
 <p><span class="math inline">\(score_{évolution}\)</span> vaut :</p>
 <ul>
 <li><p>1 si l’évolution du nombre de logements dans le recensement est plus faible que celle de la surface bâtie (données satellites)</p></li>
@@ -924,7 +930,7 @@ Table&nbsp;1: Ordres de priorité des îlots avec sous-couverture de logements s
 <div style="flex: 2; font-size: 60%; padding-right: 1em;">
 <ul>
 <li><span style="color: red; font-size: 2em;">•</span> : enquête cartographique complémentaire</li>
-<li><span style="color: red; font-size: 2em;">•</span> : enquête cartographique initiale</li>
+<li><span style="color: green; font-size: 2em;">•</span> : enquête cartographique initiale</li>
 </ul>
 </div>
 <!-- Colonne milieu : image + titre -->
@@ -933,8 +939,8 @@ Table&nbsp;1: Ordres de priorité des îlots avec sous-couverture de logements s
 </div>
 <div style="flex: 2; font-size: 60%; padding-left: 1em;">
 <ul>
-<li><span style="display: inline-block; width: 20px; height: 20px; background-color: green; border-radius: 50%;"></span> : nouveaux logements qui n’existaient pas lors de l’enquête cartographique initiale</li>
-<li><span style="display: inline-block; width: 20px; height: 20px; background-color: black; border-radius: 50%;"></span> : logements possiblement omis lors de l’enquête cartographique initiale</li>
+<li><span style="display: inline-block; width: 20px; height: 20px; border: 2px solid green; border-radius: 50%;"></span> : nouveaux logements qui n’existaient pas lors de l’enquête cartographique initiale</li>
+<li><span style="display: inline-block; width: 20px; height: 20px; border: 2px solid black; border-radius: 50%;"></span> : logements possiblement omis lors de l’enquête cartographique initiale</li>
 </ul>
 </div>
 </div>

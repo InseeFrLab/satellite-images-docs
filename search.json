@@ -600,7 +600,21 @@
     "href": "src/presentation_jms/index.html#identification-des-îlots-avec-une-sous-couverture-potentielle",
     "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
     "section": "Identification des îlots avec une sous-couverture potentielle",
-    "text": "Identification des îlots avec une sous-couverture potentielle\nDonnées utilisées\n2 évolutions comparées :\n\nsurface bâtie prédites entre 2017 et 2021/2022\n\ndonnées satellites\n\nnombre de logements entre le RP 2017 et les enquêtes cartographiques 2021/2022\n\ncollecte 2017, enquête cartographique 2021, 2022\n\n\nConstruction d’un score\n\nOn s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des données satellites est plus importante que l’évolution issue de l’enquête cartographique\n\nLe \\(score\\) est calculé sur 2 sous ensemble : - ensemble des logements - uniquement les logements en dur\nConstruction d’un score\n\\(score=score_{évolution} + score_{sens} + score_{distance}\\)\n\\(score_{évolution}\\) vaut :\n\n1 si l’évolution du nombre de logements dans le recensement est plus faible que celle de la surface bâtie (données satellites)\n0 sinon\n\n\\(score_{sens}\\) vaut :\n\n1 si l’évolution du nombre de logements dans le recensement est dans le sens opposé de celle de la surface bâtie (données satellites)\n0 sinon\n\n\\(score_{distance}\\) vaut :\n\n0 si \\(distance\\_{ilot} ≤ Q1\\)\n1 si \\(Q1 &lt; distance\\_{ilot} ≤ médiane\\)\n2 si \\(médiane &lt; distance\\_{ilot} ≤ Q3\\)\n3 si \\(distance\\_{ilot} &gt; Q3\\)"
+    "text": "Identification des îlots avec une sous-couverture potentielle\nDonnées utilisées\n2 évolutions comparées :\n\nsurface bâtie prédites entre 2017 et 2021/2022\n\ndonnées satellites\n\nnombre de logements entre le RP 2017 et les enquêtes cartographiques 2021/2022\n\ncollecte 2017, enquête cartographique 2021, 2022"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#identification-des-îlots-avec-une-sous-couverture-potentielle-1",
+    "href": "src/presentation_jms/index.html#identification-des-îlots-avec-une-sous-couverture-potentielle-1",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Identification des îlots avec une sous-couverture potentielle",
+    "text": "Identification des îlots avec une sous-couverture potentielle\nConstruction d’un score\n\nOn s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des données satellites est plus importante que l’évolution issue de l’enquête cartographique\n\nLe \\(score\\) est calculé sur 2 sous ensemble : - ensemble des logements - uniquement les logements en dur\n\\(score=score_{évolution} + score_{sens} + score_{distance}\\)"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#identification-des-îlots-avec-une-sous-couverture-potentielle-2",
+    "href": "src/presentation_jms/index.html#identification-des-îlots-avec-une-sous-couverture-potentielle-2",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Identification des îlots avec une sous-couverture potentielle",
+    "text": "Identification des îlots avec une sous-couverture potentielle\nConstruction d’un score\n\\(score_{évolution}\\) vaut :\n\n1 si l’évolution du nombre de logements dans le recensement est plus faible que celle de la surface bâtie (données satellites)\n0 sinon\n\n\\(score_{sens}\\) vaut :\n\n1 si l’évolution du nombre de logements dans le recensement est dans le sens opposé de celle de la surface bâtie (données satellites)\n0 sinon\n\n\\(score_{distance}\\) vaut :\n\n0 si \\(distance\\_{ilot} ≤ Q1\\)\n1 si \\(Q1 &lt; distance\\_{ilot} ≤ médiane\\)\n2 si \\(médiane &lt; distance\\_{ilot} ≤ Q3\\)\n3 si \\(distance\\_{ilot} &gt; Q3\\)"
   },
   {
     "objectID": "src/presentation_jms/index.html#définition-des-ordres-de-priorité",
