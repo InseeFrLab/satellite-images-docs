@@ -35,7 +35,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 ## Identification des îlots avec une sous-couverture potentielle
 
-# Construction d'un score 
+### Construction d'un score 
 
 <div style="background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; font-size: 0.8em; text-align: center; width: fit-content; margin: 0 auto;">
   On s'intéresse uniquement aux îlots pour lesquels l'évolution du bâti issue des données satellites est plus importante que l'évolution issue de l'enquête cartographique
@@ -46,4 +46,57 @@ Le $score$ est calculé sur 2 sous ensemble :
 -   ensemble des logements
 -   uniquement les logements en dur
 
-# Construction d'un score 
+### Construction d'un score 
+
+$score=score_{évolution} + score_{sens} + score_{distance}$ 
+
+$score_{évolution}$ vaut :
+
+
+-   1 si l’évolution du nombre de logements dans le recensement est plus faible que celle de la surface bâtie (données satellites)
+
+
+-   0 sinon
+
+ $score_{sens}$ vaut :
+
+
+-   1 si l’évolution du nombre de logements dans le recensement est dans le sens opposé de celle de la surface bâtie (données satellites)
+
+
+-   0 sinon
+
+
+$score_{distance}$ vaut :
+
+
+-   0 si $distance\_{ilot} ≤ Q1$
+
+
+-   1 si $Q1 < distance\_{ilot} ≤ médiane$
+
+
+-   2 si $médiane < distance\_{ilot} ≤ Q3$
+
+
+-   3 si $distance\_{ilot} > Q3$
+
+
+### Définition des ordres de priorité
+
+| Ordre de priorité | Score (ensemble des logements – logements durs) |
+|-------------------|-------------------------------------------------|
+| 1                 | 5-5                                             |
+| 2                 | 4-5 ou 5-4                                      |
+| 3                 | 4-4                                             |
+| 4                 | 3-5 ou 5-3                                      |
+| 5                 | 3-4 ou 4-3                                      |
+| 6                 | 3-3                                             |
+| 7                 | 2-5 ou 5-2                                      |
+| 8                 | 2-4 ou 4-2                                      |
+
+
+: Ordres de priorité des îlots avec sous-couverture de logements supposée {#tbl-ordre_p}
+
+
+-> [**cartographie complémentaire**]{.orange} sur les îlots avec un ordre de priorité 1 à 8 
