@@ -18,7 +18,7 @@ keywords: # 6 maximum
   - vision par ordinateur
   - apprentissage profond
 domains: # utiliser la nomenclature du site (menu déroulant) --> a modifier
-  - science des données
+  -
  
 resume: |
     Malgré leur disponibilité de plus en plus accrue, les images satellites très haute résolution sont jusqu’ici très peu utilisées au sein de la statistique publique. La manipulation de ces données non conventionnelles n’appartient pas encore aux pratiques usuelles des statisticiens publics, bien qu’elles offrent des opportunités significatives pour améliorer ou créer de nouveaux indicateurs statistiques. Cet article vise justement à démontrer qu’il est possible d’intégrer ces données satellitaires dans les processus statistiques afin d’assurer leur qualité.
