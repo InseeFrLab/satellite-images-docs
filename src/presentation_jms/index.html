@@ -679,7 +679,7 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </section>
 <section id="pipeline-globale" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Pipeline globale 🛠️</h2>
-<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" height="100%" width="100%">
+<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" width="100%" height="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="../img/pipeline_donnees_sat.png" id="fig-chain2" style="width:100.0%;height:100.0%">
@@ -844,20 +844,84 @@ Figure&nbsp;1
 </section>
 <section id="identification-des-îlots-avec-une-sous-couverture-potentielle-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Identification des îlots avec une sous-couverture potentielle</h2>
-</section></section>
-<section id="construction-dun-score" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Construction d’un score</h1>
+<h3 data-background-image="background.svg" data-background-size="contain" id="construction-dun-score">Construction d’un score</h3>
 <div style="background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; font-size: 0.8em; text-align: center; width: fit-content; margin: 0 auto;">
 <p>On s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des données satellites est plus importante que l’évolution issue de l’enquête cartographique</p>
 </div>
 <p>Le <span class="math inline">\(score\)</span> est calculé sur 2 sous ensemble : - ensemble des logements - uniquement les logements en dur</p>
-</section>
-
-<section id="construction-dun-score-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Construction d’un score</h1>
-
-</section>
-
+<h3 data-background-image="background.svg" data-background-size="contain" id="construction-dun-score-1">Construction d’un score</h3>
+<p><span class="math inline">\(score=score_{évolution} + score_{sens} + score_{distance}\)</span></p>
+<p><span class="math inline">\(score_{évolution}\)</span> vaut :</p>
+<ul>
+<li><p>1 si l’évolution du nombre de logements dans le recensement est plus faible que celle de la surface bâtie (données satellites)</p></li>
+<li><p>0 sinon</p></li>
+</ul>
+<p><span class="math inline">\(score_{sens}\)</span> vaut :</p>
+<ul>
+<li><p>1 si l’évolution du nombre de logements dans le recensement est dans le sens opposé de celle de la surface bâtie (données satellites)</p></li>
+<li><p>0 sinon</p></li>
+</ul>
+<p><span class="math inline">\(score_{distance}\)</span> vaut :</p>
+<ul>
+<li><p>0 si <span class="math inline">\(distance\_{ilot} ≤ Q1\)</span></p></li>
+<li><p>1 si <span class="math inline">\(Q1 &lt; distance\_{ilot} ≤ médiane\)</span></p></li>
+<li><p>2 si <span class="math inline">\(médiane &lt; distance\_{ilot} ≤ Q3\)</span></p></li>
+<li><p>3 si <span class="math inline">\(distance\_{ilot} &gt; Q3\)</span></p></li>
+</ul>
+<h3 data-background-image="background.svg" data-background-size="contain" id="définition-des-ordres-de-priorité">Définition des ordres de priorité</h3>
+<div id="tbl-ordre_p" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ordre_p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Ordres de priorité des îlots avec sous-couverture de logements supposée
+</figcaption>
+<div aria-describedby="tbl-ordre_p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Ordre de priorité</th>
+<th>Score (ensemble des logements – logements durs)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>5-5</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>4-5 ou 5-4</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>4-4</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>3-5 ou 5-3</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>3-4 ou 4-3</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>3-3</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>2-5 ou 5-2</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>2-4 ou 4-2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>-&gt; <span class="orange"><strong>cartographie complémentaire</strong></span> sur les îlots avec un ordre de priorité 1 à 8</p>
+</section></section>
 <section id="plan-6" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Plan</h1>
 <p>1️⃣ Introduction</p>
