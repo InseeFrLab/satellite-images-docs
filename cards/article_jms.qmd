@@ -1,6 +1,6 @@
 ---
 title: Article JMS 2025
-image: img/toad_DT.jpg
+image: img/judith.jpg
 date: "2025-11-25"
 description: |
   <b>Description :</b> Utilisation des images satellites pour améliorer le repérage des logements à Mayotte.

@@ -1,6 +1,6 @@
 ---
 title: Présentation JMS 2025
-image: img/toad_DT.jpg
+image: img/seminaire_dmcsi_satellite.jpg
 date: "2025-11-25"
 description: |
   <b>Description :</b> Utilisation des images satellites pour améliorer le repérage des logements à Mayotte.
@@ -8,6 +8,6 @@ author: Maëlys Bernard, Raya Berova et Thomas Faria
 slides:
   text: Slides
   url: src/presentation_jms/index.html
-order: 10
+order: 9
 lang: fr-FR
 ---
