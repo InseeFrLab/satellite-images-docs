@@ -1,0 +1,28 @@
+
+## Processing Pipeline (2/3)
+
+1. [**Data Acquisition**]{.orange}:
+    - Pléiades imagery from national provider
+    - Storage on cloud infrastructure
+
+2. [**Data Preparation**]{.orange}:
+    - Image preprocessing (cloud filtering, normalization)
+    - Automated labeling using reference building data
+    - Image splitting (125m × 125m tiles)
+
+3. [**Model Development**]{.orange}:
+    - Deep learning implementation (PyTorch)
+    - GPU-powered training
+    - Model versioning (MLFlow)
+
+## Processing Pipeline (3/3)
+
+4. [**Production System**]{.orange}:
+    - REST API for inference
+    - Containerized deployment
+    - Parallel processing capabilities
+
+5. [**Results Distribution**]{.orange}:
+    - GeoServer for spatial data sharing
+    - Web application for visualization
+    - Statistical analysis tools

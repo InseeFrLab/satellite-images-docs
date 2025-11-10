@@ -1,0 +1,86 @@
+## Segmentation sémantique
+
+- [**Vision par ordinateur**]{.orange}  
+- [**Classer chaque pixel**]{.blue2} d’une image  
+- Pour nos besoins : connaître les pixels de [**catégorie "bâtie"**]{.orange}   
+
+<div style="text-align:center;">
+  ![Exemple de segmentation "bâtiment"](../img/segmentation.png){width=30%}
+</div>
+
+::: notes
+Pour détecter le bâti de façon automatique, nous nous sommes tourné vers la vision par ordinateur, qui est une branche du domaine de l'intelligence artificielle. La segmentation sémantique permet de classer chaque pixel d'une image dans l'une des classes définie en amont. La segmentation semantique peut utiliser toute sorte de classe, mais voici un exemple de résultat qui nous interesse : ex.
+J'AIMERAI PRECISER QU'avec uniquement de l'imagerie satellitaire, nous ne pourrons pas décider du caractère habitable ou non d'un bâtiment ni du nombre de logements à l'intérieur. Par conséquent, nous ne pouvons pas remplacer l'enquête cartographique, l'idée est d'aider les enquêteurs en mettant en valeur les zones avec le plus de bâtiments à visiter. 
+:::
+
+## Entraîner un modèle de segmentation
+
+- [**Il faut**]{.orange} :
+    - Une collection d'[**images satellites**]{.blue2} 🛰️
+    - [**Des annotations**]{.blue2} 📍
+- Le modèle apprend à reproduire les annotations des images pour [**généraliser**]{.orange} sur de nouvelles images  
+
+::: notes
+
+Pour entrainer un modele il faut deux choses : des images et des annotations.
+
+- Une annotation est "la vérité attendue", comme par exemple l'image qui a été présentée à la slide précédente
+
+- Le modèle apprend à reproduire les annotations des images pour [**généraliser**]{.orange} sur de nouvelles images 
+:::
+
+## De la segmentation à la détection de changements
+
+![](../img/strategy_segmentation.png){width=80%}
+
+## Modèle utilisé
+
+- [**Architecture du modèle**]{.orange} 🧠
+    - [**SegFormer**]{.blue2} : un modèle léger et performant
+    - [**Transformers**]{.blue2} : [**mécanismes d’attention**]{.green2} pour prendre en compte le contexte local et global
+    - [**Décodeur**]{.blue2} : Multi Layer Perceptron
+
+- [**Adapté**]{.orange} pour nos données satellites
+
+
+::: notes
+Le modèle que nous avons sélectionné s’appuie sur une architecture appelée **SegFormer**.
+Modele de segmentation d'image entrainé par NVIDIA et opensource
+Il a l'avantage d'etre très leger et donc rapide à entrainer
+Pour notre cas d'usage, c'est le modele qui a été le plus performant.
+
+Il est basé sur une technologie appelée **Transformer**, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. Ce n'est pas la plus répendue en vision par ordinateur.
+
+Un des atouts de cette architecture, ce sont les **mécanismes d’attention**, qui permettent au modèle de prendre en compte le contexte local et global de l’image. Pour le décodeur, c'est Multi Layer Perceptron classique.
+
+Enfin, nous avons **ajusté le modèle à nos données** spécifiques : des images satellites et des annotations.
+:::
+
+
+## Évaluation
+
+Pour évaluer les performances du modèle entraîné :  
+<div style="text-align: center;">
+[**IOU**]{.orange} = Intersection Over Union  
+</div>
+
+![](../img/schemaIOU.png){width=80% fig-align="center"}
+
+::: notes
+Transition pour la suite : pour faire un entraînement, il ne faut plus que des données...
+
+L'IoU, ou *Intersection over Union*, est une mesure qu'on utilise pour évaluer la qualité d’une prédiction en segmentation d’image.
+
+Concrètement, on compare deux zones :  
+- celle que le modèle a prédite comme appartenant à une certaine classe,  
+- et la zone réelle, qu’on appelle le *label de vérité terrain*.
+
+On mesure alors **l’intersection** entre ces deux zones – c’est la partie correctement prédite –  
+et on la divise par **l’union** des deux – c’est-à-dire l’ensemble de tout ce qui a été soit prédit, soit annoté.
+
+Un IoU de 1 signifie une correspondance parfaite.  
+Un IoU de 0 signifie aucune correspondance.
+
+Plus l’IoU est élevé, plus la prédiction est précise.  
+C’est une métrique particulièrement adaptée pour des tâches comme la nôtre, où on doit prédire la forme exacte des bâtiments ou des routes, pixel par pixel.
+:::
