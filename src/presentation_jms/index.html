@@ -801,21 +801,63 @@ Figure&nbsp;1
 </ul></li>
 </ul>
 <!-- Ajouter graphiques cycle recensement -->
-<div class="note">
+<aside class="notes">
 <p>Pour précisier, ces travaux font référence aux enquêtes ayant eu lieu de 2021 à 2024. En 2025, du fait du cyclone Chido, la cinquième et dernière enquête du premier cycle n’a pas pu être réalisée. Il a alors été décidé de réaliser de nouveau un recensement exhaustif de la population qui aura lieu du 27 novembre 2025 au 10 janvier 2026.</p>
 <p>A la différence des autres départements, à Mayotte la méthode est différente entre les habitations en dur et les habitations de fortune. Pour les habitations de fortune, le recensement y est exhaustif que ça soit en petite ou grande commune, par contre pour les logements en dur; il n’est exhaustif qu’en petite commune et par sondage dans les communes de plus de 10 000 habitants.</p>
-</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="contrôle-de-la-couverture-de-lenquête-cartographique" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Contrôle de la couverture de l’enquête cartographique</h2>
-<p>Enquête cartographique → alimente le RIL → constitue la <span class="orange"><strong>base de sondage</strong></span> des logements en dur des communes ≥ 10 000 hab</p>
-<p><span class="orange"><strong>Sous-estimation</strong></span> du nb <span class="blue"><strong>logements</strong></span> dans l’enquête carto → <span class="blue"><strong>populations</strong></span> et <span class="blue"><strong>logements</strong></span> déduit <span class="blue"><strong>sous-estimé</strong></span></p>
-<p>=&gt; <span class="orange"><strong>Contrôle qualité</strong></span> de l’enquête cartographique <span class="blue"><strong>important</strong></span> : utilisation des <span class="orange"><strong>données satellites</strong></span></p>
+<ul>
+<li><p>Enquête cartographique → alimente le RIL → constitue la <span class="orange"><strong>base de sondage</strong></span> des logements en dur des communes ≥ 10 000 hab</p></li>
+<li><p><span class="orange"><strong>Sous-estimation</strong></span> du nb logements dans l’enquête carto → populations et logements déduit <span class="orange"><strong>sous-estimé</strong></span></p></li>
+</ul>
+<p>→ <span class="orange"><strong>Contrôle qualité</strong></span> de l’enquête cartographique <span class="blue"><strong>important</strong></span> : utilisation des <span class="orange"><strong>données satellites</strong></span></p>
 </section>
 <section id="identification-des-îlots-avec-une-sous-couverture-potentielle" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Identification des îlots avec une sous-couverture potentielle</h2>
-<p>2 évolutions comparées : - évolution de la surface bâtie prédites entre 2017 et 2021/2022 - <span class="orange"><em>données satellites</em></span> - évolution du nombre de logements entre le RP 2017 et les enquêtes cartographiques 2021/2022 - [<em>collecte 2017, enquête cartographique 2021, 2022</em>]</p>
 </section></section>
+<section>
+<section id="données-utilisées" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Données utilisées</h1>
+<p>2 évolutions comparées :</p>
+<ul>
+<li><span class="orange"><strong>surface bâtie</strong></span> prédites entre 2017 et 2021/2022
+<ul>
+<li><span class="grey"><em>données satellites</em></span></li>
+</ul></li>
+<li><span class="orange"><strong>nombre de logements</strong></span> entre le RP 2017 et les enquêtes cartographiques 2021/2022
+<ul>
+<li><span class="grey"><em>collecte 2017, enquête cartographique 2021, 2022</em></span></li>
+</ul></li>
+</ul>
+</section>
+<section id="identification-des-îlots-avec-une-sous-couverture-potentielle-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Identification des îlots avec une sous-couverture potentielle</h2>
+</section></section>
+<section id="construction-dun-score" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Construction d’un score</h1>
+<div style="background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; font-size: 0.8em; text-align: center; width: fit-content; margin: 0 auto;">
+<p>On s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des données satellites est plus importante que l’évolution issue de l’enquête cartographique</p>
+</div>
+<p>Le <span class="math inline">\(score\)</span> est calculé sur 2 sous ensemble : - ensemble des logements - uniquement les logements en dur</p>
+</section>
+
+<section id="construction-dun-score-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Construction d’un score</h1>
+
+</section>
+
 <section id="plan-6" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Plan</h1>
 <p>1️⃣ Introduction</p>

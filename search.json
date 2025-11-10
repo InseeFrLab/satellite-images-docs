@@ -593,14 +593,21 @@
     "href": "src/presentation_jms/index.html#contrôle-de-la-couverture-de-lenquête-cartographique",
     "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
     "section": "Contrôle de la couverture de l’enquête cartographique",
-    "text": "Contrôle de la couverture de l’enquête cartographique\nEnquête cartographique → alimente le RIL → constitue la base de sondage des logements en dur des communes ≥ 10 000 hab\nSous-estimation du nb logements dans l’enquête carto → populations et logements déduit sous-estimé\n=&gt; Contrôle qualité de l’enquête cartographique important : utilisation des données satellites"
+    "text": "Contrôle de la couverture de l’enquête cartographique\n\nEnquête cartographique → alimente le RIL → constitue la base de sondage des logements en dur des communes ≥ 10 000 hab\nSous-estimation du nb logements dans l’enquête carto → populations et logements déduit sous-estimé\n\n→ Contrôle qualité de l’enquête cartographique important : utilisation des données satellites"
   },
   {
     "objectID": "src/presentation_jms/index.html#identification-des-îlots-avec-une-sous-couverture-potentielle",
     "href": "src/presentation_jms/index.html#identification-des-îlots-avec-une-sous-couverture-potentielle",
     "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
     "section": "Identification des îlots avec une sous-couverture potentielle",
-    "text": "Identification des îlots avec une sous-couverture potentielle\n2 évolutions comparées : - évolution de la surface bâtie prédites entre 2017 et 2021/2022 - données satellites - évolution du nombre de logements entre le RP 2017 et les enquêtes cartographiques 2021/2022 - [collecte 2017, enquête cartographique 2021, 2022]"
+    "text": "Identification des îlots avec une sous-couverture potentielle"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#identification-des-îlots-avec-une-sous-couverture-potentielle-1",
+    "href": "src/presentation_jms/index.html#identification-des-îlots-avec-une-sous-couverture-potentielle-1",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Identification des îlots avec une sous-couverture potentielle",
+    "text": "Identification des îlots avec une sous-couverture potentielle"
   },
   {
     "objectID": "src/presentation_jms/index.html#défis-perspectives",
