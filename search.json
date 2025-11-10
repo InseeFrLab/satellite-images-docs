@@ -91,32 +91,509 @@
     ]
   },
   {
-    "objectID": "src/todo/index.html",
-    "href": "src/todo/index.html",
-    "title": "TODO",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Projet Données Satellites",
     "section": "",
-    "text": "Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL\nIndustrialiser sur la nouvelle webapp tous les départements (priorité Guyane/St Martin) ✅\n\nUtiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle ✅\n\nCache les predictions en terme de probabilité plutot que masque binaire ✅\n\nMettre les prédictions multiclasses sur la webapp ✅\n\nRetravailler les fonctionnalités des cartes de la webapp\nRetélécharger Guyane via SEAS, utiliser les masques nuages pour faire le découpage (prioriser en fonction de la date)\nInférence sur nouveau découpage Guyane\n\nUtiliser une bdd externe pour flaguer les zones de bâti non résidentielles\n\nDepuis la webapp, pouvoir télécharger le tableau des statistiques\n\nSélectionner un ilot produit un graphique d’évolution du bâti sur les millésimes disponibles\n\nMettre les couches RIL sur la webapp\n\nRécupérer les annotations de destructions post cyclone Chido produites par Copernicus pour les afficher sur la webapp + les utiliser comme données de validation\n\nProduire les polygones destructions/constructions de bâti en comparant les logits plutôt que les prédictions de classe + recalculer les statistiques d’évolution en conséquence –&gt; heat map\n\nAfficher la carte plein écran sur CRaTT\n\nFaire un travail sur les prédictions pour merge les pred car on voit les délimitations des patchs envoyés à l’API pour l’inférence (cf travail fait pendant le stage l’année dernière)\n\nOutil pour valider les annotations et faire un jeu de test gold-standard ?\n\nPublier le modèle sur Hugging Face\n\nTrain un premier segformer avec les données d’entrainement de Flair (france hexagonale, autre résolution) -&gt; puis finetuner ce modele avec nos données d’entrainement\n\nFinetuner le modele Flair sur nos données et comparer les métriques avec le modele segformer https://huggingface.co/collections/IGNF/flair-hub-land-cover-mapping-models-lc-683ec04c4e19788e64aa032f et https://arxiv.org/html/2506.07080v1\n\nInférence lissée\n\nInférence avec prob et pas pred\n\n\n\n\n\n\n\nPour enquête carto :\n\nêtre capable de déterminer les changements prioritaires à regarder et cohérent (pas des nuages) / Stockage des ilots controlés\nfaire le use case mayotte sur 5 ans d’intervalle\n\nApplication de mise à dispo de point gpx avec fond données satellites\n\n\n\n\n\nComparaison entre l’EAR/RIL et nos surfaces estimés / estimation de population basé sur les surfaces prédites\nPréparation d’un papier pour les JMS avec la DMTR. En lien avec les récents travaux sur Mayotte pour la DMTR et la préparation du futur recensement exhaustif de 2026. Ce sera un papier méthodologique sur le projet images satellites, illustré du cas d’usage de la DMTR (aide au recensement avec de la cartographie et/ou statistiques publiques, tout cela grâce aux prédictions sur images satellites).\n\nContact avec Julie Djiriguian pour présenter nos travaux afin de les aider à préparer l’enquête cartographique 2025 en vue du recensement exhaustif de Mayotte 2026.\n\n\n\n\n\n\nfaire un DT Insee et voir avec CP si ca la branche\nFaire la documentation du projet\nmise à disposition du modèle CoSIA via l’API et faire pub aux européens"
+    "text": "Description : Ici est rassemblée toute la documentation technique sur le travail effectué au cours de l'expérimentation sur les données satellite\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                Nov 10, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        doc\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Application web à destination des agents facilitant l'utilisation des résultats fournis par le modèle de segmentation.\n\n            \n\n            \n            \n              \n                \n                Nov 10, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        CraTT\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Document retraçant les avancées et résultats obtenus sur les travaux exploratoires utilisant des images satellitaires\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 16, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        pdf\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Ce séminaire marque la fin des travaux d’expérimentation. À cette occasion, nous présenterons l’intégralité de la chaîne de traitement, de la récupération des images jusqu’à l’application d’aide à la décision, en mettant l’accent sur les difficultés rencontrées. La poursuite de ces travaux dépendra des besoins réels de l’Insee et nécessitera des compétences variées et une technicité élevée pour maintenir et/ou améliorer la chaîne de traitement.\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 28, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n                \n                  \n                    \n                      \n                        Vidéo\n                      \n                    \n                  \n                \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Slideshow presentation of the project Detecting changes in buildings in French overseas departments for Work Package 7,\nArtificial Intelligence and Machine Learning for Official Statistics, organized by Eurostat.\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Nov 13, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Slide deck for the NTTS 2025 conference.\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Mar 12, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Slides pour le séminaire de Méthodologie Statistique & Sciences des données de la DMCSI - La terre vue d’en haut : images satellites, images aériennes et statistique publique.\n\n            \n\n            \n            \n              \n                Raya Berova et Thomas Faria\n                Jul 3, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Utilisation des images satellites pour améliorer le repérage des logements à Mayotte.\n\n            \n\n            \n            \n              \n                Maëlys Bernard, Raya Berova et Thomas Faria\n                Nov 25, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        pdf\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : TODO\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Nov 19, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Utilisation des images satellites pour améliorer le repérage des logements à Mayotte.\n\n            \n\n            \n            \n              \n                Maëlys Bernard, Raya Berova et Thomas Faria\n                Nov 25, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n\n\nNo matching items"
   },
   {
-    "objectID": "src/todo/index.html#techos",
-    "href": "src/todo/index.html#techos",
-    "title": "TODO",
+    "objectID": "index.html#documents-relatifs-au-projet-sur-les-données-satellites-à-linsee",
+    "href": "index.html#documents-relatifs-au-projet-sur-les-données-satellites-à-linsee",
+    "title": "Projet Données Satellites",
     "section": "",
-    "text": "Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL\nIndustrialiser sur la nouvelle webapp tous les départements (priorité Guyane/St Martin) ✅\n\nUtiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle ✅\n\nCache les predictions en terme de probabilité plutot que masque binaire ✅\n\nMettre les prédictions multiclasses sur la webapp ✅\n\nRetravailler les fonctionnalités des cartes de la webapp\nRetélécharger Guyane via SEAS, utiliser les masques nuages pour faire le découpage (prioriser en fonction de la date)\nInférence sur nouveau découpage Guyane\n\nUtiliser une bdd externe pour flaguer les zones de bâti non résidentielles\n\nDepuis la webapp, pouvoir télécharger le tableau des statistiques\n\nSélectionner un ilot produit un graphique d’évolution du bâti sur les millésimes disponibles\n\nMettre les couches RIL sur la webapp\n\nRécupérer les annotations de destructions post cyclone Chido produites par Copernicus pour les afficher sur la webapp + les utiliser comme données de validation\n\nProduire les polygones destructions/constructions de bâti en comparant les logits plutôt que les prédictions de classe + recalculer les statistiques d’évolution en conséquence –&gt; heat map\n\nAfficher la carte plein écran sur CRaTT\n\nFaire un travail sur les prédictions pour merge les pred car on voit les délimitations des patchs envoyés à l’API pour l’inférence (cf travail fait pendant le stage l’année dernière)\n\nOutil pour valider les annotations et faire un jeu de test gold-standard ?\n\nPublier le modèle sur Hugging Face\n\nTrain un premier segformer avec les données d’entrainement de Flair (france hexagonale, autre résolution) -&gt; puis finetuner ce modele avec nos données d’entrainement\n\nFinetuner le modele Flair sur nos données et comparer les métriques avec le modele segformer https://huggingface.co/collections/IGNF/flair-hub-land-cover-mapping-models-lc-683ec04c4e19788e64aa032f et https://arxiv.org/html/2506.07080v1\n\nInférence lissée\n\nInférence avec prob et pas pred"
+    "text": "Description : Ici est rassemblée toute la documentation technique sur le travail effectué au cours de l'expérimentation sur les données satellite\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                Nov 10, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        doc\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Application web à destination des agents facilitant l'utilisation des résultats fournis par le modèle de segmentation.\n\n            \n\n            \n            \n              \n                \n                Nov 10, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        CraTT\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Document retraçant les avancées et résultats obtenus sur les travaux exploratoires utilisant des images satellitaires\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 16, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        pdf\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Ce séminaire marque la fin des travaux d’expérimentation. À cette occasion, nous présenterons l’intégralité de la chaîne de traitement, de la récupération des images jusqu’à l’application d’aide à la décision, en mettant l’accent sur les difficultés rencontrées. La poursuite de ces travaux dépendra des besoins réels de l’Insee et nécessitera des compétences variées et une technicité élevée pour maintenir et/ou améliorer la chaîne de traitement.\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 28, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n                \n                  \n                    \n                      \n                        Vidéo\n                      \n                    \n                  \n                \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Slideshow presentation of the project Detecting changes in buildings in French overseas departments for Work Package 7,\nArtificial Intelligence and Machine Learning for Official Statistics, organized by Eurostat.\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Nov 13, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Slide deck for the NTTS 2025 conference.\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Mar 12, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Slides pour le séminaire de Méthodologie Statistique & Sciences des données de la DMCSI - La terre vue d’en haut : images satellites, images aériennes et statistique publique.\n\n            \n\n            \n            \n              \n                Raya Berova et Thomas Faria\n                Jul 3, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Utilisation des images satellites pour améliorer le repérage des logements à Mayotte.\n\n            \n\n            \n            \n              \n                Maëlys Bernard, Raya Berova et Thomas Faria\n                Nov 25, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        pdf\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : TODO\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Nov 19, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Utilisation des images satellites pour améliorer le repérage des logements à Mayotte.\n\n            \n\n            \n            \n              \n                Maëlys Bernard, Raya Berova et Thomas Faria\n                Nov 25, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n\n\nNo matching items"
   },
   {
-    "objectID": "src/todo/index.html#insee",
-    "href": "src/todo/index.html#insee",
-    "title": "TODO",
-    "section": "",
-    "text": "Pour enquête carto :\n\nêtre capable de déterminer les changements prioritaires à regarder et cohérent (pas des nuages) / Stockage des ilots controlés\nfaire le use case mayotte sur 5 ans d’intervalle\n\nApplication de mise à dispo de point gpx avec fond données satellites\n\n\n\n\n\nComparaison entre l’EAR/RIL et nos surfaces estimés / estimation de population basé sur les surfaces prédites\nPréparation d’un papier pour les JMS avec la DMTR. En lien avec les récents travaux sur Mayotte pour la DMTR et la préparation du futur recensement exhaustif de 2026. Ce sera un papier méthodologique sur le projet images satellites, illustré du cas d’usage de la DMTR (aide au recensement avec de la cartographie et/ou statistiques publiques, tout cela grâce aux prédictions sur images satellites).\n\nContact avec Julie Djiriguian pour présenter nos travaux afin de les aider à préparer l’enquête cartographique 2025 en vue du recensement exhaustif de Mayotte 2026."
+    "objectID": "src/seminaire-dmcsi/index.html#contexte",
+    "href": "src/seminaire-dmcsi/index.html#contexte",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Contexte",
+    "text": "Contexte\n\nMission principale de l’Insee → le recensement de la population :\n\nCommunes ≥ 10 000 hab : 8% /an\nCommunes &lt; 10 000 hab : 100% /5 ans\n\nInformation du nombre de logements ?\n\n\nComme vous le savez bien, l’Insee doit faire le recensement tous les ans. C’est l’une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement.\nTous les ans, 8% des logements des communes de +10k hab sont recensés et un cinquième des communes de -10k hab. Les communes de -10k hab sont recensés en entier. Pour tirer ces échantillons, il faut avoir l’information du nombre de logements dans les commune de + de 10k hab"
   },
   {
-    "objectID": "src/todo/index.html#diffusion-des-résultats",
-    "href": "src/todo/index.html#diffusion-des-résultats",
-    "title": "TODO",
+    "objectID": "src/seminaire-dmcsi/index.html#répertoire-des-immeubles-localisés",
+    "href": "src/seminaire-dmcsi/index.html#répertoire-des-immeubles-localisés",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Répertoire des Immeubles Localisés",
+    "text": "Répertoire des Immeubles Localisés\n\nLe RIL :\n\nInventaire du bâti\nCommunes de +10 000 habitants\nPermis de construire et informations locales\n\nBases de sondage des enquêtes de recensement\n\n\nLa qualité du RIL est bonne en France hexagonale ✅… mais loin d’être fiable dans les DROM ⚠️\n→ Autre méthode : découpage en îlots\n\nAfin de préparer le recensement, l’Insee se sert du répertoire des immeubles localisés pour connaître le nombre de logements disponibles dans les communes de 10 000 habitants et plus.\nPour chaque élément dans le RIL, il existe l’information du nombre de logements au sein du bâtiment, son caractère habitable, son adresse et sa géolocalisation.\nCe répertoire est utilisé à l’Insee pour constituer les bases de sondage des enquêtes de recensement.\nLa qualité du RIL est bonne en France hexagonale cependant elle est bien inférieure dans les territoires d’outre mer.\nPour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France hexagonale.\nDans les territoires d’outre mer, chacun des DROM est découpé en “îlots”. Chaque année, dans les communes de +10k hab, un cinquième des îlots sont tirés, et 40% des logements y seront recensés. Cependant, il est difficile de connaître réellement le nombre de logements à recenser."
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#recensement-dans-les-territoires-doutre-mer",
+    "href": "src/seminaire-dmcsi/index.html#recensement-dans-les-territoires-doutre-mer",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Recensement dans les territoires d’outre mer",
+    "text": "Recensement dans les territoires d’outre mer\n\nContexte critique : Mayotte et Guyane\nPour compléter le RIL dans les DROM : enquête cartographique → très lourde\nL’imagerie satellitaire pour optimiser le processus du recensement dans les DROM ? 🛰️\n\n\nEn effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Les informations sur le bâti issu des permis de construire et des informations des mairies ne sont pas assez fournies. De plus, le développement urbain y est extrêmement rapide avec les bidonvilles, rendant le suivi du bâti très compliqué avec les nombreuses constructions et destructions des habitations précaires et instables.\nPour compléter le RIL, une enquête cartographique est mise en place. C’est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, et qui a pour but d’envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse, coûteuse et peut s’avérer dangereuse. Les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter pour la quantité d’agents envoyés sur place, terrains compliqués à atteindre, aggressions…\nPeut-on utiliser l’imagerie satellite pour optimiser le processus du recensement dans les DROM ? 🛰️\nLes données satellitaires représentent: - une source d’information indépendante - permettent une veille territoriale continue - la méthodologie est transparente et reproductible"
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#nos-cas-dusage",
+    "href": "src/seminaire-dmcsi/index.html#nos-cas-dusage",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Nos cas d’usage",
+    "text": "Nos cas d’usage\n\nIdentifier les zones avec une forte densité de bâti 🏘️\n\nDétecter les évolutions du bâti de façon automatique\n\nAider l’estimation de la population dans les DROM 👥\n\nRépondre à une urgence 🚨 : cyclone “Chido” à Mayotte\n\n\n\nIdentifier les zones avec une forte densité de bâti, c’est à dire les zones prioritaires pour l’enquête cartographique et pour lesquelles il faut envoyer le plus d’agents.\nPouvoir détecter les évolutions du bâti de façon automatique, notamment depuis le précédent inventaire du bâti effectué\n\nAider l’estimation de la population dans les DROM\n\nRépondre à une urgence : les conséquences du cyclone “Chido” sur le bâti à Mayotte\n\n-&gt; On va maintenant se pencher sur la méthodologie utilisée pour répondre à ces besoins."
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#segmentation-sémantique",
+    "href": "src/seminaire-dmcsi/index.html#segmentation-sémantique",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Segmentation sémantique",
+    "text": "Segmentation sémantique\n\nVision par ordinateur\n\nClasser chaque pixel d’une image\n\nPour nos besoins : connaître les pixels de catégorie “bâtie”\n\n\n\n\n\nExemple de segmentation “bâtiment”\n\n\n\n\nPour détecter le bâti de façon automatique, nous nous sommes tourné vers la vision par ordinateur, qui est une branche du domaine de l’intelligence artificielle. La segmentation sémantique permet de classer chaque pixel d’une image dans l’une des classes définie en amont. La segmentation semantique peut utiliser toute sorte de classe, mais voici un exemple de résultat qui nous interesse : ex. J’AIMERAI PRECISER QU’avec uniquement de l’imagerie satellitaire, nous ne pourrons pas décider du caractère habitable ou non d’un bâtiment ni du nombre de logements à l’intérieur. Par conséquent, nous ne pouvons pas remplacer l’enquête cartographique, l’idée est d’aider les enquêteurs en mettant en valeur les zones avec le plus de bâtiments à visiter."
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#entraîner-un-modèle-de-segmentation",
+    "href": "src/seminaire-dmcsi/index.html#entraîner-un-modèle-de-segmentation",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Entraîner un modèle de segmentation",
+    "text": "Entraîner un modèle de segmentation\n\nIl faut :\n\nUne collection d’images satellites 🛰️\nDes annotations 📍\n\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images\n\n\nPour entrainer un modele il faut deux choses : des images et des annotations.\n\nUne annotation est “la vérité attendue”, comme par exemple l’image qui a été présentée à la slide précédente\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images"
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#de-la-segmentation-à-la-détection-de-changements",
+    "href": "src/seminaire-dmcsi/index.html#de-la-segmentation-à-la-détection-de-changements",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "De la segmentation à la détection de changements",
+    "text": "De la segmentation à la détection de changements"
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#modèle-utilisé",
+    "href": "src/seminaire-dmcsi/index.html#modèle-utilisé",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Modèle utilisé",
+    "text": "Modèle utilisé\n\nArchitecture du modèle 🧠\n\nSegFormer : un modèle léger et performant\nTransformers : mécanismes d’attention pour prendre en compte le contexte local et global\nDécodeur : Multi Layer Perceptron\n\nAdapté pour nos données satellites\n\n\nLe modèle que nous avons sélectionné s’appuie sur une architecture appelée SegFormer. Modele de segmentation d’image entrainé par NVIDIA et opensource Il a l’avantage d’etre très leger et donc rapide à entrainer Pour notre cas d’usage, c’est le modele qui a été le plus performant.\nIl est basé sur une technologie appelée Transformer, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. Ce n’est pas la plus répendue en vision par ordinateur.\nUn des atouts de cette architecture, ce sont les mécanismes d’attention, qui permettent au modèle de prendre en compte le contexte local et global de l’image. Pour le décodeur, c’est Multi Layer Perceptron classique.\nEnfin, nous avons ajusté le modèle à nos données spécifiques : des images satellites et des annotations."
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#évaluation",
+    "href": "src/seminaire-dmcsi/index.html#évaluation",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Évaluation",
+    "text": "Évaluation\nPour évaluer les performances du modèle entraîné :\n\n\nIOU = Intersection Over Union\n\n\n\nTransition pour la suite : pour faire un entraînement, il ne faut plus que des données…\nL’IoU, ou Intersection over Union, est une mesure qu’on utilise pour évaluer la qualité d’une prédiction en segmentation d’image.\nConcrètement, on compare deux zones :\n- celle que le modèle a prédite comme appartenant à une certaine classe,\n- et la zone réelle, qu’on appelle le label de vérité terrain.\nOn mesure alors l’intersection entre ces deux zones – c’est la partie correctement prédite –\net on la divise par l’union des deux – c’est-à-dire l’ensemble de tout ce qui a été soit prédit, soit annoté.\nUn IoU de 1 signifie une correspondance parfaite.\nUn IoU de 0 signifie aucune correspondance.\nPlus l’IoU est élevé, plus la prédiction est précise.\nC’est une métrique particulièrement adaptée pour des tâches comme la nôtre, où on doit prédire la forme exacte des bâtiments ou des routes, pixel par pixel."
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#pléiades-vs-sentinel-2",
+    "href": "src/seminaire-dmcsi/index.html#pléiades-vs-sentinel-2",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Pléiades vs Sentinel-2 🛰️",
+    "text": "Pléiades vs Sentinel-2 🛰️\n\n\n\nPléiades :\n\n3 bandes (RGB)\n\nRésolution 0.5m\n\nArchives gratuites\n\nAcquisition sur-demande payante\n\n\n\n\n\n Mamoudzou, Mayotte 2024\n\n\n\nSentinel2 :\n\n13 bandes\n\nRésolution 10m, 20m ou 60m (en fonction de la bande)\n\nAcquisition tous les 5j\n\nGratuit\n\n\n\n\n\nIl existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d’entre eux.\nLes images satellites Pléiades sont un produit intéressant pour notre cas d’usage - Caractéristiques: - 3 bandes spectrales (RGB) 🎨 - 4e bande : NIR (pas dans nos données) - Résolution spatial : 0.5m × 0.5m 🔍 - Archives gratuites (avec accord) - Acquisition sur-demande et payante (6-8 mois par département), Airbus © licence 📅\nPour le cyclone Chido qui a ravagé Mayotte, un plan d’urgence a été mis en place. Nous avons pu obtenir une mosaique d’images Pléiades de Mayotte post cyclone datant du premier trimestre de 2025 gratuitement.\nComme je vous disais au début, c’est grâce à l’IGN que nous avons pu mener à bien notre projet car ils nous fournissent des mosaiques d’images Pléiades. Une mosaique est une reconstitution complète d’un territoire avec des prises de vues de plusieurs dates, permettant ainsi d’avoir une couverture le moins ennuagée et la plus propre possible. Ce travail est très important pour avoir de bonnes images pour l’entraînement.\nMais un autre type d’images satellites est à notre disposition : Sentinel-2. Elles sont open source et l’acquisition se fait tous les 5 jours. Cependant, leur résolution est moins précise que les images pléiades."
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#annotations-cosia",
+    "href": "src/seminaire-dmcsi/index.html#annotations-cosia",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Annotations : COSIA",
+    "text": "Annotations : COSIA\n\nProjet Cosia par IGN 👏\nUtilisé pour annoter nos données d’entraînement\n\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Légende COSIA\n\n\n\nPour les annotations, il est possible de prendre des annotations binaires : bâtiment oui ou non, ou des annotations multiclasses comme le projet Cosia présenté précédement. - C’est une couverture du sol générée par l’IA - Basé sur les photographies aériennes de l’IGN à une résolution 20cm 🗺️ Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d’entraînement, malgré un possible décalage temporaire entre nos images et la productions de polygones. D’autres sources ont été testées comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele.\nles mosaiques d’images et les collections d’annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés pour entrainer notre modele, et des zones de test fixées ont été définies. Voyons voir les résultats produits par notre fameux entraînement."
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#zone-de-test-à-mayotte",
+    "href": "src/seminaire-dmcsi/index.html#zone-de-test-à-mayotte",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Zone de test à Mayotte",
+    "text": "Zone de test à Mayotte\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Prédictions 2023\n\n\n Légende COSIA\n\n\n\n\n\n\nTrain\nTest\n\n\n\n\nIOU moyenne ∀classe\n0.81\n0.78\n\n\nIOU “bâtiment”\n0.84\n0.76\n\n\n\n\nDans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considérée comme un excellent score, surtout dans des zones complexes comme les DOM où l’environnement est très hétérogène, et des écarts peuvent se créer un peu partout.\n\nÀ ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances\nQuestions clés : comment partager nos résultats ?\nL’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel"
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#dashboard-interactive",
+    "href": "src/seminaire-dmcsi/index.html#dashboard-interactive",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Dashboard Interactive 🚀",
+    "text": "Dashboard Interactive 🚀\n\n👉 Application interactive: Cliquez ici\n\n\n\nTransition : Notre entraînement a plutot bien marché, notre application web permet une bonne visualisation de nos prédictions… on peut dire que nous avons mené notre petite expérience à bien. Serait il temps de passer de l’experience à la “pseudo” production ?\n\nNous avons décidé de créer une petite webapp\nNous avons calculé les surfaces des bâtiments à partir de nos prédictions : cela nous donne une valeur binaire pour chaque pixel, agrégée par niveau administratif\n\n⚠️ Avertissement : ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.\n\nCarte standard Leaflet avec un fond OpenStreetMap affichant Pléiades 2023\n\n97610 0608 : méthodologie différente de floutage pour la prison\n97611 0332 : nuages en 2022\n97611 0330 : notre cas d’usage : détecter les changements de bâtiments en zone précaire\n\nSuivi des changements de bâtiments au niveau administratif :\n\nSélection par unités administratives (communes, quartiers)\n\nContrôle qualité des changements détectés\n\nFonctionnalités clés :\n\nComparaison temporelle côte à côte\n\nIndicateurs statistiques par zone\n\nValidation visuelle interactive"
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#pipeline-globale",
+    "href": "src/seminaire-dmcsi/index.html#pipeline-globale",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Pipeline globale 🛠️",
+    "text": "Pipeline globale 🛠️\n\n\n\n\n\n\nFigure 1\n\n\n\n\nVoici la pipeline globale. Les étapes 2 et 3 ne sont faites que lors de l’entrainement du modele. Ayant un entraînement qualitatif à notre disposition, pour prédire de nouvelles images, nous passons directement de l’étape 1 à l’étape 4. Un exemple très parlant et récent : le cyclone chido en une nuit -&gt; pred\n\nStandardisation de l’acquisition des données — actuellement rudimentaire. Besoin d’images sans nuages, datées précisément, avec une méthodologie cohérente (challenge avec Pléiades).\n\nPhase d’entraînement : suppression des nuages, équilibrage du jeu de données, annotation, découpage.\n\nPyTorch avec modèle pré-entraîné depuis HuggingFace (requiert GPU).\n\nConstruction de l’API : prédiction sur images, regroupement / boîtes englobantes, calculs statistiques (surface bâtie).\n\nDéploiement via GeoServer et application web.\n\nRésultats utilisés par les collègues de l’INSEE pour analyses statistiques."
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#application-architecture",
+    "href": "src/seminaire-dmcsi/index.html#application-architecture",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Application Architecture 🧩",
+    "text": "Application Architecture 🧩\n\n\nMerci à Onyxia d’avoir rendu ce projet possible en mode DevOps\nUn point notable est que nous utilisons un Geoserver pour permettre un affichage dynamique de nos images satellites sur la webapp, rendu possible grace aux calculs effectués en interne pour fluidifier l’affichage de zones spécifiques.\nCette architecture étant très technique, je ne vais pas m’attarder longtemps dessus, on pourra y revenir s’il y a des questions. Même si ça semble être la force de ce projet, c’est également une grande limite.\n\nAcquisition des données :\n\nImagerie Pléiades fournie par un prestataire national\n\nStockage sur infrastructure cloud\n\nPréparation des données :\n\nPrétraitement des images (filtrage des nuages, normalisation)\n\nAnnotation automatisée à partir des données de bâtiments de référence\n\nDécoupage des images (tuiles de 125 m × 125 m)\n\nDéveloppement du modèle :\n\nImplémentation deep learning (PyTorch)\n\nEntraînement avec GPU\n\nVersionnage du modèle (MLFlow)\n\nSystème de production :\n\nAPI REST pour l’inférence\n\nDéploiement containerisé\n\nCapacités de traitement parallèle\n\nDistribution des résultats :\n\nGeoServer permet de visualiser dynamiquement les images satellite grâce à des calculs qu’il effectue en amont, de sorte à ce que l’application web soit rapide\n\nApplication web pour la visualisation\n\nOutils d’analyse statistique"
+  },
+  {
+    "objectID": "src/seminaire-dmcsi/index.html#défis-perspectives",
+    "href": "src/seminaire-dmcsi/index.html#défis-perspectives",
+    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "section": "Défis & Perspectives",
+    "text": "Défis & Perspectives\n\nCoûts de maintenance élevés en raison de la complexité technique 💸\n\nBesoin de compétences spécialisées 🧑‍💻\n\nEnvironnement technique complexe dû à :\n\nVolumes de données importants 🗃️\n\nForts besoins en calcul (GPU) ⚡\n\n\nRésultats initiaux prometteurs pour accompagner les enquêtes cartographiques"
+  },
+  {
+    "objectID": "src/seminaire-dirag-video/index.html",
+    "href": "src/seminaire-dirag-video/index.html",
+    "title": "Vidéo du séminaire du 28 mai 2024 à la Dirag",
     "section": "",
-    "text": "faire un DT Insee et voir avec CP si ca la branche\nFaire la documentation du projet\nmise à disposition du modèle CoSIA via l’API et faire pub aux européens"
+    "text": "Vidéo du séminaire du 28 mai 2024 à la Dirag"
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#context",
+    "href": "src/ntts-2025/index.html#context",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Context",
+    "text": "Context\n\nInsee maintains a register of localized buildings (RIL)\n\nComprehensive housing data for cities with over 10k inhabitants 🏙️\nUsed to create sampling frames for census surveys 📋\n\nThe RIL quality is good in metropolitan France ✅…\n\n…but France also includes overseas territories (OTs)! 🌎\nThere, data quality is significantly lower ⚠️"
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#census-in-overseas-territories",
+    "href": "src/ntts-2025/index.html#census-in-overseas-territories",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Census in Overseas Territories",
+    "text": "Census in Overseas Territories\n\nA cartographic survey is conducted in OTs before each census\nCritical context, particularly in Mayotte and French Guiana:\n\nLocal authorities question official statistics\nRapid urban development\nDifficult field conditions\n\nRequires significant work and is highly costly 💰\nCan we use satellite imagery to optimize census processes in OTs? 🛰️\n\n\n\nSatellite data as supporting evidence:\n\nIndependent information source 🔍\nContinuous territorial monitoring 🔄\nTransparent and reproducible methodology 📑"
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#our-use-cases",
+    "href": "src/ntts-2025/index.html#our-use-cases",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Our use cases",
+    "text": "Our use cases\n\nPre-cartographic survey:\n\nIdentify priority areas for fieldwork 🎯\nDetect building changes since last survey 🏗️\nPerform temporal comparisons using historical and recent imagery 📆\n\nPost-cartographic survey:\n\nAutomated change detection 🤖\nAnalysis of land-use evolution 🌳➡️🏘️\nAssist population estimates in OTs 📊\n\nExtraordinary use case: Rapid response after devastating tropical cyclone “Chido”"
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#semantic-segmentation",
+    "href": "src/ntts-2025/index.html#semantic-segmentation",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Semantic segmentation",
+    "text": "Semantic segmentation\n\nPleiades © CNES_2022, Distribution AIRBUS DS"
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#training-a-segmentation-model",
+    "href": "src/ntts-2025/index.html#training-a-segmentation-model",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Training a segmentation model",
+    "text": "Training a segmentation model\n\nModel trained for automatic segmentation from annotated examples\nRequirements:\n\nSatellite image collection 🛰️\nProduction of annotations (building footprints or land cover, if available) 📍\n\nModel learns to reproduce annotations from images aiming to generalize on new images 🎯"
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#from-segmentation-to-change-detection",
+    "href": "src/ntts-2025/index.html#from-segmentation-to-change-detection",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "From segmentation to change detection",
+    "text": "From segmentation to change detection"
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#model-used",
+    "href": "src/ntts-2025/index.html#model-used",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Model used",
+    "text": "Model used\n\nModel architecture 🧩:\n\nBackbone: SegFormer (MiT)\nEncoder: Transformer-based (efficient self-attention, no positional encoding) ⚙️\nDecoder: Lightweight MLP head ✨\n\nWhy SegFormer? 🚀:\n\nNo complex decoders → Efficient & scalable ⚡\nCaptures local & global context → High accuracy 🎯\nNo positional embeddings → Improved resolution generalization 📐\n\nFine-tuned on our dataset 🗃️"
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#pléiades-very-high-resolution",
+    "href": "src/ntts-2025/index.html#pléiades-very-high-resolution",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Pléiades (Very High Resolution) 🛰️",
+    "text": "Pléiades (Very High Resolution) 🛰️\n\n\n4 characteristics to look at:\n\nSpatial resolution 📐\nAcquisition frequency 🔄\nSpectral resolution 🌈\nGeographic coverage 🌍\n\n\n\n\nCharacteristics:\n\n0.5m × 0.5m spatial resolution 🔍\n3 spectral bands (RGB) 🎨\nFree archives, on-demand acquisition (6-8 months per department), Airbus © licensing 📅\nImage size: 1 km² (2000 × 2000 pixels) 🖼️"
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#sentinel-2-high-resolution",
+    "href": "src/ntts-2025/index.html#sentinel-2-high-resolution",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Sentinel-2 (High Resolution) 🛰️",
+    "text": "Sentinel-2 (High Resolution) 🛰️\n\nCharacteristics:\n\n10m × 10m spatial resolution 🔍\n13 spectral bands 🎨\n5-day revisit time, free access 🔄🆓\nImage size: 6.25 km² (250 × 250 pixels) 🖼️"
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#reference-data-cosia",
+    "href": "src/ntts-2025/index.html#reference-data-cosia",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Reference Data (COSIA)",
+    "text": "Reference Data (COSIA)\n\nSignificant project by IGN colleagues 👏\nLand cover generated by AI as vector polygons for France and OTs 🗺️\nBased on IGN aerial photography at 20cm (!!) resolution\nUsed as label for training data despite potential temporal misalignment"
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#interactive-dashboard",
+    "href": "src/ntts-2025/index.html#interactive-dashboard",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Interactive Dashboard 📊",
+    "text": "Interactive Dashboard 📊\n\n🌟 A picture is worth a thousand words! 🌟\n👉 Access the interactive app: Click here 🚀\n\n\n\nDecided to build a tiny webapp … but we are datascientists be indulgent\nWe computed building areas from our predictions this we get binary value for each pixel and aggregated by admin level\n\n⚠️ Disclaimer : This is a an early stage of our application. 0 check or data quality process have been done.\n\nStandard leaflet map with open Street map layer show Pleiades 2023\n\n97611 0332 : nuages in 2022\n97610ﾠ0608 : different methodology of blurring for prison\n97611 0237 : Our use case : detect building changes in precarious areas\n\nAdministrative-level monitoring of building changes:\n\nSelection by administrative units (municipalities, districts)\nQuality control of detected changes\n\nKey features:\n\nSide-by-side temporal comparison\nStatistical indicators by area\nInteractive visual validation"
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#processing-pipeline",
+    "href": "src/ntts-2025/index.html#processing-pipeline",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Processing Pipeline 🛠️",
+    "text": "Processing Pipeline 🛠️\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\nStandardization of data acquisition—currently rudimentary. Need cloud-free, date-specific images with consistent methodology (challenge with Pléiades).\nTraining stage: cloud removal, dataset balancing, labeling, splitting.\nPyTorch with pre-trained model from HuggingFace (requires GPU).\nAPI building: prediction of images, clustering/bounding boxes, and statistics computation (building area).\nDeployment via GeoServer and web application.\nResults utilized by INSEE colleagues for statistical analyses."
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#application-architecture",
+    "href": "src/ntts-2025/index.html#application-architecture",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Application Architecture 🧩",
+    "text": "Application Architecture 🧩\n\n\nGeoServer dynamically serves satellite images."
+  },
+  {
+    "objectID": "src/ntts-2025/index.html#challenges-perspectives",
+    "href": "src/ntts-2025/index.html#challenges-perspectives",
+    "title": "Enhancing census surveys using satellite imagery",
+    "section": "Challenges & Perspectives",
+    "text": "Challenges & Perspectives\n\nHigh maintenance costs due to technical complexity 💸\nNeed for specialized skills 🧑‍💻\nComplex technical environment due to:\n\nLarge data volumes 🗃️\nHigh computational requirements ⚡\nReproducibility requirements ♻️\n\nPromising initial results supporting cartographic surveys ✅🗺️\nPotential improvements identified for each pipeline stage 🔧"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#project-overview",
+    "href": "src/aiml4os-wp7/index.html#project-overview",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Project Overview",
+    "text": "Project Overview\n\nSatellite imagery exploration for official statistics, initiated through academic challenge (2022)\nOperational implementation in French overseas territories\nPart of European strategy (Warsaw Memorandum)"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#applications-in-official-statistics",
+    "href": "src/aiml4os-wp7/index.html#applications-in-official-statistics",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Applications in Official Statistics",
+    "text": "Applications in Official Statistics\n\nCartographic survey optimization:\n\nIdentification of priority areas for field operations\nDetection of building changes between surveys\nTemporal comparison using historical and recent imagery\n\nBuilding stock monitoring:\n\nAutomated change detection\nLand use evolution\nSupport for population estimates in overseas territories"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#focus-on-mayotte-and-french-guiana",
+    "href": "src/aiml4os-wp7/index.html#focus-on-mayotte-and-french-guiana",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Focus on Mayotte and French Guiana",
+    "text": "Focus on Mayotte and French Guiana\n\nCritical context:\n\nLocal authorities questioning official statistics\nRapid urban development\nChallenging field conditions\n\nSatellite data as supporting evidence:\n\nIndependent source of information\nContinuous territorial monitoring\nTransparent methodology"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#semantic-segmentation",
+    "href": "src/aiml4os-wp7/index.html#semantic-segmentation",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Semantic Segmentation",
+    "text": "Semantic Segmentation\n\nPleiades © CNES_2022, Distribution AIRBUS DS"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#training-a-segmentation-model",
+    "href": "src/aiml4os-wp7/index.html#training-a-segmentation-model",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Training a Segmentation Model",
+    "text": "Training a Segmentation Model\n\nModel trained to perform automatic segmentation from annotated examples. Requirements:\n\nCollection of satellite images\nProduction of annotations (building footprints)\n\nModel learns to reproduce annotations from images, with the goal to generalize to new images"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#from-segmentation-to-change-detection",
+    "href": "src/aiml4os-wp7/index.html#from-segmentation-to-change-detection",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "From Segmentation to Change Detection",
+    "text": "From Segmentation to Change Detection"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#methodology-details",
+    "href": "src/aiml4os-wp7/index.html#methodology-details",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Methodology Details",
+    "text": "Methodology Details\n\nModel architecture:\n\nSegFormer backbone\nTransformer-based encoder\nLightweight decoder"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#satellite-imagery-key-features",
+    "href": "src/aiml4os-wp7/index.html#satellite-imagery-key-features",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Satellite Imagery: Key Features",
+    "text": "Satellite Imagery: Key Features\n\nMultiple spectral bands beyond RGB (e.g., infrared)\nGeoreferenced data: each pixel has specific coordinates\nMain characteristics:\n\nSpatial resolution\nAcquisition frequency\nSpectral resolution\nGeographic coverage"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#available-data-sources-pleiades",
+    "href": "src/aiml4os-wp7/index.html#available-data-sources-pleiades",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Available Data Sources (PLEIADES)",
+    "text": "Available Data Sources (PLEIADES)\nPléiades (Very High Resolution)\n\n0.5m × 0.5m spatial resolution\n3 bands (RGB)\nFree archives, on-demand acquisition (6-8 months for a department)\nImage size: 1km² (2000 × 2000 pixels)"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#available-data-sources-sentinel-2",
+    "href": "src/aiml4os-wp7/index.html#available-data-sources-sentinel-2",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Available Data Sources (Sentinel-2)",
+    "text": "Available Data Sources (Sentinel-2)\nSentinel-2 (High Resolution)\n\n10m × 10m spatial resolution\n13 spectral bands\n5-day revisit time, free access\nImage size: 6.25 km² (250 × 250)"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#reference-data-bdtopo",
+    "href": "src/aiml4os-wp7/index.html#reference-data-bdtopo",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Reference Data (BDTOPO)",
+    "text": "Reference Data (BDTOPO)\n\nBuilding footprints as vector polygons\nBased on IGN aerial photography\nUsed as training data despite temporal misalignment with Pléiades imagery"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#interactive-visualization-tool",
+    "href": "src/aiml4os-wp7/index.html#interactive-visualization-tool",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Interactive Visualization Tool",
+    "text": "Interactive Visualization Tool\nAccess the application: Click here\n\nAdministrative-level monitoring of building changes:\n\nSelection by administrative units (municipalities, districts)\nQuality control of detected changes\n\nKey features:\n\nSide-by-side temporal comparison\nStatistical indicators by area\nInteractive visual validation\n\n\n\n\nDecided to build a tiny webapp … but we are datascientists be indulgent\nWe computed building areas from our predictions this we get binary value for each pixel and aggregated by admin level\n\n⚠️ Disclaimer : This is a an early stage of our application. 0 check or data quality process have been done.\n\nStandard leaflet map with open Street map layer show Pleiades 2023\n\n97611 0332 : nuages in 2022\n97610ﾠ0608 : different methodology of blurring for prison\n97611 0237 : Our use case : detect building changes in precarious areas"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#technical-environment",
+    "href": "src/aiml4os-wp7/index.html#technical-environment",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Technical Environment",
+    "text": "Technical Environment\n\nCloud-native architecture (SSPCloud platform)\nModern tech stack: Kubernetes, Docker, MLFlow, React\nAutomated workflows for reproducibility\nContinuous deployment practices"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#processing-pipeline",
+    "href": "src/aiml4os-wp7/index.html#processing-pipeline",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Processing Pipeline",
+    "text": "Processing Pipeline\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\nNeed for standardisation of acquisition of data =&gt; for now rudimentary. Also need dated images but also in due time without clouds and same methodology =&gt; challenge of Pleaides\nStep for training. Clouds removals/ balancing datasets, labeling and splitting\npytorch with pre trained model from HF. Need GPU\nBuild API : predict images, cluster or bbox and compute building area statistics\nDéploying Geoserver and a web application\nColleagues of Insee uses or results to make their statistics"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#application-architecture",
+    "href": "src/aiml4os-wp7/index.html#application-architecture",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Application Architecture",
+    "text": "Application Architecture\n\n\nGeoserver : dynamically stores satellite images"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#technical-implementation",
+    "href": "src/aiml4os-wp7/index.html#technical-implementation",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Technical Implementation",
+    "text": "Technical Implementation\n\nComplex technical environment due to:\n\nNon-traditional data processing\nLarge data volumes\nHigh computational needs\nReproducibility requirements"
+  },
+  {
+    "objectID": "src/aiml4os-wp7/index.html#challenges-perspectives",
+    "href": "src/aiml4os-wp7/index.html#challenges-perspectives",
+    "title": "Exploratory Work with Satellite Data: Results Assessment",
+    "section": "Challenges & Perspectives",
+    "text": "Challenges & Perspectives\n\nHigh maintenance costs due to technical complexity\nNeed for specialized skills\nPromising results for cartographic survey support\nPotential improvements identified for each pipeline stage"
+  },
+  {
+    "objectID": "src/documentation/index.html",
+    "href": "src/documentation/index.html",
+    "title": "🧑‍🤝‍🧑Équipe CRaTT",
+    "section": "",
+    "text": "Raya Berova (DMRG) : raya.berova@insee.fr\nThomas Faria (SSPLab) : thomas.faria@insee.fr\nClément Guillo (DIRAG) : clement.guillo@insee.fr",
+    "crumbs": [
+      "Accueil",
+      "Navigation",
+      "Présentation du projet"
+    ]
+  },
+  {
+    "objectID": "src/documentation/index.html#les-différents-dépôts",
+    "href": "src/documentation/index.html#les-différents-dépôts",
+    "title": "🧑‍🤝‍🧑Équipe CRaTT",
+    "section": "📁 Les différents dépôts",
+    "text": "📁 Les différents dépôts\n\n1️⃣ Astrovision : Package utilitaire pour le traitement d’images satellites\nPour manipuler des données géospatiales, la bibliothèque incontournable est GDAL. Afin de faciliter son usage en Python, des wrappers comme Rasterio sont couramment utilisés. Rasterio offre une interface efficace pour travailler avec des données raster.\nDans notre projet, nous avons développé un package complémentaire, Astrovision, qui centralise un ensemble de fonctions utilitaires : découpage d’images, gestion des métadonnées, visualisation, etc. Ce package n’est pas strictement indispensable, cela a été aussi pour nous d’apprendre à déployer un package python. Le projet pourrait fonctionner en s’appuyant exclusivement sur Rasterio, avec quelques adaptations.\n\n\n2️⃣ Préparation des images satellites\nLe dépôt satellite-images-preprocess regroupe les fonctions nécessaires à la préparation des images avant l’entraînement des modèles. Ce dépôt n’est utilisé qu’en amont d’un entraînement, et n’est donc pas utile lorsque l’on souhaite simplement réaliser de l’inférence sur de nouvelles images.\nLe pipeline de preprocessing comprend les étapes suivantes :\n\nGénération automatique des labels à partir d’un jeu d’annotations.\nDécoupage des images sources en tuiles plus petites (pour éviter les problèmes de mémoire lors de l’entraînement).\nSuppression des images contenant des nuages.\nFiltrage des images selon une région d’intérêt définie.\nCalcul des moyennes et écarts types des bandes spectrales pour la normalisation.\nRéalisation du split train/test et sauvegarde des données sur un bucket S3.\n\n\n\n\n\n\n\nNote\n\n\n\nLe choix de séparer ce dépôt de celui de l’entraînement est discutable, mais repose sur plusieurs objectifs :\n\nIsoler les différentes étapes du pipeline.\nÉviter de ré-exécuter inutilement le preprocessing à chaque entraînement.\nFaciliter la modularité du projet. Ces objectifs ne sont pas forcément en contradiction avec le fait de tout centraliser dans un seul package.\n\n\n\n\n\n3️⃣ Entraînement des modèles\nL’entraînement est géré par le dépôt satellite-images-train. Il est nécessaire d’avoir à disposition des images déjà prétraitées et stockées sur le S3, ce qui peut être fait via le dépôt de preprocessing.\nL’objectif de ce dépôt est d’offrir un environnement modulaire permettant d’expérimenter différentes stratégies d’entraînement et d’optimiser les hyperparamètres propre à l’entraînement (et rien d’autres !). Tous les résultats sont loggués via MLFlow.\nDeux familles de modèles de segmentation sont actuellement intégrées :\n\nDeepLabv3 (et sa variante binaire).\nSegformer, de b0 à b5.\n\nCôté fonctions de perte, plusieurs variantes de l’entropie croisée sont disponibles (classique, pondérée, binaire, etc.).\n\n\n4️⃣ Inférence à partir de nouvelles images\nLe dépôt satellite-images-inference est dédié à l’inférence. C’est peut être le dépôt le moins “isolé” dans le sens où il contient à la fois les codes de l’API qui est utilisée pour réaliser l’inférence mais également divers scripts nécessaires que cela soit pour l’inférence, le post-processing ou bien la reception de nouvelles images à inférer.\nL’API, développée avec FastAPI, est déployée sur SSPCloud. Elle propose trois endpoints principaux :\n\nGET /predict_image — Prédiction d’une image individuelle stockée sur S3.\nGET /predict_cluster — Prédiction sur un îlot identifié par son code (peut inclure plusieurs images).\nGET /predict_bbox — Prédiction sur une bounding box définie par des coordonnées GPS (peut inclure plusieurs images).\n\nUn système de cache est en place pour éviter les redondances de calcul sur une même image.\n\n\n\n\n\n\nImportant⚠️ Limites actuelles de l’API :\n\n\n\n\nLes prédictions en batch ne sont pas possibles directement (elles doivent être séquentielles) puisque seuls des endpoints GET sont disponibles.\nCertaines opérations pourraient être asynchrones pour améliorer les performances.\nL’API reproduit le preprocessing, idéalement, il faudrait wrapper tout dans un modèle MLFlow et donc créer une custom class lors de l’entrainement.\n\n\n\n\n\n5️⃣ Application CRaTT\nLe code de l’application CRaTT permettant de visualiser les résultats sur des territoires entier est disponible dans le dépôt satellite-images-webapp. L’application est construite avec Observable Framework qui permet de déployer sur un site statique tout en gardant un certain niveau d’interactivité dans les visualisations que l’on peut montrer. La manipulation des données peut se faire dans le langage de notre choix (Python, R, SQL, etc.) et les visualisation se font en JavaScript.\nLe déploiement est réalisé via Github Pages et est accessible à l’adresse suivante : https://inseefrlab.github.io/satellite-images-webapp/.\n\n\n6️⃣ Déploiement des applications\nPour gérer les différents déploiements de l’ensemble du projet, nous avons créer un dépôt GitOps. Il s’agit du dépôt satellite-images-cd. Il contient les manifests Kubernetes des services déployés ainsi que les templates d’ArgoCD afin d’avoir un déploiement continu.\nEn avril 2025, 2 services sont déployés :\n\nl’API d’inférence\nle Geoserver pour la mise à disposition des tuiles d’images\n\n\n\n7️⃣ Documentation du projet\nLa documentation que vous lisez actuellement est réaliser avec Quarto et toute contribution est la bienvenue dans le dépôt satellite-images-docs.",
+    "crumbs": [
+      "Accueil",
+      "Navigation",
+      "Présentation du projet"
+    ]
+  },
+  {
+    "objectID": "src/documentation/index.html#le-projet-sur-le-datalab-sspcloud",
+    "href": "src/documentation/index.html#le-projet-sur-le-datalab-sspcloud",
+    "title": "🧑‍🤝‍🧑Équipe CRaTT",
+    "section": "Le projet sur le Datalab – SSPCloud",
+    "text": "Le projet sur le Datalab – SSPCloud\n\nLe namespace\nAfin de pouvoir contribuer au projet il est nécessaire d’avoir accès au namespace projet-slums-detection. Pour cela, vous pouvez contacter la Diit.\n\n\nLes données\nLe S3 associé au projet est structuré en plusieurs dossiers.\n\n📁 data-raw\nCe dossier contient les images satellites telles qu’on les reçoit sans modification. Seules les données de la Guyane et de Saint-Martin sont un peu différentes avec des sous dossiers brut car elles ont nécessité des ajustements préalables. En effet, pour tous les autres départements les données proviennent de l’IGN qui nous transmets les mosaïques d’images 2000x2000.\nLa structure du dossier est :\ndata-raw/&lt;SOURCE&gt;/&lt;DEPARTEMENT&gt;/&lt;ANNEE&gt;/*.tif\n\n\n📁 data-label\nCe dossier contient les données géographiques contenant les labels que nous utilisons lors de notre entraînement et que nous considérons donc comme vraie valeur. En fonction de la source de l’annotation le format des fichiers peut différer. Pour le moment, 2 sources de données sont utilisées il s’agit de la BDTOPO et de COSIA et les données sont stockées respectivement au format Shapefile et au format Geopackage.\nLa structure du dossier est :\ndata-label/\n├── BDTOPO/\n│   ├── bdtopo-id2label.json\n│   └── &lt;DEPARTEMENT&gt;/\n│       └── &lt;ANNEE&gt;/\n├── COSIA/\n│   ├── cosia-id2label.json\n│   └── &lt;DEPARTEMENT&gt;/\n│       └── &lt;ANNEE&gt;/\n\n\n📁 data-preprocessed\nLe dossier data-preprocessed/ contient l’ensemble des données préparées pour l’entraînement d’un modèle. Il est organisé en deux sous-dossiers principaux, le dossier labels/ qui contient les fichiers d’étiquettes (.npy) associés à chaque tuile d’image ainsi que le dossier patchs/ contient les images (.jp2) associées portant le même nom.\nLa structure du dossier est donc :\ndata-preprocessed/\n├── labels/                        # Étiquettes\n│   └── &lt;LABELER&gt;/                 # Annotateur (ex: COSIA, BDTOPO...)\n│       └── &lt;TASK&gt;/                # Tâche spécifique (ex: segmentation, classification...)\n│           └── &lt;SOURCE&gt;/          # Source de données (ex: PLEIADES, SENTINEL...)\n│               └── &lt;DEPARTEMENT&gt;/ # Département (ex: MAYOTTE, REUNION...)\n│                   └── &lt;ANNEE&gt;/   # Année de la donnée (ex: 2023)\n│                       └── &lt;TILE-SIZE&gt;/  # Taille des tuiles (ex: 125, 250...)\n│                           ├── train/    # Jeu d'entraînement\n│                           │   └── *.npy # Fichiers numpy\n│                           └── test/     # Jeu de test\n│                               └── *.npy # Fichiers numpy\n├── patchs/                        # Images\n│   └── &lt;LABELER&gt;/                 # Annotateur (ex: COSIA, BDTOPO...)\n│       └── &lt;TASK&gt;/                # Tâche spécifique (ex: segmentation, classification...)\n│           └── &lt;SOURCE&gt;/          # Source de données (ex: PLEIADES, SENTINEL...)\n│               └── &lt;DEPARTEMENT&gt;/ # Département (ex: MAYOTTE, REUNION...)\n│                   └── &lt;ANNEE&gt;/   # Année de la donnée (ex: 2023)\n│                       └── &lt;TILE-SIZE&gt;/  # Taille des tuiles (ex: 125, 250...)\n│                           ├── train/    # Jeu d'entraînement\n│                           │   └── *.jp2 # Fichiers images jp2\n│                           └── test/     # Jeu de test\n│                               └── *.jp2 # Fichiers images jp2\n\n\n\n📁 data-prediction\nLe dossier data-prediction/regroupe les résultats de prédictions générées par différents modèles. Les prédictions sont disponibles au format Parquet mais également au format GeoPackage pour pouvoir les utiliser dans le Geoserver.\nLa structure du dossier est :\ndata-prediction/\n└── &lt;SOURCE&gt;/                  # Source de données (ex: PLEIADES, SENTINEL...)\n    └── &lt;DEPARTEMENT&gt;/          # Département (ex: MAYOTTE, REUNION...)\n        └── &lt;ANNEE&gt;/            # Année de la donnée (ex: 2023)\n            └── &lt;MODEL-NAME&gt;/   # Nom du modèle utilisé pour la prédiction\n                └── &lt;MODEL-VERSION&gt;/ # Version du modèle (ex: 1, 2...)\n                    ├── *.parquet    # Fichiers de prédiction au format parquet\n                    └── *.gpkg       # Fichiers de prédiction au format GeoPackage\n\n\n📁 cache-predictions\nLe dossier cache-predictions/ contient les logits intermédiaires produits par les modèles lors du processus de prédiction afin de ne pas refaire une prédiction qui aurait déjà été réalisée. L’organisation du dossier reprend la même hiérarchie que data-prediction :\ncache-predictions/\n└── &lt;SOURCE&gt;/                  # Source de données (ex: PLEIADES, SENTINEL...)\n    └── &lt;DEPARTEMENT&gt;/          # Département (ex: MAYOTTE, REUNION...)\n        └── &lt;ANNEE&gt;/            # Année de la donnée (ex: 2023)\n            └── &lt;MODEL-NAME&gt;/   # Nom du modèle utilisé pour la prédiction\n                └── &lt;MODEL-VERSION&gt;/ # Version du modèle (ex: 1, 2...)\n                    └── *.npy       # Logits prédits\n\n\n📁 data-roi\nLe dossier data-roi contient les contours géographique de chaque département afin de pouvoir filtrer les images efficacement que ce soit lors de l’étape de preprocessing que lors de l’étape de l’inférence. Les contours sont à la fois stockés en parquet et en geojson (un seul des deux formats pourrait suffire).\nCes données ont été construites à la main à partir de données officielles. Les contours des territoires n’étant pas sensés changer, il n’y a pas à mettre à jour ces données.\nLa structure du dossier est :\ndata-roi/\n├── &lt;DEPARTEMENT&gt;.parquet\n└── &lt;DEPARTEMENT&gt;.geojson\n\n\n📁 cluster-geom-raw\nLe dossier cluster-geom-raw contient tout l’historique des géométries d’îlots non preprocessé.\nLa géométrie des îlots est arrêtée chaque année au 31 octobre ; c’est cette version qui s’applique pendant le recensement de la population (RP).\nPar exemple, pour l’enquête annuelle de recensement 2026, il faudra utiliser la géométrie des îlots arrêtée au 31 octobre 2025.\nDans tous les cas, il est indispensable de s’assurer que le SERN Géographie et le ST Mayotte disposent bien des mêmes référentiels d’îlots. Des ajustements exceptionnels pourraient être nécessaires compte tenu de l’urgence post-Chido.\nUne fois le fichier avec les dernières géométries traité, les nouveaux fichiers parquet sont disponibles dans data-clusters.\n\n\n📁 data-clusters\nLe dossier data-clusters contient les contours géographique de chaque îlot pour les différents départements. Ces informations sont nécessaires lors de l’inférence pour un îlot donné ainsi que pour le déploiement de la webapp qui permet de réaliser des statistiques par îlot. Le dossier est simplement un fichier parquet partitionné :\ndata-clusters/\n├── dep=&lt;DEPARTEMENT&gt;/\n      └── part-0.parquet\n\n\n\nLes services\nLe projet utilise plusieurs service au sein du datalab.\n\nMLFlow\n\nMLflow est utilisé lors de la phase d’entraînement pour tracker et optimiser nos modèles. Il permet de logguer les hyperparamètres, les métriques et les artefacts générés au cours des expérimentations. MLflow joue également le rôle de Model Registry, dans lequel à chaque modèle est associé un tag tel que staging, production ou archived. Cela facilite le versionnement et la bonne gestion du cycle de vie des modèles dans le temps\n\nArgoCD\n\nArgoCD est déployé pour superviser et gérer automatiquement les applications présentes dans notre namespace. Il permet de surveiller en permanence l’état de déploiement des applications et détecte automatiquement toute modification des manifests dans le dépôt GitOps dédié (https://github.com/inseeFrLab/satellite-images-cd). Lorsqu’une modification est détectée, ArgoCD applique automatiquement les changements sur le cluster, garantissant une parfaite synchronisation entre le code source et l’état effectif des déploiements.\n\nArgo Workflows\n\nArgo Workflows est utilisé pour orchestrer l’exécution parallèle de scripts, ce qui optimise considérablement les temps de calcul. Les workflows sont décrits dans des fichiers YAML stockés dans les répertoires argo-workflows/ présents dans les différents dépôts. Argo Workflows est sollicité à différents stades du projet, notamment pour exécuter les étapes de preprocessing des données, l’entraînement de modèles en parallèle, ainsi que l’inférence à grande échelle.\n\nGeoserver\n\nGeoServer permet la publication et la mise à disposition de données géographiques sous forme de flux normalisés (WMS, WFS, WCS). Contrairement aux autres services mentionnés, GeoServer n’est pas directement provisionné par le Datalab, ni déployé via Helm Chart.\nÀ ce jour, GeoServer ne peut pas accéder directement aux fichiers stockés sur un stockage objet type S3. En conséquence, toutes les images ou données que nous souhaitons exposer doivent être dupliquées dans un PVC associé au pod GeoServer…",
+    "crumbs": [
+      "Accueil",
+      "Navigation",
+      "Présentation du projet"
+    ]
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#contexte",
+    "href": "src/presentation_jms/index.html#contexte",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Contexte",
+    "text": "Contexte\n\nMission principale de l’Insee → le recensement de la population :\n\nCommunes ≥ 10 000 hab : 8% /an\nCommunes &lt; 10 000 hab : 100% /5 ans\n\nInformation du nombre de logements ?\n\n\nComme vous le savez bien, l’Insee doit faire le recensement tous les ans. C’est l’une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement.\nTous les ans, 8% des logements des communes de +10k hab sont recensés et un cinquième des communes de -10k hab. Les communes de -10k hab sont recensés en entier. Pour tirer ces échantillons, il faut avoir l’information du nombre de logements dans les commune de + de 10k hab"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#répertoire-des-immeubles-localisés",
+    "href": "src/presentation_jms/index.html#répertoire-des-immeubles-localisés",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Répertoire des Immeubles Localisés",
+    "text": "Répertoire des Immeubles Localisés\n\nLe RIL :\n\nInventaire du bâti\nCommunes de +10 000 habitants\nPermis de construire et informations locales\n\nBases de sondage des enquêtes de recensement\n\n\nLa qualité du RIL est bonne en France hexagonale ✅… mais loin d’être fiable dans les DROM ⚠️\n→ Autre méthode : découpage en îlots\n\nAfin de préparer le recensement, l’Insee se sert du répertoire des immeubles localisés pour connaître le nombre de logements disponibles dans les communes de 10 000 habitants et plus.\nPour chaque élément dans le RIL, il existe l’information du nombre de logements au sein du bâtiment, son caractère habitable, son adresse et sa géolocalisation.\nCe répertoire est utilisé à l’Insee pour constituer les bases de sondage des enquêtes de recensement.\nLa qualité du RIL est bonne en France hexagonale cependant elle est bien inférieure dans les territoires d’outre mer.\nPour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France hexagonale.\nDans les territoires d’outre mer, chacun des DROM est découpé en “îlots”. Chaque année, dans les communes de +10k hab, un cinquième des îlots sont tirés, et 40% des logements y seront recensés. Cependant, il est difficile de connaître réellement le nombre de logements à recenser."
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#recensement-dans-les-territoires-doutre-mer",
+    "href": "src/presentation_jms/index.html#recensement-dans-les-territoires-doutre-mer",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Recensement dans les territoires d’outre mer",
+    "text": "Recensement dans les territoires d’outre mer\n\nContexte critique : Mayotte et Guyane\nPour compléter le RIL dans les DROM : enquête cartographique → très lourde\nL’imagerie satellitaire pour optimiser le processus du recensement dans les DROM ? 🛰️\n\n\nEn effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Les informations sur le bâti issu des permis de construire et des informations des mairies ne sont pas assez fournies. De plus, le développement urbain y est extrêmement rapide avec les bidonvilles, rendant le suivi du bâti très compliqué avec les nombreuses constructions et destructions des habitations précaires et instables.\nPour compléter le RIL, une enquête cartographique est mise en place. C’est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, et qui a pour but d’envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse, coûteuse et peut s’avérer dangereuse. Les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter pour la quantité d’agents envoyés sur place, terrains compliqués à atteindre, aggressions…\nPeut-on utiliser l’imagerie satellite pour optimiser le processus du recensement dans les DROM ? 🛰️\nLes données satellitaires représentent: - une source d’information indépendante - permettent une veille territoriale continue - la méthodologie est transparente et reproductible"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#nos-cas-dusage",
+    "href": "src/presentation_jms/index.html#nos-cas-dusage",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Nos cas d’usage",
+    "text": "Nos cas d’usage\n\nIdentifier les zones avec une forte densité de bâti 🏘️\n\nDétecter les évolutions du bâti de façon automatique\n\nAider l’estimation de la population dans les DROM 👥\n\nRépondre à une urgence 🚨 : cyclone “Chido” à Mayotte\n\n\n\nIdentifier les zones avec une forte densité de bâti, c’est à dire les zones prioritaires pour l’enquête cartographique et pour lesquelles il faut envoyer le plus d’agents.\nPouvoir détecter les évolutions du bâti de façon automatique, notamment depuis le précédent inventaire du bâti effectué\n\nAider l’estimation de la population dans les DROM\n\nRépondre à une urgence : les conséquences du cyclone “Chido” sur le bâti à Mayotte\n\n-&gt; On va maintenant se pencher sur la méthodologie utilisée pour répondre à ces besoins."
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#segmentation-sémantique",
+    "href": "src/presentation_jms/index.html#segmentation-sémantique",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Segmentation sémantique",
+    "text": "Segmentation sémantique\n\nVision par ordinateur\n\nClasser chaque pixel d’une image\n\nPour nos besoins : connaître les pixels de catégorie “bâtie”\n\n\n\n\n\nExemple de segmentation “bâtiment”\n\n\n\n\nPour détecter le bâti de façon automatique, nous nous sommes tourné vers la vision par ordinateur, qui est une branche du domaine de l’intelligence artificielle. La segmentation sémantique permet de classer chaque pixel d’une image dans l’une des classes définie en amont. La segmentation semantique peut utiliser toute sorte de classe, mais voici un exemple de résultat qui nous interesse : ex. J’AIMERAI PRECISER QU’avec uniquement de l’imagerie satellitaire, nous ne pourrons pas décider du caractère habitable ou non d’un bâtiment ni du nombre de logements à l’intérieur. Par conséquent, nous ne pouvons pas remplacer l’enquête cartographique, l’idée est d’aider les enquêteurs en mettant en valeur les zones avec le plus de bâtiments à visiter."
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#entraîner-un-modèle-de-segmentation",
+    "href": "src/presentation_jms/index.html#entraîner-un-modèle-de-segmentation",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Entraîner un modèle de segmentation",
+    "text": "Entraîner un modèle de segmentation\n\nIl faut :\n\nUne collection d’images satellites 🛰️\nDes annotations 📍\n\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images\n\n\nPour entrainer un modele il faut deux choses : des images et des annotations.\n\nUne annotation est “la vérité attendue”, comme par exemple l’image qui a été présentée à la slide précédente\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#de-la-segmentation-à-la-détection-de-changements",
+    "href": "src/presentation_jms/index.html#de-la-segmentation-à-la-détection-de-changements",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "De la segmentation à la détection de changements",
+    "text": "De la segmentation à la détection de changements"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#modèle-utilisé",
+    "href": "src/presentation_jms/index.html#modèle-utilisé",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Modèle utilisé",
+    "text": "Modèle utilisé\n\nArchitecture du modèle 🧠\n\nSegFormer : un modèle léger et performant\nTransformers : mécanismes d’attention pour prendre en compte le contexte local et global\nDécodeur : Multi Layer Perceptron\n\nAdapté pour nos données satellites\n\n\nLe modèle que nous avons sélectionné s’appuie sur une architecture appelée SegFormer. Modele de segmentation d’image entrainé par NVIDIA et opensource Il a l’avantage d’etre très leger et donc rapide à entrainer Pour notre cas d’usage, c’est le modele qui a été le plus performant.\nIl est basé sur une technologie appelée Transformer, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. Ce n’est pas la plus répendue en vision par ordinateur.\nUn des atouts de cette architecture, ce sont les mécanismes d’attention, qui permettent au modèle de prendre en compte le contexte local et global de l’image. Pour le décodeur, c’est Multi Layer Perceptron classique.\nEnfin, nous avons ajusté le modèle à nos données spécifiques : des images satellites et des annotations."
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#évaluation",
+    "href": "src/presentation_jms/index.html#évaluation",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Évaluation",
+    "text": "Évaluation\nPour évaluer les performances du modèle entraîné :\n\n\nIOU = Intersection Over Union\n\n\n\nTransition pour la suite : pour faire un entraînement, il ne faut plus que des données…\nL’IoU, ou Intersection over Union, est une mesure qu’on utilise pour évaluer la qualité d’une prédiction en segmentation d’image.\nConcrètement, on compare deux zones :\n- celle que le modèle a prédite comme appartenant à une certaine classe,\n- et la zone réelle, qu’on appelle le label de vérité terrain.\nOn mesure alors l’intersection entre ces deux zones – c’est la partie correctement prédite –\net on la divise par l’union des deux – c’est-à-dire l’ensemble de tout ce qui a été soit prédit, soit annoté.\nUn IoU de 1 signifie une correspondance parfaite.\nUn IoU de 0 signifie aucune correspondance.\nPlus l’IoU est élevé, plus la prédiction est précise.\nC’est une métrique particulièrement adaptée pour des tâches comme la nôtre, où on doit prédire la forme exacte des bâtiments ou des routes, pixel par pixel."
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#pléiades-vs-sentinel-2",
+    "href": "src/presentation_jms/index.html#pléiades-vs-sentinel-2",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Pléiades vs Sentinel-2 🛰️",
+    "text": "Pléiades vs Sentinel-2 🛰️\n\n\n\nPléiades :\n\n3 bandes (RGB)\n\nRésolution 0.5m\n\nArchives gratuites\n\nAcquisition sur-demande payante\n\n\n\n\n\n Mamoudzou, Mayotte 2024\n\n\n\nSentinel2 :\n\n13 bandes\n\nRésolution 10m, 20m ou 60m (en fonction de la bande)\n\nAcquisition tous les 5j\n\nGratuit\n\n\n\n\n\nIl existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d’entre eux.\nLes images satellites Pléiades sont un produit intéressant pour notre cas d’usage - Caractéristiques: - 3 bandes spectrales (RGB) 🎨 - 4e bande : NIR (pas dans nos données) - Résolution spatial : 0.5m × 0.5m 🔍 - Archives gratuites (avec accord) - Acquisition sur-demande et payante (6-8 mois par département), Airbus © licence 📅\nPour le cyclone Chido qui a ravagé Mayotte, un plan d’urgence a été mis en place. Nous avons pu obtenir une mosaique d’images Pléiades de Mayotte post cyclone datant du premier trimestre de 2025 gratuitement.\nComme je vous disais au début, c’est grâce à l’IGN que nous avons pu mener à bien notre projet car ils nous fournissent des mosaiques d’images Pléiades. Une mosaique est une reconstitution complète d’un territoire avec des prises de vues de plusieurs dates, permettant ainsi d’avoir une couverture le moins ennuagée et la plus propre possible. Ce travail est très important pour avoir de bonnes images pour l’entraînement.\nMais un autre type d’images satellites est à notre disposition : Sentinel-2. Elles sont open source et l’acquisition se fait tous les 5 jours. Cependant, leur résolution est moins précise que les images pléiades."
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#annotations-cosia",
+    "href": "src/presentation_jms/index.html#annotations-cosia",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Annotations : COSIA",
+    "text": "Annotations : COSIA\n\nProjet Cosia par IGN 👏\nUtilisé pour annoter nos données d’entraînement\n\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Légende COSIA\n\n\n\nPour les annotations, il est possible de prendre des annotations binaires : bâtiment oui ou non, ou des annotations multiclasses comme le projet Cosia présenté précédement. - C’est une couverture du sol générée par l’IA - Basé sur les photographies aériennes de l’IGN à une résolution 20cm 🗺️ Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d’entraînement, malgré un possible décalage temporaire entre nos images et la productions de polygones. D’autres sources ont été testées comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele.\nles mosaiques d’images et les collections d’annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés pour entrainer notre modele, et des zones de test fixées ont été définies. Voyons voir les résultats produits par notre fameux entraînement."
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#zone-de-test-à-mayotte",
+    "href": "src/presentation_jms/index.html#zone-de-test-à-mayotte",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Zone de test à Mayotte",
+    "text": "Zone de test à Mayotte\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Prédictions 2023\n\n\n Légende COSIA\n\n\n\n\n\n\nTrain\nTest\n\n\n\n\nIOU moyenne ∀classe\n0.81\n0.78\n\n\nIOU “bâtiment”\n0.84\n0.76\n\n\n\n\nDans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considérée comme un excellent score, surtout dans des zones complexes comme les DOM où l’environnement est très hétérogène, et des écarts peuvent se créer un peu partout.\n\nÀ ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances\nQuestions clés : comment partager nos résultats ?\nL’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#dashboard-interactive",
+    "href": "src/presentation_jms/index.html#dashboard-interactive",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Dashboard Interactive 🚀",
+    "text": "Dashboard Interactive 🚀\n\n👉 Application interactive: Cliquez ici\n\n\n\nTransition : Notre entraînement a plutot bien marché, notre application web permet une bonne visualisation de nos prédictions… on peut dire que nous avons mené notre petite expérience à bien. Serait il temps de passer de l’experience à la “pseudo” production ?\n\nNous avons décidé de créer une petite webapp\nNous avons calculé les surfaces des bâtiments à partir de nos prédictions : cela nous donne une valeur binaire pour chaque pixel, agrégée par niveau administratif\n\n⚠️ Avertissement : ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.\n\nCarte standard Leaflet avec un fond OpenStreetMap affichant Pléiades 2023\n\n97610 0608 : méthodologie différente de floutage pour la prison\n97611 0332 : nuages en 2022\n97611 0330 : notre cas d’usage : détecter les changements de bâtiments en zone précaire\n\nSuivi des changements de bâtiments au niveau administratif :\n\nSélection par unités administratives (communes, quartiers)\n\nContrôle qualité des changements détectés\n\nFonctionnalités clés :\n\nComparaison temporelle côte à côte\n\nIndicateurs statistiques par zone\n\nValidation visuelle interactive"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#pipeline-globale",
+    "href": "src/presentation_jms/index.html#pipeline-globale",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Pipeline globale 🛠️",
+    "text": "Pipeline globale 🛠️\n\n\n\n\n\n\nFigure 1\n\n\n\n\nVoici la pipeline globale. Les étapes 2 et 3 ne sont faites que lors de l’entrainement du modele. Ayant un entraînement qualitatif à notre disposition, pour prédire de nouvelles images, nous passons directement de l’étape 1 à l’étape 4. Un exemple très parlant et récent : le cyclone chido en une nuit -&gt; pred\n\nStandardisation de l’acquisition des données — actuellement rudimentaire. Besoin d’images sans nuages, datées précisément, avec une méthodologie cohérente (challenge avec Pléiades).\n\nPhase d’entraînement : suppression des nuages, équilibrage du jeu de données, annotation, découpage.\n\nPyTorch avec modèle pré-entraîné depuis HuggingFace (requiert GPU).\n\nConstruction de l’API : prédiction sur images, regroupement / boîtes englobantes, calculs statistiques (surface bâtie).\n\nDéploiement via GeoServer et application web.\n\nRésultats utilisés par les collègues de l’INSEE pour analyses statistiques."
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#application-architecture",
+    "href": "src/presentation_jms/index.html#application-architecture",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Application Architecture 🧩",
+    "text": "Application Architecture 🧩\n\n\nMerci à Onyxia d’avoir rendu ce projet possible en mode DevOps\nUn point notable est que nous utilisons un Geoserver pour permettre un affichage dynamique de nos images satellites sur la webapp, rendu possible grace aux calculs effectués en interne pour fluidifier l’affichage de zones spécifiques.\nCette architecture étant très technique, je ne vais pas m’attarder longtemps dessus, on pourra y revenir s’il y a des questions. Même si ça semble être la force de ce projet, c’est également une grande limite.\n\nAcquisition des données :\n\nImagerie Pléiades fournie par un prestataire national\n\nStockage sur infrastructure cloud\n\nPréparation des données :\n\nPrétraitement des images (filtrage des nuages, normalisation)\n\nAnnotation automatisée à partir des données de bâtiments de référence\n\nDécoupage des images (tuiles de 125 m × 125 m)\n\nDéveloppement du modèle :\n\nImplémentation deep learning (PyTorch)\n\nEntraînement avec GPU\n\nVersionnage du modèle (MLFlow)\n\nSystème de production :\n\nAPI REST pour l’inférence\n\nDéploiement containerisé\n\nCapacités de traitement parallèle\n\nDistribution des résultats :\n\nGeoServer permet de visualiser dynamiquement les images satellite grâce à des calculs qu’il effectue en amont, de sorte à ce que l’application web soit rapide\n\nApplication web pour la visualisation\n\nOutils d’analyse statistique"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#cas-dusage-1",
+    "href": "src/presentation_jms/index.html#cas-dusage-1",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Cas d’usage",
+    "text": "Cas d’usage"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#défis-perspectives",
+    "href": "src/presentation_jms/index.html#défis-perspectives",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Défis & Perspectives",
+    "text": "Défis & Perspectives\n\nCoûts de maintenance élevés en raison de la complexité technique 💸\n\nBesoin de compétences spécialisées 🧑‍💻\n\nEnvironnement technique complexe dû à :\n\nVolumes de données importants 🗃️\n\nForts besoins en calcul (GPU) ⚡\n\n\nRésultats initiaux prometteurs pour accompagner les enquêtes cartographiques"
   },
   {
     "objectID": "src/seminaire-dirag/index.html#origine-du-projet",
@@ -497,390 +974,32 @@
     "text": "La suite\n\nFin de la phase d’expérimentation\nBeaucoup de cas d’usage identifiés et de clients finaux\nNécessité de monter un véritable projet pour chaque cas d’usage avec des moyens adaptés\nCe qui permettra de hiérarchiser les améliorations"
   },
   {
-    "objectID": "src/ntts-2025/index.html#context",
-    "href": "src/ntts-2025/index.html#context",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Context",
-    "text": "Context\n\nInsee maintains a register of localized buildings (RIL)\n\nComprehensive housing data for cities with over 10k inhabitants 🏙️\nUsed to create sampling frames for census surveys 📋\n\nThe RIL quality is good in metropolitan France ✅…\n\n…but France also includes overseas territories (OTs)! 🌎\nThere, data quality is significantly lower ⚠️"
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#census-in-overseas-territories",
-    "href": "src/ntts-2025/index.html#census-in-overseas-territories",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Census in Overseas Territories",
-    "text": "Census in Overseas Territories\n\nA cartographic survey is conducted in OTs before each census\nCritical context, particularly in Mayotte and French Guiana:\n\nLocal authorities question official statistics\nRapid urban development\nDifficult field conditions\n\nRequires significant work and is highly costly 💰\nCan we use satellite imagery to optimize census processes in OTs? 🛰️\n\n\n\nSatellite data as supporting evidence:\n\nIndependent information source 🔍\nContinuous territorial monitoring 🔄\nTransparent and reproducible methodology 📑"
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#our-use-cases",
-    "href": "src/ntts-2025/index.html#our-use-cases",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Our use cases",
-    "text": "Our use cases\n\nPre-cartographic survey:\n\nIdentify priority areas for fieldwork 🎯\nDetect building changes since last survey 🏗️\nPerform temporal comparisons using historical and recent imagery 📆\n\nPost-cartographic survey:\n\nAutomated change detection 🤖\nAnalysis of land-use evolution 🌳➡️🏘️\nAssist population estimates in OTs 📊\n\nExtraordinary use case: Rapid response after devastating tropical cyclone “Chido”"
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#semantic-segmentation",
-    "href": "src/ntts-2025/index.html#semantic-segmentation",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Semantic segmentation",
-    "text": "Semantic segmentation\n\nPleiades © CNES_2022, Distribution AIRBUS DS"
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#training-a-segmentation-model",
-    "href": "src/ntts-2025/index.html#training-a-segmentation-model",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Training a segmentation model",
-    "text": "Training a segmentation model\n\nModel trained for automatic segmentation from annotated examples\nRequirements:\n\nSatellite image collection 🛰️\nProduction of annotations (building footprints or land cover, if available) 📍\n\nModel learns to reproduce annotations from images aiming to generalize on new images 🎯"
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#from-segmentation-to-change-detection",
-    "href": "src/ntts-2025/index.html#from-segmentation-to-change-detection",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "From segmentation to change detection",
-    "text": "From segmentation to change detection"
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#model-used",
-    "href": "src/ntts-2025/index.html#model-used",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Model used",
-    "text": "Model used\n\nModel architecture 🧩:\n\nBackbone: SegFormer (MiT)\nEncoder: Transformer-based (efficient self-attention, no positional encoding) ⚙️\nDecoder: Lightweight MLP head ✨\n\nWhy SegFormer? 🚀:\n\nNo complex decoders → Efficient & scalable ⚡\nCaptures local & global context → High accuracy 🎯\nNo positional embeddings → Improved resolution generalization 📐\n\nFine-tuned on our dataset 🗃️"
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#pléiades-very-high-resolution",
-    "href": "src/ntts-2025/index.html#pléiades-very-high-resolution",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Pléiades (Very High Resolution) 🛰️",
-    "text": "Pléiades (Very High Resolution) 🛰️\n\n\n4 characteristics to look at:\n\nSpatial resolution 📐\nAcquisition frequency 🔄\nSpectral resolution 🌈\nGeographic coverage 🌍\n\n\n\n\nCharacteristics:\n\n0.5m × 0.5m spatial resolution 🔍\n3 spectral bands (RGB) 🎨\nFree archives, on-demand acquisition (6-8 months per department), Airbus © licensing 📅\nImage size: 1 km² (2000 × 2000 pixels) 🖼️"
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#sentinel-2-high-resolution",
-    "href": "src/ntts-2025/index.html#sentinel-2-high-resolution",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Sentinel-2 (High Resolution) 🛰️",
-    "text": "Sentinel-2 (High Resolution) 🛰️\n\nCharacteristics:\n\n10m × 10m spatial resolution 🔍\n13 spectral bands 🎨\n5-day revisit time, free access 🔄🆓\nImage size: 6.25 km² (250 × 250 pixels) 🖼️"
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#reference-data-cosia",
-    "href": "src/ntts-2025/index.html#reference-data-cosia",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Reference Data (COSIA)",
-    "text": "Reference Data (COSIA)\n\nSignificant project by IGN colleagues 👏\nLand cover generated by AI as vector polygons for France and OTs 🗺️\nBased on IGN aerial photography at 20cm (!!) resolution\nUsed as label for training data despite potential temporal misalignment"
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#interactive-dashboard",
-    "href": "src/ntts-2025/index.html#interactive-dashboard",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Interactive Dashboard 📊",
-    "text": "Interactive Dashboard 📊\n\n🌟 A picture is worth a thousand words! 🌟\n👉 Access the interactive app: Click here 🚀\n\n\n\nDecided to build a tiny webapp … but we are datascientists be indulgent\nWe computed building areas from our predictions this we get binary value for each pixel and aggregated by admin level\n\n⚠️ Disclaimer : This is a an early stage of our application. 0 check or data quality process have been done.\n\nStandard leaflet map with open Street map layer show Pleiades 2023\n\n97611 0332 : nuages in 2022\n97610ﾠ0608 : different methodology of blurring for prison\n97611 0237 : Our use case : detect building changes in precarious areas\n\nAdministrative-level monitoring of building changes:\n\nSelection by administrative units (municipalities, districts)\nQuality control of detected changes\n\nKey features:\n\nSide-by-side temporal comparison\nStatistical indicators by area\nInteractive visual validation"
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#processing-pipeline",
-    "href": "src/ntts-2025/index.html#processing-pipeline",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Processing Pipeline 🛠️",
-    "text": "Processing Pipeline 🛠️\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\nStandardization of data acquisition—currently rudimentary. Need cloud-free, date-specific images with consistent methodology (challenge with Pléiades).\nTraining stage: cloud removal, dataset balancing, labeling, splitting.\nPyTorch with pre-trained model from HuggingFace (requires GPU).\nAPI building: prediction of images, clustering/bounding boxes, and statistics computation (building area).\nDeployment via GeoServer and web application.\nResults utilized by INSEE colleagues for statistical analyses."
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#application-architecture",
-    "href": "src/ntts-2025/index.html#application-architecture",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Application Architecture 🧩",
-    "text": "Application Architecture 🧩\n\n\nGeoServer dynamically serves satellite images."
-  },
-  {
-    "objectID": "src/ntts-2025/index.html#challenges-perspectives",
-    "href": "src/ntts-2025/index.html#challenges-perspectives",
-    "title": "Enhancing census surveys using satellite imagery",
-    "section": "Challenges & Perspectives",
-    "text": "Challenges & Perspectives\n\nHigh maintenance costs due to technical complexity 💸\nNeed for specialized skills 🧑‍💻\nComplex technical environment due to:\n\nLarge data volumes 🗃️\nHigh computational requirements ⚡\nReproducibility requirements ♻️\n\nPromising initial results supporting cartographic surveys ✅🗺️\nPotential improvements identified for each pipeline stage 🔧"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#project-overview",
-    "href": "src/aiml4os-wp7/index.html#project-overview",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Project Overview",
-    "text": "Project Overview\n\nSatellite imagery exploration for official statistics, initiated through academic challenge (2022)\nOperational implementation in French overseas territories\nPart of European strategy (Warsaw Memorandum)"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#applications-in-official-statistics",
-    "href": "src/aiml4os-wp7/index.html#applications-in-official-statistics",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Applications in Official Statistics",
-    "text": "Applications in Official Statistics\n\nCartographic survey optimization:\n\nIdentification of priority areas for field operations\nDetection of building changes between surveys\nTemporal comparison using historical and recent imagery\n\nBuilding stock monitoring:\n\nAutomated change detection\nLand use evolution\nSupport for population estimates in overseas territories"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#focus-on-mayotte-and-french-guiana",
-    "href": "src/aiml4os-wp7/index.html#focus-on-mayotte-and-french-guiana",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Focus on Mayotte and French Guiana",
-    "text": "Focus on Mayotte and French Guiana\n\nCritical context:\n\nLocal authorities questioning official statistics\nRapid urban development\nChallenging field conditions\n\nSatellite data as supporting evidence:\n\nIndependent source of information\nContinuous territorial monitoring\nTransparent methodology"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#semantic-segmentation",
-    "href": "src/aiml4os-wp7/index.html#semantic-segmentation",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Semantic Segmentation",
-    "text": "Semantic Segmentation\n\nPleiades © CNES_2022, Distribution AIRBUS DS"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#training-a-segmentation-model",
-    "href": "src/aiml4os-wp7/index.html#training-a-segmentation-model",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Training a Segmentation Model",
-    "text": "Training a Segmentation Model\n\nModel trained to perform automatic segmentation from annotated examples. Requirements:\n\nCollection of satellite images\nProduction of annotations (building footprints)\n\nModel learns to reproduce annotations from images, with the goal to generalize to new images"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#from-segmentation-to-change-detection",
-    "href": "src/aiml4os-wp7/index.html#from-segmentation-to-change-detection",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "From Segmentation to Change Detection",
-    "text": "From Segmentation to Change Detection"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#methodology-details",
-    "href": "src/aiml4os-wp7/index.html#methodology-details",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Methodology Details",
-    "text": "Methodology Details\n\nModel architecture:\n\nSegFormer backbone\nTransformer-based encoder\nLightweight decoder"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#satellite-imagery-key-features",
-    "href": "src/aiml4os-wp7/index.html#satellite-imagery-key-features",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Satellite Imagery: Key Features",
-    "text": "Satellite Imagery: Key Features\n\nMultiple spectral bands beyond RGB (e.g., infrared)\nGeoreferenced data: each pixel has specific coordinates\nMain characteristics:\n\nSpatial resolution\nAcquisition frequency\nSpectral resolution\nGeographic coverage"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#available-data-sources-pleiades",
-    "href": "src/aiml4os-wp7/index.html#available-data-sources-pleiades",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Available Data Sources (PLEIADES)",
-    "text": "Available Data Sources (PLEIADES)\nPléiades (Very High Resolution)\n\n0.5m × 0.5m spatial resolution\n3 bands (RGB)\nFree archives, on-demand acquisition (6-8 months for a department)\nImage size: 1km² (2000 × 2000 pixels)"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#available-data-sources-sentinel-2",
-    "href": "src/aiml4os-wp7/index.html#available-data-sources-sentinel-2",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Available Data Sources (Sentinel-2)",
-    "text": "Available Data Sources (Sentinel-2)\nSentinel-2 (High Resolution)\n\n10m × 10m spatial resolution\n13 spectral bands\n5-day revisit time, free access\nImage size: 6.25 km² (250 × 250)"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#reference-data-bdtopo",
-    "href": "src/aiml4os-wp7/index.html#reference-data-bdtopo",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Reference Data (BDTOPO)",
-    "text": "Reference Data (BDTOPO)\n\nBuilding footprints as vector polygons\nBased on IGN aerial photography\nUsed as training data despite temporal misalignment with Pléiades imagery"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#interactive-visualization-tool",
-    "href": "src/aiml4os-wp7/index.html#interactive-visualization-tool",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Interactive Visualization Tool",
-    "text": "Interactive Visualization Tool\nAccess the application: Click here\n\nAdministrative-level monitoring of building changes:\n\nSelection by administrative units (municipalities, districts)\nQuality control of detected changes\n\nKey features:\n\nSide-by-side temporal comparison\nStatistical indicators by area\nInteractive visual validation\n\n\n\n\nDecided to build a tiny webapp … but we are datascientists be indulgent\nWe computed building areas from our predictions this we get binary value for each pixel and aggregated by admin level\n\n⚠️ Disclaimer : This is a an early stage of our application. 0 check or data quality process have been done.\n\nStandard leaflet map with open Street map layer show Pleiades 2023\n\n97611 0332 : nuages in 2022\n97610ﾠ0608 : different methodology of blurring for prison\n97611 0237 : Our use case : detect building changes in precarious areas"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#technical-environment",
-    "href": "src/aiml4os-wp7/index.html#technical-environment",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Technical Environment",
-    "text": "Technical Environment\n\nCloud-native architecture (SSPCloud platform)\nModern tech stack: Kubernetes, Docker, MLFlow, React\nAutomated workflows for reproducibility\nContinuous deployment practices"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#processing-pipeline",
-    "href": "src/aiml4os-wp7/index.html#processing-pipeline",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Processing Pipeline",
-    "text": "Processing Pipeline\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\nNeed for standardisation of acquisition of data =&gt; for now rudimentary. Also need dated images but also in due time without clouds and same methodology =&gt; challenge of Pleaides\nStep for training. Clouds removals/ balancing datasets, labeling and splitting\npytorch with pre trained model from HF. Need GPU\nBuild API : predict images, cluster or bbox and compute building area statistics\nDéploying Geoserver and a web application\nColleagues of Insee uses or results to make their statistics"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#application-architecture",
-    "href": "src/aiml4os-wp7/index.html#application-architecture",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Application Architecture",
-    "text": "Application Architecture\n\n\nGeoserver : dynamically stores satellite images"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#technical-implementation",
-    "href": "src/aiml4os-wp7/index.html#technical-implementation",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Technical Implementation",
-    "text": "Technical Implementation\n\nComplex technical environment due to:\n\nNon-traditional data processing\nLarge data volumes\nHigh computational needs\nReproducibility requirements"
-  },
-  {
-    "objectID": "src/aiml4os-wp7/index.html#challenges-perspectives",
-    "href": "src/aiml4os-wp7/index.html#challenges-perspectives",
-    "title": "Exploratory Work with Satellite Data: Results Assessment",
-    "section": "Challenges & Perspectives",
-    "text": "Challenges & Perspectives\n\nHigh maintenance costs due to technical complexity\nNeed for specialized skills\nPromising results for cartographic survey support\nPotential improvements identified for each pipeline stage"
-  },
-  {
-    "objectID": "src/documentation/index.html",
-    "href": "src/documentation/index.html",
-    "title": "🧑‍🤝‍🧑Équipe CRaTT",
+    "objectID": "src/todo/index.html",
+    "href": "src/todo/index.html",
+    "title": "TODO",
     "section": "",
-    "text": "Raya Berova (DMRG) : raya.berova@insee.fr\nThomas Faria (SSPLab) : thomas.faria@insee.fr\nClément Guillo (DIRAG) : clement.guillo@insee.fr",
-    "crumbs": [
-      "Accueil",
-      "Navigation",
-      "Présentation du projet"
-    ]
+    "text": "Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL\nIndustrialiser sur la nouvelle webapp tous les départements (priorité Guyane/St Martin) ✅\n\nUtiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle ✅\n\nCache les predictions en terme de probabilité plutot que masque binaire ✅\n\nMettre les prédictions multiclasses sur la webapp ✅\n\nRetravailler les fonctionnalités des cartes de la webapp\nRetélécharger Guyane via SEAS, utiliser les masques nuages pour faire le découpage (prioriser en fonction de la date)\nInférence sur nouveau découpage Guyane\n\nUtiliser une bdd externe pour flaguer les zones de bâti non résidentielles\n\nDepuis la webapp, pouvoir télécharger le tableau des statistiques\n\nSélectionner un ilot produit un graphique d’évolution du bâti sur les millésimes disponibles\n\nMettre les couches RIL sur la webapp\n\nRécupérer les annotations de destructions post cyclone Chido produites par Copernicus pour les afficher sur la webapp + les utiliser comme données de validation\n\nProduire les polygones destructions/constructions de bâti en comparant les logits plutôt que les prédictions de classe + recalculer les statistiques d’évolution en conséquence –&gt; heat map\n\nAfficher la carte plein écran sur CRaTT\n\nFaire un travail sur les prédictions pour merge les pred car on voit les délimitations des patchs envoyés à l’API pour l’inférence (cf travail fait pendant le stage l’année dernière)\n\nOutil pour valider les annotations et faire un jeu de test gold-standard ?\n\nPublier le modèle sur Hugging Face\n\nTrain un premier segformer avec les données d’entrainement de Flair (france hexagonale, autre résolution) -&gt; puis finetuner ce modele avec nos données d’entrainement\n\nFinetuner le modele Flair sur nos données et comparer les métriques avec le modele segformer https://huggingface.co/collections/IGNF/flair-hub-land-cover-mapping-models-lc-683ec04c4e19788e64aa032f et https://arxiv.org/html/2506.07080v1\n\nInférence lissée\n\nInférence avec prob et pas pred\n\n\n\n\n\n\n\nPour enquête carto :\n\nêtre capable de déterminer les changements prioritaires à regarder et cohérent (pas des nuages) / Stockage des ilots controlés\nfaire le use case mayotte sur 5 ans d’intervalle\n\nApplication de mise à dispo de point gpx avec fond données satellites\n\n\n\n\n\nComparaison entre l’EAR/RIL et nos surfaces estimés / estimation de population basé sur les surfaces prédites\nPréparation d’un papier pour les JMS avec la DMTR. En lien avec les récents travaux sur Mayotte pour la DMTR et la préparation du futur recensement exhaustif de 2026. Ce sera un papier méthodologique sur le projet images satellites, illustré du cas d’usage de la DMTR (aide au recensement avec de la cartographie et/ou statistiques publiques, tout cela grâce aux prédictions sur images satellites).\n\nContact avec Julie Djiriguian pour présenter nos travaux afin de les aider à préparer l’enquête cartographique 2025 en vue du recensement exhaustif de Mayotte 2026.\n\n\n\n\n\n\nfaire un DT Insee et voir avec CP si ca la branche\nFaire la documentation du projet\nmise à disposition du modèle CoSIA via l’API et faire pub aux européens"
   },
   {
-    "objectID": "src/documentation/index.html#les-différents-dépôts",
-    "href": "src/documentation/index.html#les-différents-dépôts",
-    "title": "🧑‍🤝‍🧑Équipe CRaTT",
-    "section": "📁 Les différents dépôts",
-    "text": "📁 Les différents dépôts\n\n1️⃣ Astrovision : Package utilitaire pour le traitement d’images satellites\nPour manipuler des données géospatiales, la bibliothèque incontournable est GDAL. Afin de faciliter son usage en Python, des wrappers comme Rasterio sont couramment utilisés. Rasterio offre une interface efficace pour travailler avec des données raster.\nDans notre projet, nous avons développé un package complémentaire, Astrovision, qui centralise un ensemble de fonctions utilitaires : découpage d’images, gestion des métadonnées, visualisation, etc. Ce package n’est pas strictement indispensable, cela a été aussi pour nous d’apprendre à déployer un package python. Le projet pourrait fonctionner en s’appuyant exclusivement sur Rasterio, avec quelques adaptations.\n\n\n2️⃣ Préparation des images satellites\nLe dépôt satellite-images-preprocess regroupe les fonctions nécessaires à la préparation des images avant l’entraînement des modèles. Ce dépôt n’est utilisé qu’en amont d’un entraînement, et n’est donc pas utile lorsque l’on souhaite simplement réaliser de l’inférence sur de nouvelles images.\nLe pipeline de preprocessing comprend les étapes suivantes :\n\nGénération automatique des labels à partir d’un jeu d’annotations.\nDécoupage des images sources en tuiles plus petites (pour éviter les problèmes de mémoire lors de l’entraînement).\nSuppression des images contenant des nuages.\nFiltrage des images selon une région d’intérêt définie.\nCalcul des moyennes et écarts types des bandes spectrales pour la normalisation.\nRéalisation du split train/test et sauvegarde des données sur un bucket S3.\n\n\n\n\n\n\n\nNote\n\n\n\nLe choix de séparer ce dépôt de celui de l’entraînement est discutable, mais repose sur plusieurs objectifs :\n\nIsoler les différentes étapes du pipeline.\nÉviter de ré-exécuter inutilement le preprocessing à chaque entraînement.\nFaciliter la modularité du projet. Ces objectifs ne sont pas forcément en contradiction avec le fait de tout centraliser dans un seul package.\n\n\n\n\n\n3️⃣ Entraînement des modèles\nL’entraînement est géré par le dépôt satellite-images-train. Il est nécessaire d’avoir à disposition des images déjà prétraitées et stockées sur le S3, ce qui peut être fait via le dépôt de preprocessing.\nL’objectif de ce dépôt est d’offrir un environnement modulaire permettant d’expérimenter différentes stratégies d’entraînement et d’optimiser les hyperparamètres propre à l’entraînement (et rien d’autres !). Tous les résultats sont loggués via MLFlow.\nDeux familles de modèles de segmentation sont actuellement intégrées :\n\nDeepLabv3 (et sa variante binaire).\nSegformer, de b0 à b5.\n\nCôté fonctions de perte, plusieurs variantes de l’entropie croisée sont disponibles (classique, pondérée, binaire, etc.).\n\n\n4️⃣ Inférence à partir de nouvelles images\nLe dépôt satellite-images-inference est dédié à l’inférence. C’est peut être le dépôt le moins “isolé” dans le sens où il contient à la fois les codes de l’API qui est utilisée pour réaliser l’inférence mais également divers scripts nécessaires que cela soit pour l’inférence, le post-processing ou bien la reception de nouvelles images à inférer.\nL’API, développée avec FastAPI, est déployée sur SSPCloud. Elle propose trois endpoints principaux :\n\nGET /predict_image — Prédiction d’une image individuelle stockée sur S3.\nGET /predict_cluster — Prédiction sur un îlot identifié par son code (peut inclure plusieurs images).\nGET /predict_bbox — Prédiction sur une bounding box définie par des coordonnées GPS (peut inclure plusieurs images).\n\nUn système de cache est en place pour éviter les redondances de calcul sur une même image.\n\n\n\n\n\n\nImportant⚠️ Limites actuelles de l’API :\n\n\n\n\nLes prédictions en batch ne sont pas possibles directement (elles doivent être séquentielles) puisque seuls des endpoints GET sont disponibles.\nCertaines opérations pourraient être asynchrones pour améliorer les performances.\nL’API reproduit le preprocessing, idéalement, il faudrait wrapper tout dans un modèle MLFlow et donc créer une custom class lors de l’entrainement.\n\n\n\n\n\n5️⃣ Application CRaTT\nLe code de l’application CRaTT permettant de visualiser les résultats sur des territoires entier est disponible dans le dépôt satellite-images-webapp. L’application est construite avec Observable Framework qui permet de déployer sur un site statique tout en gardant un certain niveau d’interactivité dans les visualisations que l’on peut montrer. La manipulation des données peut se faire dans le langage de notre choix (Python, R, SQL, etc.) et les visualisation se font en JavaScript.\nLe déploiement est réalisé via Github Pages et est accessible à l’adresse suivante : https://inseefrlab.github.io/satellite-images-webapp/.\n\n\n6️⃣ Déploiement des applications\nPour gérer les différents déploiements de l’ensemble du projet, nous avons créer un dépôt GitOps. Il s’agit du dépôt satellite-images-cd. Il contient les manifests Kubernetes des services déployés ainsi que les templates d’ArgoCD afin d’avoir un déploiement continu.\nEn avril 2025, 2 services sont déployés :\n\nl’API d’inférence\nle Geoserver pour la mise à disposition des tuiles d’images\n\n\n\n7️⃣ Documentation du projet\nLa documentation que vous lisez actuellement est réaliser avec Quarto et toute contribution est la bienvenue dans le dépôt satellite-images-docs.",
-    "crumbs": [
-      "Accueil",
-      "Navigation",
-      "Présentation du projet"
-    ]
-  },
-  {
-    "objectID": "src/documentation/index.html#le-projet-sur-le-datalab-sspcloud",
-    "href": "src/documentation/index.html#le-projet-sur-le-datalab-sspcloud",
-    "title": "🧑‍🤝‍🧑Équipe CRaTT",
-    "section": "Le projet sur le Datalab – SSPCloud",
-    "text": "Le projet sur le Datalab – SSPCloud\n\nLe namespace\nAfin de pouvoir contribuer au projet il est nécessaire d’avoir accès au namespace projet-slums-detection. Pour cela, vous pouvez contacter la Diit.\n\n\nLes données\nLe S3 associé au projet est structuré en plusieurs dossiers.\n\n📁 data-raw\nCe dossier contient les images satellites telles qu’on les reçoit sans modification. Seules les données de la Guyane et de Saint-Martin sont un peu différentes avec des sous dossiers brut car elles ont nécessité des ajustements préalables. En effet, pour tous les autres départements les données proviennent de l’IGN qui nous transmets les mosaïques d’images 2000x2000.\nLa structure du dossier est :\ndata-raw/&lt;SOURCE&gt;/&lt;DEPARTEMENT&gt;/&lt;ANNEE&gt;/*.tif\n\n\n📁 data-label\nCe dossier contient les données géographiques contenant les labels que nous utilisons lors de notre entraînement et que nous considérons donc comme vraie valeur. En fonction de la source de l’annotation le format des fichiers peut différer. Pour le moment, 2 sources de données sont utilisées il s’agit de la BDTOPO et de COSIA et les données sont stockées respectivement au format Shapefile et au format Geopackage.\nLa structure du dossier est :\ndata-label/\n├── BDTOPO/\n│   ├── bdtopo-id2label.json\n│   └── &lt;DEPARTEMENT&gt;/\n│       └── &lt;ANNEE&gt;/\n├── COSIA/\n│   ├── cosia-id2label.json\n│   └── &lt;DEPARTEMENT&gt;/\n│       └── &lt;ANNEE&gt;/\n\n\n📁 data-preprocessed\nLe dossier data-preprocessed/ contient l’ensemble des données préparées pour l’entraînement d’un modèle. Il est organisé en deux sous-dossiers principaux, le dossier labels/ qui contient les fichiers d’étiquettes (.npy) associés à chaque tuile d’image ainsi que le dossier patchs/ contient les images (.jp2) associées portant le même nom.\nLa structure du dossier est donc :\ndata-preprocessed/\n├── labels/                        # Étiquettes\n│   └── &lt;LABELER&gt;/                 # Annotateur (ex: COSIA, BDTOPO...)\n│       └── &lt;TASK&gt;/                # Tâche spécifique (ex: segmentation, classification...)\n│           └── &lt;SOURCE&gt;/          # Source de données (ex: PLEIADES, SENTINEL...)\n│               └── &lt;DEPARTEMENT&gt;/ # Département (ex: MAYOTTE, REUNION...)\n│                   └── &lt;ANNEE&gt;/   # Année de la donnée (ex: 2023)\n│                       └── &lt;TILE-SIZE&gt;/  # Taille des tuiles (ex: 125, 250...)\n│                           ├── train/    # Jeu d'entraînement\n│                           │   └── *.npy # Fichiers numpy\n│                           └── test/     # Jeu de test\n│                               └── *.npy # Fichiers numpy\n├── patchs/                        # Images\n│   └── &lt;LABELER&gt;/                 # Annotateur (ex: COSIA, BDTOPO...)\n│       └── &lt;TASK&gt;/                # Tâche spécifique (ex: segmentation, classification...)\n│           └── &lt;SOURCE&gt;/          # Source de données (ex: PLEIADES, SENTINEL...)\n│               └── &lt;DEPARTEMENT&gt;/ # Département (ex: MAYOTTE, REUNION...)\n│                   └── &lt;ANNEE&gt;/   # Année de la donnée (ex: 2023)\n│                       └── &lt;TILE-SIZE&gt;/  # Taille des tuiles (ex: 125, 250...)\n│                           ├── train/    # Jeu d'entraînement\n│                           │   └── *.jp2 # Fichiers images jp2\n│                           └── test/     # Jeu de test\n│                               └── *.jp2 # Fichiers images jp2\n\n\n\n📁 data-prediction\nLe dossier data-prediction/regroupe les résultats de prédictions générées par différents modèles. Les prédictions sont disponibles au format Parquet mais également au format GeoPackage pour pouvoir les utiliser dans le Geoserver.\nLa structure du dossier est :\ndata-prediction/\n└── &lt;SOURCE&gt;/                  # Source de données (ex: PLEIADES, SENTINEL...)\n    └── &lt;DEPARTEMENT&gt;/          # Département (ex: MAYOTTE, REUNION...)\n        └── &lt;ANNEE&gt;/            # Année de la donnée (ex: 2023)\n            └── &lt;MODEL-NAME&gt;/   # Nom du modèle utilisé pour la prédiction\n                └── &lt;MODEL-VERSION&gt;/ # Version du modèle (ex: 1, 2...)\n                    ├── *.parquet    # Fichiers de prédiction au format parquet\n                    └── *.gpkg       # Fichiers de prédiction au format GeoPackage\n\n\n📁 cache-predictions\nLe dossier cache-predictions/ contient les logits intermédiaires produits par les modèles lors du processus de prédiction afin de ne pas refaire une prédiction qui aurait déjà été réalisée. L’organisation du dossier reprend la même hiérarchie que data-prediction :\ncache-predictions/\n└── &lt;SOURCE&gt;/                  # Source de données (ex: PLEIADES, SENTINEL...)\n    └── &lt;DEPARTEMENT&gt;/          # Département (ex: MAYOTTE, REUNION...)\n        └── &lt;ANNEE&gt;/            # Année de la donnée (ex: 2023)\n            └── &lt;MODEL-NAME&gt;/   # Nom du modèle utilisé pour la prédiction\n                └── &lt;MODEL-VERSION&gt;/ # Version du modèle (ex: 1, 2...)\n                    └── *.npy       # Logits prédits\n\n\n📁 data-roi\nLe dossier data-roi contient les contours géographique de chaque département afin de pouvoir filtrer les images efficacement que ce soit lors de l’étape de preprocessing que lors de l’étape de l’inférence. Les contours sont à la fois stockés en parquet et en geojson (un seul des deux formats pourrait suffire).\nCes données ont été construites à la main à partir de données officielles. Les contours des territoires n’étant pas sensés changer, il n’y a pas à mettre à jour ces données.\nLa structure du dossier est :\ndata-roi/\n├── &lt;DEPARTEMENT&gt;.parquet\n└── &lt;DEPARTEMENT&gt;.geojson\n\n\n📁 cluster-geom-raw\nLe dossier cluster-geom-raw contient tout l’historique des géométries d’îlots non preprocessé.\nLa géométrie des îlots est arrêtée chaque année au 31 octobre ; c’est cette version qui s’applique pendant le recensement de la population (RP).\nPar exemple, pour l’enquête annuelle de recensement 2026, il faudra utiliser la géométrie des îlots arrêtée au 31 octobre 2025.\nDans tous les cas, il est indispensable de s’assurer que le SERN Géographie et le ST Mayotte disposent bien des mêmes référentiels d’îlots. Des ajustements exceptionnels pourraient être nécessaires compte tenu de l’urgence post-Chido.\nUne fois le fichier avec les dernières géométries traité, les nouveaux fichiers parquet sont disponibles dans data-clusters.\n\n\n📁 data-clusters\nLe dossier data-clusters contient les contours géographique de chaque îlot pour les différents départements. Ces informations sont nécessaires lors de l’inférence pour un îlot donné ainsi que pour le déploiement de la webapp qui permet de réaliser des statistiques par îlot. Le dossier est simplement un fichier parquet partitionné :\ndata-clusters/\n├── dep=&lt;DEPARTEMENT&gt;/\n      └── part-0.parquet\n\n\n\nLes services\nLe projet utilise plusieurs service au sein du datalab.\n\nMLFlow\n\nMLflow est utilisé lors de la phase d’entraînement pour tracker et optimiser nos modèles. Il permet de logguer les hyperparamètres, les métriques et les artefacts générés au cours des expérimentations. MLflow joue également le rôle de Model Registry, dans lequel à chaque modèle est associé un tag tel que staging, production ou archived. Cela facilite le versionnement et la bonne gestion du cycle de vie des modèles dans le temps\n\nArgoCD\n\nArgoCD est déployé pour superviser et gérer automatiquement les applications présentes dans notre namespace. Il permet de surveiller en permanence l’état de déploiement des applications et détecte automatiquement toute modification des manifests dans le dépôt GitOps dédié (https://github.com/inseeFrLab/satellite-images-cd). Lorsqu’une modification est détectée, ArgoCD applique automatiquement les changements sur le cluster, garantissant une parfaite synchronisation entre le code source et l’état effectif des déploiements.\n\nArgo Workflows\n\nArgo Workflows est utilisé pour orchestrer l’exécution parallèle de scripts, ce qui optimise considérablement les temps de calcul. Les workflows sont décrits dans des fichiers YAML stockés dans les répertoires argo-workflows/ présents dans les différents dépôts. Argo Workflows est sollicité à différents stades du projet, notamment pour exécuter les étapes de preprocessing des données, l’entraînement de modèles en parallèle, ainsi que l’inférence à grande échelle.\n\nGeoserver\n\nGeoServer permet la publication et la mise à disposition de données géographiques sous forme de flux normalisés (WMS, WFS, WCS). Contrairement aux autres services mentionnés, GeoServer n’est pas directement provisionné par le Datalab, ni déployé via Helm Chart.\nÀ ce jour, GeoServer ne peut pas accéder directement aux fichiers stockés sur un stockage objet type S3. En conséquence, toutes les images ou données que nous souhaitons exposer doivent être dupliquées dans un PVC associé au pod GeoServer…",
-    "crumbs": [
-      "Accueil",
-      "Navigation",
-      "Présentation du projet"
-    ]
-  },
-  {
-    "objectID": "src/seminaire-dirag-video/index.html",
-    "href": "src/seminaire-dirag-video/index.html",
-    "title": "Vidéo du séminaire du 28 mai 2024 à la Dirag",
+    "objectID": "src/todo/index.html#techos",
+    "href": "src/todo/index.html#techos",
+    "title": "TODO",
     "section": "",
-    "text": "Vidéo du séminaire du 28 mai 2024 à la Dirag"
+    "text": "Faire un script de transformation des des images de taille (x, y) en (n, n) avec GDAL\nIndustrialiser sur la nouvelle webapp tous les départements (priorité Guyane/St Martin) ✅\n\nUtiliser les labels de COSIA pour entrainer (finetuner) un nouveau modèle ✅\n\nCache les predictions en terme de probabilité plutot que masque binaire ✅\n\nMettre les prédictions multiclasses sur la webapp ✅\n\nRetravailler les fonctionnalités des cartes de la webapp\nRetélécharger Guyane via SEAS, utiliser les masques nuages pour faire le découpage (prioriser en fonction de la date)\nInférence sur nouveau découpage Guyane\n\nUtiliser une bdd externe pour flaguer les zones de bâti non résidentielles\n\nDepuis la webapp, pouvoir télécharger le tableau des statistiques\n\nSélectionner un ilot produit un graphique d’évolution du bâti sur les millésimes disponibles\n\nMettre les couches RIL sur la webapp\n\nRécupérer les annotations de destructions post cyclone Chido produites par Copernicus pour les afficher sur la webapp + les utiliser comme données de validation\n\nProduire les polygones destructions/constructions de bâti en comparant les logits plutôt que les prédictions de classe + recalculer les statistiques d’évolution en conséquence –&gt; heat map\n\nAfficher la carte plein écran sur CRaTT\n\nFaire un travail sur les prédictions pour merge les pred car on voit les délimitations des patchs envoyés à l’API pour l’inférence (cf travail fait pendant le stage l’année dernière)\n\nOutil pour valider les annotations et faire un jeu de test gold-standard ?\n\nPublier le modèle sur Hugging Face\n\nTrain un premier segformer avec les données d’entrainement de Flair (france hexagonale, autre résolution) -&gt; puis finetuner ce modele avec nos données d’entrainement\n\nFinetuner le modele Flair sur nos données et comparer les métriques avec le modele segformer https://huggingface.co/collections/IGNF/flair-hub-land-cover-mapping-models-lc-683ec04c4e19788e64aa032f et https://arxiv.org/html/2506.07080v1\n\nInférence lissée\n\nInférence avec prob et pas pred"
   },
   {
-    "objectID": "src/seminaire-dmcsi/index.html#contexte",
-    "href": "src/seminaire-dmcsi/index.html#contexte",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Contexte",
-    "text": "Contexte\n\nMission principale de l’Insee → le recensement de la population :\n\nCommunes ≥ 10 000 hab : 8% /an\nCommunes &lt; 10 000 hab : 100% /5 ans\n\nInformation du nombre de logements ?\n\n\nComme vous le savez bien, l’Insee doit faire le recensement tous les ans. C’est l’une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement.\nTous les ans, 8% des logements des communes de +10k hab sont recensés et un cinquième des communes de -10k hab. Les communes de -10k hab sont recensés en entier. Pour tirer ces échantillons, il faut avoir l’information du nombre de logements dans les commune de + de 10k hab"
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#répertoire-des-immeubles-localisés",
-    "href": "src/seminaire-dmcsi/index.html#répertoire-des-immeubles-localisés",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Répertoire des Immeubles Localisés",
-    "text": "Répertoire des Immeubles Localisés\n\nLe RIL :\n\nInventaire du bâti\nCommunes de +10 000 habitants\nPermis de construire et informations locales\n\nBases de sondage des enquêtes de recensement\n\n\nLa qualité du RIL est bonne en France hexagonale ✅… mais loin d’être fiable dans les DROM ⚠️\n→ Autre méthode : découpage en îlots\n\nAfin de préparer le recensement, l’Insee se sert du répertoire des immeubles localisés pour connaître le nombre de logements disponibles dans les communes de 10 000 habitants et plus.\nPour chaque élément dans le RIL, il existe l’information du nombre de logements au sein du bâtiment, son caractère habitable, son adresse et sa géolocalisation.\nCe répertoire est utilisé à l’Insee pour constituer les bases de sondage des enquêtes de recensement.\nLa qualité du RIL est bonne en France hexagonale cependant elle est bien inférieure dans les territoires d’outre mer.\nPour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France hexagonale.\nDans les territoires d’outre mer, chacun des DROM est découpé en “îlots”. Chaque année, dans les communes de +10k hab, un cinquième des îlots sont tirés, et 40% des logements y seront recensés. Cependant, il est difficile de connaître réellement le nombre de logements à recenser."
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#recensement-dans-les-territoires-doutre-mer",
-    "href": "src/seminaire-dmcsi/index.html#recensement-dans-les-territoires-doutre-mer",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Recensement dans les territoires d’outre mer",
-    "text": "Recensement dans les territoires d’outre mer\n\nContexte critique : Mayotte et Guyane\nPour compléter le RIL dans les DROM : enquête cartographique → très lourde\nL’imagerie satellitaire pour optimiser le processus du recensement dans les DROM ? 🛰️\n\n\nEn effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Les informations sur le bâti issu des permis de construire et des informations des mairies ne sont pas assez fournies. De plus, le développement urbain y est extrêmement rapide avec les bidonvilles, rendant le suivi du bâti très compliqué avec les nombreuses constructions et destructions des habitations précaires et instables.\nPour compléter le RIL, une enquête cartographique est mise en place. C’est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, et qui a pour but d’envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse, coûteuse et peut s’avérer dangereuse. Les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter pour la quantité d’agents envoyés sur place, terrains compliqués à atteindre, aggressions…\nPeut-on utiliser l’imagerie satellite pour optimiser le processus du recensement dans les DROM ? 🛰️\nLes données satellitaires représentent: - une source d’information indépendante - permettent une veille territoriale continue - la méthodologie est transparente et reproductible"
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#nos-cas-dusage",
-    "href": "src/seminaire-dmcsi/index.html#nos-cas-dusage",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Nos cas d’usage",
-    "text": "Nos cas d’usage\n\nIdentifier les zones avec une forte densité de bâti 🏘️\n\nDétecter les évolutions du bâti de façon automatique\n\nAider l’estimation de la population dans les DROM 👥\n\nRépondre à une urgence 🚨 : cyclone “Chido” à Mayotte\n\n\n\nIdentifier les zones avec une forte densité de bâti, c’est à dire les zones prioritaires pour l’enquête cartographique et pour lesquelles il faut envoyer le plus d’agents.\nPouvoir détecter les évolutions du bâti de façon automatique, notamment depuis le précédent inventaire du bâti effectué\n\nAider l’estimation de la population dans les DROM\n\nRépondre à une urgence : les conséquences du cyclone “Chido” sur le bâti à Mayotte\n\n-&gt; On va maintenant se pencher sur la méthodologie utilisée pour répondre à ces besoins."
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#segmentation-sémantique",
-    "href": "src/seminaire-dmcsi/index.html#segmentation-sémantique",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Segmentation sémantique",
-    "text": "Segmentation sémantique\n\nVision par ordinateur\n\nClasser chaque pixel d’une image\n\nPour nos besoins : connaître les pixels de catégorie “bâtie”\n\n\n\n\n\nExemple de segmentation “bâtiment”\n\n\n\n\nPour détecter le bâti de façon automatique, nous nous sommes tourné vers la vision par ordinateur, qui est une branche du domaine de l’intelligence artificielle. La segmentation sémantique permet de classer chaque pixel d’une image dans l’une des classes définie en amont. La segmentation semantique peut utiliser toute sorte de classe, mais voici un exemple de résultat qui nous interesse : ex. J’AIMERAI PRECISER QU’avec uniquement de l’imagerie satellitaire, nous ne pourrons pas décider du caractère habitable ou non d’un bâtiment ni du nombre de logements à l’intérieur. Par conséquent, nous ne pouvons pas remplacer l’enquête cartographique, l’idée est d’aider les enquêteurs en mettant en valeur les zones avec le plus de bâtiments à visiter."
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#entraîner-un-modèle-de-segmentation",
-    "href": "src/seminaire-dmcsi/index.html#entraîner-un-modèle-de-segmentation",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Entraîner un modèle de segmentation",
-    "text": "Entraîner un modèle de segmentation\n\nIl faut :\n\nUne collection d’images satellites 🛰️\nDes annotations 📍\n\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images\n\n\nPour entrainer un modele il faut deux choses : des images et des annotations.\n\nUne annotation est “la vérité attendue”, comme par exemple l’image qui a été présentée à la slide précédente\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images"
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#de-la-segmentation-à-la-détection-de-changements",
-    "href": "src/seminaire-dmcsi/index.html#de-la-segmentation-à-la-détection-de-changements",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "De la segmentation à la détection de changements",
-    "text": "De la segmentation à la détection de changements"
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#modèle-utilisé",
-    "href": "src/seminaire-dmcsi/index.html#modèle-utilisé",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Modèle utilisé",
-    "text": "Modèle utilisé\n\nArchitecture du modèle 🧠\n\nSegFormer : un modèle léger et performant\nTransformers : mécanismes d’attention pour prendre en compte le contexte local et global\nDécodeur : Multi Layer Perceptron\n\nAdapté pour nos données satellites\n\n\nLe modèle que nous avons sélectionné s’appuie sur une architecture appelée SegFormer. Modele de segmentation d’image entrainé par NVIDIA et opensource Il a l’avantage d’etre très leger et donc rapide à entrainer Pour notre cas d’usage, c’est le modele qui a été le plus performant.\nIl est basé sur une technologie appelée Transformer, connue pour ses performances dans de nombreux domaines de l’intelligence artificielle, notamment le traitement du langage, mais qui a aussi été adaptée à l’image. Ce n’est pas la plus répendue en vision par ordinateur.\nUn des atouts de cette architecture, ce sont les mécanismes d’attention, qui permettent au modèle de prendre en compte le contexte local et global de l’image. Pour le décodeur, c’est Multi Layer Perceptron classique.\nEnfin, nous avons ajusté le modèle à nos données spécifiques : des images satellites et des annotations."
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#évaluation",
-    "href": "src/seminaire-dmcsi/index.html#évaluation",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Évaluation",
-    "text": "Évaluation\nPour évaluer les performances du modèle entraîné :\n\n\nIOU = Intersection Over Union\n\n\n\nTransition pour la suite : pour faire un entraînement, il ne faut plus que des données…\nL’IoU, ou Intersection over Union, est une mesure qu’on utilise pour évaluer la qualité d’une prédiction en segmentation d’image.\nConcrètement, on compare deux zones :\n- celle que le modèle a prédite comme appartenant à une certaine classe,\n- et la zone réelle, qu’on appelle le label de vérité terrain.\nOn mesure alors l’intersection entre ces deux zones – c’est la partie correctement prédite –\net on la divise par l’union des deux – c’est-à-dire l’ensemble de tout ce qui a été soit prédit, soit annoté.\nUn IoU de 1 signifie une correspondance parfaite.\nUn IoU de 0 signifie aucune correspondance.\nPlus l’IoU est élevé, plus la prédiction est précise.\nC’est une métrique particulièrement adaptée pour des tâches comme la nôtre, où on doit prédire la forme exacte des bâtiments ou des routes, pixel par pixel."
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#pléiades-vs-sentinel-2",
-    "href": "src/seminaire-dmcsi/index.html#pléiades-vs-sentinel-2",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Pléiades vs Sentinel-2 🛰️",
-    "text": "Pléiades vs Sentinel-2 🛰️\n\n\n\nPléiades :\n\n3 bandes (RGB)\n\nRésolution 0.5m\n\nArchives gratuites\n\nAcquisition sur-demande payante\n\n\n\n\n\n Mamoudzou, Mayotte 2024\n\n\n\nSentinel2 :\n\n13 bandes\n\nRésolution 10m, 20m ou 60m (en fonction de la bande)\n\nAcquisition tous les 5j\n\nGratuit\n\n\n\n\n\nIl existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d’entre eux.\nLes images satellites Pléiades sont un produit intéressant pour notre cas d’usage - Caractéristiques: - 3 bandes spectrales (RGB) 🎨 - 4e bande : NIR (pas dans nos données) - Résolution spatial : 0.5m × 0.5m 🔍 - Archives gratuites (avec accord) - Acquisition sur-demande et payante (6-8 mois par département), Airbus © licence 📅\nPour le cyclone Chido qui a ravagé Mayotte, un plan d’urgence a été mis en place. Nous avons pu obtenir une mosaique d’images Pléiades de Mayotte post cyclone datant du premier trimestre de 2025 gratuitement.\nComme je vous disais au début, c’est grâce à l’IGN que nous avons pu mener à bien notre projet car ils nous fournissent des mosaiques d’images Pléiades. Une mosaique est une reconstitution complète d’un territoire avec des prises de vues de plusieurs dates, permettant ainsi d’avoir une couverture le moins ennuagée et la plus propre possible. Ce travail est très important pour avoir de bonnes images pour l’entraînement.\nMais un autre type d’images satellites est à notre disposition : Sentinel-2. Elles sont open source et l’acquisition se fait tous les 5 jours. Cependant, leur résolution est moins précise que les images pléiades."
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#annotations-cosia",
-    "href": "src/seminaire-dmcsi/index.html#annotations-cosia",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Annotations : COSIA",
-    "text": "Annotations : COSIA\n\nProjet Cosia par IGN 👏\nUtilisé pour annoter nos données d’entraînement\n\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Légende COSIA\n\n\n\nPour les annotations, il est possible de prendre des annotations binaires : bâtiment oui ou non, ou des annotations multiclasses comme le projet Cosia présenté précédement. - C’est une couverture du sol générée par l’IA - Basé sur les photographies aériennes de l’IGN à une résolution 20cm 🗺️ Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d’entraînement, malgré un possible décalage temporaire entre nos images et la productions de polygones. D’autres sources ont été testées comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele.\nles mosaiques d’images et les collections d’annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés pour entrainer notre modele, et des zones de test fixées ont été définies. Voyons voir les résultats produits par notre fameux entraînement."
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#zone-de-test-à-mayotte",
-    "href": "src/seminaire-dmcsi/index.html#zone-de-test-à-mayotte",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Zone de test à Mayotte",
-    "text": "Zone de test à Mayotte\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Prédictions 2023\n\n\n Légende COSIA\n\n\n\n\n\n\nTrain\nTest\n\n\n\n\nIOU moyenne ∀classe\n0.81\n0.78\n\n\nIOU “bâtiment”\n0.84\n0.76\n\n\n\n\nDans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considérée comme un excellent score, surtout dans des zones complexes comme les DOM où l’environnement est très hétérogène, et des écarts peuvent se créer un peu partout.\n\nÀ ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances\nQuestions clés : comment partager nos résultats ?\nL’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel"
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#dashboard-interactive",
-    "href": "src/seminaire-dmcsi/index.html#dashboard-interactive",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Dashboard Interactive 🚀",
-    "text": "Dashboard Interactive 🚀\n\n👉 Application interactive: Cliquez ici\n\n\n\nTransition : Notre entraînement a plutot bien marché, notre application web permet une bonne visualisation de nos prédictions… on peut dire que nous avons mené notre petite expérience à bien. Serait il temps de passer de l’experience à la “pseudo” production ?\n\nNous avons décidé de créer une petite webapp\nNous avons calculé les surfaces des bâtiments à partir de nos prédictions : cela nous donne une valeur binaire pour chaque pixel, agrégée par niveau administratif\n\n⚠️ Avertissement : ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.\n\nCarte standard Leaflet avec un fond OpenStreetMap affichant Pléiades 2023\n\n97610 0608 : méthodologie différente de floutage pour la prison\n97611 0332 : nuages en 2022\n97611 0330 : notre cas d’usage : détecter les changements de bâtiments en zone précaire\n\nSuivi des changements de bâtiments au niveau administratif :\n\nSélection par unités administratives (communes, quartiers)\n\nContrôle qualité des changements détectés\n\nFonctionnalités clés :\n\nComparaison temporelle côte à côte\n\nIndicateurs statistiques par zone\n\nValidation visuelle interactive"
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#pipeline-globale",
-    "href": "src/seminaire-dmcsi/index.html#pipeline-globale",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Pipeline globale 🛠️",
-    "text": "Pipeline globale 🛠️\n\n\n\n\n\n\nFigure 1\n\n\n\n\nVoici la pipeline globale. Les étapes 2 et 3 ne sont faites que lors de l’entrainement du modele. Ayant un entraînement qualitatif à notre disposition, pour prédire de nouvelles images, nous passons directement de l’étape 1 à l’étape 4. Un exemple très parlant et récent : le cyclone chido en une nuit -&gt; pred\n\nStandardisation de l’acquisition des données — actuellement rudimentaire. Besoin d’images sans nuages, datées précisément, avec une méthodologie cohérente (challenge avec Pléiades).\n\nPhase d’entraînement : suppression des nuages, équilibrage du jeu de données, annotation, découpage.\n\nPyTorch avec modèle pré-entraîné depuis HuggingFace (requiert GPU).\n\nConstruction de l’API : prédiction sur images, regroupement / boîtes englobantes, calculs statistiques (surface bâtie).\n\nDéploiement via GeoServer et application web.\n\nRésultats utilisés par les collègues de l’INSEE pour analyses statistiques."
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#application-architecture",
-    "href": "src/seminaire-dmcsi/index.html#application-architecture",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Application Architecture 🧩",
-    "text": "Application Architecture 🧩\n\n\nMerci à Onyxia d’avoir rendu ce projet possible en mode DevOps\nUn point notable est que nous utilisons un Geoserver pour permettre un affichage dynamique de nos images satellites sur la webapp, rendu possible grace aux calculs effectués en interne pour fluidifier l’affichage de zones spécifiques.\nCette architecture étant très technique, je ne vais pas m’attarder longtemps dessus, on pourra y revenir s’il y a des questions. Même si ça semble être la force de ce projet, c’est également une grande limite.\n\nAcquisition des données :\n\nImagerie Pléiades fournie par un prestataire national\n\nStockage sur infrastructure cloud\n\nPréparation des données :\n\nPrétraitement des images (filtrage des nuages, normalisation)\n\nAnnotation automatisée à partir des données de bâtiments de référence\n\nDécoupage des images (tuiles de 125 m × 125 m)\n\nDéveloppement du modèle :\n\nImplémentation deep learning (PyTorch)\n\nEntraînement avec GPU\n\nVersionnage du modèle (MLFlow)\n\nSystème de production :\n\nAPI REST pour l’inférence\n\nDéploiement containerisé\n\nCapacités de traitement parallèle\n\nDistribution des résultats :\n\nGeoServer permet de visualiser dynamiquement les images satellite grâce à des calculs qu’il effectue en amont, de sorte à ce que l’application web soit rapide\n\nApplication web pour la visualisation\n\nOutils d’analyse statistique"
-  },
-  {
-    "objectID": "src/seminaire-dmcsi/index.html#défis-perspectives",
-    "href": "src/seminaire-dmcsi/index.html#défis-perspectives",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
-    "section": "Défis & Perspectives",
-    "text": "Défis & Perspectives\n\nCoûts de maintenance élevés en raison de la complexité technique 💸\n\nBesoin de compétences spécialisées 🧑‍💻\n\nEnvironnement technique complexe dû à :\n\nVolumes de données importants 🗃️\n\nForts besoins en calcul (GPU) ⚡\n\n\nRésultats initiaux prometteurs pour accompagner les enquêtes cartographiques"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Projet Données Satellites",
+    "objectID": "src/todo/index.html#insee",
+    "href": "src/todo/index.html#insee",
+    "title": "TODO",
     "section": "",
-    "text": "Description : Ici est rassemblée toute la documentation technique sur le travail effectué au cours de l'expérimentation sur les données satellite\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                Nov 10, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        doc\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Application web à destination des agents facilitant l'utilisation des résultats fournis par le modèle de segmentation.\n\n            \n\n            \n            \n              \n                \n                Nov 10, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        CraTT\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Document retraçant les avancées et résultats obtenus sur les travaux exploratoires utilisant des images satellitaires\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 16, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        pdf\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Ce séminaire marque la fin des travaux d’expérimentation. À cette occasion, nous présenterons l’intégralité de la chaîne de traitement, de la récupération des images jusqu’à l’application d’aide à la décision, en mettant l’accent sur les difficultés rencontrées. La poursuite de ces travaux dépendra des besoins réels de l’Insee et nécessitera des compétences variées et une technicité élevée pour maintenir et/ou améliorer la chaîne de traitement.\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 28, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n                \n                  \n                    \n                      \n                        Vidéo\n                      \n                    \n                  \n                \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Slideshow presentation of the project Detecting changes in buildings in French overseas departments for Work Package 7,\nArtificial Intelligence and Machine Learning for Official Statistics, organized by Eurostat.\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Nov 13, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Slide deck for the NTTS 2025 conference.\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Mar 12, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Slides pour le séminaire de Méthodologie Statistique & Sciences des données de la DMCSI - La terre vue d’en haut : images satellites, images aériennes et statistique publique.\n\n            \n\n            \n            \n              \n                Raya Berova et Thomas Faria\n                Jul 3, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Utilisation des images satellites pour améliorer le repérage des logements à Mayotte.\n\n            \n\n            \n            \n              \n                Maëlys Bernard, Raya Berova et Thomas Faria\n                Nov 25, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        pdf\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : TODO\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Nov 19, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n\n\nNo matching items"
+    "text": "Pour enquête carto :\n\nêtre capable de déterminer les changements prioritaires à regarder et cohérent (pas des nuages) / Stockage des ilots controlés\nfaire le use case mayotte sur 5 ans d’intervalle\n\nApplication de mise à dispo de point gpx avec fond données satellites\n\n\n\n\n\nComparaison entre l’EAR/RIL et nos surfaces estimés / estimation de population basé sur les surfaces prédites\nPréparation d’un papier pour les JMS avec la DMTR. En lien avec les récents travaux sur Mayotte pour la DMTR et la préparation du futur recensement exhaustif de 2026. Ce sera un papier méthodologique sur le projet images satellites, illustré du cas d’usage de la DMTR (aide au recensement avec de la cartographie et/ou statistiques publiques, tout cela grâce aux prédictions sur images satellites).\n\nContact avec Julie Djiriguian pour présenter nos travaux afin de les aider à préparer l’enquête cartographique 2025 en vue du recensement exhaustif de Mayotte 2026."
   },
   {
-    "objectID": "index.html#documents-relatifs-au-projet-sur-les-données-satellites-à-linsee",
-    "href": "index.html#documents-relatifs-au-projet-sur-les-données-satellites-à-linsee",
-    "title": "Projet Données Satellites",
+    "objectID": "src/todo/index.html#diffusion-des-résultats",
+    "href": "src/todo/index.html#diffusion-des-résultats",
+    "title": "TODO",
     "section": "",
-    "text": "Description : Ici est rassemblée toute la documentation technique sur le travail effectué au cours de l'expérimentation sur les données satellite\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                Nov 10, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        doc\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Application web à destination des agents facilitant l'utilisation des résultats fournis par le modèle de segmentation.\n\n            \n\n            \n            \n              \n                \n                Nov 10, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        CraTT\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Document retraçant les avancées et résultats obtenus sur les travaux exploratoires utilisant des images satellitaires\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 16, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        pdf\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Ce séminaire marque la fin des travaux d’expérimentation. À cette occasion, nous présenterons l’intégralité de la chaîne de traitement, de la récupération des images jusqu’à l’application d’aide à la décision, en mettant l’accent sur les difficultés rencontrées. La poursuite de ces travaux dépendra des besoins réels de l’Insee et nécessitera des compétences variées et une technicité élevée pour maintenir et/ou améliorer la chaîne de traitement.\n\n            \n\n            \n            \n              \n                Raya Berova, Gaëtan Carrere, Thomas Faria, Clément Guillo et Tom Seimandi\n                May 28, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n                \n                  \n                    \n                      \n                        Vidéo\n                      \n                    \n                  \n                \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Slideshow presentation of the project Detecting changes in buildings in French overseas departments for Work Package 7,\nArtificial Intelligence and Machine Learning for Official Statistics, organized by Eurostat.\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Nov 13, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Slide deck for the NTTS 2025 conference.\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Mar 12, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Slides pour le séminaire de Méthodologie Statistique & Sciences des données de la DMCSI - La terre vue d’en haut : images satellites, images aériennes et statistique publique.\n\n            \n\n            \n            \n              \n                Raya Berova et Thomas Faria\n                Jul 3, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : Utilisation des images satellites pour améliorer le repérage des logements à Mayotte.\n\n            \n\n            \n            \n              \n                Maëlys Bernard, Raya Berova et Thomas Faria\n                Nov 25, 2025\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        pdf\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n  \n     \n      \n        \n          \n            \n          \n         \n        \n          \n            \n            \n\n            \n              Description : TODO\n\n            \n\n            \n            \n              \n                Raya Berova, Thomas Faria et Clément Guillo\n                Nov 19, 2024\n              \n            \n            \n            \n              \n              \n                \n                  \n                    \n                      \n                        Slides\n                      \n                    \n                  \n                \n              \n              \n              \n            \n          \n        \n\n        \n\n      \n     \n  \n\n\n\nNo matching items"
+    "text": "faire un DT Insee et voir avec CP si ca la branche\nFaire la documentation du projet\nmise à disposition du modèle CoSIA via l’API et faire pub aux européens"
   },
   {
     "objectID": "src/documentation/sections/acquisition.html",
