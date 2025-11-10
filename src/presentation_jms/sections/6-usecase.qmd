@@ -100,3 +100,33 @@ $score_{distance}$ vaut :
 
 
 -> [**cartographie complémentaire**]{.orange} sur les îlots avec un ordre de priorité 1 à 8 
+
+## Exemple d'îlot
+
+
+<div style="display: flex; align-items: center;">
+
+<div style="flex: 2; font-size: 60%; padding-right: 1em;">
+
+- <span style="color: red; font-size: 2em;">•</span> : enquête cartographique complémentaire 
+- <span style="color: red; font-size: 2em;">•</span> : enquête cartographique initiale 
+</div>
+
+<!-- Colonne milieu : image + titre -->
+<div style="flex: 6; text-align: center;">
+  <img src="../img/exemple.png" style="width: 100%;"><br>
+  <span style="font-size: 50%;"><em> Exemple d'un examen en 2024 d'un îlot de 2021, Bandrele </em></span>
+</div>
+
+
+<div style="flex: 2; font-size: 60%; padding-left: 1em;">
+
+- <span style="display: inline-block; width: 20px; height: 20px; background-color: green; border-radius: 50%;"></span> : nouveaux logements qui n'existaient pas lors de l'enquête cartographique initiale
+- <span style="display: inline-block; width: 20px; height: 20px; background-color: black; border-radius: 50%;"></span> : logements possiblement omis lors de l'enquête cartographique initiale
+
+</div>
+
+</div>
+
+## Bilan
+
