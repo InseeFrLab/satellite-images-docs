@@ -610,6 +610,20 @@
     "text": "Identification des îlots avec une sous-couverture potentielle\nConstruction d’un score\n\nOn s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des données satellites est plus importante que l’évolution issue de l’enquête cartographique\n\nLe \\(score\\) est calculé sur 2 sous ensemble : - ensemble des logements - uniquement les logements en dur\nConstruction d’un score\n\\(score=score_{évolution} + score_{sens} + score_{distance}\\)\n\\(score_{évolution}\\) vaut :\n\n1 si l’évolution du nombre de logements dans le recensement est plus faible que celle de la surface bâtie (données satellites)\n0 sinon\n\n\\(score_{sens}\\) vaut :\n\n1 si l’évolution du nombre de logements dans le recensement est dans le sens opposé de celle de la surface bâtie (données satellites)\n0 sinon\n\n\\(score_{distance}\\) vaut :\n\n0 si \\(distance\\_{ilot} ≤ Q1\\)\n1 si \\(Q1 &lt; distance\\_{ilot} ≤ médiane\\)\n2 si \\(médiane &lt; distance\\_{ilot} ≤ Q3\\)\n3 si \\(distance\\_{ilot} &gt; Q3\\)\n\nDéfinition des ordres de priorité\n\n\n\nTable 1: Ordres de priorité des îlots avec sous-couverture de logements supposée\n\n\n\n\n\nOrdre de priorité\nScore (ensemble des logements – logements durs)\n\n\n\n\n1\n5-5\n\n\n2\n4-5 ou 5-4\n\n\n3\n4-4\n\n\n4\n3-5 ou 5-3\n\n\n5\n3-4 ou 4-3\n\n\n6\n3-3\n\n\n7\n2-5 ou 5-2\n\n\n8\n2-4 ou 4-2\n\n\n\n\n\n\n-&gt; cartographie complémentaire sur les îlots avec un ordre de priorité 1 à 8"
   },
   {
+    "objectID": "src/presentation_jms/index.html#exemple-dîlot",
+    "href": "src/presentation_jms/index.html#exemple-dîlot",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Exemple d’îlot",
+    "text": "Exemple d’îlot\n\n\n\n• : enquête cartographique complémentaire\n• : enquête cartographique initiale\n\n\n\n\n  Exemple d’un examen en 2024 d’un îlot de 2021, Bandrele \n\n\n\n : nouveaux logements qui n’existaient pas lors de l’enquête cartographique initiale\n : logements possiblement omis lors de l’enquête cartographique initiale"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#bilan",
+    "href": "src/presentation_jms/index.html#bilan",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Bilan",
+    "text": "Bilan"
+  },
+  {
     "objectID": "src/presentation_jms/index.html#défis-perspectives",
     "href": "src/presentation_jms/index.html#défis-perspectives",
     "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
