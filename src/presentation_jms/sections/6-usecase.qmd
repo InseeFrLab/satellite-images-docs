@@ -20,7 +20,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 .local-slide .step {
   display: flex;
   align-items: center;
-  margin: 0.5em 0;  
+  margin: 0.7em 0;  
 }
 .local-slide .icon {
   font-size: 1.5em;   
@@ -105,7 +105,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 ```{=html}
 <style>
 .local-slide {
-  font-size: 0.7em;   
+  font-size: 0.8em;   
   margin-right: 0.5em;
 }
 </style>
@@ -123,7 +123,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 ⚙️ **Définition des scores** :
 
-::::: {style="display: flex; justify-content: space-around; gap: 2em; font-size: 0.7em; "}
+::::: {style="display: flex; justify-content: space-around; gap: 2em; font-size: 1em; "}
 ::: {style="flex: 1; text-align: left;"}
 ✅ $Score_{évolution}$ = 1 si *évolution nb_log recensement [**<**]{.orange} évolution bâti prédit*, sinon 0
 
