@@ -679,7 +679,7 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </section>
 <section id="pipeline-globale" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Pipeline globale 🛠️</h2>
-<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" width="100%" height="100%">
+<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" height="100%" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="../img/pipeline_donnees_sat.png" id="fig-chain2" style="width:100.0%;height:100.0%">
@@ -913,16 +913,29 @@ Figure&nbsp;1
 }
 </style>
 <p>⚠️ On s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des <span class="blue2"><strong>données satellites</strong></span> est <span class="orange"><strong>plus importante</strong></span> que l’évolution issue de l’<span class="blue2"><strong>enquête cartographique</strong></span></p>
-<p>🟠 Le <span class="math inline">\(score\)</span> est calculé sur 2 sous ensembles :</p>
-<pre><code>-   ensemble des logements
-
--   uniquement les logements en dur</code></pre>
-<p>Σ <span class="math inline">\(score=score_{évolution} + score_{sens} + score_{distance}\)</span></p>
+<ul>
+<li><p>Le <span class="math inline">\(score\)</span> est calculé sur 2 sous ensembles :</p>
+<ul>
+<li><p>ensemble des logements</p></li>
+<li><p>uniquement les logements en dur</p></li>
+</ul></li>
+</ul>
+<div style="
+  border: 2px solid #e67e22;  
+  border-radius: 8px;        
+  padding: 10px 15px;         
+  background-color: #fff8e1;  
+  display: inline-block;
+  margin: 1em auto;
+  text-align: center;
+">
+<p><span class="math inline">\(score=score_{évolution} + score_{sens} + score_{distance}\)</span></p>
+</div>
 <p>⚙️ <strong>Définition des scores</strong> :</p>
-<div style="display: flex; justify-content: space-around; gap: 2em; font-size: 1em; ">
+<div style="display: flex; justify-content: space-around; gap: 2em; font-size: 0.9em; ">
 <div style="flex: 1; text-align: left;">
 <p>✅ <span class="math inline">\(Score_{évolution}\)</span> = 1 si <em>évolution nb_log recensement <span class="orange"><strong>&lt;</strong></span> évolution bâti prédit</em>, sinon 0</p>
-<p>✅ <span class="math inline">\(score_{sens}\)</span> = 1 si <em>évolution nb_log recensement <span class="orange"><strong>opposé</strong></span> évoltuion bâti prédit</em>, sinon 0</p>
+<p>✅ <span class="math inline">\(score_{sens}\)</span> = 1 si <em>évolution nb_log recensement <span class="orange"><strong>opposé</strong></span> évolution bâti prédit</em>, sinon 0</p>
 </div>
 <div style="flex: 1; text-align: left;">
 <p>✅ <span class="math inline">\(score_{distance}\)</span> selon la <span class="orange"><strong>distribution</strong></span> :</p>
