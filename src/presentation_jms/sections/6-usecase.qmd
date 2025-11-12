@@ -1,1 +1,218 @@
-## Cas d'usage
+## Cas d'usage : Le recensement à Mayotte
+
+-   Depuis 2021 : recensement avec fonctionnement [**quinquennal**]{.orange}
+    -   territoire divisé en [**îlots**]{.blue2}
+    -   ilôts repartis dans 5 groupes de rotation
+
+<!-- Ajouter graphiques cycle recensement -->
+
+::: notes
+Pour précisier, ces travaux font référence aux enquêtes ayant eu lieu de 2021 à 2024. En 2025, du fait du cyclone Chido, la cinquième et dernière enquête du premier cycle n’a pas pu être réalisée. Il a alors été décidé de réaliser de nouveau un recensement exhaustif de la population qui aura lieu du 27 novembre 2025 au 10 janvier 2026.
+
+A la différence des autres départements, à Mayotte la méthode est différente entre les habitations en dur et les habitations de fortune. Pour les habitations de fortune, le recensement y est exhaustif que ça soit en petite ou grande commune, par contre pour les logements en dur; il n'est exhaustif qu'en petite commune et par sondage dans les communes de plus de 10 000 habitants.
+:::
+
+## Contrôle de la couverture de l'enquête cartographique
+
+::::::::::::::: local-slide
+```{=html}
+<style>
+.local-slide .step {
+  display: flex;
+  align-items: center;
+  margin: 0.7em 0;  
+}
+.local-slide .icon {
+  font-size: 1.5em;   
+  margin-right: 0.5em;
+}
+.local-slide .arrow {
+  text-align: center;
+  font-size: 1em;       
+  color: #2980b9;     
+  margin: 0.3em 0;      
+}
+.local-slide .center {
+  text-align: center;
+}
+</style>
+```
+
+:::::::::::::: center
+::::: step
+::: icon
+🧾
+:::
+
+<div>
+
+**Enquête cartographique** → alimente le [**RIL**]{.blue2} → constitue la [**base de sondage**]{.orange} des [**logements durs**]{.blue2} des communes ≥ 10 000 habitants
+
+</div>
+:::::
+
+::: arrow
+⬇️
+:::
+
+::::: step
+::: icon
+⚠️
+:::
+
+<div>
+
+[**Sous-estimation**]{.orange} du [**nb logements**]{.blue2} dans l'enquête carto → [**populations**]{.blue2} et [**logements**]{.blue2} déduits [**sous-estimé**]{.orange}
+
+</div>
+:::::
+
+::: arrow
+⬇️
+:::
+
+::::: step
+::: icon
+🔍
+:::
+
+<div>
+
+[**Contrôle qualité**]{.orange} de l’enquête cartographique [**important**]{.blue2} : utilisation des [**données satellites**]{.orange}
+
+</div>
+:::::
+::::::::::::::
+:::::::::::::::
+
+## Contrôle de la couverture de l'enquête cartographique
+
+💡 **Objectif :** identifier les îlots avec une sous-couverture potentielle
+
+📈 **Données utilisées** :
+
+|  |  |  |
+|:---|:---|:---|
+| 🟠 **Évolutions comparées** | [**Surface bâtie**]{.orange} *(prédite)* | [**Nombre de logements**]{.orange} |
+| ⏱️ **Temporalité** | *entre 2017 et 2021/2022* | *entre 2017 et 2021/2022* |
+| 📂 **Données utilisées** | [*données satellites*]{.grey} *(Surface bâtie)* | [*RP 2017, enquêtes cartographique 2021 et 2022*]{.grey} *(Nombre de logements)* |
+
+------------------------------------------------------------------------
+
+### Construction d'un score
+
+:::::: local-slide
+```{=html}
+<style>
+.local-slide {
+  font-size: 0.8em;   
+  margin-right: 0.5em;
+}
+</style>
+```
+
+⚠️ On s'intéresse uniquement aux îlots pour lesquels l'évolution du bâti issue des [**données satellites**]{.blue2} est [**plus importante**]{.orange} que l'évolution issue de l'[**enquête cartographique**]{.blue2}
+
+🟠 Le $score$ est calculé sur 2 sous ensembles :
+
+```         
+-   ensemble des logements
+
+-   uniquement les logements en dur
+```
+
+Σ $score=score_{évolution} + score_{sens} + score_{distance}$
+
+⚙️ **Définition des scores** :
+
+::::: {style="display: flex; justify-content: space-around; gap: 2em; font-size: 1em; "}
+::: {style="flex: 1; text-align: left;"}
+✅ $Score_{évolution}$ = 1 si *évolution nb_log recensement [**\<**]{.orange} évolution bâti prédit*, sinon 0
+
+✅ $score_{sens}$ = 1 si *évolution nb_log recensement [**opposé**]{.orange} évoltuion bâti prédit*, sinon 0
+:::
+
+::: {style="flex: 1; text-align: left;"}
+✅ $score_{distance}$ selon la [**distribution**]{.orange} :
+
+| Valeur observée        | $score_{distance}$ |
+|:-----------------------|:------------------:|
+| \< Q₁                  |         0          |
+| Q₁ ≤ valeur \< Médiane |         1          |
+| Médiane ≤ valeur \< Q₃ |         2          |
+| ≥ Q₃                   |         3          |
+:::
+:::::
+::::::
+
+------------------------------------------------------------------------
+
+### Définition des ordres de priorité
+
+::: table-slide
+```{=html}
+<style>
+.table-slide table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 0.9em; /* texte un peu plus petit pour la diapo */
+}
+.table-slide th, .table-slide td {
+  border: 1px solid #ccc;
+  padding: 0.6em 0.8em;
+  text-align: center;
+}
+.table-slide th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: 600;
+}
+.table-slide tr:nth-child(even) {
+  background-color: #fafafa;
+}
+.table-slide tr:hover {
+  background-color: #f0f8ff;
+}
+</style>
+```
+
+| Ordre de priorité | Score (ensemble des logements – logements durs) |
+|-------------------|-------------------------------------------------|
+| 1                 | 5-5                                             |
+| 2                 | 4-5 ou 5-4                                      |
+| 3                 | 4-4                                             |
+| 4                 | 3-5 ou 5-3                                      |
+| 5                 | 3-4 ou 4-3                                      |
+| 6                 | 3-3                                             |
+| 7                 | 2-5 ou 5-2                                      |
+| 8                 | 2-4 ou 4-2                                      |
+
+: Ordres de priorité des îlots avec sous-couverture de logements supposée {#tbl-ordre_p}
+:::
+
+-\> [**cartographie complémentaire**]{.orange} sur les îlots avec un ordre de priorité 1 à 8
+
+------------------------------------------------------------------------
+
+## Exemple d'îlot
+
+:::::: {style="display: flex; align-items: center;"}
+::: {style="flex: 2; font-size: 60%; padding-right: 1em;"}
+-   [•]{style="color: red; font-size: 2em;"} : enquête cartographique complémentaire
+-   [•]{style="color: green; font-size: 2em;"} : enquête cartographique initiale
+:::
+
+<!-- Colonne milieu : image + titre -->
+
+::: {style="flex: 6; text-align: center;"}
+<img src="../img/exemple.png" style="width: 100%;"/><br> [<em> Exemple d'un examen en 2024 d'un îlot de 2021, Bandrele </em>]{style="font-size: 50%;"}
+:::
+
+::: {style="flex: 2; font-size: 60%; padding-left: 1em;"}
+-   : nouveaux logements qui n'existaient pas lors de l'enquête cartographique initiale
+-   : logements possiblement omis lors de l'enquête cartographique initiale
+:::
+::::::
+
+## Bilan
