@@ -161,11 +161,11 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 ::: {style="flex: 1; text-align: left;"}
 ✅ $score_{distance}$ selon la [**distribution**]{.orange} :
 
-| $distance_{îlot$}      | $score_{distance}$ |
+| $distance_{îlot}$      | $score_{distance}$ |
 |:-----------------------|:------------------:|
 | \< Q₁                  |         0          |
-| Q₁ ≤ $distance_{îlot$} \< Médiane |         1          |
-| Médiane ≤ $distance_{îlot$} \< Q₃ |         2          |
+| Q₁ ≤ $distance_{îlot}$ \< Médiane |         1          |
+| Médiane ≤ $distance_{îlot}$ \< Q₃ |         2          |
 | ≥ Q₃                   |         3          |
 :::
 :::::
@@ -257,9 +257,9 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 
 <ul>
 
-<li>Permet de cibler des îlots avec une sous couverture potentielle qui a permis une nouvelle enquête cartographique → amélioration possible de la qualité des pondérations des logements dans les EAR</li>
+<li>Permet de [**cibler**]{.orange} des îlots avec une [**sous couverture potentielle**]{.blue2} qui a permis une nouvelle enquête cartographique → [**amélioration**]{.orange} possible de la [**qualité des pondérations**]{.blue2} des logements dans les EAR</li>
 
-<li>Mobiliser pour l'enquête cartographique préparatrice à la collecte exhaustive 2025/2026</li>
+<li>[**Mobiliser**]{.orange} pour l'enquête cartographique préparatrice à la [**collecte exhaustive 2025/2026**]{.blue2}</li>
 
 </ul>
 :::
@@ -269,11 +269,11 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 
 <ul>
 
-<li>Nuages peuvent nuire à la qualité des données satellites</li>
+<li>[**Nuages**]{.blue2} peuvent [**nuire**]{.orange} à la qualité des données satellites</li>
 
-<li>Images livrées une seule fois par an → décalage avec la prédiction et la collecte car évolution du bâti rapide</li>
+<li>Images livrées [**une fois par an**]{.blue2} → [**décalage**]{.orange} avec la prédiction et la collecte car évolution du bâti rapide</li>
 
-<li>Estimation de la surface bâtie mais pas du nombre de logements</li>
+<li>Estimation de la [**surface bâtie**]{.blue2} mais pas du nombre de [**logements**]{.blue2}</li>
 
 </ul>
 :::
@@ -289,7 +289,7 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
   margin: 0.5em auto;
   text-align: center;
 ">
-📌 Les images satellites peuvent servir à prédire les moyens à mobiliser zone par zone, mais ne remplacent pas le travail de repérage sur le terrain.
+📌 Les [**images satellites**]{.blue2} peuvent servir à prédire les moyens à mobiliser zone par zone, mais [**ne remplacent pas**]{.orange} le travail de repérage sur le terrain.
 </div>
 ::::
 ::::::::
