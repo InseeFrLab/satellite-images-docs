@@ -69,6 +69,8 @@ A la différence des autres départements, à Mayotte la méthode est différent
   <div>[**Contrôle qualité**]{.orange} de l’enquête cartographique [**important**]{.blue} : utilisation des [**données satellites**]{.orange}</div>
 </div>
 </div>
+</div>
+
 
 ## Contrôle de la couverture de l'enquête cartographique
 
