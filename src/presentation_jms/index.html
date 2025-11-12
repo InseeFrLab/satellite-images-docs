@@ -679,7 +679,7 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </section>
 <section id="pipeline-globale" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Pipeline globale 🛠️</h2>
-<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" height="100%" width="100%">
+<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" width="100%" height="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="../img/pipeline_donnees_sat.png" id="fig-chain2" style="width:100.0%;height:100.0%">
@@ -818,32 +818,22 @@ Figure&nbsp;1
 </section>
 <section id="contrôle-de-la-couverture-de-lenquête-cartographique" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Contrôle de la couverture de l’enquête cartographique</h2>
-<ul>
-<li><p>Enquête cartographique → alimente le RIL → constitue la <span class="orange"><strong>base de sondage</strong></span> des logements en dur des communes ≥ 10 000 hab</p></li>
-<li><p><span class="orange"><strong>Sous-estimation</strong></span> du nb logements dans l’enquête carto → populations et logements déduit <span class="orange"><strong>sous-estimé</strong></span></p></li>
-</ul>
-<p>→ <span class="orange"><strong>Contrôle qualité</strong></span> de l’enquête cartographique <span class="blue"><strong>important</strong></span> : utilisation des <span class="orange"><strong>données satellites</strong></span></p>
-</section>
-<section id="contrôle-de-la-couverture-de-lenquête-cartographique-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Contrôle de la couverture de l’enquête cartographique</h2>
 <div class="local-slide">
 <style>
-.local-slide .orange { color: #e67e22; font-weight: 600; }
-.local-slide .blue { color: #2980b9; font-weight: 600; }
 .local-slide .step {
   display: flex;
   align-items: center;
-  margin: 0.5em 0;       /* moins d'espace vertical */
+  margin: 0.5em 0;  
 }
 .local-slide .icon {
-  font-size: 1.5em;      /* ic&#xF4;nes l&#xE9;g&#xE8;rement plus petites */
+  font-size: 1.5em;   
   margin-right: 0.5em;
 }
 .local-slide .arrow {
   text-align: center;
-  font-size: 1em;        /* taille des fl&#xE8;ches r&#xE9;duite */
-  color: #2980b9;        /* bleu */
-  margin: 0.3em 0;       /* moins de marge */
+  font-size: 1em;       
+  color: #2980b9;     
+  margin: 0.3em 0;      
 }
 .local-slide .center {
   text-align: center;
@@ -883,7 +873,7 @@ Figure&nbsp;1
 </div>
 </div>
 </section>
-<section id="contrôle-de-la-couverture-de-lenquête-cartographique-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="contrôle-de-la-couverture-de-lenquête-cartographique-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Contrôle de la couverture de l’enquête cartographique</h2>
 <p>💡 <strong>Objectif :</strong> identifier les îlots avec une sous-couverture potentielle</p>
 <p>📈 <strong>Données utilisées</strong> :</p>
@@ -902,7 +892,7 @@ Figure&nbsp;1
 <tr class="even">
 <td style="text-align: left;">⏱️ <strong>Temporalité</strong></td>
 <td style="text-align: left;"><em>entre 2017 et 2021/2022</em></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><em>entre 2017 et 2021/2022</em></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">📂 <strong>Données utilisées</strong></td>
@@ -911,28 +901,22 @@ Figure&nbsp;1
 </tr>
 </tbody>
 </table>
-<p>2 évolutions comparées :</p>
-<ul>
-<li><span class="orange"><strong>surface bâtie</strong></span> prédites entre 2017 et 2021/2022
-<ul>
-<li><span class="grey"><em>données satellites</em></span></li>
-</ul></li>
-<li><span class="orange"><strong>nombre de logements</strong></span> entre le RP 2017 et les enquêtes cartographiques 2021/2022
-<ul>
-<li><span class="grey"><em>collecte 2017, enquête cartographique 2021, 2022</em></span></li>
-</ul></li>
-</ul>
 </section>
-<section id="identification-des-îlots-avec-une-sous-couverture-potentielle" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Identification des îlots avec une sous-couverture potentielle</h2>
+<section class="slide level2">
+
 <h3 data-background-image="background.svg" data-background-size="contain" id="construction-dun-score">Construction d’un score</h3>
 <div style="background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; font-size: 0.8em; text-align: center; width: fit-content; margin: 0 auto;">
 <p>On s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des données satellites est plus importante que l’évolution issue de l’enquête cartographique</p>
 </div>
 <p>Le <span class="math inline">\(score\)</span> est calculé sur 2 sous ensemble : - ensemble des logements - uniquement les logements en dur</p>
 <p><span class="math inline">\(score=score_{évolution} + score_{sens} + score_{distance}\)</span></p>
-<h3 data-background-image="background.svg" data-background-size="contain" id="définition-des-composantes">⚙️ Définition des composantes</h3>
-<p>✅ <strong><span class="math inline">\(Score_{évolution}\)</span> = 1</strong> si <em>évolution nb_log recensement &lt; évoltuion bâti prédit</em>, sinon 0 ✅ <strong><span class="math inline">\(score_{sens}\)</span> = 1</strong> si <em>évolution nb_log recensement <span class="orange"><strong>opposé</strong></span> évoltuion bâti prédit</em>, sinon 0 ✅ <strong><span class="math inline">\(score_{distance}\)</span></strong> selon la distribution :</p>
+</section>
+<section class="slide level2">
+
+<h3 data-background-image="background.svg" data-background-size="contain" id="définition-des-scores">⚙️ Définition des scores</h3>
+<p>✅ <strong><span class="math inline">\(Score_{évolution}\)</span> = 1</strong> si <em>évolution nb_log recensement &lt; évoltuion bâti prédit</em>, sinon 0</p>
+<p>✅ <strong><span class="math inline">\(score_{sens}\)</span> = 1</strong> si <em>évolution nb_log recensement <span class="orange"><strong>opposé</strong></span> évoltuion bâti prédit</em>, sinon 0</p>
+<p>✅ <strong><span class="math inline">\(score_{distance}\)</span></strong> selon la distribution :</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -960,8 +944,9 @@ Figure&nbsp;1
 </tbody>
 </table>
 </section>
-<section id="définition-des-ordres-de-priorité" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Définition des ordres de priorité</h2>
+<section class="slide level2">
+
+<h3 data-background-image="background.svg" data-background-size="contain" id="définition-des-ordres-de-priorité">Définition des ordres de priorité</h3>
 <div id="tbl-ordre_p" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ordre_p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
