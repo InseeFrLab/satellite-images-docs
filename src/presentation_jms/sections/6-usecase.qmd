@@ -109,25 +109,33 @@ font-size: 0.6em;
 text-align: center; 
 width: fit-content; margin: 0 auto;
 ">
-  On s'intéresse uniquement aux îlots pour lesquels l'évolution du bâti issue des données satellites est plus importante que l'évolution issue de l'enquête cartographique
-</div>
 
-
-Le $score$ est calculé sur 2 sous ensemble : 
+⚠️ On s'intéresse uniquement aux îlots pour lesquels l'évolution du bâti issue des données satellites est plus importante que l'évolution issue de l'enquête cartographique
+  
+🟠 Le $score$ est calculé sur 2 sous ensemble : 
 
 -   ensemble des logements
 
 -   uniquement les logements en dur
 
 
+</div>
+
 $score=score_{évolution} + score_{sens} + score_{distance}$ 
 
-### ⚙️ Définition des scores
+#### ⚙️ Définition des scores
+
+<div style="display: flex; justify-content: space-around; gap: 2em;">
+
+<div style="flex: 1; text-align: left;">
 
 ✅ **$Score_{évolution}$ = 1** si *évolution nb_log recensement < évoltuion bâti prédit*, sinon 0
 
 ✅ **$score_{sens}$ = 1** si *évolution nb_log recensement [**opposé**]{.orange} évoltuion bâti prédit*, sinon 0 
 
+</div>
+
+<div style="flex: 1; text-align: left;">
 ✅ **$score_{distance}$** selon la distribution :
 
 | Valeur observée | $score_{distance}$ |
@@ -136,6 +144,8 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 | Q₁ ≤ valeur < Médiane | 1 |
 | Médiane ≤ valeur < Q₃ | 2 |
 | ≥ Q₃ | 3 |
+
+</div>
 
 ---
 
