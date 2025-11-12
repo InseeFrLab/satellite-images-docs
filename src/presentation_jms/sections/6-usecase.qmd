@@ -62,7 +62,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 <div>
 
-[**Sous-estimation**]{.orange} du [**nb logements**]{.blue2} dans l'enquête carto → [**populations**]{.blue2} et [**logements**]{.blue2} déduits [**sous-estimé**]{.orange}
+[**Sous-estimation**]{.orange} du [**nb logements**]{.blue2} dans l'enquête carto → [**populations**]{.blue2} et [**logements**]{.blue2} déduits [**sous-estimés**]{.orange}
 
 </div>
 :::::
@@ -95,7 +95,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 |:-----------------------|:-----------------------|:-----------------------|
 | 🟠 **Évolutions comparées** | [**Surface bâtie**]{.orange} *(prédite)* | [**Nombre de logements**]{.orange} |
 | ⏱️ **Temporalité** | *entre 2017 et 2021/2022* | *entre 2017 et 2021/2022* |
-| 📂 **Données utilisées** | [*données satellites*]{.grey} *(Surface bâtie)* | [*RP 2017, enquêtes cartographique 2021 et 2022*]{.grey} *(Nombre de logements)* |
+| 📂 **Données utilisées** | [*données satellites*]{.grey} | [*RP 2017, enquêtes cartographique 2021 et 2022*]{.grey}|
 
 ------------------------------------------------------------------------
 
@@ -161,11 +161,11 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 ::: {style="flex: 1; text-align: left;"}
 ✅ $score_{distance}$ selon la [**distribution**]{.orange} :
 
-| Valeur observée        | $score_{distance}$ |
+| $distance_{îlot$}      | $score_{distance}$ |
 |:-----------------------|:------------------:|
 | \< Q₁                  |         0          |
-| Q₁ ≤ valeur \< Médiane |         1          |
-| Médiane ≤ valeur \< Q₃ |         2          |
+| Q₁ ≤ $distance_{îlot$} \< Médiane |         1          |
+| Médiane ≤ $distance_{îlot$} \< Q₃ |         2          |
 | ≥ Q₃                   |         3          |
 :::
 :::::
@@ -217,7 +217,7 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 : Ordres de priorité des îlots avec sous-couverture de logements supposée {#tbl-ordre_p}
 :::
 
--\> [**cartographie complémentaire**]{.orange} sur les îlots avec un ordre de priorité 1 à 8
+-\> [**cartographie complémentaire**]{.orange} sur les îlots avec un [**ordre de priorité 1 à 8**]{.blue2}
 
 ------------------------------------------------------------------------
 
@@ -236,8 +236,15 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 :::
 
 ::: {style="flex: 2; font-size: 60%; padding-left: 1em;"}
--   : nouveaux logements qui n'existaient pas lors de l'enquête cartographique initiale
--   : logements possiblement omis lors de l'enquête cartographique initiale
+-  <span style="display:inline-block; width:0.7em; height:0.7em; border:2px solid #2ecc71; border-radius:50%; margin-right:0.4em;"></span> nouveaux logements qui n'existaient pas lors de l'enquête cartographique initiale
+-  <span style="
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  border: 2px solid #000000;  
+  border-radius: 50%;
+  margin-right: 0.4em;
+"></span> logements possiblement omis lors de l'enquête cartographique initiale
 :::
 ::::::
 
