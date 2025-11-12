@@ -68,15 +68,18 @@
       }
     }
   )
-  set par(justify: true)
+  set par(justify: true, first-line-indent: (amount: 1em, all: true))
   set text(lang: lang,
            region: region,
            font: font,
            size: fontsize)
+
   set heading(numbering: sectionnumbering)
-  show heading.where(level: 1): set text(size: 1em)
-  show heading.where(level: 2): set text(size: 1.1em)
-  show heading.where(level: 3): set text(size: 1em)
+  show heading: set text(size: 1.1em)
+  show heading.where(level: 1): set block(below: 1.2em, above: 1.6em)
+  show heading.where(level: 2): set block(below: 1.2em, above: 1.6em)
+  show heading.where(level: 3): set block(below: 1.2em, above: 1.6em)
+  
   show footnote: set text(size: 1.2em) // taille de l'appel de note dans le corps du texte
   set footnote.entry(indent: 0em) // indentation dans la note de bas de page
   // modifie les tailles dans la note de bas de page
@@ -92,7 +95,11 @@
   }
 
   if header.len() > 0 {
-    align(header.location,  image(header.path, width: header.width, alt: header.alt))
+    align(header.location,
+      box(inset: (left: 0.8cm))[
+        #image(header.path, width: header.width, alt: header.alt)
+      ]
+    )
   }
   
   if title != none {
@@ -100,7 +107,7 @@
       #set par(leading: heading-line-height)
       #if (heading-family != none or heading-weight != "bold" or heading-style != "normal"
            or heading-color != black) {
-        set text(font: heading-family, weight: heading-weight, style: heading-style, fill: heading-color)
+        set text(font: heading-family, weight: heading-weight, style: heading-style, fill: heading-color, hyphenate: false)
         text(size: title-size)[#smallcaps[#title]]
         if subtitle != none {
           parbreak()
@@ -127,7 +134,7 @@
       })
 
     emph(align(center)[
-      #set text(size: 1.1em)
+      #set text(size: 1.1em, hyphenate: false)
       #authors.map(author => {
         let (name, stars, ) = author
         name + " " + stars
@@ -151,19 +158,30 @@
     arr
   }
 
-  if keywords.len() > 0 {
+    v(15pt)
+
+
+    if keywords.len() > 0 {
     block[
       #set par(justify: false)
-      #set text(size: 1.1em)
-      #strong[Mots-clés] : #capitalize-first-word(keywords).join(", ")
+      #set text(size: 0.95em)
+      #strong[Mots-clés] : #if type(keywords) == array {
+        capitalize-first-word(keywords).join(", ")
+      } else {
+        capitalize(keywords)
+      }
     ]
   }
 
   if domains.len() > 0 {
     block[
       #set par(justify: false)
-      #set text(size: 1.1em)
-      #strong[Domaines] : #capitalize-first-word(domains).join(", ")
+      #set text(size: 0.95em)
+      #strong[Domaines] : #if type(domains) == array {
+        capitalize-first-word(domains).join(", ")
+      } else {
+        capitalize(domains)
+      }
     ]
   }
 
@@ -173,19 +191,34 @@
     ]]
   }
 
+    align(center)[
+      #line(length: 50%, stroke: 1pt + rgb("#633250"))
+    ]  
+
   if resume != none {
+
     block[
       #text(weight: "semibold", size: 1.2em)[Résumé] \ 
-      #emph(resume)
+      #set par(justify: true, first-line-indent: 1em)
+      #v(3pt) 
+      #text(size: 0.9em)[#resume]
+      #v(8pt) 
     ]
   }
 
   if abstract != none {
     block[
       #text(weight: "semibold", size: 1.2em)[#abstract-title] \ 
-      #emph(abstract)
+      #set par(justify: true, first-line-indent: 1em)
+      #v(3pt) 
+      #text(size: 0.9em)[#abstract]
+      #v(8pt) 
     ]
   }
+
+  align(center)[
+    #line(length: 50%, stroke: 1pt + rgb("#633250"))
+  ]
 
   if toc {
     let title = if toc_title == none {
@@ -213,3 +246,11 @@
   inset: 6pt,
   stroke: none
 )
+#show table.cell.where(y: 0): strong
+#show table.cell: set text(size: 0.8em)
+
+
+#show figure.where(
+): set figure(scope: "parent", placement: auto)
+#show figure: set text(size: 0.9em)
+#show figure: set block(inset: (bottom: 0.2em))
