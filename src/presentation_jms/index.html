@@ -935,17 +935,21 @@ font-size: 0.6em;
 text-align: center; 
 width: fit-content; margin: 0 auto;
 ">
-<p>On s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des données satellites est plus importante que l’évolution issue de l’enquête cartographique</p>
-</div>
-<p>Le <span class="math inline">\(score\)</span> est calculé sur 2 sous ensemble :</p>
+<p>⚠️ On s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des données satellites est plus importante que l’évolution issue de l’enquête cartographique</p>
+<p>🟠 Le <span class="math inline">\(score\)</span> est calculé sur 2 sous ensemble :</p>
 <ul>
 <li><p>ensemble des logements</p></li>
 <li><p>uniquement les logements en dur</p></li>
 </ul>
+</div>
 <p><span class="math inline">\(score=score_{évolution} + score_{sens} + score_{distance}\)</span></p>
-<h3 data-background-image="background.svg" data-background-size="contain" id="définition-des-scores">⚙️ Définition des scores</h3>
+<h4 data-background-image="background.svg" data-background-size="contain" id="définition-des-scores">⚙️ Définition des scores</h4>
+<div style="display: flex; justify-content: space-around; gap: 2em;">
+<div style="flex: 1; text-align: left;">
 <p>✅ <strong><span class="math inline">\(Score_{évolution}\)</span> = 1</strong> si <em>évolution nb_log recensement &lt; évoltuion bâti prédit</em>, sinon 0</p>
 <p>✅ <strong><span class="math inline">\(score_{sens}\)</span> = 1</strong> si <em>évolution nb_log recensement <span class="orange"><strong>opposé</strong></span> évoltuion bâti prédit</em>, sinon 0</p>
+</div>
+<div style="flex: 1; text-align: left;">
 <p>✅ <strong><span class="math inline">\(score_{distance}\)</span></strong> selon la distribution :</p>
 <table class="caption-top">
 <thead>
@@ -973,6 +977,7 @@ width: fit-content; margin: 0 auto;
 </tr>
 </tbody>
 </table>
+</div>
 <hr>
 <h3 data-background-image="background.svg" data-background-size="contain" id="définition-des-ordres-de-priorité">Définition des ordres de priorité</h3>
 <div id="tbl-ordre_p" class="quarto-float quarto-figure quarto-figure-center">
@@ -1091,6 +1096,7 @@ Table&nbsp;1: Ordres de priorité des îlots avec sous-couverture de logements s
 
 </section>
 
+</div>
 </div>
 </section></section>
     </div>
