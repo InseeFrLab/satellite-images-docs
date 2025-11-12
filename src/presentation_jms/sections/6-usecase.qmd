@@ -49,40 +49,18 @@ Le $score$ est calculé sur 2 sous ensemble :
 
 $score=score_{évolution} + score_{sens} + score_{distance}$ 
 
-## Identification des îlots avec une sous-couverture potentielle
+### ⚙️ Définition des composantes
 
-### Construction d'un score
+✅ **$Score_{évolution}$ = 1** si *évolution nb_log recensement < évoltuion bâti prédit*, sinon 0
+✅ **$score_{sens}$ = 1** si *évolution nb_log recensement [**opposé**]{.orange} évoltuion bâti prédit*, sinon 0 
+✅ **$score_{distance}$** selon la distribution :
 
-$score_{évolution}$ vaut :
-
-
--   1 si l’évolution du nombre de logements dans le recensement est plus faible que celle de la surface bâtie (données satellites)
-
-
--   0 sinon
-
- $score_{sens}$ vaut :
-
-
--   1 si l’évolution du nombre de logements dans le recensement est dans le sens opposé de celle de la surface bâtie (données satellites)
-
-
--   0 sinon
-
-
-$score_{distance}$ vaut :
-
-
--   0 si $distance\_{ilot} ≤ Q1$
-
-
--   1 si $Q1 < distance\_{ilot} ≤ médiane$
-
-
--   2 si $médiane < distance\_{ilot} ≤ Q3$
-
-
--   3 si $distance\_{ilot} > Q3$
+| Valeur observée | $score_{distance}$ |
+|:-----------------|:--------:|
+| < Q₁ | 1 |
+| Q₁ ≤ valeur < Médiane | 2 |
+| Médiane ≤ valeur < Q₃ | 3 |
+| ≥ Q₃ | 4 |
 
 
 ## Définition des ordres de priorité
