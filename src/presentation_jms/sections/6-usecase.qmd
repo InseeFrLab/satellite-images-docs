@@ -120,25 +120,17 @@ A la différence des autres départements, à Mayotte la méthode est différent
     -   uniquement les logements en dur
 
 ::: {style="
-border: 2px solid #2980b9;\
-border-radius: 8px;\
-padding: 10px 15px;\
-background-color: #eaf4fc;\
-display: inline-block; margin: 1em auto; text-align: center; "} $score=score_{évolution} + score_{sens} + score_{distance}$
+border: 2px solid #2980b9; border-radius: 8px; padding: 10px 15px; background-color: #eaf4fc; display: inline-block; margin: 1em auto; text-align: center; "} $score=score_{évolution} + score_{sens} + score_{distance}$
 :::
+::::
 
 ------------------------------------------------------------------------
-::::
 
 ### Construction d'un score
 
 ::::::: local-slide
 ::: {style="
-border: 2px solid #2980b9;\
-border-radius: 8px;\
-padding: 10px 15px;\
-background-color: #eaf4fc;\
-display: inline-block; margin: 1em auto; text-align: center; "} $score=score_{évolution} + score_{sens} + score_{distance}$
+border: 2px solid #2980b9; border-radius: 8px; padding: 10px 15px; background-color: #eaf4fc; display: inline-block; margin: 1em auto; text-align: center; "} $score=score_{évolution} + score_{sens} + score_{distance}$
 :::
 
 ⚙️ **Définition des scores** :
@@ -235,7 +227,7 @@ display: inline-block; margin: 1em auto; text-align: center; "} $score=score_{é
 
 ## Bilan
 
-::::::: {style="font-size: 0.8em;"}
+:::::::: {style="font-size: 0.8em;"}
 ::::: {style="display: flex; gap: 3em; justify-content: center;"}
 ::: {style="flex: 1; text-align: left;"}
 <h3>✅ Avantages</h3>
@@ -266,15 +258,17 @@ display: inline-block; margin: 1em auto; text-align: center; "} $score=score_{é
 
 <br>
 
+:::: local-slide
 ::: {style="
-  border: 2px solid #2980b9;
-  border-radius: 8px;
-  padding: 6px 10px;
-  background-color: #eaf4fc;
-  text-align: center;
-  margin: 0.3em auto 0;   /* 🔹 marge réduite haut/bas */
-  width: 90%;
-"}
+border: 2px solid #2980b9;
+border-radius: 8px; 
+padding: 10px 15px; 
+background-color: #eaf4fc;
+display: inline-block; 
+margin: 1em auto; 
+text-align: center; "} 
+
 📌 Les images satellites peuvent servir à prédire les moyens à mobiliser zone par zone, mais ne remplacent pas le travail de repérage sur le terrain.
 :::
-:::::::
+::::
+::::::::
