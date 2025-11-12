@@ -1,3 +1,27 @@
+
+<style>
+.orange { color: #e67e22; font-weight: 600; }
+.blue { color: #2980b9; font-weight: 600; }
+.step {
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+}
+.icon {
+  font-size: 1.8em;
+  margin-right: 0.6em;
+}
+.arrow {
+  text-align: center;
+  font-size: 2em;
+  color: #bdc3c7;
+  margin: 0.5em 0;
+}
+.center {
+  text-align: center;
+}
+</style>
+
 ## Cas d'usage : Le recensement à Mayotte
 
 -   Depuis 2021 : recensement avec fonctionnement [**quinquennal**]{.orange}
@@ -20,6 +44,30 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 
  →  [**Contrôle qualité**]{.orange} de l'enquête cartographique [**important**]{.blue} : utilisation des [**données satellites**]{.orange}
+ 
+ 
+## Contrôle de la couverture de l'enquête cartographique
+
+<div class="center">
+<div class="step">
+  <div class="icon">🧾</div>
+  <div>**Enquête cartographique ** → alimente le *RIL* → constitue la [**base de sondage**]{.orange} des logements durs des communes ≥ 10 000 habitants </div>
+</div>
+
+<div class="arrow">⬇️</div>
+
+<div class="step">
+  <div class="icon">⚠️</div>
+  <div>[**Sous-estimation**]{.orange} du nb logements dans l'enquête carto → populations et logements déduit [**sous-estimé**]{.orange}</div>
+</div>
+
+<div class="arrow">⬇️</div>
+
+<div class="step">
+  <div class="icon">🔍</div>
+  <div>[**Contrôle qualité**]{.orange} de l’enquête cartographique [**important**]{.blue} : utilisation des [**données satellites**]{.orange}</div>
+</div>
+</div>
 
 ## Contrôle de la couverture de l'enquête cartographique
 
@@ -27,11 +75,12 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 📈 **Données utilisées** : 
 
+
 | | |
 |:--|:--|
-| **Surface bâtie*** *(prédite)* | **Nombre de logements*** *(observée)* |
-| *entre 2017 et 2021/2022* | *entre 2017 et 2021/20222* |
-| [*données satellites*]{.grey} | [*RP 2017, enquêtes cartographique 2021 et 2022*]{.grey} |
+| 🟠 **Évolutions comparées** | [**Surface bâtie**]{.orange} *(prédite)*  vs  [**Nombre de logements**]{.orange} |
+| ⏱️ **Temporalité** | *entre 2017 et 2021/2022* |
+| 📂 **Données utilisées** | [*onnées satellites*]{.grey} *(Surface bâtie)*  •  [*RP 2017, enquêtes cartographique 2021 et 2022*]{.grey} *(Nombre de logements)* |
 
 
 2 évolutions comparées : 
