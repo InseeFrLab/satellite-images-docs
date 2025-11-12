@@ -76,11 +76,11 @@ A la différence des autres départements, à Mayotte la méthode est différent
 📈 **Données utilisées** : 
 
 
-| | |
-|:--|:--|
-| 🟠 **Évolutions comparées** | [**Surface bâtie**]{.orange} *(prédite)*  vs  [**Nombre de logements**]{.orange} |
+| | | |
+|:--|:--|:--|
+| 🟠 **Évolutions comparées** | [**Surface bâtie**]{.orange} *(prédite)*  |  [**Nombre de logements**]{.orange} |
 | ⏱️ **Temporalité** | *entre 2017 et 2021/2022* |
-| 📂 **Données utilisées** | [*onnées satellites*]{.grey} *(Surface bâtie)*  •  [*RP 2017, enquêtes cartographique 2021 et 2022*]{.grey} *(Nombre de logements)* |
+| 📂 **Données utilisées** | [*données satellites*]{.grey} *(Surface bâtie)*  |  [*RP 2017, enquêtes cartographique 2021 et 2022*]{.grey} *(Nombre de logements)* |
 
 
 2 évolutions comparées : 
