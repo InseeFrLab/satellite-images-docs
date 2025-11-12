@@ -92,7 +92,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 📈 **Données utilisées** :
 
 |  |  |  |
-|:---|:---|:---|
+|:-----------------------|:-----------------------|:-----------------------|
 | 🟠 **Évolutions comparées** | [**Surface bâtie**]{.orange} *(prédite)* | [**Nombre de logements**]{.orange} |
 | ⏱️ **Temporalité** | *entre 2017 et 2021/2022* | *entre 2017 et 2021/2022* |
 | 📂 **Données utilisées** | [*données satellites*]{.grey} *(Surface bâtie)* | [*RP 2017, enquêtes cartographique 2021 et 2022*]{.grey} *(Nombre de logements)* |
@@ -101,7 +101,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 ### Construction d'un score
 
-:::::: local-slide
+::::::: local-slide
 ```{=html}
 <style>
 .local-slide {
@@ -113,23 +113,31 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 ⚠️ On s'intéresse uniquement aux îlots pour lesquels l'évolution du bâti issue des [**données satellites**]{.blue2} est [**plus importante**]{.orange} que l'évolution issue de l'[**enquête cartographique**]{.blue2}
 
-🟠 Le $score$ est calculé sur 2 sous ensembles :
+-   Le $score$ est calculé sur 2 sous ensembles :
 
-```         
--   ensemble des logements
+    -   ensemble des logements
 
--   uniquement les logements en dur
-```
+    -   uniquement les logements en dur
 
-Σ $score=score_{évolution} + score_{sens} + score_{distance}$
+<div style="
+  border: 2px solid #e67e22;  
+  border-radius: 8px;        
+  padding: 10px 15px;         
+  background-color: #fff8e1;  
+  display: inline-block;
+  margin: 1em auto;
+  text-align: center;
+">
+$score=score_{évolution} + score_{sens} + score_{distance}$
+</div>
 
 ⚙️ **Définition des scores** :
 
-::::: {style="display: flex; justify-content: space-around; gap: 2em; font-size: 1em; "}
+::::: {style="display: flex; justify-content: space-around; gap: 2em; font-size: 0.9em; "}
 ::: {style="flex: 1; text-align: left;"}
 ✅ $Score_{évolution}$ = 1 si *évolution nb_log recensement [**\<**]{.orange} évolution bâti prédit*, sinon 0
 
-✅ $score_{sens}$ = 1 si *évolution nb_log recensement [**opposé**]{.orange} évoltuion bâti prédit*, sinon 0
+✅ $score_{sens}$ = 1 si *évolution nb_log recensement [**opposé**]{.orange} évolution bâti prédit*, sinon 0
 :::
 
 ::: {style="flex: 1; text-align: left;"}
@@ -143,7 +151,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 | ≥ Q₃                   |         3          |
 :::
 :::::
-::::::
+:::::::
 
 ------------------------------------------------------------------------
 
