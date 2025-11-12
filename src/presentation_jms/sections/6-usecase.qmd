@@ -11,38 +11,26 @@ Pour précisier, ces travaux font référence aux enquêtes ayant eu lieu de 202
 
 A la différence des autres départements, à Mayotte la méthode est différente entre les habitations en dur et les habitations de fortune. Pour les habitations de fortune, le recensement y est exhaustif que ça soit en petite ou grande commune, par contre pour les logements en dur; il n'est exhaustif qu'en petite commune et par sondage dans les communes de plus de 10 000 habitants.
 :::
-
-## Contrôle de la couverture de l'enquête cartographique
-
--   Enquête cartographique → alimente le RIL → constitue la [**base de sondage**]{.orange} des logements en dur des communes ≥ 10 000 hab
-
--   [**Sous-estimation**]{.orange} du nb logements dans l'enquête carto → populations et logements déduit [**sous-estimé**]{.orange}
-
-
- →  [**Contrôle qualité**]{.orange} de l'enquête cartographique [**important**]{.blue} : utilisation des [**données satellites**]{.orange}
- 
  
 ## Contrôle de la couverture de l'enquête cartographique
 
 <div class="local-slide">
 
 <style>
-.local-slide .orange { color: #e67e22; font-weight: 600; }
-.local-slide .blue { color: #2980b9; font-weight: 600; }
 .local-slide .step {
   display: flex;
   align-items: center;
-  margin: 0.5em 0;       /* moins d'espace vertical */
+  margin: 0.5em 0;  
 }
 .local-slide .icon {
-  font-size: 1.5em;      /* icônes légèrement plus petites */
+  font-size: 1.5em;   
   margin-right: 0.5em;
 }
 .local-slide .arrow {
   text-align: center;
-  font-size: 1em;        /* taille des flèches réduite */
-  color: #2980b9;        /* bleu */
-  margin: 0.3em 0;       /* moins de marge */
+  font-size: 1em;       
+  color: #2980b9;     
+  margin: 0.3em 0;      
 }
 .local-slide .center {
   text-align: center;
@@ -82,19 +70,10 @@ A la différence des autres départements, à Mayotte la méthode est différent
 | | | |
 |:--|:--|:--|
 | 🟠 **Évolutions comparées** | [**Surface bâtie**]{.orange} *(prédite)*  |  [**Nombre de logements**]{.orange} |
-| ⏱️ **Temporalité** | *entre 2017 et 2021/2022* |
+| ⏱️ **Temporalité** | *entre 2017 et 2021/2022* |  *entre 2017 et 2021/2022* |
 | 📂 **Données utilisées** | [*données satellites*]{.grey} *(Surface bâtie)*  |  [*RP 2017, enquêtes cartographique 2021 et 2022*]{.grey} *(Nombre de logements)* |
-
-
-2 évolutions comparées : 
-
--   [**surface bâtie**]{.orange} prédites entre 2017 et 2021/2022
-    -   [*données satellites*]{.grey}
-
--   [**nombre de logements**]{.orange} entre le RP 2017 et les enquêtes cartographiques 2021/2022 
-    -   [*collecte 2017, enquête cartographique 2021, 2022*]{.grey}
     
-## Identification des îlots avec une sous-couverture potentielle
+---
 
 ### Construction d'un score 
 
@@ -110,10 +89,14 @@ Le $score$ est calculé sur 2 sous ensemble :
 
 $score=score_{évolution} + score_{sens} + score_{distance}$ 
 
-### ⚙️ Définition des composantes
+---
+
+### ⚙️ Définition des scores
 
 ✅ **$Score_{évolution}$ = 1** si *évolution nb_log recensement < évoltuion bâti prédit*, sinon 0
+
 ✅ **$score_{sens}$ = 1** si *évolution nb_log recensement [**opposé**]{.orange} évoltuion bâti prédit*, sinon 0 
+
 ✅ **$score_{distance}$** selon la distribution :
 
 | Valeur observée | $score_{distance}$ |
@@ -123,8 +106,9 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 | Médiane ≤ valeur < Q₃ | 2 |
 | ≥ Q₃ | 3 |
 
+---
 
-## Définition des ordres de priorité
+### Définition des ordres de priorité
 
 | Ordre de priorité | Score (ensemble des logements – logements durs) |
 |-------------------|-------------------------------------------------|
@@ -142,6 +126,8 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 
 
 -> [**cartographie complémentaire**]{.orange} sur les îlots avec un ordre de priorité 1 à 8 
+
+---
 
 ## Exemple d'îlot
 
