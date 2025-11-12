@@ -182,7 +182,7 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
   border-collapse: collapse;
   width: 80%;
   margin: 0 auto;
-  font-size: 0.9em; /* texte un peu plus petit pour la diapo */
+  font-size: 0.8em; /* texte un peu plus petit pour la diapo */
 }
 .table-slide th, .table-slide td {
   border: 1px solid #ccc;
@@ -271,8 +271,6 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 </ul>
 :::
 :::::
-
-<br>
 
 :::: local-slide
 <div style="
