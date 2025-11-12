@@ -796,7 +796,7 @@ Figure&nbsp;1
 <ul>
 <li>Depuis 2021 : recensement avec fonctionnement <span class="orange"><strong>quinquennal</strong></span>
 <ul>
-<li>territoire divisé en îlots</li>
+<li>territoire divisé en <span class="blue2"><strong>îlots</strong></span></li>
 <li>ilôts repartis dans 5 groupes de rotation</li>
 </ul></li>
 </ul>
@@ -845,7 +845,7 @@ Figure&nbsp;1
 <p>🧾</p>
 </div>
 <div>
-<p><strong>Enquête cartographique</strong> → alimente le <em>RIL</em> → constitue la <span class="orange"><strong>base de sondage</strong></span> des logements durs des communes ≥ 10 000 habitants</p>
+<p><strong>Enquête cartographique</strong> → alimente le <span class="blue2"><strong>RIL</strong></span> → constitue la <span class="orange"><strong>base de sondage</strong></span> des <span class="blue2"><strong>logements durs</strong></span> des communes ≥ 10 000 habitants</p>
 </div>
 </div>
 <div class="arrow">
@@ -856,7 +856,7 @@ Figure&nbsp;1
 <p>⚠️</p>
 </div>
 <div>
-<p><span class="orange"><strong>Sous-estimation</strong></span> du nb logements dans l’enquête carto → populations et logements déduit <span class="orange"><strong>sous-estimé</strong></span></p>
+<p><span class="orange"><strong>Sous-estimation</strong></span> du <span class="blue2"><strong>nb logements</strong></span> dans l’enquête carto → <span class="blue2"><strong>populations</strong></span> et <span class="blue2"><strong>logements</strong></span> déduits <span class="orange"><strong>sous-estimé</strong></span></p>
 </div>
 </div>
 <div class="arrow">
@@ -867,7 +867,7 @@ Figure&nbsp;1
 <p>🔍</p>
 </div>
 <div>
-<p><span class="orange"><strong>Contrôle qualité</strong></span> de l’enquête cartographique <span class="blue"><strong>important</strong></span> : utilisation des <span class="orange"><strong>données satellites</strong></span></p>
+<p><span class="orange"><strong>Contrôle qualité</strong></span> de l’enquête cartographique <span class="blue2"><strong>important</strong></span> : utilisation des <span class="orange"><strong>données satellites</strong></span></p>
 </div>
 </div>
 </div>
@@ -912,21 +912,20 @@ Figure&nbsp;1
   margin-right: 0.5em;
 }
 </style>
-<p>⚠️ On s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des données satellites est plus importante que l’évolution issue de l’enquête cartographique</p>
+<p>⚠️ On s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des <span class="blue2"><strong>données satellites</strong></span> est <span class="orange"><strong>plus importante</strong></span> que l’évolution issue de l’<span class="blue2"><strong>enquête cartographique</strong></span></p>
 <p>🟠 Le <span class="math inline">\(score\)</span> est calculé sur 2 sous ensembles :</p>
-<ul>
-<li><p>ensemble des logements</p></li>
-<li><p>uniquement les logements en dur</p></li>
-</ul>
+<pre><code>-   ensemble des logements
+
+-   uniquement les logements en dur</code></pre>
 <p>Σ <span class="math inline">\(score=score_{évolution} + score_{sens} + score_{distance}\)</span></p>
 <p>⚙️ <strong>Définition des scores</strong> :</p>
-<div style="display: flex; justify-content: space-around; gap: 2em; font-size: 0.6em; ">
+<div style="display: flex; justify-content: space-around; gap: 2em; font-size: 0.7em; ">
 <div style="flex: 1; text-align: left;">
-<p>✅ <span class="math inline">\(Score_{évolution}\)</span> = 1 si <em>évolution nb_log recensement &lt; évoltuion bâti prédit</em>, sinon 0</p>
+<p>✅ <span class="math inline">\(Score_{évolution}\)</span> = 1 si <em>évolution nb_log recensement <span class="orange"><strong>&lt;</strong></span> évolution bâti prédit</em>, sinon 0</p>
 <p>✅ <span class="math inline">\(score_{sens}\)</span> = 1 si <em>évolution nb_log recensement <span class="orange"><strong>opposé</strong></span> évoltuion bâti prédit</em>, sinon 0</p>
 </div>
 <div style="flex: 1; text-align: left;">
-<p>✅ <span class="math inline">\(score_{distance}\)</span> selon la distribution :</p>
+<p>✅ <span class="math inline">\(score_{distance}\)</span> selon la <span class="orange"><strong>distribution</strong></span> :</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -960,6 +959,31 @@ Figure&nbsp;1
 <section class="slide level2">
 
 <h3 data-background-image="background.svg" data-background-size="contain" id="définition-des-ordres-de-priorité">Définition des ordres de priorité</h3>
+<div class="table-slide">
+<style>
+.table-slide table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 0.9em; /* texte un peu plus petit pour la diapo */
+}
+.table-slide th, .table-slide td {
+  border: 1px solid #ccc;
+  padding: 0.6em 0.8em;
+  text-align: center;
+}
+.table-slide th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: 600;
+}
+.table-slide tr:nth-child(even) {
+  background-color: #fafafa;
+}
+.table-slide tr:hover {
+  background-color: #f0f8ff;
+}
+</style>
 <div id="tbl-ordre_p" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ordre_p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1010,6 +1034,7 @@ Table&nbsp;1: Ordres de priorité des îlots avec sous-couverture de logements s
 </table>
 </div>
 </figure>
+</div>
 </div>
 <p>-&gt; <span class="orange"><strong>cartographie complémentaire</strong></span> sur les îlots avec un ordre de priorité 1 à 8</p>
 </section>
