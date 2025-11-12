@@ -131,7 +131,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 $score=score_{évolution} + score_{sens} + score_{distance}$
 </div>
 
---------------------------
+---
 
 ### Construction d'un score
 
@@ -241,6 +241,8 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 
 ## Bilan
 
+<div style="font-size: 0.8em;"> 
+
 <div style="display: flex; gap: 3em; justify-content: center;">
 
 <div style="flex: 1; text-align: left;">
@@ -266,4 +268,6 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 
 <div style="border: 2px solid #2980b9; border-radius: 8px; padding: 10px 15px; background-color: #eaf4fc; text-align: center; margin: 1em auto; width: 90%;">
 📌 Les images satellites peuvent servir à prédire les moyens à mobiliser zone par zone, mais ne remplacent pas le travail de repérage sur le terrain.
+</div>
+
 </div>
