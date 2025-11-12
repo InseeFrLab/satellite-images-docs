@@ -106,7 +106,7 @@ border: 1px solid #ccc;
 border-radius: 5px; 
 padding: 5px 10px; 
 font-size: 0.6em; 
-text-align: center; 
+text-align: left; 
 width: fit-content; margin: 0 auto;
 ">
 
@@ -145,6 +145,7 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 | Médiane ≤ valeur < Q₃ | 2 |
 | ≥ Q₃ | 3 |
 
+</div>
 </div>
 
 ---
