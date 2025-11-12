@@ -120,10 +120,26 @@ A la différence des autres départements, à Mayotte la méthode est différent
     -   uniquement les logements en dur
 
 <div style="
-  border: 2px solid #e67e22;  
+  border: 2px solid #2980b9;  
   border-radius: 8px;        
   padding: 10px 15px;         
-  background-color: #fff8e1;  
+  background-color: #eaf4fc;  
+  display: inline-block;
+  margin: 1em auto;
+  text-align: center;
+">
+$score=score_{évolution} + score_{sens} + score_{distance}$
+</div>
+
+--------------------------
+
+### Construction d'un score
+
+<div style="
+  border: 2px solid #2980b9;  
+  border-radius: 8px;        
+  padding: 10px 15px;         
+  background-color: #eaf4fc;  
   display: inline-block;
   margin: 1em auto;
   text-align: center;
