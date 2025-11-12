@@ -4,7 +4,7 @@
     -   territoire divisé en [**îlots**]{.blue2}
     -   ilôts repartis dans 5 groupes de rotation
 
-<img src="../img/Enquête cartographique.png" style="width: 100%;"/><br> [<ec> Exemple d'organisation d'une enquête annuelle de recensement (1 groupe de rotation enquêté) </ec>]
+<img src="../img/enquete_carto.png style="width: 100%;"/><br> [<em> Exemple d'organisation d'une enquête annuelle de recensement (1 groupe de rotation enquêté) </em>]
 
 ::: notes
 Pour précisier, ces travaux font référence aux enquêtes ayant eu lieu de 2021 à 2024. En 2025, du fait du cyclone Chido, la cinquième et dernière enquête du premier cycle n’a pas pu être réalisée. Il a alors été décidé de réaliser de nouveau un recensement exhaustif de la population qui aura lieu du 27 novembre 2025 au 10 janvier 2026.
