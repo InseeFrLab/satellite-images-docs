@@ -679,7 +679,7 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </section>
 <section id="pipeline-globale" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Pipeline globale 🛠️</h2>
-<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" width="100%" height="100%">
+<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" height="100%" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="../img/pipeline_donnees_sat.png" id="fig-chain2" style="width:100.0%;height:100.0%">
@@ -856,7 +856,7 @@ Figure&nbsp;1
 <p>⚠️</p>
 </div>
 <div>
-<p><span class="orange"><strong>Sous-estimation</strong></span> du <span class="blue2"><strong>nb logements</strong></span> dans l’enquête carto → <span class="blue2"><strong>populations</strong></span> et <span class="blue2"><strong>logements</strong></span> déduits <span class="orange"><strong>sous-estimé</strong></span></p>
+<p><span class="orange"><strong>Sous-estimation</strong></span> du <span class="blue2"><strong>nb logements</strong></span> dans l’enquête carto → <span class="blue2"><strong>populations</strong></span> et <span class="blue2"><strong>logements</strong></span> déduits <span class="orange"><strong>sous-estimés</strong></span></p>
 </div>
 </div>
 <div class="arrow">
@@ -896,8 +896,8 @@ Figure&nbsp;1
 </tr>
 <tr class="odd">
 <td style="text-align: left;">📂 <strong>Données utilisées</strong></td>
-<td style="text-align: left;"><span class="grey"><em>données satellites</em></span> <em>(Surface bâtie)</em></td>
-<td style="text-align: left;"><span class="grey"><em>RP 2017, enquêtes cartographique 2021 et 2022</em></span> <em>(Nombre de logements)</em></td>
+<td style="text-align: left;"><span class="grey"><em>données satellites</em></span></td>
+<td style="text-align: left;"><span class="grey"><em>RP 2017, enquêtes cartographique 2021 et 2022</em></span></td>
 </tr>
 </tbody>
 </table>
@@ -959,7 +959,7 @@ Figure&nbsp;1
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Valeur observée</th>
+<th style="text-align: left;"><span class="math inline">\(distance_{îlot\)</span>}</th>
 <th style="text-align: center;"><span class="math inline">\(score_{distance}\)</span></th>
 </tr>
 </thead>
@@ -969,11 +969,11 @@ Figure&nbsp;1
 <td style="text-align: center;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Q₁ ≤ valeur &lt; Médiane</td>
+<td style="text-align: left;">Q₁ ≤ <span class="math inline">\(distance_{îlot\)</span>} &lt; Médiane</td>
 <td style="text-align: center;">1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Médiane ≤ valeur &lt; Q₃</td>
+<td style="text-align: left;">Médiane ≤ <span class="math inline">\(distance_{îlot\)</span>} &lt; Q₃</td>
 <td style="text-align: center;">2</td>
 </tr>
 <tr class="even">
@@ -1066,7 +1066,7 @@ Table&nbsp;1: Ordres de priorité des îlots avec sous-couverture de logements s
 </figure>
 </div>
 </div>
-<p>-&gt; <span class="orange"><strong>cartographie complémentaire</strong></span> sur les îlots avec un ordre de priorité 1 à 8</p>
+<p>-&gt; <span class="orange"><strong>cartographie complémentaire</strong></span> sur les îlots avec un <span class="blue2"><strong>ordre de priorité 1 à 8</strong></span></p>
 </section>
 <section id="exemple-dîlot" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Exemple d’îlot</h2>
@@ -1083,8 +1083,15 @@ Table&nbsp;1: Ordres de priorité des îlots avec sous-couverture de logements s
 </div>
 <div style="flex: 2; font-size: 60%; padding-left: 1em;">
 <ul>
-<li>: nouveaux logements qui n’existaient pas lors de l’enquête cartographique initiale</li>
-<li>: logements possiblement omis lors de l’enquête cartographique initiale</li>
+<li><span style="display:inline-block; width:0.7em; height:0.7em; border:2px solid #2ecc71; border-radius:50%; margin-right:0.4em;"></span> nouveaux logements qui n’existaient pas lors de l’enquête cartographique initiale</li>
+<li><span style="
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  border: 2px solid #000000;  
+  border-radius: 50%;
+  margin-right: 0.4em;
+"></span> logements possiblement omis lors de l’enquête cartographique initiale</li>
 </ul>
 </div>
 </div>
