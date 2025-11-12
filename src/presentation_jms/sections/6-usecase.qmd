@@ -92,7 +92,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 📈 **Données utilisées** :
 
 |  |  |  |
-|:-----------------------|:-----------------------|:-----------------------|
+|:---|:---|:---|
 | 🟠 **Évolutions comparées** | [**Surface bâtie**]{.orange} *(prédite)* | [**Nombre de logements**]{.orange} |
 | ⏱️ **Temporalité** | *entre 2017 et 2021/2022* | *entre 2017 et 2021/2022* |
 | 📂 **Données utilisées** | [*données satellites*]{.grey} *(Surface bâtie)* | [*RP 2017, enquêtes cartographique 2021 et 2022*]{.grey} *(Nombre de logements)* |
@@ -115,9 +115,11 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 🟠 Le $score$ est calculé sur 2 sous ensembles :
 
-    -   ensemble des logements
-    
-    -   uniquement les logements en dur
+```         
+-   ensemble des logements
+
+-   uniquement les logements en dur
+```
 
 Σ $score=score_{évolution} + score_{sens} + score_{distance}$
 
@@ -125,7 +127,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 ::::: {style="display: flex; justify-content: space-around; gap: 2em; font-size: 1em; "}
 ::: {style="flex: 1; text-align: left;"}
-✅ $Score_{évolution}$ = 1 si *évolution nb_log recensement [**<**]{.orange} évolution bâti prédit*, sinon 0
+✅ $Score_{évolution}$ = 1 si *évolution nb_log recensement [**\<**]{.orange} évolution bâti prédit*, sinon 0
 
 ✅ $score_{sens}$ = 1 si *évolution nb_log recensement [**opposé**]{.orange} évoltuion bâti prédit*, sinon 0
 :::
@@ -147,8 +149,8 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
 ### Définition des ordres de priorité
 
-<div class="table-slide">
-
+::: table-slide
+```{=html}
 <style>
 .table-slide table {
   border-collapse: collapse;
@@ -173,6 +175,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
   background-color: #f0f8ff;
 }
 </style>
+```
 
 | Ordre de priorité | Score (ensemble des logements – logements durs) |
 |-------------------|-------------------------------------------------|
@@ -186,8 +189,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 | 8                 | 2-4 ou 4-2                                      |
 
 : Ordres de priorité des îlots avec sous-couverture de logements supposée {#tbl-ordre_p}
-
-</div>
+:::
 
 -\> [**cartographie complémentaire**]{.orange} sur les îlots avec un ordre de priorité 1 à 8
 
