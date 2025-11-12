@@ -91,7 +91,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 }
 .local-slide .arrow {
   text-align: center;
-  font-size: 1em;       
+  font-size: 0.8 em;       
   color: #2980b9;     
   margin: 0.3em 0;      
 }
@@ -99,16 +99,6 @@ A la différence des autres départements, à Mayotte la méthode est différent
   text-align: center;
 }
 </style>
-
-<div style="
-background-color: #f0f0f0; 
-border: 1px solid #ccc; 
-border-radius: 5px; 
-padding: 5px 10px; 
-font-size: 0.6em; 
-text-align: left; 
-width: fit-content; margin: 0 auto;
-">
 
 ⚠️ On s'intéresse uniquement aux îlots pour lesquels l'évolution du bâti issue des données satellites est plus importante que l'évolution issue de l'enquête cartographique
   
@@ -118,12 +108,9 @@ width: fit-content; margin: 0 auto;
 
 -   uniquement les logements en dur
 
+Σ $score=score_{évolution} + score_{sens} + score_{distance}$ 
 
-</div>
-
-$score=score_{évolution} + score_{sens} + score_{distance}$ 
-
-#### ⚙️ Définition des scores
+⚙️ **Définition des scores** :
 
 <div style="display: flex; justify-content: space-around; gap: 2em;">
 
