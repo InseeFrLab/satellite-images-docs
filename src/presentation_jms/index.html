@@ -905,14 +905,44 @@ Figure&nbsp;1
 <section class="slide level2">
 
 <h3 data-background-image="background.svg" data-background-size="contain" id="construction-dun-score">Construction d’un score</h3>
-<div style="background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; font-size: 0.8em; text-align: center; width: fit-content; margin: 0 auto;">
+<div class="local-slide">
+<style>
+.local-slide .step {
+  display: flex;
+  align-items: center;
+  margin: 0.5em 0;  
+}
+.local-slide .icon {
+  font-size: 1.5em;   
+  margin-right: 0.5em;
+}
+.local-slide .arrow {
+  text-align: center;
+  font-size: 1em;       
+  color: #2980b9;     
+  margin: 0.3em 0;      
+}
+.local-slide .center {
+  text-align: center;
+}
+</style>
+<div style="
+background-color: #f0f0f0; 
+border: 1px solid #ccc; 
+border-radius: 5px; 
+padding: 5px 10px; 
+font-size: 0.6em; 
+text-align: center; 
+width: fit-content; margin: 0 auto;
+">
 <p>On s’intéresse uniquement aux îlots pour lesquels l’évolution du bâti issue des données satellites est plus importante que l’évolution issue de l’enquête cartographique</p>
 </div>
-<p>Le <span class="math inline">\(score\)</span> est calculé sur 2 sous ensemble : - ensemble des logements - uniquement les logements en dur</p>
+<p>Le <span class="math inline">\(score\)</span> est calculé sur 2 sous ensemble :</p>
+<ul>
+<li><p>ensemble des logements</p></li>
+<li><p>uniquement les logements en dur</p></li>
+</ul>
 <p><span class="math inline">\(score=score_{évolution} + score_{sens} + score_{distance}\)</span></p>
-</section>
-<section class="slide level2">
-
 <h3 data-background-image="background.svg" data-background-size="contain" id="définition-des-scores">⚙️ Définition des scores</h3>
 <p>✅ <strong><span class="math inline">\(Score_{évolution}\)</span> = 1</strong> si <em>évolution nb_log recensement &lt; évoltuion bâti prédit</em>, sinon 0</p>
 <p>✅ <strong><span class="math inline">\(score_{sens}\)</span> = 1</strong> si <em>évolution nb_log recensement <span class="orange"><strong>opposé</strong></span> évoltuion bâti prédit</em>, sinon 0</p>
@@ -943,9 +973,7 @@ Figure&nbsp;1
 </tr>
 </tbody>
 </table>
-</section>
-<section class="slide level2">
-
+<hr>
 <h3 data-background-image="background.svg" data-background-size="contain" id="définition-des-ordres-de-priorité">Définition des ordres de priorité</h3>
 <div id="tbl-ordre_p" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
@@ -999,7 +1027,7 @@ Table&nbsp;1: Ordres de priorité des îlots avec sous-couverture de logements s
 </figure>
 </div>
 <p>-&gt; <span class="orange"><strong>cartographie complémentaire</strong></span> sur les îlots avec un ordre de priorité 1 à 8</p>
-</section>
+<hr>
 <section id="exemple-dîlot" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Exemple d’îlot</h2>
 <div style="display: flex; align-items: center;">
@@ -1023,7 +1051,7 @@ Table&nbsp;1: Ordres de priorité des îlots avec sous-couverture de logements s
 </section>
 <section id="bilan" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Bilan</h2>
-</section></section>
+</section>
 <section id="plan-6" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Plan</h1>
 <p>1️⃣ Introduction</p>
@@ -1035,7 +1063,6 @@ Table&nbsp;1: Ordres de priorité des îlots avec sous-couverture de logements s
 <p><strong>7️⃣ Discussion</strong></p>
 </section>
 
-<section>
 <section id="discussion" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>7️⃣ Discussion</h1>
 
@@ -1056,12 +1083,16 @@ Table&nbsp;1: Ordres de priorité des îlots avec sous-couverture de logements s
 </ul></li>
 <li><span class="orange"><strong>Résultats initiaux prometteurs</strong></span> pour accompagner les enquêtes cartographiques</li>
 </ul>
-</section></section>
+</section>
+
 <section id="merci-pour-votre-attention" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Merci pour votre attention</h1>
 
 
 </section>
+
+</div>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
