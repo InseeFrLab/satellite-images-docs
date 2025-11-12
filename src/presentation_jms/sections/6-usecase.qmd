@@ -32,17 +32,17 @@ A la différence des autres départements, à Mayotte la méthode est différent
 .local-slide .step {
   display: flex;
   align-items: center;
-  margin: 1em 0;
+  margin: 0.5em 0;       /* moins d'espace vertical */
 }
 .local-slide .icon {
-  font-size: 1.8em;
-  margin-right: 0.6em;
+  font-size: 1.5em;      /* icônes légèrement plus petites */
+  margin-right: 0.5em;
 }
 .local-slide .arrow {
   text-align: center;
-  font-size: 2em;
-  color: #bdc3c7;
-  margin: 0.5em 0;
+  font-size: 1em;        /* taille des flèches réduite */
+  color: #2980b9;        /* bleu */
+  margin: 0.3em 0;       /* moins de marge */
 }
 .local-slide .center {
   text-align: center;
