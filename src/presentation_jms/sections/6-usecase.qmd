@@ -57,10 +57,10 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 
 | Valeur observée | $score_{distance}$ |
 |:-----------------|:--------:|
-| < Q₁ | 1 |
-| Q₁ ≤ valeur < Médiane | 2 |
-| Médiane ≤ valeur < Q₃ | 3 |
-| ≥ Q₃ | 4 |
+| < Q₁ | 0 |
+| Q₁ ≤ valeur < Médiane | 1 |
+| Médiane ≤ valeur < Q₃ | 2 |
+| ≥ Q₃ | 3 |
 
 
 ## Définition des ordres de priorité
