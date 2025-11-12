@@ -679,7 +679,7 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </section>
 <section id="pipeline-globale" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Pipeline globale 🛠️</h2>
-<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" width="100%" height="100%">
+<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" height="100%" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="../img/pipeline_donnees_sat.png" id="fig-chain2" style="width:100.0%;height:100.0%">
@@ -847,27 +847,34 @@ Figure&nbsp;1
 </div>
 <p>Le <span class="math inline">\(score\)</span> est calculé sur 2 sous ensemble : - ensemble des logements - uniquement les logements en dur</p>
 <p><span class="math inline">\(score=score_{évolution} + score_{sens} + score_{distance}\)</span></p>
-</section>
-<section id="identification-des-îlots-avec-une-sous-couverture-potentielle-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Identification des îlots avec une sous-couverture potentielle</h2>
-<h3 data-background-image="background.svg" data-background-size="contain" id="construction-dun-score-1">Construction d’un score</h3>
-<p><span class="math inline">\(score_{évolution}\)</span> vaut :</p>
-<ul>
-<li><p>1 si l’évolution du nombre de logements dans le recensement est plus faible que celle de la surface bâtie (données satellites)</p></li>
-<li><p>0 sinon</p></li>
-</ul>
-<p><span class="math inline">\(score_{sens}\)</span> vaut :</p>
-<ul>
-<li><p>1 si l’évolution du nombre de logements dans le recensement est dans le sens opposé de celle de la surface bâtie (données satellites)</p></li>
-<li><p>0 sinon</p></li>
-</ul>
-<p><span class="math inline">\(score_{distance}\)</span> vaut :</p>
-<ul>
-<li><p>0 si <span class="math inline">\(distance\_{ilot} ≤ Q1\)</span></p></li>
-<li><p>1 si <span class="math inline">\(Q1 &lt; distance\_{ilot} ≤ médiane\)</span></p></li>
-<li><p>2 si <span class="math inline">\(médiane &lt; distance\_{ilot} ≤ Q3\)</span></p></li>
-<li><p>3 si <span class="math inline">\(distance\_{ilot} &gt; Q3\)</span></p></li>
-</ul>
+<h3 data-background-image="background.svg" data-background-size="contain" id="définition-des-composantes">⚙️ Définition des composantes</h3>
+<p>✅ <strong><span class="math inline">\(Score_{évolution}\)</span> = 1</strong> si <em>évolution nb_log recensement &lt; évoltuion bâti prédit</em>, sinon 0 ✅ <strong><span class="math inline">\(score_{sens}\)</span> = 1</strong> si <em>évolution nb_log recensement <span class="orange"><strong>opposé</strong></span> évoltuion bâti prédit</em>, sinon 0 ✅ <strong><span class="math inline">\(score_{distance}\)</span></strong> selon la distribution :</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Valeur observée</th>
+<th style="text-align: center;"><span class="math inline">\(score_{distance}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">&lt; Q₁</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q₁ ≤ valeur &lt; Médiane</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Médiane ≤ valeur &lt; Q₃</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">≥ Q₃</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="définition-des-ordres-de-priorité" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Définition des ordres de priorité</h2>
