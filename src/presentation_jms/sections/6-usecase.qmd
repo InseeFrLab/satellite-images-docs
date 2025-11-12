@@ -21,9 +21,18 @@ A la différence des autres départements, à Mayotte la méthode est différent
 
  →  [**Contrôle qualité**]{.orange} de l'enquête cartographique [**important**]{.blue} : utilisation des [**données satellites**]{.orange}
 
-## Identification des îlots avec une sous-couverture potentielle
+## Contrôle de la couverture de l'enquête cartographique
 
-### Données utilisées
+💡 **Objectif :** identifier les îlots avec une sous-couverture potentielle
+
+📈 **Données utilisées** : 
+
+| | |
+|:--|:--|
+| **Surface bâtie*** *(prédite)* | **Nombre de logements*** *(observée)* |
+| *entre 2017 et 2021/2022* | *entre 2017 et 2021/20222* |
+| [*données satellites*]{.grey} | [*RP 2017, enquêtes cartographique 2021 et 2022*]{.grey} |
+
 
 2 évolutions comparées : 
 
