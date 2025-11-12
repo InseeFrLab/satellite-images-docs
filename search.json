@@ -600,7 +600,14 @@
     "href": "src/presentation_jms/index.html#contrôle-de-la-couverture-de-lenquête-cartographique-1",
     "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
     "section": "Contrôle de la couverture de l’enquête cartographique",
-    "text": "Contrôle de la couverture de l’enquête cartographique\n💡 Objectif : identifier les îlots avec une sous-couverture potentielle\n📈 Données utilisées :\n\n\n\n\n\n\n\nSurface bâtie* (prédite)\nNombre de logements* (observée)\n\n\nentre 2017 et 2021/2022\nentre 2017 et 2021/20222\n\n\ndonnées satellites\nRP 2017, enquêtes cartographique 2021 et 2022\n\n\n\n2 évolutions comparées :\n\nsurface bâtie prédites entre 2017 et 2021/2022\n\ndonnées satellites\n\nnombre de logements entre le RP 2017 et les enquêtes cartographiques 2021/2022\n\ncollecte 2017, enquête cartographique 2021, 2022"
+    "text": "Contrôle de la couverture de l’enquête cartographique\n\n\n\n🧾\n\n\nEnquête cartographique  → alimente le RIL → constitue la base de sondage des logements durs des communes ≥ 10 000 habitants\n\n\n\n⬇️\n\n\n\n⚠️\n\n\nSous-estimation du nb logements dans l’enquête carto → populations et logements déduit sous-estimé\n\n\n\n⬇️\n\n\n\n🔍\n\n\nContrôle qualité de l’enquête cartographique important : utilisation des données satellites"
+  },
+  {
+    "objectID": "src/presentation_jms/index.html#contrôle-de-la-couverture-de-lenquête-cartographique-2",
+    "href": "src/presentation_jms/index.html#contrôle-de-la-couverture-de-lenquête-cartographique-2",
+    "title": "Utilisation des images satellites pour améliorer le repérage des logements à Mayotte",
+    "section": "Contrôle de la couverture de l’enquête cartographique",
+    "text": "Contrôle de la couverture de l’enquête cartographique\n💡 Objectif : identifier les îlots avec une sous-couverture potentielle\n📈 Données utilisées :\n\n\n\n\n\n\n\n🟠 Évolutions comparées\nSurface bâtie (prédite) vs Nombre de logements\n\n\n⏱️ Temporalité\nentre 2017 et 2021/2022\n\n\n📂 Données utilisées\nonnées satellites (Surface bâtie) • RP 2017, enquêtes cartographique 2021 et 2022 (Nombre de logements)\n\n\n\n2 évolutions comparées :\n\nsurface bâtie prédites entre 2017 et 2021/2022\n\ndonnées satellites\n\nnombre de logements entre le RP 2017 et les enquêtes cartographiques 2021/2022\n\ncollecte 2017, enquête cartographique 2021, 2022"
   },
   {
     "objectID": "src/presentation_jms/index.html#identification-des-îlots-avec-une-sous-couverture-potentielle",
