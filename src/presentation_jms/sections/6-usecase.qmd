@@ -95,7 +95,7 @@ A la différence des autres départements, à Mayotte la méthode est différent
 |:-----------------------|:-----------------------|:-----------------------|
 | 🟠 **Évolutions comparées** | [**Surface bâtie**]{.orange} *(prédite)* | [**Nombre de logements**]{.orange} |
 | ⏱️ **Temporalité** | *entre 2017 et 2021/2022* | *entre 2017 et 2021/2022* |
-| 📂 **Données utilisées** | [*données satellites*]{.grey} | [*RP 2017, enquêtes cartographique 2021 et 2022*]{.grey}|
+| 📂 **Données utilisées** | [*données satellites*]{.grey} | [*RP 2017, enquêtes cartographiques 2021 et 2022*]{.grey}|
 
 ------------------------------------------------------------------------
 
