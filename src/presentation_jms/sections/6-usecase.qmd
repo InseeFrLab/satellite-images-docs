@@ -250,7 +250,7 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 
 ## Bilan
 
-:::::::: {style="font-size: 0.7em;"}
+:::::::: {style="font-size: 0.6em;"}
 ::::: {style="display: flex; gap: 3em; justify-content: center;"}
 ::: {style="flex: 1; text-align: left;"}
 <h3>✅ Avantages</h3>
