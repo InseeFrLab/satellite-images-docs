@@ -1,8 +1,8 @@
 ## Cas d'usage : Le recensement à Mayotte
 
--   Depuis 2021 : recensement avec fonctionnement [**quinquennal**]{.orange}
+-   En 2021 : début du recensement avec fonctionnement [**quinquennal**]{.orange}
     -   territoire divisé en [**îlots**]{.blue2}
-    -   ilôts repartis dans 5 groupes de rotation
+    -   ilôts répartis dans 5 groupes de rotation
 
 ![](../img/enquete_carto_GR.png){width=100% fig-align="center" style="margin-top:-30px;"}
 
@@ -225,8 +225,8 @@ $score=score_{évolution} + score_{sens} + score_{distance}$
 
 :::::: {style="display: flex; align-items: center;"}
 ::: {style="flex: 2; font-size: 60%; padding-right: 1em;"}
--   [•]{style="color: red; font-size: 2em;"} : enquête cartographique complémentaire
 -   [•]{style="color: green; font-size: 2em;"} : enquête cartographique initiale
+-   [•]{style="color: red; font-size: 2em;"} : enquête cartographique complémentaire
 :::
 
 <!-- Colonne milieu : image + titre -->
