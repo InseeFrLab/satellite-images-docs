@@ -1,12 +1,12 @@
 ## Les images satellitaires
 
 -  Une source peu utilisée....
--  .... mais a [**fort potentiel**]{.orange}
+-  .... mais à [**fort potentiel**]{.orange}
     -   données très [**haute résolution**]{.blue2}
     -   couverture [**étendue**]{.blue2}
     
 ::: notes
-Les images satellitaires sont très peu utilisée, et pourtant il s'agit de données très riches qui offrent des bonnes opportunités pour améliorer et créer des indicateurs. En effet, il s'agit de données très haute résolution qui couvre une grande partie du territoire. Ces données sont d'ailleurs très utile dans le cadre du recensement de la population. --> diapo suivante
+Les images satellitaires sont très peu utilisées, et pourtant il s'agit de données très riches qui offrent des bonnes opportunités pour améliorer et créer des indicateurs. En effet, il s'agit de données très haute résolution qui couvre une grande partie du territoire. Ces données sont d'ailleurs très utile dans le cadre du recensement de la population. --> diapo suivante
 :::
 
 ## Un bon cas d'usage : le recensement dans les DROM
@@ -15,7 +15,7 @@ Les images satellitaires sont très peu utilisée, et pourtant il s'agit de donn
     -   [**enquête cartographique**]{.blue2} pour une base de sondage exhaustive
 
 - [**Contrôle qualité**]{.orange} des enquêtes cartographiques
-    -   [**données satellitaires**]{.blue2} 
+    -   [**données satellites**]{.blue2} 
 
 ::: notes
 Le recensement de la population en france et particulièrement sur les territoires des DROM en font un bon cas d'usage. En effet, dû à la mauvaise qualité des données administrative dans ces territoires une enquête cartographique est réalisée en amont de la collecte pour avoir une base de sondage exhaustive. Afin de réaliser un contrôle qualité de cette enquête cartographique, les données satellites ont été utilisées. Un exemple d'utilisation de l'utilisation des données satellites sur le contrôle qualité des enquête carto à Mayotte sera présenté juste après.
