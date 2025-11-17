@@ -569,8 +569,42 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </section>
 <section id="dashboard-interactive" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Dashboard Interactive 🚀</h2>
-<div class="absolute" style="top: 280px; left: 150px; ">
 <p>👉 <span class="orange"><strong>Application interactive</strong></span>: <a href="https://inseefrlab.github.io/satellite-images-webapp/">Cliquez ici</a></p>
+<div id="fig-crattstat" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-crattstat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="../img/cratt_stat.png" class="quarto-figure quarto-figure-center" style="width:100.0%;height:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-crattstat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Statistiques sur le bâti prédit de Mayotte et son évolution 2017-2018
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="dashboard-interactive-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Dashboard Interactive 🚀</h2>
+<div id="fig-crattimg" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-crattimg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="../img/cratt_img.png" class="quarto-figure quarto-figure-center" style="width:100.0%;height:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-crattimg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Carte avec images satellites Pleiades © CNES_2017
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="dashboard-interactive-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Dashboard Interactive 🚀</h2>
+<div id="fig-crattcarte" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-crattcarte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="../img/cratt_carte.png" class="quarto-figure quarto-figure-center" style="width:100.0%;height:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-crattcarte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Carte avec prédictions bâti 2017
+</figcaption>
+</figure>
 </div>
 <!-- <iframe src="https://inseefrlab.github.io/satellite-images-webapp/"
         width="100%"
@@ -585,19 +619,14 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </ul>
 <p>⚠️ <strong>Avertissement :</strong> ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.</p>
 <ul>
-<li>Carte standard <strong>Leaflet</strong> avec un fond <strong>OpenStreetMap</strong> affichant Pléiades 2023</li>
-</ul>
-<p><strong>97610 0608</strong> : méthodologie différente de floutage pour la prison<br>
-<strong>97611 0332</strong> : nuages en 2022<br>
-<strong>97611 0330</strong> : notre cas d’usage : détecter les changements de bâtiments en zone précaire</p>
-<ul>
-<li><span class="orange"><strong>Suivi des changements de bâtiments au niveau administratif</strong></span> :
+<li><p>Carte standard <strong>Leaflet</strong> avec un fond <strong>OpenStreetMap</strong> affichant Pléiades 2023</p></li>
+<li><p><span class="orange"><strong>Suivi des changements de bâtiments au niveau administratif</strong></span> :</p>
 <ul>
 <li>Sélection par <span class="blue2"><strong>unités administratives</strong></span> (communes, quartiers)<br>
 </li>
 <li><span class="blue2"><strong>Contrôle qualité</strong></span> des changements détectés</li>
 </ul></li>
-<li><span class="orange"><strong>Fonctionnalités clés</strong></span> :
+<li><p><span class="orange"><strong>Fonctionnalités clés</strong></span> :</p>
 <ul>
 <li>Comparaison temporelle côte à côte<br>
 </li>
@@ -643,13 +672,13 @@ Les images satellites Pléiades sont un produit intéressant pour notre cas d’
 </section>
 <section id="pipeline-globale" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Pipeline globale 🛠️</h2>
-<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" width="100%" height="100%">
+<div id="fig-chain2" class="quarto-float quarto-figure quarto-figure-center" height="100%" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="../img/pipeline_donnees_sat.png" id="fig-chain2" style="width:100.0%;height:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-chain2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
+Figure&nbsp;4
 </figcaption>
 </figure>
 </div>
@@ -667,65 +696,6 @@ Figure&nbsp;1
 <li>Déploiement via GeoServer et application web.<br>
 </li>
 <li>Résultats utilisés par les collègues de l’INSEE pour analyses statistiques.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="application-architecture" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Application Architecture 🧩</h2>
-
-<img data-src="../img/app-architecture.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><aside class="notes">
-<p>Merci à Onyxia d’avoir rendu ce projet possible en mode DevOps</p>
-<p>Un point notable est que nous utilisons un Geoserver pour permettre un affichage dynamique de nos images satellites sur la webapp, rendu possible grace aux calculs effectués en interne pour fluidifier l’affichage de zones spécifiques.</p>
-<p>Cette architecture étant très technique, je ne vais pas m’attarder longtemps dessus, on pourra y revenir s’il y a des questions. Même si ça semble être la force de ce projet, c’est également une grande limite.</p>
-<ol type="1">
-<li><span class="orange"><strong>Acquisition des données</strong></span> :
-<ul>
-<li>Imagerie Pléiades fournie par un prestataire national<br>
-</li>
-<li>Stockage sur infrastructure cloud</li>
-</ul></li>
-<li><span class="orange"><strong>Préparation des données</strong></span> :
-<ul>
-<li>Prétraitement des images (filtrage des nuages, normalisation)<br>
-</li>
-<li>Annotation automatisée à partir des données de bâtiments de référence<br>
-</li>
-<li>Découpage des images (tuiles de 125 m × 125 m)</li>
-</ul></li>
-<li><span class="orange"><strong>Développement du modèle</strong></span> :
-<ul>
-<li>Implémentation deep learning (PyTorch)<br>
-</li>
-<li>Entraînement avec GPU<br>
-</li>
-<li>Versionnage du modèle (MLFlow)</li>
-</ul></li>
-<li><span class="orange"><strong>Système de production</strong></span> :
-<ul>
-<li>API REST pour l’inférence<br>
-</li>
-<li>Déploiement containerisé<br>
-</li>
-<li>Capacités de traitement parallèle</li>
-</ul></li>
-<li><span class="orange"><strong>Distribution des résultats</strong></span> :
-<ul>
-<li>GeoServer permet de visualiser dynamiquement les images satellite grâce à des calculs qu’il effectue en amont, de sorte à ce que l’application web soit rapide<br>
-</li>
-<li>Application web pour la visualisation<br>
-</li>
-<li>Outils d’analyse statistique</li>
-</ul></li>
 </ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
