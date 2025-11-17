@@ -175,19 +175,18 @@ Et enfin, on conclura par une discussion plus large sur les perspectives et les 
 <h1>1️⃣ Introduction</h1>
 
 </section>
-<section id="contexte" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Contexte</h2>
+<section id="les-images-satellitaires" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Les images satellitaires</h2>
 <ul>
-<li>Mission principale de l’Insee → le <span class="orange"><strong>recensement</strong></span> de la population :
+<li>Une source peu utilisée….</li>
+<li>…. mais a <span class="orange"><strong>fort potentiel</strong></span>
 <ul>
-<li>Communes ≥ 10 000 hab : <span class="blue2"><strong>8% /an</strong></span></li>
-<li>Communes &lt; 10 000 hab : <span class="blue2"><strong>100% /5 ans</strong></span></li>
+<li>données très <span class="blue2"><strong>haute résolution</strong></span></li>
+<li>couverture <span class="blue2"><strong>étendue</strong></span></li>
 </ul></li>
-<li>Information du <span class="orange"><strong>nombre de logements</strong></span> ?</li>
 </ul>
 <aside class="notes">
-<p>Comme vous le savez bien, l’Insee doit faire le recensement tous les ans. C’est l’une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée, peut-être que ça a été votre cas dernièrement.</p>
-<p>Tous les ans, 8% des logements des communes de +10k hab sont recensés et un cinquième des communes de -10k hab. Les communes de -10k hab sont recensés en entier. Pour tirer ces échantillons, il faut avoir l’information du nombre de logements dans les commune de + de 10k hab</p>
+<p>Les images satellitaires sont très peu utilisée, et pourtant il s’agit de données très riches qui offrent des bonnes opportunités pour améliorer et créer des indicateurs. En effet, il s’agit de données très haute résolution qui couvre une grande partie du territoire. Ces données sont d’ailleurs très utile dans le cadre du recensement de la population. –&gt; diapo suivante</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -200,51 +199,20 @@ Et enfin, on conclura par une discussion plus large sur les perspectives et les 
           display:block!important;
       }</style></aside>
 </section>
-<section id="répertoire-des-immeubles-localisés" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Répertoire des Immeubles Localisés</h2>
+<section id="un-bon-cas-dusage-le-recensement-dans-les-drom" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Un bon cas d’usage : le recensement dans les DROM</h2>
 <ul>
-<li>Le <span class="orange"><strong>RIL</strong></span> :
+<li><span class="orange"><strong>Mauvaise qualité</strong></span> des <span class="blue2"><strong>données administratives</strong></span> dans les DROM
 <ul>
-<li><span class="blue2"><strong>Inventaire du bâti</strong></span></li>
-<li>Communes de <span class="blue2"><strong>+10 000 habitants</strong></span></li>
-<li><span class="blue2"><strong>Permis de construire</strong></span> et informations locales<br>
-</li>
-<li><span class="blue2"><strong>Bases de sondage</strong></span> des enquêtes de recensement</li>
+<li><span class="blue2"><strong>enquête cartographique</strong></span> pour une base de sondage exhaustive</li>
+</ul></li>
+<li><span class="orange"><strong>Contrôle qualité</strong></span> des enquêtes cartographiques
+<ul>
+<li><span class="blue2"><strong>données satellitaires</strong></span></li>
 </ul></li>
 </ul>
-<p>La <span class="orange"><strong>qualité du RIL</strong></span> est bonne en France hexagonale ✅… mais loin d’être fiable dans les DROM ⚠️<br>
-→ Autre méthode : <span class="orange"><strong>découpage en îlots</strong></span></p>
 <aside class="notes">
-<p>Afin de préparer le recensement, l’Insee se sert du <span class="orange"><strong>répertoire</strong></span> des immeubles localisés pour connaître le nombre de logements disponibles dans les communes de 10 000 habitants et plus.<br>
-Pour chaque élément dans le RIL, il existe l’information du nombre de logements au sein du bâtiment, son caractère habitable, son adresse et sa géolocalisation.<br>
-Ce répertoire est utilisé à l’Insee pour constituer les bases de sondage des enquêtes de recensement.<br>
-La qualité du RIL est bonne en France hexagonale cependant elle est bien inférieure dans les territoires d’outre mer.</p>
-<p>Pour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France hexagonale.</p>
-<p>Dans les territoires d’outre mer, chacun des DROM est découpé en “îlots”. Chaque année, dans les communes de +10k hab, un cinquième des îlots sont tirés, et 40% des logements y seront recensés. Cependant, il est difficile de connaître réellement le nombre de logements à recenser.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="recensement-dans-les-territoires-doutre-mer" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Recensement dans les territoires d’outre mer</h2>
-<ul>
-<li><p><span class="orange"><strong>Contexte critique</strong></span> : Mayotte et Guyane</p></li>
-<li><p>Pour compléter le RIL dans les DROM : <span class="blue2"><strong>enquête cartographique</strong></span> → très <span class="orange"><strong>lourde</strong></span></p></li>
-<li><p><span class="orange"><strong>L’imagerie satellitaire</strong></span> pour optimiser le processus du recensement dans les DROM ? 🛰️</p></li>
-</ul>
-<aside class="notes">
-<p>En effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Les informations sur le bâti issu des permis de construire et des informations des mairies ne sont pas assez fournies. De plus, le développement urbain y est extrêmement rapide avec les bidonvilles, rendant le suivi du bâti très compliqué avec les nombreuses constructions et destructions des habitations précaires et instables.</p>
-<p>Pour compléter le RIL, une enquête cartographique est mise en place. C’est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, et qui a pour but d’envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse, coûteuse et peut s’avérer dangereuse. Les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter pour la quantité d’agents envoyés sur place, terrains compliqués à atteindre, aggressions…</p>
-<p>Peut-on utiliser <span class="orange"><strong>l’imagerie satellite</strong></span> pour optimiser le processus du recensement dans les DROM ? 🛰️</p>
-<p><span class="orange"><strong>Les données satellitaires représentent</strong></span>: - une source d’information indépendante - permettent une veille territoriale continue - la méthodologie est transparente et reproductible</p>
+<p>Le recensement de la population en france et particulièrement sur les territoires des DROM en font un bon cas d’usage. En effet, dû à la mauvaise qualité des données administrative dans ces territoires une enquête cartographique est réalisée en amont de la collecte pour avoir une base de sondage exhaustive. Afin de réaliser un contrôle qualité de cette enquête cartographique, les données satellites ont été utilisées. Un exemple d’utilisation de l’utilisation des données satellites sur le contrôle qualité des enquête carto à Mayotte sera présenté juste après.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -264,16 +232,12 @@ La qualité du RIL est bonne en France hexagonale cependant elle est bien infér
 </li>
 <li>Détecter les <span class="blue2"><strong>évolutions du bâti</strong></span> de façon automatique<br>
 </li>
-<li>Aider <span class="orange"><strong>l’estimation de la population</strong></span> dans les DROM 👥<br>
-</li>
 <li><span class="red2"><strong>Répondre à une urgence</strong></span> 🚨 : cyclone “Chido” à Mayotte</li>
 </ul>
 <aside class="notes">
 <ul>
 <li>Identifier les zones avec <span class="blue2"><strong>une forte densité de bâti</strong></span>, c’est à dire <span class="blue2"><strong>les zones prioritaires</strong></span> pour l’enquête cartographique et pour lesquelles il faut envoyer le plus d’agents.</li>
 <li>Pouvoir détecter <span class="blue2"><strong>les évolutions du bâti</strong></span> de façon automatique, notamment depuis le précédent inventaire du bâti effectué<br>
-</li>
-<li>Aider l’estimation de la population dans les DROM<br>
 </li>
 <li><span class="red2"><strong>Répondre à une urgence</strong></span> : les conséquences du cyclone “Chido” sur le bâti à Mayotte</li>
 </ul>
