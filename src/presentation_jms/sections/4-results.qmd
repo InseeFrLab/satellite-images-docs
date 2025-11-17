@@ -39,11 +39,21 @@ Dans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considér�
 - L’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel
 :::
 
+## Dashboard Interactive 🚀 
+
+👉 [**Application interactive**]{.orange}: [Cliquez ici](https://inseefrlab.github.io/satellite-images-webapp/)
+
+![Statistiques sur le bâti prédit de Mayotte et son évolution 2017-2018](../img/cratt_stat.png){#fig-crattstat width=100% height=100% fig-align="center"}
+
+
 ## Dashboard Interactive 🚀
 
-:::{.absolute top=280 left=150}
-👉 [**Application interactive**]{.orange}: [Cliquez ici](https://inseefrlab.github.io/satellite-images-webapp/)
-:::
+![Carte avec images satellites Pleiades © CNES_2017](../img/cratt_img.png){#fig-crattimg width=100% height=100% fig-align="center"}
+
+## Dashboard Interactive 🚀
+
+![Carte avec prédictions bâti 2017](../img/cratt_carte.png){#fig-crattcarte width=100% height=100% fig-align="center"}
+
 
 <!-- <iframe src="https://inseefrlab.github.io/satellite-images-webapp/"
         width="100%"
@@ -59,11 +69,7 @@ Transition : Notre entraînement a plutot bien marché, notre application web pe
 
 ⚠️ **Avertissement :** ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.  
 
-- Carte standard **Leaflet** avec un fond **OpenStreetMap** affichant Pléiades 2023  
-
-**97610 0608** : méthodologie différente de floutage pour la prison  
-**97611 0332** : nuages en 2022  
-**97611 0330** : notre cas d’usage : détecter les changements de bâtiments en zone précaire  
+- Carte standard **Leaflet** avec un fond **OpenStreetMap** affichant Pléiades 2023   
 
 - [**Suivi des changements de bâtiments au niveau administratif**]{.orange} :  
   - Sélection par [**unités administratives**]{.blue2} (communes, quartiers)  
