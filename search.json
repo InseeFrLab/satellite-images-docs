@@ -499,98 +499,98 @@
   {
     "objectID": "src/project_presentation/index.html#contexte",
     "href": "src/project_presentation/index.html#contexte",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Contexte",
     "text": "Contexte\n\nMission principale de l’Insee → le recensement de la population.\nInformation du nombre de logements ?\n\n\nComme vous le savez bien, l’Insee doit faire le recensement tous les ans. C’est l’une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée."
   },
   {
     "objectID": "src/project_presentation/index.html#répertoire-des-immeubles-localisés",
     "href": "src/project_presentation/index.html#répertoire-des-immeubles-localisés",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Répertoire des Immeubles Localisés",
     "text": "Répertoire des Immeubles Localisés\n\nLe RIL :\n\nInventaire du bâti\nCommunes de +10 000 habitants\nPermis de construire et informations locales\n\nBases de sondage des enquêtes de recensement\n\n\nLa qualité du RIL est bonne en France hexagonale ✅… mais loin d’être fiable dans les DROM ⚠️\n→ Autre méthode : découpage en îlots\n\nAfin de préparer le recensement, l’Insee se sert du répertoire des immeubles localisés pour connaître le nombre de logements disponibles dans les communes de 10 000 habitants et plus.\nPour chaque élément dans le RIL, il existe l’information du nombre de logements au sein du bâtiment, son caractère habitable, son adresse et sa géolocalisation.\nCe répertoire est utilisé à l’Insee pour constituer les bases de sondage des enquêtes de recensement.\nLa qualité du RIL est bonne en France hexagonale cependant elle est bien inférieure dans les territoires d’outre mer.\nPour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France hexagonale.\nDans les territoires d’outre mer, chacun des DROM est découpé en “îlots”. Chaque année, dans les communes de +10k hab, un cinquième des îlots sont tirés, et 40% des logements y seront recensés. Cependant, il est difficile de connaître réellement le nombre de logements à recenser."
   },
   {
     "objectID": "src/project_presentation/index.html#recensement-dans-les-territoires-doutre-mer",
     "href": "src/project_presentation/index.html#recensement-dans-les-territoires-doutre-mer",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Recensement dans les territoires d’outre mer",
     "text": "Recensement dans les territoires d’outre mer\n\nContexte critique : Mayotte et Guyane\nPour compléter le RIL dans les DROM : enquête cartographique → très lourde\nL’imagerie satellitaire pour optimiser le processus du recensement dans les DROM ? 🛰️\n\n\nEn effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Les informations sur le bâti issu des permis de construire et des informations des mairies ne sont pas assez fournies. De plus, le développement urbain y est extrêmement rapide avec les bidonvilles, rendant le suivi du bâti très compliqué avec les nombreuses constructions et destructions des habitations précaires et instables.\nPour compléter le RIL, une enquête cartographique est mise en place. C’est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, et qui a pour but d’envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse, coûteuse et peut s’avérer dangereuse. Les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter pour la quantité d’agents envoyés sur place, terrains compliqués à atteindre, aggressions…\nPeut-on utiliser l’imagerie satellite pour optimiser le processus du recensement dans les DROM ? 🛰️\nLes données satellitaires représentent: - une source d’information indépendante - permettent une veille territoriale continue - la méthodologie est transparente et reproductible"
   },
   {
     "objectID": "src/project_presentation/index.html#nos-cas-dusage",
     "href": "src/project_presentation/index.html#nos-cas-dusage",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Nos cas d’usage",
     "text": "Nos cas d’usage\n\nIdentifier les zones avec une forte densité de bâti 🏘️\n\nDétecter les évolutions du bâti de façon automatique\n\nAider l’estimation de la population dans les DROM 👥\n\nRépondre à une urgence 🚨 : cyclone “Chido” à Mayotte\n\n\n\nIdentifier les zones avec une forte densité de bâti, c’est à dire les zones prioritaires pour l’enquête cartographique et pour lesquelles il faut envoyer le plus d’agents.\nPouvoir détecter les évolutions du bâti de façon automatique, notamment depuis le précédent inventaire du bâti effectué\n\nAider l’estimation de la population dans les DROM\n\nRépondre à une urgence : les conséquences du cyclone “Chido” sur le bâti à Mayotte\n\n-&gt; On va maintenant se pencher sur la méthodologie utilisée pour répondre à ces besoins."
   },
   {
     "objectID": "src/project_presentation/index.html#segmentation-sémantique",
     "href": "src/project_presentation/index.html#segmentation-sémantique",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Segmentation sémantique",
     "text": "Segmentation sémantique\n\nVision par ordinateur\n\nClasser chaque pixel d’une image\n\nPour nos besoins : connaître les pixels de catégorie “bâtie”\n\n\n\n\n\nExemple de segmentation “bâtiment”\n\n\n\n\nPour détecter le bâti de façon automatique, nous nous sommes tourné vers la vision par ordinateur, qui est une branche du domaine de l’intelligence artificielle. La segmentation sémantique permet de classer chaque pixel d’une image dans l’une des classes définie en amont. La segmentation semantique peut utiliser toute sorte de classe, mais voici un exemple de résultat qui nous interesse : ex. J’AIMERAI PRECISER QU’avec uniquement de l’imagerie satellitaire, nous ne pourrons pas décider du caractère habitable ou non d’un bâtiment ni du nombre de logements à l’intérieur. Par conséquent, nous ne pouvons pas remplacer l’enquête cartographique, l’idée est d’aider les enquêteurs en mettant en valeur les zones avec le plus de bâtiments à visiter."
   },
   {
     "objectID": "src/project_presentation/index.html#entraîner-un-modèle-de-segmentation",
     "href": "src/project_presentation/index.html#entraîner-un-modèle-de-segmentation",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Entraîner un modèle de segmentation",
     "text": "Entraîner un modèle de segmentation\n\nIl faut :\n\nUne collection d’images satellites 🛰️\nDes annotations 📍\n\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images\n\n\nPour entrainer un modele il faut deux choses : des images et des annotations.\n\nUne annotation est “la vérité attendue”, comme par exemple l’image qui a été présentée à la slide précédente\nLe modèle apprend à reproduire les annotations des images pour généraliser sur de nouvelles images"
   },
   {
     "objectID": "src/project_presentation/index.html#de-la-segmentation-à-la-détection-de-changements",
     "href": "src/project_presentation/index.html#de-la-segmentation-à-la-détection-de-changements",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "De la segmentation à la détection de changements",
     "text": "De la segmentation à la détection de changements"
   },
   {
     "objectID": "src/project_presentation/index.html#évaluation",
     "href": "src/project_presentation/index.html#évaluation",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Évaluation",
     "text": "Évaluation\nPour évaluer les performances du modèle entraîné :\n\n\nIOU = Intersection Over Union\n\n\n\nTransition pour la suite : pour faire un entraînement, il ne faut plus que des données…\nL’IoU, ou Intersection over Union, est une mesure qu’on utilise pour évaluer la qualité d’une prédiction en segmentation d’image.\nConcrètement, on compare deux zones :\n- celle que le modèle a prédite comme appartenant à une certaine classe,\n- et la zone réelle, qu’on appelle le label de vérité terrain.\nOn mesure alors l’intersection entre ces deux zones – c’est la partie correctement prédite –\net on la divise par l’union des deux – c’est-à-dire l’ensemble de tout ce qui a été soit prédit, soit annoté.\nUn IoU de 1 signifie une correspondance parfaite.\nUn IoU de 0 signifie aucune correspondance.\nPlus l’IoU est élevé, plus la prédiction est précise.\nC’est une métrique particulièrement adaptée pour des tâches comme la nôtre, où on doit prédire la forme exacte des bâtiments ou des routes, pixel par pixel."
   },
   {
     "objectID": "src/project_presentation/index.html#pléiades-vs-sentinel-2",
     "href": "src/project_presentation/index.html#pléiades-vs-sentinel-2",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Pléiades vs Sentinel-2 🛰️",
     "text": "Pléiades vs Sentinel-2 🛰️\n\n\n\nPléiades :\n\n3 bandes (RGB)\n\nRésolution 0.5m\n\nArchives gratuites\n\nAcquisition sur-demande payante\n\n\n\n\n\n Mamoudzou, Mayotte 2024\n\n\n\nSentinel2 :\n\n13 bandes\n\nRésolution 10m, 20m ou 60m (en fonction de la bande)\n\nAcquisition tous les 5j\n\nGratuit\n\n\n\n\n\nIl existe de nombreux produits satellitaires disponibles. Nous nous sommes surtout concentrés sur deux d’entre eux.\nLes images satellites Pléiades sont un produit intéressant pour notre cas d’usage - Caractéristiques: - 3 bandes spectrales (RGB) 🎨 - 4e bande : NIR (pas dans nos données) - Résolution spatial : 0.5m × 0.5m 🔍 - Archives gratuites (avec accord) - Acquisition sur-demande et payante (6-8 mois par département), Airbus © licence 📅\nPour le cyclone Chido qui a ravagé Mayotte, un plan d’urgence a été mis en place. Nous avons pu obtenir une mosaique d’images Pléiades de Mayotte post cyclone datant du premier trimestre de 2025 gratuitement.\nComme je vous disais au début, c’est grâce à l’IGN que nous avons pu mener à bien notre projet car ils nous fournissent des mosaiques d’images Pléiades. Une mosaique est une reconstitution complète d’un territoire avec des prises de vues de plusieurs dates, permettant ainsi d’avoir une couverture le moins ennuagée et la plus propre possible. Ce travail est très important pour avoir de bonnes images pour l’entraînement.\nMais un autre type d’images satellites est à notre disposition : Sentinel-2. Elles sont open source et l’acquisition se fait tous les 5 jours. Cependant, leur résolution est moins précise que les images pléiades."
   },
   {
     "objectID": "src/project_presentation/index.html#annotations-cosia",
     "href": "src/project_presentation/index.html#annotations-cosia",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Annotations : COSIA",
     "text": "Annotations : COSIA\n\nProjet Cosia par IGN 👏\nUtilisé pour annoter nos données d’entraînement\n\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Légende COSIA\n\n\n\nPour les annotations, il est possible de prendre des annotations binaires : bâtiment oui ou non, ou des annotations multiclasses comme le projet Cosia présenté précédement. - C’est une couverture du sol générée par l’IA - Basé sur les photographies aériennes de l’IGN à une résolution 20cm 🗺️ Les polygones COSIA, disponibles pour les DROM, sont utilisés comme annotations dans nos données d’entraînement, malgré un possible décalage temporaire entre nos images et la productions de polygones. D’autres sources ont été testées comme annotations pour entrainer notre modele, mais COSIA fournit une couverture du sol multiclasse très précise, ce qui est un avantage pour les performances du modele.\nles mosaiques d’images et les collections d’annotations COSIA de MAYOTTE 2023, MARTINIQUE 2022 et GUADELOUPE 2022 ont été utilisés pour entrainer notre modele, et des zones de test fixées ont été définies. Voyons voir les résultats produits par notre fameux entraînement."
   },
   {
     "objectID": "src/project_presentation/index.html#zone-de-test-à-mayotte",
     "href": "src/project_presentation/index.html#zone-de-test-à-mayotte",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Zone de test à Mayotte",
     "text": "Zone de test à Mayotte\n\n\n Pleiades © CNES_2023, Distribution AIRBUS DS\n\n\n Couverture du sol COSIA 2023\n\n\n Prédictions 2023\n\n\n Légende COSIA\n\n\n\n\n\n\nTrain\nTest\n\n\n\n\nIOU moyenne ∀classe\n0.81\n0.78\n\n\nIOU “bâtiment”\n0.84\n0.76\n\n\n\n\nDans un projet de recherche, une IoU moyenne de 0.6 peut déjà être considérée comme un excellent score, surtout dans des zones complexes comme les DOM où l’environnement est très hétérogène, et des écarts peuvent se créer un peu partout.\n\nÀ ce stade, nous avons donc construit et entraîné notre modèle, et vérifié ses performances\nQuestions clés : comment partager nos résultats ?\nL’objectif n’était pas de publier un article, mais plutôt d’aider les collègues des territoires d’outre-mer à anticiper les enquêtes cartographiques avec un outil visuel"
   },
   {
     "objectID": "src/project_presentation/index.html#dashboard-interactive",
     "href": "src/project_presentation/index.html#dashboard-interactive",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Dashboard Interactive 🚀",
     "text": "Dashboard Interactive 🚀\n\n👉 Application interactive: Cliquez ici\n\n\n\nTransition : Notre entraînement a plutot bien marché, notre application web permet une bonne visualisation de nos prédictions… on peut dire que nous avons mené notre petite expérience à bien. Serait il temps de passer de l’experience à la “pseudo” production ?\n\nNous avons décidé de créer une petite webapp\nNous avons calculé les surfaces des bâtiments à partir de nos prédictions : cela nous donne une valeur binaire pour chaque pixel, agrégée par niveau administratif\n\n⚠️ Avertissement : ceci est une version très préliminaire de notre application. Aucun contrôle ni processus qualité n’a encore été effectué.\n\nCarte standard Leaflet avec un fond OpenStreetMap affichant Pléiades 2023\n\n97610 0608 : méthodologie différente de floutage pour la prison\n97611 0332 : nuages en 2022\n97611 0330 : notre cas d’usage : détecter les changements de bâtiments en zone précaire\n\nSuivi des changements de bâtiments au niveau administratif :\n\nSélection par unités administratives (communes, quartiers)\n\nContrôle qualité des changements détectés\n\nFonctionnalités clés :\n\nComparaison temporelle côte à côte\n\nIndicateurs statistiques par zone\n\nValidation visuelle interactive"
   },
   {
     "objectID": "src/project_presentation/index.html#pipeline-globale",
     "href": "src/project_presentation/index.html#pipeline-globale",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Pipeline globale 🛠️",
     "text": "Pipeline globale 🛠️\n\n\n\n\n\n\nFigure 1\n\n\n\n\nVoici la pipeline globale. Les étapes 2 et 3 ne sont faites que lors de l’entrainement du modele. Ayant un entraînement qualitatif à notre disposition, pour prédire de nouvelles images, nous passons directement de l’étape 1 à l’étape 4. Un exemple très parlant et récent : le cyclone chido en une nuit -&gt; pred\n\nStandardisation de l’acquisition des données — actuellement rudimentaire. Besoin d’images sans nuages, datées précisément, avec une méthodologie cohérente (challenge avec Pléiades).\n\nPhase d’entraînement : suppression des nuages, équilibrage du jeu de données, annotation, découpage.\n\nPyTorch avec modèle pré-entraîné depuis HuggingFace (requiert GPU).\n\nConstruction de l’API : prédiction sur images, regroupement / boîtes englobantes, calculs statistiques (surface bâtie).\n\nDéploiement via GeoServer et application web.\n\nRésultats utilisés par les collègues de l’INSEE pour analyses statistiques."
   },
   {
     "objectID": "src/project_presentation/index.html#défis-perspectives",
     "href": "src/project_presentation/index.html#défis-perspectives",
-    "title": "Images satellites pour améliorer le repérage des logements dans les DROM",
+    "title": "Images satellites pour détecter les bâtiments dans les DROM",
     "section": "Défis & Perspectives",
     "text": "Défis & Perspectives\n\nCoûts de maintenance élevés en raison de la complexité technique 💸\n\nBesoin de compétences spécialisées 🧑‍💻\n\nEnvironnement technique complexe dû à :\n\nVolumes de données importants 🗃️\n\nForts besoins en calcul (GPU) ⚡\n\n\nRésultats initiaux prometteurs pour accompagner les enquêtes cartographiques"
   },
