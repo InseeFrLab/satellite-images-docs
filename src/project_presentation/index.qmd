@@ -1,7 +1,7 @@
 ---
 title: "Images satellites pour détecter les bâtiments dans les DROM"
 subtitle: |
-  [**Raya Berova**]{.orange} **(DMGC)**
+  [**Raya Berova**]{.orange}, [**Laurent Brochet**]{.blue2} **(DMGC)**
 date: "03/13/2026"
 date-format: "D MMMM YYYY"
 slide-number: true
