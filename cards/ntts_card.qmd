@@ -8,6 +8,6 @@ author: Raya Berova, Thomas Faria et Clément Guillo
 slides:
   text: Slides
   url: src/ntts-2025/index.html
-order: 6
+order: 7
 lang: fr-FR
 ---

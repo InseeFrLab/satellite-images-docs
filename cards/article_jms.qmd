@@ -8,6 +8,6 @@ author: Maëlys Bernard, Raya Berova et Thomas Faria
 slides:
   text: pdf
   url: src/article_jms/index.pdf
-order: 8
+order: 9
 lang: fr-FR
 ---

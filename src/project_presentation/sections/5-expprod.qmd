@@ -1,0 +1,23 @@
+<!-- ## Technical Environment ☁️
+
+- [**Cloud-native architecture**]{.orange} on the [**SSPCloud**]{.blue2} platform ☁️
+- [**Modern tech stack**]{.orange}: Kubernetes, Docker, MLFlow, React 🔧
+- [**Automated workflows**]{.orange} ensuring [**reproducibility**]{.blue2} 🔄
+- [**Continuous deployment**]{.orange} of applications 🚀
+ -->
+
+## Pipeline globale 🛠️
+
+![](../img/pipeline_donnees_sat.png){#fig-chain2 width=100% height=100%}
+
+::: {.notes}
+Voici la pipeline globale. Les étapes 2 et 3 ne sont faites que lors de l'entrainement du modele. Ayant un entraînement qualitatif à notre disposition, pour prédire de nouvelles images, nous passons directement de l'étape 1 à l'étape 4. Un exemple très parlant et récent : le cyclone chido en une nuit -> pred
+
+1. Standardisation de l'acquisition des données — actuellement rudimentaire. Besoin d'images sans nuages, datées précisément, avec une méthodologie cohérente (challenge avec Pléiades).  
+2. Phase d'entraînement : suppression des nuages, équilibrage du jeu de données, annotation, découpage.  
+3. PyTorch avec modèle pré-entraîné depuis HuggingFace (requiert GPU).  
+4. Construction de l’API : prédiction sur images, regroupement / boîtes englobantes, calculs statistiques (surface bâtie).  
+5. Déploiement via GeoServer et application web.  
+6. Résultats utilisés par les collègues de l’INSEE pour analyses statistiques.  
+
+:::

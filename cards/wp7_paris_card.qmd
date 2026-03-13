@@ -9,6 +9,6 @@ author: Raya Berova, Thomas Faria et Clément Guillo
 slides:
   text: Slides
   url: src/aiml4os-wp7/index.html
-order: 5
+order: 6
 lang: fr-FR
 ---

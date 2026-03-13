@@ -1,0 +1,65 @@
+## Contexte
+
+- Mission principale de l'Insee → le [**recensement**]{.orange} de la population.
+- Information du [**nombre de logements**]{.orange} ?
+
+::: notes
+Comme vous le savez bien, l'Insee doit faire le recensement tous les ans. C'est l'une des missions les plus importantes dans notre institut. Chaque année, une partie de la population est recensée.
+:::
+
+## Répertoire des Immeubles Localisés
+
+-  Le [**RIL**]{.orange} :
+    -   [**Inventaire du bâti**]{.blue2}
+    -   Communes de [**+10 000 habitants**]{.blue2}
+    -   [**Permis de construire**]{.blue2} et informations locales\
+    -   [**Bases de sondage**]{.blue2} des enquêtes de recensement
+
+La [**qualité du RIL**]{.orange} est bonne en France hexagonale ✅... 
+mais loin d'être fiable dans les DROM ⚠️  
+→ Autre méthode : [**découpage en îlots**]{.orange}
+
+::: notes
+Afin de préparer le recensement, l'Insee se sert du [**répertoire**]{.orange} des immeubles localisés pour connaître le nombre de logements disponibles dans les communes de 10 000 habitants et plus.\
+Pour chaque élément dans le RIL, il existe l'information du nombre de logements au sein du bâtiment, son caractère habitable, son adresse et sa géolocalisation.\
+Ce répertoire est utilisé à l'Insee pour constituer les bases de sondage des enquêtes de recensement.\
+La qualité du RIL est bonne en France hexagonale cependant elle est bien inférieure dans les territoires d'outre mer.
+
+Pour cette présentation, nous allons nous focaliser sur le recensement dans les DROM et non en France hexagonale.
+
+Dans les territoires d'outre mer, chacun des DROM est découpé en "îlots". Chaque année, dans les communes de +10k hab, un cinquième des îlots sont tirés, et 40% des logements y seront recensés. Cependant, il est difficile de connaître réellement le nombre de logements à recenser.
+:::
+
+## Recensement dans les territoires d'outre mer
+
+-   [**Contexte critique**]{.orange} : Mayotte et Guyane
+
+-   Pour compléter le RIL dans les DROM : [**enquête cartographique**]{.blue2} → très [**lourde**]{.orange}
+
+-   [**L'imagerie satellitaire**]{.orange} pour optimiser le processus du recensement dans les DROM ? 🛰️
+
+::: notes
+En effet, dans les DROM, le contexte est particulier, surtout à mayotte et en guyane. Les informations sur le bâti issu des permis de construire et des informations des mairies ne sont pas assez fournies. De plus, le développement urbain y est extrêmement rapide avec les bidonvilles, rendant le suivi du bâti très compliqué avec les nombreuses constructions et destructions des habitations précaires et instables.
+
+Pour compléter le RIL, une enquête cartographique est mise en place. C'est une enquête sur le terrain, réalisée sur chacun de ces territoires avant le recensement, et qui a pour but d'envoyer des agents pour faire un inventaire du bâti. Cette opération est laborieuse, coûteuse et peut s'avérer dangereuse. Les agents font face à des difficultés sur le terrain : trop grand nombre de logements à enquêter pour la quantité d'agents envoyés sur place, terrains compliqués à atteindre, aggressions...
+
+Peut-on utiliser [**l'imagerie satellite**]{.orange} pour optimiser le processus du recensement dans les DROM ? 🛰️
+
+[**Les données satellitaires représentent**]{.orange}: - une source d'information indépendante - permettent une veille territoriale continue - la méthodologie est transparente et reproductible
+:::
+
+## Nos cas d'usage
+
+-   Identifier les zones avec [**une forte densité de bâti**]{.orange} 🏘️\
+-   Détecter les [**évolutions du bâti**]{.blue2} de façon automatique\
+-   Aider [**l'estimation de la population**]{.orange} dans les DROM 👥\
+-   [**Répondre à une urgence**]{.red2} 🚨 : cyclone "Chido" à Mayotte
+
+::: notes
+-   Identifier les zones avec [**une forte densité de bâti**]{.blue2}, c'est à dire [**les zones prioritaires**]{.blue2} pour l'enquête cartographique et pour lesquelles il faut envoyer le plus d'agents.
+-   Pouvoir détecter [**les évolutions du bâti**]{.blue2} de façon automatique, notamment depuis le précédent inventaire du bâti effectué\
+-   Aider l'estimation de la population dans les DROM\
+-   [**Répondre à une urgence**]{.red2} : les conséquences du cyclone "Chido" sur le bâti à Mayotte
+
+-> On va maintenant se pencher sur la méthodologie utilisée pour répondre à ces besoins.
+:::

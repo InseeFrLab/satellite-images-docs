@@ -8,6 +8,6 @@ author: Raya Berova, Thomas Faria et Clément Guillo
 slides:
   text: Slides
   url: src/todo/index.html
-order: 10
+order: 11
 lang: fr-FR
 ---
