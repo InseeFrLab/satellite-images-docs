@@ -1,8 +1,8 @@
 ---
-title: "Images satellites pour améliorer le repérage des logements dans les DROM"
+title: "Images satellites pour détecter les bâtiments dans les DROM"
 subtitle: |
-  [**Raya Berova**]{.orange}, **[Thomas Faria]{.blue2}** **(Insee)**
-date: "07/03/2025"
+  [**Raya Berova**]{.orange} **(DMGC)**
+date: "03/13/2026"
 date-format: "D MMMM YYYY"
 slide-number: true
 lang: fr-FR
@@ -14,7 +14,6 @@ format:
     output-file: index.html
     title-slide-attributes:
       data-notes: |
-        Bonjour à tous, tout d'abord merci à nos collègues de l'IGN pour cette présentation très intéressante. C'est avec leur aide qu'à l'Insee, nous avons pu exploiter les données satellitaires. Je ne vous en dis pas plus vous allez le voir dans la suite de cette présentation. Présentation qui est sur le sujet des Images satellites pour améliorer le repérage des logements dans les départements et régions d'outre mer.
 controls: true
 css: ../custom.css
 ascii: true
