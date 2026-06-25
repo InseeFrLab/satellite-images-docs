@@ -1,19 +1,19 @@
 ## Full Pipeline — Live Walk-through
 
-- Step 1 — Explore Data on S3
-- Step 2 — Launch Training via Argo Workflows
-- Step 3 — Monitor Experiment on MLFlow
-- Step 4 — Promote Model to Production on MLFlow
-- Step 5 — Deploy Inference API with ArgoCD
-- Step 6 — Run Inference & Check Results
+- **Step 1** — Explore Data on S3
+- **Step 2** — Launch Training via Argo Workflows
+- **Step 3** — Monitor Experiment on MLFlow
+- **Step 4** — Promote Model to Production on MLFlow
+- **Step 5** — Deploy Inference API with ArgoCD
+- **Step 6** — Run Inference & Check Results
 
 ::: {.notes}
 All steps demonstrated live in the sandbox project space.
-1. **Exploration des données sur le S3** — visualisation des images satellites brutes stockées dans notre bucket.
-2. **Lancement d'un entraînement via Argo Workflows** — exécution d'un pipeline de training sur le cluster.
-3. **Suivi de l'expérimentation sur MLFlow** — visualisation des métriques (loss, IoU, etc.) et des artefacts produits.
-4. **Mise en production du modèle sur MLFlow** — promotion d'un run vers le Model Registry et passage en stage `Production`.
-5. **Déploiement de l'API d'inférence avec ArgoCD** — déploiement d'une API FastAPI branchée sur le modèle MLFlow, avec possibilité de **multiples réplicas** pour le traitement parallèle.
-6. **Lancement d'une inférence via Argo Workflows** — exécution de la pipeline de prédiction sur de nouvelles images.
-7. **Vérification des résultats sur le S3** — inspection des couvertures du sol générées et des fichiers de détection de changements.
+1. **Data exploration on S3** — visualization of raw satellite images stored in our bucket.
+2. **Launching a training job via Argo Workflows** — execution of a training pipeline on the cluster.
+3. **Experiment tracking on MLflow** — visualization of metrics (loss, IoU, etc.) and generated artifacts.
+4. **Promoting the model to production on MLflow** — promoting a run to the Model Registry and moving it to the `Production` stage.
+5. **Deploying the inference API with ArgoCD** — deployment of a FastAPI API connected to the MLflow model, supporting **multiple replicas** for parallel processing.
+6. **Launching inference via Argo Workflows** — execution of the prediction pipeline on new images.
+7. **Verifying results on S3** — inspection of generated land cover maps and change detection files.
 :::

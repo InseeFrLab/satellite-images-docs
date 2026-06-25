@@ -1,31 +1,33 @@
-## The Project: Satellite Imagery at INSEE
+## The Project: Satellite Imagery at Insee
 
 - Goal: [**detect buildings on satellite imagery**]{.orange} across French overseas territories (OTs)
 - Identify areas with the [**strongest changes in built-up land**]{.blue2} — constructions & demolitions
 - Priority targets: [**informal settlements**]{.blue2} in French OTs
 - Used to [**assist and optimise cartographic surveys**]{.orange} conducted before each census
 
-*Demo: [web application](https://inseefrlab.github.io/satellite-images-webapp/)*
-
-*[Image: pipeline of the project]*
-![](../img/pipeline_donnees_sat_en.png)
-
 ::: {.notes}
-Bonjour à tous. Aujourd'hui, nous allons vous présenter l'utilisation d'**Onyxia** dans un contexte géospatial, en nous appuyant sur un cas d'usage concret : le **projet Images Satellites de l'INSEE**.
-
-Ce projet a pour objectif de **détecter les bâtiments sur des images satellites** afin d'identifier les zones du territoire qui subissent les évolutions les plus marquées du bâti — qu'il s'agisse de constructions ou de destructions. L'enjeu est de surveiller les zones à fort "mouvement", comme les **bidonvilles dans les départements et régions d'outre-mer français (DROM)**.
+The goal of this project is to **detect buildings in satellite imagery** in order to identify areas experiencing the most significant changes in the built environment—whether through new construction or demolition. The objective is to monitor areas with high levels of "activity," such as **shantytowns in the French Overseas Departments and Regions (DROM)**.
 :::
+
+## Final product and pipeline
+
+*Demo*: [web application](https://inseefrlab.github.io/satellite-images-webapp/)
+
+*Image: pipeline of the project*
+![](../img/pipeline_donnees_sat_en.png)
 
 ## Full technical stack of the project
 
 Entire pipeline built and run on [**Onyxia**]{.orange}
-![](../img/app-architecture.png)
+![](../img/app-architecture.png){width=60%}
 
-- Use Case Cyclone Chido hit [**Mayotte in late 2024**]{.orange} — one of the most devastating in decades
+## Use Case: Cyclone Chido
+
+- Cyclone Chido hit [**Mayotte in late 2024**]{.orange} — one of the most devastating in decades
 - Using our pipeline, we produced a [**full post-cyclone land cover map**]{.blue2} and identified destructions in [**a single night of computation**]{.orange}
 
 ::: {.notes}
-Ce projet a été **entièrement développé sur Onyxia** et sa pipeline est constituée exclusivement de briques Onyxia. Lors du **cyclone Chido à Mayotte fin 2024**, il a été possible de produire une couverture du sol post-cyclone et d'identifier les destructions en **une seule nuit de calculs**. Nous allons revenir étape par étape sur cette pipeline pour l'expliquer en détail.
+This project was **developed entirely on Onyxia**, and its pipeline consists exclusively of Onyxia components. During **Cyclone Chido in Mayotte in late 2024**, it was possible to generate a post-cyclone land-cover map and identify areas of destruction in **a single night of processing**. We will walk through this pipeline step by step to explain it in detail.
 
-> À noter : le backend de ce projet est entièrement développé en **Python**.
+> Note: The project's backend is developed entirely in **Python**.
 :::

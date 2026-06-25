@@ -7,11 +7,11 @@
 - [**Project spaces**]{.orange}: share services & data across a team
 
 ::: {.notes}
-**Onyxia SSPCloud** est un environnement de travail pour la data science, accessible directement depuis votre navigateur. Il permet de lancer des sessions de développement (Python, R, etc.) avec des **ressources CPU et GPU allouées à la demande**, sans installation locale. Cette plateforme repose sur **Kubernetes**, ce qui lui confère flexibilité et scalabilité.
+**Onyxia SSPCloud** is a data science workspace accessible directly via your web browser. It allows you to launch development sessions (Python, R, etc.) using **on-demand CPU and GPU resources**, without requiring any local installation. The platform is built on **Kubernetes**, ensuring flexibility and scalability.
 
-Elle dispose d'un **stockage objet S3 intégré** où l'on peut stocker et accéder à ses données. Il est également possible de se connecter à un bucket S3 externe pour y récupérer des données tierces.
+It features **integrated S3 object storage** for storing and accessing data. You can also connect to an external S3 bucket to retrieve third-party data.
 
-Il est possible de demander la création d'un **"projet" Onyxia** afin de partager services et données entre plusieurs utilisateurs. Dans notre cas, nous disposons d'un projet dédié au projet Images Satellites, ainsi qu'un **bac à sable** isolé — c'est dans cet environnement que je réaliserai mes démonstrations, afin de ne pas interférer avec les services et données en production.
+You can request the creation of an **Onyxia "project"** to share services and data among multiple users. In our case, we have a project dedicated to the Satellite Imagery initiative, as well as an isolated **sandbox**—this is the environment where I will conduct my demonstrations to avoid interfering with production services and data.
 :::
 
 ## Services Used in Our Project
@@ -26,6 +26,18 @@ Il est possible de demander la création d'un **"projet" Onyxia** afin de partag
   - Experiment tracking: metrics, hyperparameters, artefacts
   - [**Model Registry**]{.blue2}: promote a run to `Production` with one click
 
+::: {.notes}
+Here are the Onyxia services we use in our use case:
+
+*[Show Onyxia service catalog]*
+
+- **VSCode / VSCode GPU**: An integrated development environment accessible via the browser. The GPU version enables deep learning model training by leveraging graphics accelerators. It is our core tool for development, debugging, and experimentation.
+
+- **MLFlow**: A machine learning model lifecycle management platform. It allows us to track experiments (metrics, hyperparameters, artifacts), compare runs, and deploy models to production via its **Model Registry**.
+:::
+
+## Services Used in Our Project - 2
+
 - [**Argo Workflows**]{.orange}
   - Kubernetes-native pipeline orchestration
   - DAG-based: each step is a container, dependencies are explicit
@@ -37,15 +49,7 @@ Il est possible de demander la création d'un **"projet" Onyxia** afin de partag
   - Used to deploy & scale our [**inference API**]{.blue2}
 
 ::: {.notes}
-Voici les services Onyxia que nous utilisons dans notre cas d'usage :
+- **ArgoCD**: A GitOps-based continuous deployment tool. It monitors a Git repository and automatically synchronizes the Kubernetes cluster state with the declared configuration. We use it to deploy and update our inference API.
 
-*[Montrer le catalogue de services Onyxia]*
-
-- **VSCode / VSCode GPU** : environnement de développement intégré accessible depuis le navigateur. La version GPU permet d'entraîner des modèles de deep learning en tirant parti d'accélérateurs graphiques. C'est notre outil central pour le développement, le débogage et l'expérimentation.
-
-- **MLFlow** : plateforme de gestion du cycle de vie des modèles de machine learning. Elle permet de suivre les expérimentations (métriques, hyperparamètres, artefacts), de comparer les runs, et de mettre en production un modèle via son **Model Registry**.
-
-- **ArgoCD** : outil de déploiement continu basé sur GitOps. Il surveille un dépôt Git et synchronise automatiquement l'état du cluster Kubernetes avec la configuration déclarée. Nous l'utilisons pour déployer et mettre à jour notre API d'inférence.
-
-- **Argo Workflows** : moteur d'orchestration de workflows Kubernetes. Il nous permet de lancer des pipelines de calcul complexes (entraînement, inférence) de manière parallélisée et reproductible, directement sur le cluster.
+- **Argo Workflows**: A Kubernetes workflow orchestration engine. It allows us to run complex computational pipelines (training, inference) in a parallelized and reproducible manner, directly on the cluster.
 :::

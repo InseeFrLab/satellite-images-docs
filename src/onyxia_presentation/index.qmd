@@ -17,13 +17,17 @@ css: ../custom.css
 ascii: true
 ---
 
+::: {.notes}
+Hello everyone. Today, we will demonstrate the use of **Onyxia** in a geospatial context, drawing on a concrete use case: the **INSEE Satellite Imagery project**.
+:::
+
 # Outline
 
 1️⃣ Introduction
 
 2️⃣ Onyxia
 
-3️⃣ Live Demo
+3️⃣ Pipeline Walk-through
 
 4️⃣ GeoServer
 
@@ -39,7 +43,7 @@ ascii: true
 
 **2️⃣ Onyxia**
 
-3️⃣ Live Demo
+3️⃣ Pipeline Walk-through
 
 4️⃣ GeoServer
 
@@ -55,13 +59,13 @@ ascii: true
 
 2️⃣ Onyxia
 
-**3️⃣ Live Demo**
+**3️⃣ Pipeline Walk-through**
 
 4️⃣ GeoServer
 
 5️⃣ Web Application
 
-# 3️⃣ Live Demo
+# 3️⃣ Pipeline Walk-through
 
 {{< include sections/3-demo.qmd >}}
 
@@ -71,7 +75,7 @@ ascii: true
 
 2️⃣ Onyxia
 
-3️⃣ Live Demo
+3️⃣ Pipeline Walk-through
 
 **4️⃣ GeoServer**
 
@@ -87,7 +91,7 @@ ascii: true
 
 2️⃣ Onyxia
 
-3️⃣ Live Demo
+3️⃣ Pipeline Walk-through
 
 4️⃣ GeoServer
 
@@ -96,6 +100,16 @@ ascii: true
 # 5️⃣ Web Application
 
 {{< include sections/5-webapp.qmd >}}
+
+## Further Resources
+
+- [Onyxia tutorials & training courses](https://www.sspcloud.fr/catalog)
+- [Funathon on Satellite Imagery](https://aiml4os.github.io/funathon-project3/)
+
+::: {.notes}
+- The SSPCloud catalogue hosts many tutorials on Onyxia services (VSCode, MLFlow, Argo, etc.)
+- The Funathon is a self-contained hands-on project to discover Onyxia, VSCode and MLFlow using the satellite imagery use case — a great starting point for the full technical stack
+:::
 
 ## Thank you!
 

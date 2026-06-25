@@ -7,7 +7,7 @@
 - Layers are directly consumable by [**web apps**]{.blue2}
 
 ::: {.notes}
-Un **GeoServer** est un serveur open source de données géospatiales. Il permet de publier, stocker et servir des données géographiques (rasters, vecteurs) via des protocoles standardisés comme **WMS** (Web Map Service) ou **WFS** (Web Feature Service). Il est ainsi possible de diffuser des couches cartographiques consommables directement par des applications web.
+**GeoServer** is an open-source geospatial data server. It enables the publishing, storage, and serving of geographic data (rasters, vectors) via standardized protocols such as **WMS** (Web Map Service) or **WFS** (Web Feature Service). This makes it possible to distribute map layers that can be consumed directly by web applications.
 :::
 
 ## Deploying GeoServer on Onyxia
@@ -18,8 +18,10 @@ Un **GeoServer** est un serveur open source de données géospatiales. Il permet
   - Define `Deployment`, `Service`, `Ingress` resources manually
 - Once deployed: accessible via a [**cluster Ingress URL**]{.blue2} like any other service
 
+*Demo:* [GeoServer interface — example WMS layer](https://geoserver-satellite-images.lab.sspcloud.fr/geoserver/web/?0)
+
 ::: {.notes}
-Le GeoServer **ne fait pas partie du catalogue de services Onyxia**, mais il est tout à fait possible de le déployer manuellement sur le cluster Kubernetes sous-jacent. Cela nécessite un service VSCode avec le rôle Kubernetes **admin**, ainsi que la maîtrise des ressources Kubernetes : `Deployment`, `Service` et `Ingress`. Je n'entrerai pas dans ce niveau de détail ici, mais sachez que l'opération est réalisable.
+GeoServer is **not part of the Onyxia service catalog**, but it is entirely possible to deploy it manually on the underlying Kubernetes cluster. This requires a VSCode service with the Kubernetes **admin** role, as well as familiarity with Kubernetes resources: `Deployment`, `Service`, and `Ingress`. I will not go into that level of detail here, but rest assured that the operation is feasible.
 :::
 
 ## Pipeline → GeoServer Integration
@@ -28,8 +30,6 @@ Le GeoServer **ne fait pas partie du catalogue de services Onyxia**, mais il est
   - Land cover and Building change [**polygons**]{.blue2} → new WFS layers
 - GeoServer creates and [**versions the layers**]{.blue2} automatically
 
-<!-- *[Demo: GeoServer interface — example WMS layer]* -->
-
 ::: {.notes}
-Notre pipeline d'inférence est **directement connectée à notre GeoServer** : à chaque exécution, les couvertures du sol prédites ainsi que les évolutions du bâti détectées sont automatiquement déversées dans le GeoServer, qui crée et met à jour les couches géographiques associées.
+Our inference pipeline is **directly connected to our GeoServer**: with each execution, the predicted land cover and detected changes in built structures are automatically pushed to the GeoServer, which creates and updates the associated geographic layers.
 :::
