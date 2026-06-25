@@ -7,9 +7,9 @@
 > Full stack: [**Python**]{.orange} backend · [**JavaScript, HTML, CSS**]{.blue2} frontend
 
 ::: {.notes}
-Pour finir, notre application web de visualisation a été développée avec **Observable Framework** (anciennement Observable.js). Il s'agit d'un framework JavaScript orienté dataviz et analyse, qui permet de créer des tableaux de bord interactifs mêlant code, texte et visualisations cartographiques. Nous l'utilisons pour afficher les couches géospatiales issues de notre GeoServer et permettre à nos utilisateurs d'explorer les évolutions du bâti sur le territoire.
+Finally, our web visualization application was developed using **Observable Framework** (formerly Observable.js). This is a JavaScript framework geared towards data visualization and analysis, which allows for the creation of interactive dashboards combining code, text, and map visualizations. We use it to display geospatial layers from our GeoServer and allow our users to explore changes in built environment across the territory.
 
-J'avais mentionné que notre backend était entièrement en Python — notre frontend, quant à lui, mobilise **JavaScript, HTML et CSS**.
+I mentioned that our backend is entirely in Python—our frontend, on the other hand, uses **JavaScript, HTML, and CSS**.
 
 *[Show code: WFS calls to GeoServer]*
 
@@ -21,8 +21,8 @@ J'avais mentionné que notre backend était entièrement en Python — notre fro
 - [**Git push**]{.blue2} → GitHub Actions build → auto-deploy to [**GitHub Pages**]{.green2}
 - Zero server to maintain, free hosting
 
-*Demo: [code source of the web app](https://inseefrlab.github.io/satellite-images-webapp/)
+*Demo:* [code source of the web app](https://inseefrlab.github.io/satellite-images-webapp/)
 
 ::: {.notes}
-Le workflow de développement est le suivant : les modifications sont effectuées dans un **service VSCode Onyxia** et visualisées en local grâce à `npm`. Une fois les changements validés, un **push sur Git déclenche automatiquement le build** de l'application et son déploiement sur **GitHub Pages**.
+The development workflow is as follows: changes are made within a **VSCode Onyxia service** and previewed locally using `npm`. Once the changes are approved, a **Git push automatically triggers the application build** and its deployment to **GitHub Pages**.
 :::
