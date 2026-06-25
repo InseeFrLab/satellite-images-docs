@@ -13,8 +13,7 @@ The goal of this project is to **detect buildings in satellite imagery** in orde
 
 *Demo*: [web application](https://inseefrlab.github.io/satellite-images-webapp/)
 
-*Image: pipeline of the project*
-![](../img/pipeline_donnees_sat_en.png)
+![](../img/pipeline_donnees_sat_en.png){width=80%}
 
 ## Full technical stack of the project
 
