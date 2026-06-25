@@ -17,10 +17,6 @@ css: ../custom.css
 ascii: true
 ---
 
-::: {.notes}
-Hello everyone. Today, we will demonstrate the use of **Onyxia** in a geospatial context, drawing on a concrete use case: the **INSEE Satellite Imagery project**.
-:::
-
 # Outline
 
 1️⃣ Introduction
@@ -32,6 +28,11 @@ Hello everyone. Today, we will demonstrate the use of **Onyxia** in a geospatial
 4️⃣ GeoServer
 
 5️⃣ Web Application
+
+::: {.notes}
+Hello everyone. Today, we will demonstrate the use of **Onyxia** in a geospatial context, drawing on a concrete use case: the **INSEE Satellite Imagery project**.
+:::
+
 
 # 1️⃣ Introduction
 
