@@ -143,33 +143,10 @@
 
   <p class="date">25 June 2026</p>
 </section>
-<section id="outline" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Outline</h1>
-<p>1️⃣ Introduction</p>
-<p>2️⃣ Onyxia</p>
-<p>3️⃣ Live Demo</p>
-<p>4️⃣ GeoServer</p>
-<p>5️⃣ Web Application</p>
-</section>
+<section class="slide level2">
 
-<section>
-<section id="introduction" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>1️⃣ Introduction</h1>
-
-</section>
-<section id="the-project-satellite-imagery-at-insee" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>The Project: Satellite Imagery at INSEE</h2>
-<ul>
-<li>Goal: <span class="orange"><strong>detect buildings on satellite imagery</strong></span> across French overseas territories (OTs)</li>
-<li>Identify areas with the <span class="blue2"><strong>strongest changes in built-up land</strong></span> — constructions &amp; demolitions</li>
-<li>Priority targets: <span class="blue2"><strong>informal settlements</strong></span> in French OTs</li>
-<li>Used to <span class="orange"><strong>assist and optimise cartographic surveys</strong></span> conducted before each census</li>
-</ul>
-<p><em>Demo: <a href="https://inseefrlab.github.io/satellite-images-webapp/">web application</a></em></p>
-<p><em>[Image: pipeline of the project]</em> <img data-src="../img/pipeline_donnees_sat_en.png"></p>
 <aside class="notes">
-<p>Bonjour à tous. Aujourd’hui, nous allons vous présenter l’utilisation d’<strong>Onyxia</strong> dans un contexte géospatial, en nous appuyant sur un cas d’usage concret : le <strong>projet Images Satellites de l’INSEE</strong>.</p>
-<p>Ce projet a pour objectif de <strong>détecter les bâtiments sur des images satellites</strong> afin d’identifier les zones du territoire qui subissent les évolutions les plus marquées du bâti — qu’il s’agisse de constructions ou de destructions. L’enjeu est de surveiller les zones à fort “mouvement”, comme les <strong>bidonvilles dans les départements et régions d’outre-mer français (DROM)</strong>.</p>
+<p>Hello everyone. Today, we will demonstrate the use of <strong>Onyxia</strong> in a geospatial context, drawing on a concrete use case: the <strong>INSEE Satellite Imagery project</strong>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -182,17 +159,61 @@
           display:block!important;
       }</style></aside>
 </section>
+<section id="outline" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Outline</h1>
+<p>1️⃣ Introduction</p>
+<p>2️⃣ Onyxia</p>
+<p>3️⃣ Pipeline Walk-through</p>
+<p>4️⃣ GeoServer</p>
+<p>5️⃣ Web Application</p>
+</section>
+
+<section>
+<section id="introduction" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>1️⃣ Introduction</h1>
+
+</section>
+<section id="the-project-satellite-imagery-at-insee" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>The Project: Satellite Imagery at Insee</h2>
+<ul>
+<li>Goal: <span class="orange"><strong>detect buildings on satellite imagery</strong></span> across French overseas territories (OTs)</li>
+<li>Identify areas with the <span class="blue2"><strong>strongest changes in built-up land</strong></span> — constructions &amp; demolitions</li>
+<li>Priority targets: <span class="blue2"><strong>informal settlements</strong></span> in French OTs</li>
+<li>Used to <span class="orange"><strong>assist and optimise cartographic surveys</strong></span> conducted before each census</li>
+</ul>
+<aside class="notes">
+<p>The goal of this project is to <strong>detect buildings in satellite imagery</strong> in order to identify areas experiencing the most significant changes in the built environment—whether through new construction or demolition. The objective is to monitor areas with high levels of “activity,” such as <strong>shantytowns in the French Overseas Departments and Regions (DROM)</strong>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="final-product-and-pipeline" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Final product and pipeline</h2>
+<p><em>Demo</em>: <a href="https://inseefrlab.github.io/satellite-images-webapp/">web application</a></p>
+<p><em>Image: pipeline of the project</em> <img data-src="../img/pipeline_donnees_sat_en.png"></p>
+</section>
 <section id="full-technical-stack-of-the-project" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Full technical stack of the project</h2>
-<p>Entire pipeline built and run on <span class="orange"><strong>Onyxia</strong></span> <img data-src="../img/app-architecture.png"></p>
+<p>Entire pipeline built and run on <span class="orange"><strong>Onyxia</strong></span> <img data-src="../img/app-architecture.png" style="width:60.0%"></p>
+</section>
+<section id="use-case-cyclone-chido" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Use Case: Cyclone Chido</h2>
 <ul>
-<li>Use Case Cyclone Chido hit <span class="orange"><strong>Mayotte in late 2024</strong></span> — one of the most devastating in decades</li>
+<li>Cyclone Chido hit <span class="orange"><strong>Mayotte in late 2024</strong></span> — one of the most devastating in decades</li>
 <li>Using our pipeline, we produced a <span class="blue2"><strong>full post-cyclone land cover map</strong></span> and identified destructions in <span class="orange"><strong>a single night of computation</strong></span></li>
 </ul>
 <aside class="notes">
-<p>Ce projet a été <strong>entièrement développé sur Onyxia</strong> et sa pipeline est constituée exclusivement de briques Onyxia. Lors du <strong>cyclone Chido à Mayotte fin 2024</strong>, il a été possible de produire une couverture du sol post-cyclone et d’identifier les destructions en <strong>une seule nuit de calculs</strong>. Nous allons revenir étape par étape sur cette pipeline pour l’expliquer en détail.</p>
+<p>This project was <strong>developed entirely on Onyxia</strong>, and its pipeline consists exclusively of Onyxia components. During <strong>Cyclone Chido in Mayotte in late 2024</strong>, it was possible to generate a post-cyclone land-cover map and identify areas of destruction in <strong>a single night of processing</strong>. We will walk through this pipeline step by step to explain it in detail.</p>
 <blockquote>
-<p>À noter : le backend de ce projet est entièrement développé en <strong>Python</strong>.</p>
+<p>Note: The project’s backend is developed entirely in <strong>Python</strong>.</p>
 </blockquote>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -210,7 +231,7 @@
 <h1>Outline</h1>
 <p>1️⃣ Introduction</p>
 <p><strong>2️⃣ Onyxia</strong></p>
-<p>3️⃣ Live Demo</p>
+<p>3️⃣ Pipeline Walk-through</p>
 <p>4️⃣ GeoServer</p>
 <p>5️⃣ Web Application</p>
 </section>
@@ -230,9 +251,9 @@
 <li><span class="orange"><strong>Project spaces</strong></span>: share services &amp; data across a team</li>
 </ul>
 <aside class="notes">
-<p><strong>Onyxia SSPCloud</strong> est un environnement de travail pour la data science, accessible directement depuis votre navigateur. Il permet de lancer des sessions de développement (Python, R, etc.) avec des <strong>ressources CPU et GPU allouées à la demande</strong>, sans installation locale. Cette plateforme repose sur <strong>Kubernetes</strong>, ce qui lui confère flexibilité et scalabilité.</p>
-<p>Elle dispose d’un <strong>stockage objet S3 intégré</strong> où l’on peut stocker et accéder à ses données. Il est également possible de se connecter à un bucket S3 externe pour y récupérer des données tierces.</p>
-<p>Il est possible de demander la création d’un <strong>“projet” Onyxia</strong> afin de partager services et données entre plusieurs utilisateurs. Dans notre cas, nous disposons d’un projet dédié au projet Images Satellites, ainsi qu’un <strong>bac à sable</strong> isolé — c’est dans cet environnement que je réaliserai mes démonstrations, afin de ne pas interférer avec les services et données en production.</p>
+<p><strong>Onyxia SSPCloud</strong> is a data science workspace accessible directly via your web browser. It allows you to launch development sessions (Python, R, etc.) using <strong>on-demand CPU and GPU resources</strong>, without requiring any local installation. The platform is built on <strong>Kubernetes</strong>, ensuring flexibility and scalability.</p>
+<p>It features <strong>integrated S3 object storage</strong> for storing and accessing data. You can also connect to an external S3 bucket to retrieve third-party data.</p>
+<p>You can request the creation of an <strong>Onyxia “project”</strong> to share services and data among multiple users. In our case, we have a project dedicated to the Satellite Imagery initiative, as well as an isolated <strong>sandbox</strong>—this is the environment where I will conduct my demonstrations to avoid interfering with production services and data.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -259,6 +280,29 @@
 <li>Experiment tracking: metrics, hyperparameters, artefacts</li>
 <li><span class="blue2"><strong>Model Registry</strong></span>: promote a run to <code>Production</code> with one click</li>
 </ul></li>
+</ul>
+<aside class="notes">
+<p>Here are the Onyxia services we use in our use case:</p>
+<p><em>[Show Onyxia service catalog]</em></p>
+<ul>
+<li><p><strong>VSCode / VSCode GPU</strong>: An integrated development environment accessible via the browser. The GPU version enables deep learning model training by leveraging graphics accelerators. It is our core tool for development, debugging, and experimentation.</p></li>
+<li><p><strong>MLFlow</strong>: A machine learning model lifecycle management platform. It allows us to track experiments (metrics, hyperparameters, artifacts), compare runs, and deploy models to production via its <strong>Model Registry</strong>.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="services-used-in-our-project---2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Services Used in Our Project - 2</h2>
+<ul>
 <li><span class="orange"><strong>Argo Workflows</strong></span>
 <ul>
 <li>Kubernetes-native pipeline orchestration</li>
@@ -273,13 +317,9 @@
 </ul></li>
 </ul>
 <aside class="notes">
-<p>Voici les services Onyxia que nous utilisons dans notre cas d’usage :</p>
-<p><em>[Montrer le catalogue de services Onyxia]</em></p>
 <ul>
-<li><p><strong>VSCode / VSCode GPU</strong> : environnement de développement intégré accessible depuis le navigateur. La version GPU permet d’entraîner des modèles de deep learning en tirant parti d’accélérateurs graphiques. C’est notre outil central pour le développement, le débogage et l’expérimentation.</p></li>
-<li><p><strong>MLFlow</strong> : plateforme de gestion du cycle de vie des modèles de machine learning. Elle permet de suivre les expérimentations (métriques, hyperparamètres, artefacts), de comparer les runs, et de mettre en production un modèle via son <strong>Model Registry</strong>.</p></li>
-<li><p><strong>ArgoCD</strong> : outil de déploiement continu basé sur GitOps. Il surveille un dépôt Git et synchronise automatiquement l’état du cluster Kubernetes avec la configuration déclarée. Nous l’utilisons pour déployer et mettre à jour notre API d’inférence.</p></li>
-<li><p><strong>Argo Workflows</strong> : moteur d’orchestration de workflows Kubernetes. Il nous permet de lancer des pipelines de calcul complexes (entraînement, inférence) de manière parallélisée et reproductible, directement sur le cluster.</p></li>
+<li><p><strong>ArgoCD</strong>: A GitOps-based continuous deployment tool. It monitors a Git repository and automatically synchronizes the Kubernetes cluster state with the declared configuration. We use it to deploy and update our inference API.</p></li>
+<li><p><strong>Argo Workflows</strong>: A Kubernetes workflow orchestration engine. It allows us to run complex computational pipelines (training, inference) in a parallelized and reproducible manner, directly on the cluster.</p></li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -297,28 +337,28 @@
 <h1>Outline</h1>
 <p>1️⃣ Introduction</p>
 <p>2️⃣ Onyxia</p>
-<p><strong>3️⃣ Live Demo</strong></p>
+<p><strong>3️⃣ Pipeline Walk-through</strong></p>
 <p>4️⃣ GeoServer</p>
 <p>5️⃣ Web Application</p>
 </section>
 
 <section>
-<section id="live-demo" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>3️⃣ Live Demo</h1>
+<section id="pipeline-walk-through" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>3️⃣ Pipeline Walk-through</h1>
 
 </section>
 <section id="full-pipeline-live-walk-through" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Full Pipeline — Live Walk-through</h2>
 <ul>
-<li>Step 1 — Explore Data on S3</li>
-<li>Step 2 — Launch Training via Argo Workflows</li>
-<li>Step 3 — Monitor Experiment on MLFlow</li>
-<li>Step 4 — Promote Model to Production on MLFlow</li>
-<li>Step 5 — Deploy Inference API with ArgoCD</li>
-<li>Step 6 — Run Inference &amp; Check Results</li>
+<li><strong>Step 1</strong> — Explore Data on S3</li>
+<li><strong>Step 2</strong> — Launch Training via Argo Workflows</li>
+<li><strong>Step 3</strong> — Monitor Experiment on MLFlow</li>
+<li><strong>Step 4</strong> — Promote Model to Production on MLFlow</li>
+<li><strong>Step 5</strong> — Deploy Inference API with ArgoCD</li>
+<li><strong>Step 6</strong> — Run Inference &amp; Check Results</li>
 </ul>
 <aside class="notes">
-<p>All steps demonstrated live in the sandbox project space. 1. <strong>Exploration des données sur le S3</strong> — visualisation des images satellites brutes stockées dans notre bucket. 2. <strong>Lancement d’un entraînement via Argo Workflows</strong> — exécution d’un pipeline de training sur le cluster. 3. <strong>Suivi de l’expérimentation sur MLFlow</strong> — visualisation des métriques (loss, IoU, etc.) et des artefacts produits. 4. <strong>Mise en production du modèle sur MLFlow</strong> — promotion d’un run vers le Model Registry et passage en stage <code>Production</code>. 5. <strong>Déploiement de l’API d’inférence avec ArgoCD</strong> — déploiement d’une API FastAPI branchée sur le modèle MLFlow, avec possibilité de <strong>multiples réplicas</strong> pour le traitement parallèle. 6. <strong>Lancement d’une inférence via Argo Workflows</strong> — exécution de la pipeline de prédiction sur de nouvelles images. 7. <strong>Vérification des résultats sur le S3</strong> — inspection des couvertures du sol générées et des fichiers de détection de changements.</p>
+<p>All steps demonstrated live in the sandbox project space. 1. <strong>Data exploration on S3</strong> — visualization of raw satellite images stored in our bucket. 2. <strong>Launching a training job via Argo Workflows</strong> — execution of a training pipeline on the cluster. 3. <strong>Experiment tracking on MLflow</strong> — visualization of metrics (loss, IoU, etc.) and generated artifacts. 4. <strong>Promoting the model to production on MLflow</strong> — promoting a run to the Model Registry and moving it to the <code>Production</code> stage. 5. <strong>Deploying the inference API with ArgoCD</strong> — deployment of a FastAPI API connected to the MLflow model, supporting <strong>multiple replicas</strong> for parallel processing. 6. <strong>Launching inference via Argo Workflows</strong> — execution of the prediction pipeline on new images. 7. <strong>Verifying results on S3</strong> — inspection of generated land cover maps and change detection files.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -335,7 +375,7 @@
 <h1>Outline</h1>
 <p>1️⃣ Introduction</p>
 <p>2️⃣ Onyxia</p>
-<p>3️⃣ Live Demo</p>
+<p>3️⃣ Pipeline Walk-through</p>
 <p><strong>4️⃣ GeoServer</strong></p>
 <p>5️⃣ Web Application</p>
 </section>
@@ -357,7 +397,7 @@
 <li>Layers are directly consumable by <span class="blue2"><strong>web apps</strong></span></li>
 </ul>
 <aside class="notes">
-<p>Un <strong>GeoServer</strong> est un serveur open source de données géospatiales. Il permet de publier, stocker et servir des données géographiques (rasters, vecteurs) via des protocoles standardisés comme <strong>WMS</strong> (Web Map Service) ou <strong>WFS</strong> (Web Feature Service). Il est ainsi possible de diffuser des couches cartographiques consommables directement par des applications web.</p>
+<p><strong>GeoServer</strong> is an open-source geospatial data server. It enables the publishing, storage, and serving of geographic data (rasters, vectors) via standardized protocols such as <strong>WMS</strong> (Web Map Service) or <strong>WFS</strong> (Web Feature Service). This makes it possible to distribute map layers that can be consumed directly by web applications.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -381,8 +421,9 @@
 </ul></li>
 <li>Once deployed: accessible via a <span class="blue2"><strong>cluster Ingress URL</strong></span> like any other service</li>
 </ul>
+<p><em>Demo:</em> <a href="https://geoserver-satellite-images.lab.sspcloud.fr/geoserver/web/?0">GeoServer interface — example WMS layer</a></p>
 <aside class="notes">
-<p>Le GeoServer <strong>ne fait pas partie du catalogue de services Onyxia</strong>, mais il est tout à fait possible de le déployer manuellement sur le cluster Kubernetes sous-jacent. Cela nécessite un service VSCode avec le rôle Kubernetes <strong>admin</strong>, ainsi que la maîtrise des ressources Kubernetes : <code>Deployment</code>, <code>Service</code> et <code>Ingress</code>. Je n’entrerai pas dans ce niveau de détail ici, mais sachez que l’opération est réalisable.</p>
+<p>GeoServer is <strong>not part of the Onyxia service catalog</strong>, but it is entirely possible to deploy it manually on the underlying Kubernetes cluster. This requires a VSCode service with the Kubernetes <strong>admin</strong> role, as well as familiarity with Kubernetes resources: <code>Deployment</code>, <code>Service</code>, and <code>Ingress</code>. I will not go into that level of detail here, but rest assured that the operation is feasible.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -404,9 +445,8 @@
 </ul></li>
 <li>GeoServer creates and <span class="blue2"><strong>versions the layers</strong></span> automatically</li>
 </ul>
-<!-- *[Demo: GeoServer interface &#x2014; example WMS layer]* -->
 <aside class="notes">
-<p>Notre pipeline d’inférence est <strong>directement connectée à notre GeoServer</strong> : à chaque exécution, les couvertures du sol prédites ainsi que les évolutions du bâti détectées sont automatiquement déversées dans le GeoServer, qui crée et met à jour les couches géographiques associées.</p>
+<p>Our inference pipeline is <strong>directly connected to our GeoServer</strong>: with each execution, the predicted land cover and detected changes in built structures are automatically pushed to the GeoServer, which creates and updates the associated geographic layers.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -423,7 +463,7 @@
 <h1>Outline</h1>
 <p>1️⃣ Introduction</p>
 <p>2️⃣ Onyxia</p>
-<p>3️⃣ Live Demo</p>
+<p>3️⃣ Pipeline Walk-through</p>
 <p>4️⃣ GeoServer</p>
 <p><strong>5️⃣ Web Application</strong></p>
 </section>
@@ -466,9 +506,32 @@
 <li><span class="blue2"><strong>Git push</strong></span> → GitHub Actions build → auto-deploy to <span class="green2"><strong>GitHub Pages</strong></span></li>
 <li>Zero server to maintain, free hosting</li>
 </ul>
-<p><em>[Demo: live application — <a href="https://inseefrlab.github.io/satellite-images-webapp/">inseefrlab.github.io/satellite-images-webapp</a>]</em></p>
+<p>*Demo: <a href="https://inseefrlab.github.io/satellite-images-webapp/">code source of the web app</a></p>
 <aside class="notes">
 <p>Le workflow de développement est le suivant : les modifications sont effectuées dans un <strong>service VSCode Onyxia</strong> et visualisées en local grâce à <code>npm</code>. Une fois les changements validés, un <strong>push sur Git déclenche automatiquement le build</strong> de l’application et son déploiement sur <strong>GitHub Pages</strong>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="further-resources" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Further Resources</h2>
+<ul>
+<li><a href="https://www.sspcloud.fr/catalog">Onyxia tutorials &amp; training courses</a></li>
+<li><a href="https://aiml4os.github.io/funathon-project3/">Funathon on Satellite Imagery</a></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>The SSPCloud catalogue hosts many tutorials on Onyxia services (VSCode, MLFlow, Argo, etc.)</li>
+<li>The Funathon is a self-contained hands-on project to discover Onyxia, VSCode and MLFlow using the satellite imagery use case — a great starting point for the full technical stack</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
