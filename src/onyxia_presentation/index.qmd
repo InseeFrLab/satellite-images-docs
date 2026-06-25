@@ -1,0 +1,111 @@
+---
+title: "Onyxia for Geospatial — A Satellite Imagery Use Case"
+subtitle: |
+  [**Raya Berova**]{.orange}
+date: "06/25/2026"
+date-format: "D MMMM YYYY"
+slide-number: true
+lang: en-GB
+slide-tone: false
+chalkboard:
+  theme: whiteboard
+format:
+  onyxia-revealjs:
+    output-file: index.html
+controls: true
+css: ../custom.css
+ascii: true
+---
+
+# Outline
+
+1️⃣ Introduction
+
+2️⃣ Onyxia
+
+3️⃣ Live Demo
+
+4️⃣ GeoServer
+
+5️⃣ Web Application
+
+# 1️⃣ Introduction
+
+{{< include sections/1-introduction.qmd >}}
+
+# Outline
+
+1️⃣ Introduction
+
+**2️⃣ Onyxia**
+
+3️⃣ Live Demo
+
+4️⃣ GeoServer
+
+5️⃣ Web Application
+
+# 2️⃣ Onyxia
+
+{{< include sections/2-onyxia.qmd >}}
+
+# Outline
+
+1️⃣ Introduction
+
+2️⃣ Onyxia
+
+**3️⃣ Live Demo**
+
+4️⃣ GeoServer
+
+5️⃣ Web Application
+
+# 3️⃣ Live Demo
+
+{{< include sections/3-demo.qmd >}}
+
+# Outline
+
+1️⃣ Introduction
+
+2️⃣ Onyxia
+
+3️⃣ Live Demo
+
+**4️⃣ GeoServer**
+
+5️⃣ Web Application
+
+# 4️⃣ GeoServer
+
+{{< include sections/4-geoserver.qmd >}}
+
+# Outline
+
+1️⃣ Introduction
+
+2️⃣ Onyxia
+
+3️⃣ Live Demo
+
+4️⃣ GeoServer
+
+**5️⃣ Web Application**
+
+# 5️⃣ Web Application
+
+{{< include sections/5-webapp.qmd >}}
+
+## Thank you!
+
+**Any questions?**
+
+::: {.notes}
+Be ready to discuss:
+- How to get access to SSPCloud / Onyxia
+- Kubernetes admin role requirements for GeoServer
+- MLFlow model registry workflow in detail
+- ArgoCD replica scaling for large inference jobs
+- Observable Framework vs other frontend options
+:::

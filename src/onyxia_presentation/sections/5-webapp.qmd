@@ -1,0 +1,28 @@
+## Observable Framework
+
+- Frontend built with [**Observable Framework**]{.orange} — JS-based dataviz platform
+- Combines [**markdown, JavaScript, and live data**]{.blue2} in reactive notebooks
+- Consumes GeoServer layers via [**WMS / WFS**]{.blue2} for live map rendering
+
+> Full stack: [**Python**]{.orange} backend · [**JavaScript, HTML, CSS**]{.blue2} frontend
+
+::: {.notes}
+Pour finir, notre application web de visualisation a été développée avec **Observable Framework** (anciennement Observable.js). Il s'agit d'un framework JavaScript orienté dataviz et analyse, qui permet de créer des tableaux de bord interactifs mêlant code, texte et visualisations cartographiques. Nous l'utilisons pour afficher les couches géospatiales issues de notre GeoServer et permettre à nos utilisateurs d'explorer les évolutions du bâti sur le territoire.
+
+J'avais mentionné que notre backend était entièrement en Python — notre frontend, quant à lui, mobilise **JavaScript, HTML et CSS**.
+
+*[Show code: WFS calls to GeoServer]*
+
+:::
+
+## Development & Deployment Workflow
+
+- Develop & preview locally in a [**VSCode (Onyxia)**]{.orange} service with `npm`
+- [**Git push**]{.blue2} → GitHub Actions build → auto-deploy to [**GitHub Pages**]{.green2}
+- Zero server to maintain, free hosting
+
+*[Demo: live application — [inseefrlab.github.io/satellite-images-webapp](https://inseefrlab.github.io/satellite-images-webapp/)]*
+
+::: {.notes}
+Le workflow de développement est le suivant : les modifications sont effectuées dans un **service VSCode Onyxia** et visualisées en local grâce à `npm`. Une fois les changements validés, un **push sur Git déclenche automatiquement le build** de l'application et son déploiement sur **GitHub Pages**.
+:::

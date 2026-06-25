@@ -1,0 +1,13 @@
+---
+title: Onyxia for geospatial data 
+image: img/ntts_bruxelles.jpg
+date: "2026-06-25"
+description: |
+  <b>Description :</b> Slide deck for the Onyxia presentation.
+author: Raya Berova
+slides:
+  text: Slides
+  url: src/onyxia_presentation/index.html
+order: 11
+lang: en-GB
+---

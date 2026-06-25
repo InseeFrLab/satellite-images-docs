@@ -1,0 +1,35 @@
+## What is GeoServer?
+
+- [**Open-source geospatial data server**]{.orange}
+- Publishes raster & vector data via [**OGC standards**]{.blue2}:
+  - [**WMS**]{.blue2} (Web Map Service) — rendered map tiles
+  - [**WFS**]{.blue2} (Web Feature Service) — raw vector features
+- Layers are directly consumable by [**web apps**]{.blue2}
+
+::: {.notes}
+Un **GeoServer** est un serveur open source de données géospatiales. Il permet de publier, stocker et servir des données géographiques (rasters, vecteurs) via des protocoles standardisés comme **WMS** (Web Map Service) ou **WFS** (Web Feature Service). Il est ainsi possible de diffuser des couches cartographiques consommables directement par des applications web.
+:::
+
+## Deploying GeoServer on Onyxia
+
+- [**Not in the Onyxia service catalogue**]{.orange} — but deployable on the underlying Kubernetes cluster
+- Requirements:
+  - VSCode service with [**Kubernetes admin**]{.blue2} role
+  - Define `Deployment`, `Service`, `Ingress` resources manually
+- Once deployed: accessible via a [**cluster Ingress URL**]{.blue2} like any other service
+
+::: {.notes}
+Le GeoServer **ne fait pas partie du catalogue de services Onyxia**, mais il est tout à fait possible de le déployer manuellement sur le cluster Kubernetes sous-jacent. Cela nécessite un service VSCode avec le rôle Kubernetes **admin**, ainsi que la maîtrise des ressources Kubernetes : `Deployment`, `Service` et `Ingress`. Je n'entrerai pas dans ce niveau de détail ici, mais sachez que l'opération est réalisable.
+:::
+
+## Pipeline → GeoServer Integration
+
+- Inference pipeline [**automatically pushes results**]{.orange} to GeoServer on completion:
+  - Land cover and Building change [**polygons**]{.blue2} → new WFS layers
+- GeoServer creates and [**versions the layers**]{.blue2} automatically
+
+<!-- *[Demo: GeoServer interface — example WMS layer]* -->
+
+::: {.notes}
+Notre pipeline d'inférence est **directement connectée à notre GeoServer** : à chaque exécution, les couvertures du sol prédites ainsi que les évolutions du bâti détectées sont automatiquement déversées dans le GeoServer, qui crée et met à jour les couches géographiques associées.
+:::

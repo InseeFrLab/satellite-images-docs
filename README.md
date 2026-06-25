@@ -11,7 +11,8 @@ Le site contient :
 - Le lien vers l'application de visualisation ;
 - Une présentation réalisée pour le workshop AIML4OS Earth Observation ;  
 - Le séminaire DMCSI sur le sujet des données satellites : Utilisation des images satellites pour améliorer le repérage des logements dans les départements d'outre-mer.  
-- L'article et la présentation des JMS 2025 (en collaboration avec la DMTR).  
+- L'article et la présentation des JMS 2025 (en collaboration avec la DMTR)
+- La présentation d'Onyxia pour le cas d'usage du projet images satellites   
 
 ## Build
 
